@@ -1,0 +1,113 @@
+{
+    "type": "normal",
+    "basic": {
+        "initsun": 50
+    },
+    "suns": {
+        "3": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ],
+        "7": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ],
+        "12": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ],
+        "16": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ]
+    },
+    "initsun": 100,
+    "gamechecktime": 45,
+    "enmyswaveflag": {
+        "19": 1
+    },
+    "enmys": {
+        "4": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 1, 5, 3 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 0.5,
+                "speedmode": "normal"
+            }
+        ],
+        "10": [
+            {
+                "types": [ "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_mu_tong" ],
+                "typesmode": "next",
+                "generator": [ 9, 2, 8, 6 ],
+                "generatormode": "next",
+                "lazyall": 0,
+                "lazyme": 2,
+                "speedmode": "normal"
+            }
+        ],
+        "17": [
+            {
+                "types": [ "zombi_s", "zombi_tie_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_s", "zombi_mu_tong" ],
+                "typesmode": "next",
+                "generator": [ 3, 7, 9, 4, 1, 6 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 2,
+                "speedmode": "normal"
+            }
+        ],
+        "25": [
+            {
+                "types": [ "zombi_tie_tong", "zombi_s", "zombi_tie_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_mu_tong" ],
+                "typesmode": "random",
+                "generator": [ 2, 4, 10, 1, 5, 8 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 0.2,
+                "speedmode": "normal"
+            }
+        ],
+        "29": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "typesmode": "random",
+                "generator": [ 3, 4, 10, 1, 6, 9 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 1,
+                "speedmode": "normal"
+            }
+        ],
+        "36": [
+            {
+                "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+                "typesmode": "random",
+                "generator": [ 2, 5, 7, 10, 8 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 3,
+                "speedmode": "normal"
+            }
+        ]
+    }
+}

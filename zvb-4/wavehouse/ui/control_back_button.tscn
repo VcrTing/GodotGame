@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://boifn2cuwmjny"]
+
+[ext_resource type="Texture2D" uid="uid://c5d45b6fxh20s" path="res://pngs/ui/squa_hv.png" id="1_d6nrw"]
+[ext_resource type="Texture2D" uid="uid://bpuwmq5uleegp" path="res://pngs/ui/back.png" id="1_u08e0"]
+[ext_resource type="Script" uid="uid://du1rc4h5c8gt7" path="res://scripts/ui/ingame/InGameBackButton.cs" id="2_wua1l"]
+[ext_resource type="Texture2D" uid="uid://d207ca25lpn4v" path="res://pngs/ui/squa_fcs.png" id="2_x7hk5"]
+
+[node name="ControlBack" type="Control"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 1
+offset_right = 90.0
+offset_bottom = 90.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+texture_pressed = ExtResource("2_x7hk5")
+texture_hover = ExtResource("1_d6nrw")
+texture_focused = ExtResource("1_d6nrw")
+stretch_mode = 0
+script = ExtResource("2_wua1l")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TextureButton"]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 90.0
+texture = ExtResource("1_u08e0")

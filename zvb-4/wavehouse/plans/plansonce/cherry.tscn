@@ -101,15 +101,15 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_xe8bl")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwbcj"]
-radius = 130.0
-height = 320.0
+radius = 110.0
+height = 280.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bswmn"]
-size = Vector2(40, 10)
+size = Vector2(40, 20)
 
 [node name="Cherry" type="Node2D"]
 z_index = 1220
-scale = Vector2(4, 4)
+scale = Vector2(3.4, 3.4)
 script = ExtResource("1_kvus3")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
@@ -118,7 +118,7 @@ sprite_frames = SubResource("SpriteFrames_pwbcj")
 
 [node name="ViewDoing" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, 0)
-scale = Vector2(4.5, 4.5)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_2dcip")
 frame = 2
 frame_progress = 1.0
@@ -139,7 +139,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_pwbcj")
 
 [node name="BodyLand" type="StaticBody2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, 40)
 collision_layer = 16
 collision_mask = 16
 

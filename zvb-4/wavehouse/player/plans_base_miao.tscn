@@ -30,15 +30,16 @@ radius = 30.0
 
 [node name="PlansBaseMiao" type="Node2D"]
 z_index = 2000
-scale = Vector2(1.8, 1.8)
 script = ExtResource("1_f2xyr")
 
 [node name="Miao" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 15)
-scale = Vector2(0.8, 0.8)
+scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_75pfo")
 
 [node name="MiaoArea" type="Area2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.8, 1.8)
 collision_layer = 16
 collision_mask = 16
 

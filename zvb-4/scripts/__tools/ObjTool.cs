@@ -80,6 +80,8 @@ namespace ZVB4.Tool
 
         public static bool RunningBeHurt(Node2D node, EnumObjType objType, int damage, EnumHurts enumHurts)
         {
+            IObj nj = node as IObj;
+            string n = nj.GetObjName();
             bool died = false;
             // 执行东西受伤
             bool hasExtra = false;
@@ -109,10 +111,10 @@ namespace ZVB4.Tool
                 {
                     int yichu = h.CostHealth(objType, damage, enumHurts);
                     bool isDead = h.IsDie();
-                    GD.Print($"{node.Name} 受伤，伤害 {isDead}. ");
+                    // GD.Print($"{n} 受伤，伤害 {damage}, isDead = {isDead}. ");
                     if (isDead)
                     {
-                        GD.Print($"{node.Name} 死亡. ");
+                        // GD.Print($"{node.Name} 死亡. ");
                         died = true;
                     }
                 }

@@ -15,7 +15,11 @@ namespace ZVB4.Conf
 
         // 屏幕一半
         public const float ScreenHalfW = 1080 / 2f;
+        public const float ScreenHalfWX = 1080 / 1.8f;
         public const float ScreenHalfH = 1920 / 2f;
+
+        // X 旋转角
+        public const float RotateXAngleS = 70f;
 
         // 默认朝向 左
         public const int LookWhereDef = -1;
@@ -29,5 +33,8 @@ namespace ZVB4.Conf
         // 地平线位置
         public const float HorizonY = 500f;
         public const float HorizonBulletY = 500f;
+
+        // Ui
+        public const float UiLazyTouchTime = 0.2f;
     }
 }

@@ -1,10 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk5h870mbbttm"]
+[gd_scene load_steps=18 format=3 uid="uid://bk5h870mbbttm"]
 
 [ext_resource type="AudioStream" uid="uid://dptlfextm73qy" path="res://musics/Main.mp3" id="1_pc4pd"]
 [ext_resource type="Texture2D" uid="uid://c4ikvkko603or" path="res://pngs/ui/mainBg.png" id="2_c63kw"]
+[ext_resource type="Script" uid="uid://qijgf0ihnpfi" path="res://scripts/ui/main/MainSceneBgView.cs" id="2_lk2ax"]
 [ext_resource type="PackedScene" uid="uid://c6ds1gjwrriuf" path="res://wavehouse/ui/sound_ui_controller.tscn" id="3_c63kw"]
+[ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="4_4tmeh"]
+[ext_resource type="Texture2D" uid="uid://mh6cruocpeky" path="res://pngs/ui/bgnightsky.jpg" id="5_35g72"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk2ax"]
+atlas = ExtResource("5_35g72")
+region = Rect2(0, 0, 910, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv4j5"]
+atlas = ExtResource("5_35g72")
+region = Rect2(910, 0, 910, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oja4u"]
+atlas = ExtResource("5_35g72")
+region = Rect2(1820, 0, 910, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxvxd"]
+atlas = ExtResource("5_35g72")
+region = Rect2(2730, 0, 910, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iim4q"]
+atlas = ExtResource("5_35g72")
+region = Rect2(3640, 0, 910, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn2ys"]
+atlas = ExtResource("5_35g72")
+region = Rect2(4550, 0, 910, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4514"]
+atlas = ExtResource("5_35g72")
+region = Rect2(5460, 0, 910, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1qrm"]
+atlas = ExtResource("5_35g72")
+region = Rect2(6370, 0, 910, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6514f"]
+atlas = ExtResource("5_35g72")
+region = Rect2(7280, 0, 910, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fkmq"]
+atlas = ExtResource("5_35g72")
+region = Rect2(8190, 0, 910, 1280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7oq2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk2ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv4j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oja4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxvxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iim4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn2ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4514")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1qrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6514f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fkmq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="SystemForMain" type="Node2D"]
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+z_index = -1
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_7oq2k")
+frame_progress = 0.4048546
+script = ExtResource("2_lk2ax")
 
 [node name="Bgm" type="Node2D" parent="."]
 
@@ -15,8 +103,12 @@ stream = ExtResource("1_pc4pd")
 autoplay = true
 
 [node name="MainBg" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_c63kw")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="SoundUiController" parent="." instance=ExtResource("3_c63kw")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_4tmeh")
+
+[node name="Node2D" type="Node2D" parent="."]

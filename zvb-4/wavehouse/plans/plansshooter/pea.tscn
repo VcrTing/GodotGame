@@ -26,10 +26,11 @@ animations = [{
 }]
 
 [node name="Pea" type="Node2D"]
-scale = Vector2(4.6, 4.6)
+scale = Vector2(3.9, 3.9)
 script = ExtResource("1_t4a6u")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 z_index = 220
+position = Vector2(-1, -2)
 sprite_frames = SubResource("SpriteFrames_1xwo4")
 frame_progress = 0.48423803

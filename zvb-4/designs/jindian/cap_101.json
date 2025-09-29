@@ -1,8 +1,5 @@
 {
     "type": "normal",
-    "basic": {
-        "initsun": 50
-    },
     "suns": {
         "3": [
             {
@@ -37,6 +34,8 @@
             }
         ]
     },
+    "initsun": 50,
+    "gamechecktime": 45,
     "enmyswaveflag": {
         "19": 1
     },

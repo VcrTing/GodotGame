@@ -46,7 +46,7 @@ public partial class Sun : Node2D, IWorking, IReword
         originScale = 1f - rd;
         if (value < 50) originScale = 0.7f - rd;
         if (value >= 100) originScale = 1.5f - rd;
-        Scale = new Vector2(originScale, originScale);
+        // Scale = new Vector2(originScale, originScale);
         view = GodotTool.GetViewAndAutoPlay(this);
         //
         SetWorkingMode(true);
@@ -57,9 +57,7 @@ public partial class Sun : Node2D, IWorking, IReword
     {
         try
         {
-            // 增加阳光方法
-            SunCenterSystem.Instance.AddValue(value);
-            value = 0;
+            AddSun();
             // 播放音效
             SoundFxController.Instance.PlayFx("Ux/coll", "coll_sun", 4);
         }
@@ -67,6 +65,15 @@ public partial class Sun : Node2D, IWorking, IReword
         {
 
         }
+    }
+    bool hasAdded = false;
+    void AddSun()
+    {
+        if (hasAdded) return;
+        hasAdded = true;
+        // 增加阳光方法
+        SunCenterSystem.Instance.AddValue(value);
+        value = 0;
     }
 
     // 注册到达目标点的回调
@@ -90,6 +97,10 @@ public partial class Sun : Node2D, IWorking, IReword
         if (IsWorkingMode)
         {
             moveTimer += (float)delta;
+            if (moveTimer > 0.5f)
+            {
+                AddSun();
+            }
             // 0~movePhaseTime内平滑加速，之后恒定最大速度
             float t = Mathf.Clamp(moveTimer / movePhaseTime, 0f, 1f);
             float speed = Mathf.Lerp(moveSpeedMin, moveSpeedMax, t);

@@ -50,6 +50,16 @@ namespace ZVB4.Tool
             return Scale;
         }
 
+        public static void RotationALittleByX(Node2D node, Vector2 direction)
+        {
+            float directionX = direction.X;
+            float maxAngle = GameContants.RotateXAngleS; // 最大旋转角度（度）
+            float t = Mathf.Clamp(directionX / 1, -1f, 1f); // 屏幕跨度600比例
+            float angle = maxAngle * t;
+            angle = directionX < 0 ? angle : -angle;
+            node.RotationDegrees = angle;
+            node.Rotation = Mathf.DegToRad(angle);
+        }
 
         public static void ViewZiFace(Node2D node)
         {
@@ -64,6 +74,7 @@ namespace ZVB4.Tool
             Scale = ViewTool.FlipFace(Scale, Position);
             node.Scale = Scale;
         }
+
         public static void View3In1(Node2D node, float minScale, float maxScale)
         {
             int zi = node.ZIndex;

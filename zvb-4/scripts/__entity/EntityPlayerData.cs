@@ -8,6 +8,7 @@ namespace ZVB4.Entity
     [System.Serializable]
     public class EntityPlayerData
     {
+        public EnumChapter ChapterNow { get; set; } = EnumChapter.One1;
 
         public int CapterFlowerPengNumNow { get; set; } = 2;
         public int EndlessFlowerPengNumNow { get; set; } = 8;

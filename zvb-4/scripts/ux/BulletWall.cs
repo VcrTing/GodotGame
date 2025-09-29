@@ -12,19 +12,20 @@ public partial class BulletWall : Area2D
 
     private void OnAreaEntered(Area2D area)
     {
-        // 提取IObj，判断GetObjName==BulletConstants.BulletPea
         var obj = area.GetParent() as IObj;
-        if (obj != null && obj.GetObjName() == BulletConstants.BulletPeaName)
+        if (obj != null)
         {
-            // 执行某个方法，例如Die()
-            FroBullet(area, obj);
+            IBulletBase bulletBase = obj as IBulletBase;
+            if (bulletBase != null)
+            {
+                FroBullet(area, bulletBase);
+            }
         }
     }
 
-    void FroBullet(Area2D area, IObj obj)
+    void FroBullet(Area2D area, IBulletBase ib)
     {
-        IBulletBase bulletBase = area.GetParent<IBulletBase>();
         // 
-        bulletBase?.FlipXDirection();
+        ib?.FlipXDirection();
     }
 }

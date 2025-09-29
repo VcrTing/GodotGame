@@ -1,0 +1,146 @@
+[gd_scene load_steps=22 format=3 uid="uid://dw2furgw83cid"]
+
+[ext_resource type="Script" uid="uid://dfurguu7vsarl" path="res://scripts/bullet/BulletXiguaBing.cs" id="1_oxk42"]
+[ext_resource type="Script" uid="uid://bpksaepv20mgq" path="res://scripts/bullet/BulletXiguaBingAttackArea.cs" id="2_3rvto"]
+[ext_resource type="Texture2D" uid="uid://u8wt7ro6b1nf" path="res://pngs/bullet/xigua2.png" id="3_oxk42"]
+[ext_resource type="Script" uid="uid://bbkpfm0uyinm7" path="res://scripts/bullet/BulletXiguaBingAttackExtraArea.cs" id="4_igymu"]
+[ext_resource type="Texture2D" uid="uid://nxd1gfv5k1j0" path="res://pngs/fx/bullet_XiguaBing2.png" id="5_oxk42"]
+[ext_resource type="Script" uid="uid://omv2rfvmlx88" path="res://scripts/bullet/BulletXiguaBingUxArea.cs" id="6_mnfwf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rvto"]
+atlas = ExtResource("3_oxk42")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdepn"]
+atlas = ExtResource("3_oxk42")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igymu"]
+atlas = ExtResource("3_oxk42")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyuw5"]
+atlas = ExtResource("3_oxk42")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnfwf"]
+atlas = ExtResource("3_oxk42")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g015"]
+atlas = ExtResource("3_oxk42")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bugb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rvto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdepn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igymu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyuw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnfwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3g015")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5qj52"]
+radius = 16.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sgq3c"]
+radius = 60.0
+height = 170.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk5c5"]
+atlas = ExtResource("5_oxk42")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4ggs"]
+atlas = ExtResource("5_oxk42")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ahvk"]
+atlas = ExtResource("5_oxk42")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jwmu"]
+atlas = ExtResource("5_oxk42")
+region = Rect2(900, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfqwq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk5c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4ggs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ahvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jwmu")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00yj6"]
+size = Vector2(50, 5)
+
+[node name="BulletXiguaBing" type="Node2D"]
+scale = Vector2(4.2, 4.2)
+script = ExtResource("1_oxk42")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+script = ExtResource("2_3rvto")
+
+[node name="View" type="AnimatedSprite2D" parent="AttackArea"]
+sprite_frames = SubResource("SpriteFrames_3bugb")
+frame_progress = 0.42653373
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5qj52")
+
+[node name="AttackExtraArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+script = ExtResource("4_igymu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackExtraArea"]
+position = Vector2(0, -15)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_sgq3c")
+
+[node name="View" type="AnimatedSprite2D" parent="AttackExtraArea"]
+sprite_frames = SubResource("SpriteFrames_mfqwq")
+frame = 3
+frame_progress = 1.0
+
+[node name="UxArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+script = ExtResource("6_mnfwf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UxArea"]
+shape = SubResource("RectangleShape2D_00yj6")

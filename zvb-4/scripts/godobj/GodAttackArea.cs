@@ -45,6 +45,7 @@ public partial class GodAttackArea : Area2D
         IObj p = area.GetParent<IObj>();
         if (p != null)
         {
+            attackSpeed = EnmyTypeConstans.GetBaitSpeed(myObj.GetObjName());
             // 
             EnumObjType tp = p.GetEnumObjType();
             if (tp == myObj.GetEnumObjType())
@@ -66,8 +67,8 @@ public partial class GodAttackArea : Area2D
     //
     double attackElapsed = 0.0;
     double attackIntervalElapsed = 0.0;
-    float attackWhenStart = 0.3f;
-    float attackSpeed = 0.2f;
+    float attackWhenStart = EnmyTypeConstans.BaseBaitLazyStart;
+    float attackSpeed = EnmyTypeConstans.BaseBaitSpeed;
     public override void _Process(double delta)
     {
         if (attackWho != null)

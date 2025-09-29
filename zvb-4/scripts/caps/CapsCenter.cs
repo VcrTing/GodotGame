@@ -3,6 +3,7 @@
 using Godot;
 using System;
 using ZVB4.Conf;
+using ZVB4.Entity;
 
 public partial class CapsCenter : Node2D
 {
@@ -18,9 +19,17 @@ public partial class CapsCenter : Node2D
 
     public Godot.Collections.Dictionary CapData => _capData;
 
+    EntityPlayerData playerData = null;
+
     public override void _Ready()
     {
         Instance = this;
+    }
+
+    void LoadGame()
+    {
+        playerData = SaveDataManager.Instance.GetPlayerData();
+        
         string jsonPath = $"res://designs/jindian/cap_{(int)enumChapter}.json";
         LoadCapData(jsonPath);
     }

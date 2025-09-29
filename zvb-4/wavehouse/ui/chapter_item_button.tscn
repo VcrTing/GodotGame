@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://jc70r5c6v35f"]
+
+[ext_resource type="Texture2D" uid="uid://lv34tfob2jg1" path="res://pngs/ui/kuang_2.png" id="1_o1v4b"]
+[ext_resource type="Texture2D" uid="uid://wmgxtcajvfot" path="res://pngs/ui/kuang_2_fcs.png" id="2_qg4in"]
+[ext_resource type="Texture2D" uid="uid://lurn2aps3at5" path="res://pngs/ui/kuang_2_hv.png" id="3_qax6k"]
+[ext_resource type="Script" uid="uid://dghfe6wy7e30g" path="res://scripts/ui/main/ChapterItemButton.cs" id="4_0fhv3"]
+
+[node name="ChapterItemButton" type="TextureButton"]
+custom_minimum_size = Vector2(240, 240)
+texture_normal = ExtResource("1_o1v4b")
+texture_pressed = ExtResource("2_qg4in")
+texture_hover = ExtResource("3_qax6k")
+texture_focused = ExtResource("2_qg4in")
+stretch_mode = 0
+script = ExtResource("4_0fhv3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99200004
+anchor_bottom = 1.0
+offset_right = 1.9199829
+theme_override_font_sizes/font_size = 36
+text = "第一关"
+horizontal_alignment = 1
+vertical_alignment = 1

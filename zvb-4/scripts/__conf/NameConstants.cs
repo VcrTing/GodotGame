@@ -21,6 +21,7 @@ namespace ZVB4.Conf
         public const string Body = "Body";
         public const string Working = "Working";
         public const string AttackArea = "AttackArea";
+        public const string AttackExtraArea = "AttackExtraArea";
         public const string PlayerAttackArea = "PlayerAttackArea";
         public const string AttackBody = "AttackBody";
 

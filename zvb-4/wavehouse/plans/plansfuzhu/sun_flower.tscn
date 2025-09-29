@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cd848ibmilgja"]
+[gd_scene load_steps=11 format=3 uid="uid://cd848ibmilgja"]
 
 [ext_resource type="Script" uid="uid://bvjp63ndt7exj" path="res://scripts/plans/plansfuzhu/PlansSunFlower.cs" id="1_0w6da"]
 [ext_resource type="Texture2D" uid="uid://jyx8ndaxb4l2" path="res://pngs/planscard/sun.png" id="1_yr7j0"]
@@ -31,11 +31,15 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_45h3k"]
+radius = 20.0
+
 [node name="SunFlower" type="Node2D"]
-scale = Vector2(4, 4)
+scale = Vector2(3.4, 3.4)
 script = ExtResource("1_0w6da")
 
 [node name="BeHurtArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 512
 collision_mask = 2048
 script = ExtResource("3_r7htr")
@@ -60,13 +64,12 @@ sprite_frames = SubResource("SpriteFrames_p8c7m")
 frame_progress = 0.6886384
 
 [node name="BodyMove" type="StaticBody2D" parent="."]
-visible = false
+position = Vector2(0, 40)
 collision_layer = 16
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyMove"]
-position = Vector2(0, 20)
-shape = SubResource("RectangleShape2D_yxjyf")
+shape = SubResource("CircleShape2D_45h3k")
 
 [node name="Working" type="Node2D" parent="."]
 script = ExtResource("3_yxjyf")

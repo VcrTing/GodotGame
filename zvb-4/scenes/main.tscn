@@ -7,7 +7,6 @@
 [node name="System" type="Node2D"]
 
 [node name="SystemForMain" parent="." instance=ExtResource("1_jyhfs")]
-position = Vector2(540, 960)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -15,41 +14,60 @@ position = Vector2(540, 960)
 clip_contents = true
 custom_minimum_size = Vector2(720, 360)
 layout_mode = 3
-anchor_top = 0.312
-anchor_right = 1.0
-anchor_bottom = 0.81200004
-offset_top = 0.95996094
-offset_bottom = 0.95996094
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(360, 180)
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ControlLogo"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -431.0
-offset_top = 13.0
-offset_right = 1015.0
-offset_bottom = 639.0
+offset_left = -360.0
+offset_top = 480.0
+offset_right = 360.0
+offset_bottom = 840.0
 grow_horizontal = 2
-scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(360, 180)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlLogo"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -180.0
+offset_right = 360.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ControlLogo/HBoxContainer"]
+layout_mode = 2
 texture = ExtResource("2_tbgi4")
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/ControlLogo/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("2_tbgi4")
 
 [node name="ControlButton" type="Control" parent="CanvasLayer"]
 clip_contents = true
 custom_minimum_size = Vector2(720, 360)
 layout_mode = 3
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 120.0
-offset_bottom = 480.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 pivot_offset = Vector2(360, 180)
 
 [node name="MainStartButton" parent="CanvasLayer/ControlButton" instance=ExtResource("3_sugp2")]
 layout_mode = 1
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -60.0
+offset_right = 180.0
+offset_bottom = 60.0
+grow_vertical = 2

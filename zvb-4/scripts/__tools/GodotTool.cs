@@ -56,6 +56,10 @@ public static class GodotTool
     AnimatedSprite2D GetViewAndAutoPlay(Node2D node)
     {
         AnimatedSprite2D view = node.GetNodeOrNull<AnimatedSprite2D>(NameConstants.View);
+        if (view == null)
+        {
+            view = node as AnimatedSprite2D;
+        }
         if (view != null)
         {
             view.Visible = true;

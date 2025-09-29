@@ -54,7 +54,7 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
 
     // 渐隐相关变量
     float fadeElapsed = 0f;
-    float fadeDuration = 0.5f;
+    float fadeDuration = AnimationConstants.BulletFadeDieDuration;
     float fadeLowest = 0f;
     public override void _Process(double delta)
     {
@@ -88,7 +88,7 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
     float FixSpeedByY()
     {
         float cs = GameTool.FixBulletSpeedByY(SpeedInit, Position, maxY);
-        if (cs <= 10f)
+        if (cs <= (SpeedInit * 0.1f))
         {
             DoDie();
         }
@@ -100,14 +100,14 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
         bool isWorking = false;
         if (area is IHurtBase hurtArea)
         {
-            isWorking = hurtArea.TakeDamage(objType, Damage, BulletType);
+            isWorking = hurtArea.TakeDamage(objType, Damage, hurtType);
         }
         else
         {
             var parent = area.GetParent();
             if (parent is IHurtBase hurt)
             {
-                isWorking = hurt.TakeDamage(objType, Damage, BulletType);
+                isWorking = hurt.TakeDamage(objType, Damage, hurtType);
             }
         }
         return isWorking;
@@ -115,7 +115,8 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
     public float Speed { get; set; } = BulletConstants.SpeedPea; // 默认速度
     float SpeedInit = BulletConstants.SpeedPea; // 初始速度
     [Export]
-    public EnumHurts BulletType { get; set; } = EnumHurts.Pea;
+    public EnumHurts hurtType { get; set; } = EnumHurts.Pea;
+    public EnumHurts GetHurtType() => hurtType;
     public Vector2 Direction { get; set; } = Vector2.Up; // 默认向上
 
     public void SetDirection(Vector2 direction) => Direction = direction;
@@ -172,4 +173,5 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
     public int GetDamage() => Damage;
     public int GetDamageExtra() => 0;
 
+    public Vector2 GetDirection() => Direction;
 }

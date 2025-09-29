@@ -1,24 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://yx8luud0cbs"]
+[gd_scene load_steps=7 format=3 uid="uid://yx8luud0cbs"]
 
 [ext_resource type="Script" uid="uid://dk8soe1iy1nv2" path="res://scripts/plans/plansshooter/PlansXiguaBing.cs" id="1_ke635"]
-[ext_resource type="Texture2D" uid="uid://fcnf34v4hd5i" path="res://pngs/planscard/XiguaBing.png" id="2_gyyhc"]
+[ext_resource type="Texture2D" uid="uid://3dfrs1sgg5qp" path="res://pngs/planscard/XiguaBing2.png" id="2_ke635"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1xwo4"]
-atlas = ExtResource("2_gyyhc")
-region = Rect2(0, 0, 60, 60)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyyhc"]
+atlas = ExtResource("2_ke635")
+region = Rect2(0, 0, 130, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5civd"]
-atlas = ExtResource("2_gyyhc")
-region = Rect2(60, 0, 60, 60)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2na1o"]
+atlas = ExtResource("2_ke635")
+region = Rect2(130, 0, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj2wn"]
+atlas = ExtResource("2_ke635")
+region = Rect2(260, 0, 130, 130)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mi64w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1xwo4")
+"texture": SubResource("AtlasTexture_gyyhc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5civd")
+"texture": SubResource("AtlasTexture_2na1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj2wn")
 }],
 "loop": true,
 "name": &"default",
@@ -26,10 +33,11 @@ animations = [{
 }]
 
 [node name="XiguaBing" type="Node2D"]
-scale = Vector2(4, 4)
+scale = Vector2(3.8, 3.8)
 script = ExtResource("1_ke635")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 z_index = 220
-scale = Vector2(1.4, 1.4)
+position = Vector2(0, 5)
 sprite_frames = SubResource("SpriteFrames_mi64w")
+frame_progress = 0.6574959

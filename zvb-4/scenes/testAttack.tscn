@@ -1,14 +1,12 @@
-[gd_scene load_steps=41 format=3 uid="uid://hawbvochwphb"]
+[gd_scene load_steps=29 format=3 uid="uid://hawbvochwphb"]
 
 [ext_resource type="PackedScene" uid="uid://tyfyw8v7besx" path="res://wavehouse/bullet/bullet_zero.tscn" id="1_fmfhj"]
 [ext_resource type="PackedScene" uid="uid://crbw8wgirbf30" path="res://wavehouse/sounds/sound_game_obj_controller.tscn" id="1_rf7gy"]
-[ext_resource type="Script" uid="uid://dfurguu7vsarl" path="res://scripts/bullet/BulletXiguaBing.cs" id="2_3bugb"]
 [ext_resource type="Script" uid="uid://i4t3wlsoyowc" path="res://scripts/godobj/GodobjWrapper.cs" id="2_75dki"]
 [ext_resource type="Texture2D" uid="uid://dant7d8xpwtgg" path="res://pngs/plans/sun1.png" id="2_c5axu"]
 [ext_resource type="Texture2D" uid="uid://0tcfnhq51ldf" path="res://pngs/zombi/s0.png" id="2_lvi4n"]
-[ext_resource type="Texture2D" uid="uid://dwstecsr4uvt7" path="res://pngs/bullet/xigua.png" id="2_sgq3c"]
+[ext_resource type="PackedScene" uid="uid://dw2furgw83cid" path="res://wavehouse/bullet/bullet_xigua_bing.tscn" id="2_sgq3c"]
 [ext_resource type="PackedScene" uid="uid://c7lm0sorcqkt" path="res://wavehouse/zombi/zombi_s.tscn" id="2_ue5a4"]
-[ext_resource type="Texture2D" uid="uid://cdd1bbkj1fwq1" path="res://pngs/fx/bullet_XiguaBing.png" id="3_5qj52"]
 [ext_resource type="PackedScene" uid="uid://f8idknvbqd1g" path="res://wavehouse/zombi/zombi_mu_tong.tscn" id="3_rf7gy"]
 [ext_resource type="PackedScene" uid="uid://ck733ij52tfxb" path="res://wavehouse/zombi/zombi_tie_tong.tscn" id="4_yihhn"]
 [ext_resource type="PackedScene" uid="uid://yx8luud0cbs" path="res://wavehouse/plans/plansshooter/xigua_bing.tscn" id="5_56n5j"]
@@ -20,72 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="13_tlc07"]
 [ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="13_xiptw"]
 [ext_resource type="Script" uid="uid://dx07d6odlbs4e" path="res://scripts/ux/SunCenterSystem.cs" id="15_xiptw"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5qj52"]
-atlas = ExtResource("2_sgq3c")
-region = Rect2(0, 0, 60, 60)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3bugb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5qj52")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5qj52"]
-radius = 16.0
-height = 60.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sgq3c"]
-radius = 50.0
-height = 160.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3bugb"]
-atlas = ExtResource("3_5qj52")
-region = Rect2(0, 0, 300, 300)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_00yj6"]
-atlas = ExtResource("3_5qj52")
-region = Rect2(300, 0, 300, 300)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3oncc"]
-atlas = ExtResource("3_5qj52")
-region = Rect2(600, 0, 300, 300)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kfh81"]
-atlas = ExtResource("3_5qj52")
-region = Rect2(900, 0, 300, 300)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jsw01"]
-atlas = ExtResource("3_5qj52")
-region = Rect2(1200, 0, 300, 300)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mfqwq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3bugb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_00yj6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3oncc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kfh81")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jsw01")
-}],
-"loop": true,
-"name": &"default",
-"speed": 6.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75dki"]
 atlas = ExtResource("2_lvi4n")
@@ -148,6 +80,7 @@ size = Vector2(20, 60)
 [node name="Node2D" type="Node2D"]
 
 [node name="Bullets" type="Node2D" parent="."]
+position = Vector2(600, 0)
 
 [node name="BulletZero3" parent="Bullets" instance=ExtResource("1_fmfhj")]
 position = Vector2(0, 1600)
@@ -162,40 +95,19 @@ position = Vector2(0, 500)
 
 [node name="BulletYangTao" type="Node2D" parent="Bullets"]
 
-[node name="BulletXiguaBing" type="Node2D" parent="Bullets"]
-scale = Vector2(4, 4)
-script = ExtResource("2_3bugb")
-
-[node name="AttackArea" type="Area2D" parent="Bullets/BulletXiguaBing"]
-
-[node name="View" type="AnimatedSprite2D" parent="Bullets/BulletXiguaBing/AttackArea"]
-sprite_frames = SubResource("SpriteFrames_3bugb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullets/BulletXiguaBing/AttackArea"]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_5qj52")
-
-[node name="AttackExtraArea" type="Area2D" parent="Bullets/BulletXiguaBing"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullets/BulletXiguaBing/AttackExtraArea"]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_sgq3c")
-
-[node name="ViewExtra" type="AnimatedSprite2D" parent="Bullets/BulletXiguaBing/AttackExtraArea"]
-sprite_frames = SubResource("SpriteFrames_mfqwq")
-frame = 2
-frame_progress = 0.13732697
+[node name="BulletXiguaBing" parent="Bullets" instance=ExtResource("2_sgq3c")]
+position = Vector2(-600, -200)
 
 [node name="Zombis" type="Node2D" parent="."]
-position = Vector2(0, -600)
+position = Vector2(0, -550)
 
 [node name="ZombiS" parent="Zombis" instance=ExtResource("2_ue5a4")]
 
 [node name="ZombiMuTong" parent="Zombis" instance=ExtResource("3_rf7gy")]
-position = Vector2(300, 0)
+position = Vector2(-300, 0)
 
 [node name="ZombiTieTong" parent="Zombis" instance=ExtResource("4_yihhn")]
-position = Vector2(-300, 0)
+position = Vector2(-30, 0)
 
 [node name="Plans" type="Node2D" parent="."]
 position = Vector2(0, 300)

@@ -2,7 +2,7 @@ using Godot;
 using System;
 using ZVB4.Conf;
 
-public partial class SunCenterSystem : Node2D
+public partial class SunCenterSystem : Control
 {
     private int _value = 100;
     private Label _sunShowLabel;
@@ -39,7 +39,7 @@ public partial class SunCenterSystem : Node2D
         {
             // return _sunShowLabel.GlobalPosition;
         }
-        return new Vector2(-GameContants.ScreenHalfW, -GameContants.ScreenHalfH);
+        return new Vector2(-GameContants.ScreenHalfW, -GameContants.ScreenHalfH + 90f);
     }
     // 增加 value
     public void AddValue(int v)
@@ -65,8 +65,6 @@ public partial class SunCenterSystem : Node2D
             _sunShowLabel.Text = _value.ToString();
         }
     }
-
-
 
     public bool NextSunIsZero(int v)
     {

@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://ck733ij52tfxb"]
+[gd_scene load_steps=31 format=3 uid="uid://ck733ij52tfxb"]
 
 [ext_resource type="Script" uid="uid://i4t3wlsoyowc" path="res://scripts/godobj/GodobjWrapper.cs" id="1_d0eud"]
 [ext_resource type="Script" uid="uid://bx5hcsjngaxeb" path="res://scripts/godobj/GodobjView.cs" id="2_tj164"]
 [ext_resource type="Texture2D" uid="uid://cn7mexy77xwbv" path="res://pngs/zombi/zombi_s.png" id="3_tj164"]
 [ext_resource type="Script" uid="uid://bib1rq67w1ldb" path="res://scripts/godobj/GodobjViewExtra.cs" id="4_2ejjh"]
 [ext_resource type="Texture2D" uid="uid://c0d180qtx6e7b" path="res://pngs/zombi/zombi_s_half.png" id="4_hb744"]
+[ext_resource type="Texture2D" uid="uid://d32n7x3b8yudi" path="res://pngs/zombi/zombi_s_die.png" id="5_hb744"]
 [ext_resource type="Texture2D" uid="uid://bdqnqh1mlg71x" path="res://pngs/zombiextra/TieTong.png" id="5_uwjww"]
 [ext_resource type="Texture2D" uid="uid://bdgis4kat5dxc" path="res://pngs/zombiextra/TieTong_b1.png" id="6_lgdws"]
 [ext_resource type="Script" uid="uid://dh1b25v5ldsbx" path="res://scripts/godobj/GodBeHurtArea.cs" id="7_f8h0c"]
@@ -33,11 +34,11 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2fn1q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqyfq"]
 atlas = ExtResource("4_hb744")
 region = Rect2(0, 0, 60, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_forox"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwaa5"]
 atlas = ExtResource("4_hb744")
 region = Rect2(60, 0, 60, 80)
 
@@ -45,14 +46,50 @@ region = Rect2(60, 0, 60, 80)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qqyfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwaa5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fn1q"]
+atlas = ExtResource("5_hb744")
+region = Rect2(60, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_forox"]
+atlas = ExtResource("5_hb744")
+region = Rect2(120, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osvby"]
+atlas = ExtResource("5_hb744")
+region = Rect2(180, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfsrk"]
+atlas = ExtResource("5_hb744")
+region = Rect2(240, 0, 60, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgdws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2fn1q")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_forox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osvby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfsrk")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rf7gy"]
@@ -121,6 +158,11 @@ sprite_frames = SubResource("SpriteFrames_2ejjh")
 visible = false
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_uwjww")
+
+[node name="Die" type="AnimatedSprite2D" parent="View"]
+visible = false
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_lgdws")
 
 [node name="ViewExtra" type="Node2D" parent="."]
 position = Vector2(0, -45)

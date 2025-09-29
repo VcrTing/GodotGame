@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwxu4c2ind8i6"]
+[gd_scene load_steps=5 format=3 uid="uid://dwxu4c2ind8i6"]
 
-[ext_resource type="Texture2D" uid="uid://bv4swq6jxulow" path="res://pngs/ui/startgame.png" id="1_b5mdu"]
-[ext_resource type="Texture2D" uid="uid://h6r83owg7s6x" path="res://pngs/ui/startgame_hover.png" id="2_qtgj6"]
+[ext_resource type="Texture2D" uid="uid://drn3gvybyk55r" path="res://pngs/ui/button2.png" id="1_b5mdu"]
+[ext_resource type="Texture2D" uid="uid://b6lr1fxfw0yr7" path="res://pngs/ui/button_1.png" id="2_qtgj6"]
 [ext_resource type="Script" uid="uid://e4yndot4rvd8" path="res://scripts/ui/main/MainStartButton.cs" id="3_jo3ad"]
+
+[sub_resource type="FontVariation" id="FontVariation_b5mdu"]
 
 [node name="MainStartButton" type="TextureButton"]
 clip_contents = true
@@ -13,12 +15,33 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -240.0
 offset_top = -240.0
-offset_right = 240.0
+offset_right = 120.0
+offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 0
-texture_normal = ExtResource("1_b5mdu")
-texture_pressed = ExtResource("2_qtgj6")
+tooltip_text = "Start Game"
+texture_pressed = ExtResource("1_b5mdu")
 texture_hover = ExtResource("2_qtgj6")
-texture_focused = ExtResource("2_qtgj6")
-stretch_mode = 0
+texture_disabled = ExtResource("1_b5mdu")
+texture_focused = ExtResource("1_b5mdu")
+stretch_mode = 1
 script = ExtResource("3_jo3ad")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -11.5
+offset_right = 24.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.9372549)
+theme_override_constants/line_spacing = 7
+theme_override_fonts/font = SubResource("FontVariation_b5mdu")
+theme_override_font_sizes/font_size = 48
+text = "START"

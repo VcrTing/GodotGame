@@ -32,7 +32,7 @@ namespace ZVB4.Conf
             { ZombiTieTong, 15f }
         };
 
-        static int BaseDamage = (int)EnumHealth.One / 10;
+        static int BaseDamage = (int)EnumHealth.One / 5;
         // 储存伤害的字典
         public static readonly Dictionary<string, int> DamageDict = new Dictionary<string, int>()
         {
@@ -40,13 +40,26 @@ namespace ZVB4.Conf
             { ZombiMuTong, BaseDamage  },
             { ZombiTieTong, BaseDamage  }
         };
+        public static float BaseBaitSpeed = 0.5f;
+        public static float BaseBaitLazyStart = 0.5f;
+        public static readonly Dictionary<string, float> BaitSpeedDict = new Dictionary<string, float>()
+        {
+            { ZombiS, BaseBaitSpeed },
+            { ZombiMuTong, BaseBaitSpeed  },
+            { ZombiTieTong, BaseBaitSpeed  }
+        };
         public static int GetZombieDamage(string key)
         {
             if (DamageDict.TryGetValue(key, out int value))
                 return value;
             return 0;
         }
-
+        public static float GetBaitSpeed(string key)
+        {
+            if (BaitSpeedDict.TryGetValue(key, out float value))
+                return value;
+            return 0f;
+        }
         public static float GetSpeed(string key)
         {
             if (SpeedDict.TryGetValue(key, out float value))

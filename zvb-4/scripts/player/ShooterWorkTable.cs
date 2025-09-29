@@ -7,12 +7,14 @@ public partial class ShooterWorkTable : Node2D
 {
     public static ShooterWorkTable Instance { get; private set; }
     StaticBody2D workTableBody;
-    CircleShape2D rect;
+    CapsuleShape2D rect;
     public override void _Ready()
     {
         Instance = this;
         //
         GetBodtRect();
+        //
+        GodotTool.GetViewAndAutoPlay(this);
     }
 
     void GetBodtRect()
@@ -21,7 +23,7 @@ public partial class ShooterWorkTable : Node2D
         if (workTableBody != null)
         {
             var shapeNode = workTableBody.GetNodeOrNull<CollisionShape2D>(NameConstants.CollisionShape2D);
-            if (shapeNode != null && shapeNode.Shape is CircleShape2D r)
+            if (shapeNode != null && shapeNode.Shape is CapsuleShape2D r)
             {
                 rect = r;
             }
@@ -89,6 +91,8 @@ public partial class ShooterWorkTable : Node2D
             shooterInterface.ChangeShooter(shooterName);
             // 开启可攻击
             PlayerController.Instance?.SetCanAttack(true);
+            // 播放音效
+            SoundFxController.Instance.PlayFx("Fx/upshooter", "up", 4);
         }
             
     }

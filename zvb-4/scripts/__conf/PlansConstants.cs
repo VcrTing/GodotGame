@@ -30,7 +30,7 @@ namespace ZVB4.Conf
         public static readonly System.Collections.Generic.Dictionary<string, string> BulletDict = new System.Collections.Generic.Dictionary<string, string>
         {
             { Pea, FolderConstants.WaveBullet + "bullet_zero.tscn" },
-            { XiguaBing, FolderConstants.WaveBullet + "bullet_zero.tscn" },
+            { XiguaBing, FolderConstants.WaveBullet + "bullet_xigua_bing.tscn" },
         };
 
         // 植物生长时长

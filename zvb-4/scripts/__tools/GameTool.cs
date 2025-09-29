@@ -29,14 +29,14 @@ public static class GameTool
             return SpeedInit * t;
         }
     }
-    public static bool RunnerBulletZeroWhenDieFx(Node2D node2D, double delta, ref float fadeElapsed, float fadeDuration = 0.5f, float fadeLowest = 0f)
+    public static bool RunnerBulletZeroWhenDieFx(Node2D node2D, double delta, ref float fadeElapsed, float fadeDuration = AnimationConstants.BulletFadeDieDuration, float fadeLowest = 0f)
     {
         Vector2 Scale = node2D.Scale;
         if (Scale.X > 0.11f)
         {
             float scaleT = Mathf.Clamp(fadeElapsed / fadeDuration, 0f, 1f);
             float newScale = Mathf.Lerp(Scale.X, 0.1f, scaleT);
-            Scale = new Vector2(newScale, newScale);
+            node2D.Scale = new Vector2(newScale, newScale);
         }
         var view = node2D.GetNodeOrNull<CanvasItem>(NameConstants.View);
         if (view != null)

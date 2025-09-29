@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using ZVB4.Conf;
 
 public partial class EnmyCenter : Node2D
 {
@@ -19,8 +20,8 @@ public partial class EnmyCenter : Node2D
 
     public bool PaoxiaoEnabled { get; set; } = true;
 
-    private float minInterval = 3.0f;
-    private float maxInterval = 5.0f;
+    private float minInterval = 4.0f;
+    private float maxInterval = 6.0f;
 
     public override void _Ready()
     {
@@ -35,8 +36,6 @@ public partial class EnmyCenter : Node2D
             _timer = 0f;
             SetNextInterval();
             if (!PaoxiaoEnabled) return;
-            // 加入某个声音（示例："fx", "enmy", 3）
-            // CCC
             PlayZombiPaoxiao();
         }
     }
@@ -46,9 +45,14 @@ public partial class EnmyCenter : Node2D
         {
             var keys = new List<string>(paoxiaoDict.Keys);
             int randIdx = GD.RandRange(0, keys.Count - 1);
-            string k = keys[randIdx];
-            int v = paoxiaoDict[k];
-            SoundFxController.Instance?.PlayFx("Zombi/paoxiao", k, v);
+            string name = keys[randIdx];
+            int num = paoxiaoDict[name];
+            // BBB 随机x，范围ScreenHalfW，生成Vector2
+            float w = GameContants.ScreenHalfW;
+            float randX = (float)GD.RandRange(-w, w);
+            Vector2 pos = new Vector2(randX, 0f);
+            //
+            SoundFxController.Instance?.PlayFx("Zombi/paoxiao", name, num, pos);
         }
     }
 

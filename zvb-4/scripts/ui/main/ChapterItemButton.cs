@@ -24,14 +24,15 @@ public partial class ChapterItemButton : TextureButton
     {
         GD.Print("ChapterItemButton Pressed!");
         SoundUiController.Instance.Sure();
-        await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
+        await ToSignal(GetTree().CreateTimer(GameContants.UiLazyTouchTime), "timeout");
         // 加载章节场景
         int _cap = (int)Chapter;
         string _caps = _cap.ToString();
         // 第一章
         if (_caps.StartsWith("1"))
         {
-            GetTree().ChangeSceneToFile(FolderConstants.Scenes + "text.tscn");
+            string scenePath = FolderConstants.Scenes + "test.tscn";
+            GetTree().ChangeSceneToFile(scenePath);
         }
 	}
 

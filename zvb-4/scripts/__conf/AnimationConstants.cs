@@ -4,6 +4,8 @@ namespace ZVB4.Conf
 {
     public static class AnimationConstants
     {
+        public const float BulletFadeDieDuration = 0.5f;
+
         // 获取 死亡动画时长
         public static float GetDieAniTime(IObj obj)
         {
