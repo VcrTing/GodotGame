@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://dgk2g0rv4xum3"]
+
+[ext_resource type="Script" uid="uid://ba88vfb1anei4" path="res://scripts/main/PlayerBody.cs" id="1_piri0"]
+[ext_resource type="Script" uid="uid://di6r7e516f40e" path="res://scripts/main/PlayerView.cs" id="2_1aco0"]
+[ext_resource type="Texture2D" uid="uid://crh0h2fs7mvht" path="res://pngs/PlayerSprite.png" id="3_6u4o6"]
+[ext_resource type="Texture2D" uid="uid://ir1k6u1pp0ei" path="res://pngs/Me.png" id="4_itbth"]
+[ext_resource type="Script" uid="uid://ccaooqkh80drh" path="res://scripts/main/sound/PlayerSoundCenter.cs" id="5_aftx8"]
+[ext_resource type="Script" uid="uid://bdou11jmvdsqw" path="res://scripts/main/sound/SoundEffectPlayer.cs" id="6_0w10x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdubu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
+atlas = ExtResource("3_6u4o6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
+atlas = ExtResource("3_6u4o6")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
+atlas = ExtResource("3_6u4o6")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
+atlas = ExtResource("3_6u4o6")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ta5nu"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0ka3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr8wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2bti")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="PlayerBody" type="CharacterBody2D"]
+script = ExtResource("1_piri0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kdubu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+
+[node name="PlayerView" type="Node2D" parent="."]
+script = ExtResource("2_1aco0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerView"]
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_ta5nu")
+animation = &"run"
+frame_progress = 0.8258303
+
+[node name="Me" type="Sprite2D" parent="PlayerView"]
+visible = false
+texture = ExtResource("4_itbth")
+
+[node name="PlayerSoundCenter" type="Node2D" parent="."]
+script = ExtResource("5_aftx8")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="PlayerSoundCenter"]
+
+[node name="SoundEffectPlayer" type="Node2D" parent="PlayerSoundCenter"]
+script = ExtResource("6_0w10x")

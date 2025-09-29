@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://c27m86rjt4p1"]
+
+[ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://wavehouse/pages/system_for_main.tscn" id="1_yl3b4"]
+[ext_resource type="PackedScene" uid="uid://dwxu4c2ind8i6" path="res://wavehouse/ui/main_next_button.tscn" id="2_m3dq7"]
+[ext_resource type="Texture2D" uid="uid://fidjkfjyntct" path="res://pngs/ui/kuang.png" id="2_qlgly"]
+[ext_resource type="Script" uid="uid://dghfe6wy7e30g" path="res://scripts/ui/main/ChapterItemButton.cs" id="3_yjp08"]
+
+[node name="System" type="Node2D"]
+
+[node name="SystemForMain" parent="." instance=ExtResource("1_yl3b4")]
+position = Vector2(540, 960)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(720, 240)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChapterItemButton" type="TextureButton" parent="CanvasLayer/Control/HBoxContainer"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+texture_normal = ExtResource("2_qlgly")
+texture_pressed = ExtResource("2_qlgly")
+texture_hover = ExtResource("2_qlgly")
+texture_focused = ExtResource("2_qlgly")
+stretch_mode = 0
+script = ExtResource("3_yjp08")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer/ChapterItemButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99200004
+anchor_bottom = 1.0
+offset_right = 1.9199829
+theme_override_font_sizes/font_size = 36
+text = "第一关"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlButton" type="Control" parent="CanvasLayer"]
+clip_contents = true
+custom_minimum_size = Vector2(720, 360)
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 120.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(360, 180)
+
+[node name="MainStartButton" parent="CanvasLayer/ControlButton" instance=ExtResource("2_m3dq7")]
+layout_mode = 1

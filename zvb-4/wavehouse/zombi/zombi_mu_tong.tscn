@@ -1,0 +1,173 @@
+[gd_scene load_steps=25 format=3 uid="uid://f8idknvbqd1g"]
+
+[ext_resource type="Script" uid="uid://i4t3wlsoyowc" path="res://scripts/godobj/GodobjWrapper.cs" id="1_ayuwb"]
+[ext_resource type="Script" uid="uid://bx5hcsjngaxeb" path="res://scripts/godobj/GodobjView.cs" id="2_l3sp3"]
+[ext_resource type="Texture2D" uid="uid://cn7mexy77xwbv" path="res://pngs/zombi/zombi_s.png" id="3_l3sp3"]
+[ext_resource type="Texture2D" uid="uid://c0d180qtx6e7b" path="res://pngs/zombi/zombi_s_half.png" id="4_defvc"]
+[ext_resource type="Script" uid="uid://bib1rq67w1ldb" path="res://scripts/godobj/GodobjViewExtra.cs" id="4_y4ml1"]
+[ext_resource type="Texture2D" uid="uid://ccn8w24h2cgn8" path="res://pngs/zombiextra/MuTong.png" id="5_vh262"]
+[ext_resource type="Texture2D" uid="uid://byw2kxku7f8pu" path="res://pngs/zombiextra/MuTong_b1.png" id="6_t4b3r"]
+[ext_resource type="Script" uid="uid://dh1b25v5ldsbx" path="res://scripts/godobj/GodBeHurtArea.cs" id="7_del76"]
+[ext_resource type="Script" uid="uid://dj02rfn7pd4ta" path="res://scripts/godobj/GodBodyMove.cs" id="8_k6boj"]
+[ext_resource type="Script" uid="uid://c7idumief3kuv" path="res://scripts/godobj/GodAttackArea.cs" id="9_mk5wt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t54p6"]
+atlas = ExtResource("3_l3sp3")
+region = Rect2(0, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piard"]
+atlas = ExtResource("3_l3sp3")
+region = Rect2(60, 0, 60, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4ml1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t54p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_piard")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fn1q"]
+atlas = ExtResource("4_defvc")
+region = Rect2(0, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_forox"]
+atlas = ExtResource("4_defvc")
+region = Rect2(60, 0, 60, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vh262"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fn1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_forox")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad81k"]
+atlas = ExtResource("5_vh262")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_56n5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ad81k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56n5j"]
+atlas = ExtResource("6_t4b3r")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgq3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56n5j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3sp3"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_defvc"]
+radius = 3.0
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ml1"]
+size = Vector2(20, 60)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3sp3"]
+radius = 15.0
+
+[node name="ZombiMuTong" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_ayuwb")
+objName = "zombi_mu_tong"
+
+[node name="View" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+script = ExtResource("2_l3sp3")
+WhatYouObj = 1
+
+[node name="Alive" type="AnimatedSprite2D" parent="View"]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_y4ml1")
+
+[node name="DieForBoom" type="AnimatedSprite2D" parent="View"]
+visible = false
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_y4ml1")
+
+[node name="AliveHalf" type="AnimatedSprite2D" parent="View"]
+visible = false
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_vh262")
+
+[node name="ViewExtra" type="Node2D" parent="."]
+position = Vector2(0, -40)
+rotation = 0.12217305
+script = ExtResource("4_y4ml1")
+WhatYouObj = 11
+
+[node name="Alive" type="AnimatedSprite2D" parent="ViewExtra"]
+sprite_frames = SubResource("SpriteFrames_56n5j")
+
+[node name="AliveHalf" type="AnimatedSprite2D" parent="ViewExtra"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_sgq3c")
+
+[node name="BodyMove" type="CharacterBody2D" parent="."]
+position = Vector2(0, 30)
+collision_layer = 1024
+script = ExtResource("8_k6boj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyMove"]
+shape = SubResource("CircleShape2D_l3sp3")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, 10)
+collision_layer = 2048
+collision_mask = 520
+script = ExtResource("9_mk5wt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 10)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_defvc")
+
+[node name="EyeArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 4096
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EyeArea"]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_y4ml1")
+
+[node name="BeHurtArea" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 2304
+script = ExtResource("7_del76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeHurtArea"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_l3sp3")

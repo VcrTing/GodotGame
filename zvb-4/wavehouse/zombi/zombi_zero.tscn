@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://7414dmk2xw1f"]
+
+[ext_resource type="Script" uid="uid://8ayakbb8v0ns" path="res://scripts/zombi/EnmyZero.cs" id="1_hg5mn"]
+[ext_resource type="Script" uid="uid://c6p3nwfnwraau" path="res://scripts/zombi/EnmyZeroView.cs" id="2_uqu3y"]
+[ext_resource type="Texture2D" uid="uid://0tcfnhq51ldf" path="res://pngs/zombi/s0.png" id="3_xmnyd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghpyy"]
+atlas = ExtResource("3_xmnyd")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44saj"]
+atlas = ExtResource("3_xmnyd")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mbro"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghpyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44saj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajshl"]
+size = Vector2(30, 30)
+
+[node name="EnmyZero" type="Node2D"]
+z_index = 50
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_hg5mn")
+
+[node name="View" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("2_uqu3y")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="View"]
+y_sort_enabled = true
+position = Vector2(-4, 0)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_7mbro")
+animation = &"walk"
+frame_progress = 0.2974147
+
+[node name="BeHurtBody" type="CharacterBody2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeHurtBody"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ajshl")
+
+[node name="AttackBody" type="CharacterBody2D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBody"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_ajshl")

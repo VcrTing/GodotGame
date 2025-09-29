@@ -1,0 +1,54 @@
+
+layer: 所属层
+
+mask: 被哪些层碰撞
+
+
+定义:
+
+射手:
+  座机:
+    layer: 5
+    mask: 5
+游戏触点:
+  检测层:
+    layer: 5
+    mask: 5 # 玩家
+    
+游戏GameOver:
+  检测层:
+    layer: 4
+    mask: 12 # 敌人
+
+子弹:
+  碰撞层: 
+    layer: 9
+    mask: 10 # 敌人受伤
+  交互层:
+    layer: 20
+    mask: 20
+子弹墙:
+  交互层:
+    layer: 20
+    mask: 20
+
+敌人:
+  受伤层: 
+    layer: 10
+    mask: 12
+  步行层: 
+    layer: 11
+    mask: 1
+  攻击层:
+    layer: 12
+    mask: 10, 4
+  视野层: 
+    layer: 13
+    mask: 10
+
+游戏血量:
+  碰撞层:
+    layer: 12
+  
+
+  

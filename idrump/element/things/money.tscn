@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://df7rdeps7ayb8"]
+
+[ext_resource type="Script" uid="uid://b6rjaubjmb1vi" path="res://scripts/obj/ThingsMoney.cs" id="1_y27je"]
+[ext_resource type="Texture2D" uid="uid://dbldx7yxao46c" path="res://pngs/Money.png" id="2_udcy7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0h7mo"]
+
+[node name="Money" type="Node2D"]
+scale = Vector2(0.8, 0.8)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_y27je")
+
+[node name="MoneyView" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_udcy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0h7mo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D"]

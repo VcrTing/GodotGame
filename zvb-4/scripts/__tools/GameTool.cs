@@ -1,0 +1,79 @@
+
+using System;
+using Godot;
+using ZVB4.Conf;
+
+public static class GameTool
+{
+    // 获取子弹的初始速度
+    public static float GetBulletInitialSpeed(string bulletName)
+    {
+        float SpeedInit = BulletConstants.GetSpeed(bulletName);
+        var rand = new Random();
+        float factor = 1f + (float)rand.NextDouble() * 0.2f;
+        float Speed = SpeedInit * factor;
+        return Speed;
+    }
+    public static float FixBulletSpeedByY(float SpeedInit, Vector2 Position, float maxY)
+    {
+        float curY = Position.Y;
+        if (curY < -maxY)
+        {
+            // 速度为负，表示子弹出界，死亡。
+            return 0f;
+        }
+        else
+        {
+            // 可根据y值做线性降速（如需要）
+            float t = Mathf.Clamp((curY + maxY) / maxY, 0f, 1f);
+            return SpeedInit * t;
+        }
+    }
+    public static bool RunnerBulletZeroWhenDieFx(Node2D node2D, double delta, ref float fadeElapsed, float fadeDuration = 0.5f, float fadeLowest = 0f)
+    {
+        Vector2 Scale = node2D.Scale;
+        if (Scale.X > 0.11f)
+        {
+            float scaleT = Mathf.Clamp(fadeElapsed / fadeDuration, 0f, 1f);
+            float newScale = Mathf.Lerp(Scale.X, 0.1f, scaleT);
+            Scale = new Vector2(newScale, newScale);
+        }
+        var view = node2D.GetNodeOrNull<CanvasItem>(NameConstants.View);
+        if (view != null)
+        {
+            if (fadeElapsed < fadeDuration)
+            {
+                fadeElapsed += (float)delta;
+                float t = Mathf.Clamp(fadeElapsed / fadeDuration, 0f, 1f);
+                float alpha = Mathf.Lerp(1f, fadeLowest, t);
+                view.Modulate = new Color(1, 1, 1, alpha);
+            }
+            else
+            {
+                view.Modulate = new Color(1, 1, 1, fadeLowest);
+            }
+        }
+        return true;
+    }
+
+    // 生成奖励组
+    public static bool GenReword(string rName, int count, int v, Node2D parent)
+    {
+        string sc = RewordConstants.GetRewordGroupScene(rName);
+        if (string.IsNullOrEmpty(sc)) return false;
+        var groupSc = GD.Load<PackedScene>(sc);
+        var group = groupSc.Instantiate<Node2D>();
+        parent.AddChild(group);
+
+        // CCC
+        float offsetX = parent.Position.X < 0 ? -60f : 60f;
+        Vector2 spawnPos = new Vector2(offsetX, 0);
+
+        if (group is RewordGroup rg)
+        {
+            rg.SpawnReword(rName, count, spawnPos, v);
+            return true;
+        }
+        return false;
+    }
+}

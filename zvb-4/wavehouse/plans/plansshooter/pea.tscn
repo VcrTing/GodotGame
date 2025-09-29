@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://clwspk15crvci"]
+
+[ext_resource type="Script" uid="uid://bpy4a8b47ro0w" path="res://scripts/plans/plansshooter/PlansPea.cs" id="1_t4a6u"]
+[ext_resource type="Texture2D" uid="uid://btexuumdj10o6" path="res://pngs/planscard/Pea.png" id="2_qq38c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75pfo"]
+atlas = ExtResource("2_qq38c")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv2t6"]
+atlas = ExtResource("2_qq38c")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xwo4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75pfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv2t6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Pea" type="Node2D"]
+scale = Vector2(4.6, 4.6)
+script = ExtResource("1_t4a6u")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+z_index = 220
+sprite_frames = SubResource("SpriteFrames_1xwo4")
+frame_progress = 0.48423803

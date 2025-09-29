@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cd848ibmilgja"]
+
+[ext_resource type="Script" uid="uid://bvjp63ndt7exj" path="res://scripts/plans/plansfuzhu/PlansSunFlower.cs" id="1_0w6da"]
+[ext_resource type="Texture2D" uid="uid://jyx8ndaxb4l2" path="res://pngs/planscard/sun.png" id="1_yr7j0"]
+[ext_resource type="Script" uid="uid://bx5hcsjngaxeb" path="res://scripts/godobj/GodobjView.cs" id="2_45h3k"]
+[ext_resource type="Script" uid="uid://xd2b2sm7oqlb" path="res://scripts/plans/PlansBeHurtArea.cs" id="3_r7htr"]
+[ext_resource type="Script" uid="uid://cmcx8217u2avf" path="res://scripts/plans/plansfuzhu/FlowerWorkingReword.cs" id="3_yxjyf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxjyf"]
+size = Vector2(40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi64w"]
+atlas = ExtResource("1_yr7j0")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds53i"]
+atlas = ExtResource("1_yr7j0")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8c7m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi64w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds53i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="SunFlower" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_0w6da")
+
+[node name="BeHurtArea" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 2048
+script = ExtResource("3_r7htr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeHurtArea"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_yxjyf")
+
+[node name="View" type="Node2D" parent="."]
+script = ExtResource("2_45h3k")
+WhatYouObj = 5
+
+[node name="Alive" type="AnimatedSprite2D" parent="View"]
+z_index = 220
+sprite_frames = SubResource("SpriteFrames_p8c7m")
+frame_progress = 0.6886384
+
+[node name="AliveHalf" type="AnimatedSprite2D" parent="View"]
+visible = false
+z_index = 220
+sprite_frames = SubResource("SpriteFrames_p8c7m")
+frame_progress = 0.6886384
+
+[node name="BodyMove" type="StaticBody2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyMove"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_yxjyf")
+
+[node name="Working" type="Node2D" parent="."]
+script = ExtResource("3_yxjyf")

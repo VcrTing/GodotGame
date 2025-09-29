@@ -1,0 +1,309 @@
+[gd_scene load_steps=41 format=3 uid="uid://hawbvochwphb"]
+
+[ext_resource type="PackedScene" uid="uid://tyfyw8v7besx" path="res://wavehouse/bullet/bullet_zero.tscn" id="1_fmfhj"]
+[ext_resource type="PackedScene" uid="uid://crbw8wgirbf30" path="res://wavehouse/sounds/sound_game_obj_controller.tscn" id="1_rf7gy"]
+[ext_resource type="Script" uid="uid://dfurguu7vsarl" path="res://scripts/bullet/BulletXiguaBing.cs" id="2_3bugb"]
+[ext_resource type="Script" uid="uid://i4t3wlsoyowc" path="res://scripts/godobj/GodobjWrapper.cs" id="2_75dki"]
+[ext_resource type="Texture2D" uid="uid://dant7d8xpwtgg" path="res://pngs/plans/sun1.png" id="2_c5axu"]
+[ext_resource type="Texture2D" uid="uid://0tcfnhq51ldf" path="res://pngs/zombi/s0.png" id="2_lvi4n"]
+[ext_resource type="Texture2D" uid="uid://dwstecsr4uvt7" path="res://pngs/bullet/xigua.png" id="2_sgq3c"]
+[ext_resource type="PackedScene" uid="uid://c7lm0sorcqkt" path="res://wavehouse/zombi/zombi_s.tscn" id="2_ue5a4"]
+[ext_resource type="Texture2D" uid="uid://cdd1bbkj1fwq1" path="res://pngs/fx/bullet_XiguaBing.png" id="3_5qj52"]
+[ext_resource type="PackedScene" uid="uid://f8idknvbqd1g" path="res://wavehouse/zombi/zombi_mu_tong.tscn" id="3_rf7gy"]
+[ext_resource type="PackedScene" uid="uid://ck733ij52tfxb" path="res://wavehouse/zombi/zombi_tie_tong.tscn" id="4_yihhn"]
+[ext_resource type="PackedScene" uid="uid://yx8luud0cbs" path="res://wavehouse/plans/plansshooter/xigua_bing.tscn" id="5_56n5j"]
+[ext_resource type="PackedScene" uid="uid://clwspk15crvci" path="res://wavehouse/plans/plansshooter/pea.tscn" id="6_sgq3c"]
+[ext_resource type="Script" uid="uid://dh1b25v5ldsbx" path="res://scripts/godobj/GodBeHurtArea.cs" id="8_c5axu"]
+[ext_resource type="PackedScene" uid="uid://cd848ibmilgja" path="res://wavehouse/plans/plansfuzhu/sun_flower.tscn" id="10_rf7gy"]
+[ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="11_yihhn"]
+[ext_resource type="PackedScene" uid="uid://c4314c54wcerx" path="res://wavehouse/plans/plansonce/cherry.tscn" id="12_yihhn"]
+[ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="13_tlc07"]
+[ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="13_xiptw"]
+[ext_resource type="Script" uid="uid://dx07d6odlbs4e" path="res://scripts/ux/SunCenterSystem.cs" id="15_xiptw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qj52"]
+atlas = ExtResource("2_sgq3c")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bugb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qj52")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5qj52"]
+radius = 16.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sgq3c"]
+radius = 50.0
+height = 160.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bugb"]
+atlas = ExtResource("3_5qj52")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00yj6"]
+atlas = ExtResource("3_5qj52")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oncc"]
+atlas = ExtResource("3_5qj52")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfh81"]
+atlas = ExtResource("3_5qj52")
+region = Rect2(900, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsw01"]
+atlas = ExtResource("3_5qj52")
+region = Rect2(1200, 0, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfqwq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bugb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00yj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oncc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfh81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsw01")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75dki"]
+atlas = ExtResource("2_lvi4n")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5axu"]
+atlas = ExtResource("2_lvi4n")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6llvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75dki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5axu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmfhj"]
+atlas = ExtResource("2_c5axu")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66j71"]
+atlas = ExtResource("2_c5axu")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ue5a4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmfhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66j71")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5axu"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c5axu"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fmfhj"]
+radius = 3.0
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsmje"]
+size = Vector2(20, 60)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="BulletZero3" parent="Bullets" instance=ExtResource("1_fmfhj")]
+position = Vector2(0, 1600)
+
+[node name="BulletZero2" parent="Bullets" instance=ExtResource("1_fmfhj")]
+visible = false
+position = Vector2(0, 1400)
+
+[node name="BulletZero" parent="Bullets" instance=ExtResource("1_fmfhj")]
+visible = false
+position = Vector2(0, 500)
+
+[node name="BulletYangTao" type="Node2D" parent="Bullets"]
+
+[node name="BulletXiguaBing" type="Node2D" parent="Bullets"]
+scale = Vector2(4, 4)
+script = ExtResource("2_3bugb")
+
+[node name="AttackArea" type="Area2D" parent="Bullets/BulletXiguaBing"]
+
+[node name="View" type="AnimatedSprite2D" parent="Bullets/BulletXiguaBing/AttackArea"]
+sprite_frames = SubResource("SpriteFrames_3bugb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullets/BulletXiguaBing/AttackArea"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5qj52")
+
+[node name="AttackExtraArea" type="Area2D" parent="Bullets/BulletXiguaBing"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullets/BulletXiguaBing/AttackExtraArea"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_sgq3c")
+
+[node name="ViewExtra" type="AnimatedSprite2D" parent="Bullets/BulletXiguaBing/AttackExtraArea"]
+sprite_frames = SubResource("SpriteFrames_mfqwq")
+frame = 2
+frame_progress = 0.13732697
+
+[node name="Zombis" type="Node2D" parent="."]
+position = Vector2(0, -600)
+
+[node name="ZombiS" parent="Zombis" instance=ExtResource("2_ue5a4")]
+
+[node name="ZombiMuTong" parent="Zombis" instance=ExtResource("3_rf7gy")]
+position = Vector2(300, 0)
+
+[node name="ZombiTieTong" parent="Zombis" instance=ExtResource("4_yihhn")]
+position = Vector2(-300, 0)
+
+[node name="Plans" type="Node2D" parent="."]
+position = Vector2(0, 300)
+
+[node name="SunFlower" parent="Plans" instance=ExtResource("10_rf7gy")]
+position = Vector2(-300, -800)
+
+[node name="SunFlower2" parent="Plans" instance=ExtResource("10_rf7gy")]
+position = Vector2(-300, -700)
+
+[node name="XiguaBing" parent="Plans" instance=ExtResource("5_56n5j")]
+position = Vector2(200, 200)
+
+[node name="Pea" parent="Plans" instance=ExtResource("6_sgq3c")]
+
+[node name="Flower" type="Node2D" parent="Plans"]
+position = Vector2(400, 400)
+script = ExtResource("2_75dki")
+objType = 1
+
+[node name="View" type="Node2D" parent="Plans/Flower"]
+
+[node name="DieForBoom" type="AnimatedSprite2D" parent="Plans/Flower/View"]
+visible = false
+position = Vector2(-2, 0)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_6llvq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Plans/Flower/View"]
+sprite_frames = SubResource("SpriteFrames_ue5a4")
+
+[node name="BeHurtArea" type="Area2D" parent="Plans/Flower"]
+position = Vector2(0, -1)
+collision_layer = 512
+collision_mask = 2048
+script = ExtResource("8_c5axu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plans/Flower/BeHurtArea"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_c5axu")
+
+[node name="BodyMove" type="CharacterBody2D" parent="Plans/Flower"]
+position = Vector2(0, 20)
+collision_layer = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plans/Flower/BodyMove"]
+shape = SubResource("CircleShape2D_c5axu")
+
+[node name="AttackArea" type="Area2D" parent="Plans/Flower"]
+collision_layer = 2048
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plans/Flower/AttackArea"]
+position = Vector2(0, 10)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fmfhj")
+
+[node name="EyeArea" type="Area2D" parent="Plans/Flower"]
+visible = false
+collision_layer = 4096
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plans/Flower/EyeArea"]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_jsmje")
+
+[node name="Cherry" parent="Plans" instance=ExtResource("12_yihhn")]
+visible = false
+position = Vector2(-200, -400)
+
+[node name="Other" type="Node2D" parent="."]
+
+[node name="SoundPlayerController" parent="Other" instance=ExtResource("13_tlc07")]
+
+[node name="SoundGameObjController" parent="Other" instance=ExtResource("1_rf7gy")]
+
+[node name="SoundFxController" parent="Other" instance=ExtResource("13_xiptw")]
+
+[node name="Sky" type="Node2D" parent="Other"]
+
+[node name="Camera2D" type="Camera2D" parent="Other/Sky"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Other"]
+
+[node name="SunCenterSystem" type="Node2D" parent="Other/CanvasLayer"]
+position = Vector2(0, 600)
+script = ExtResource("15_xiptw")
+
+[node name="Control" type="Control" parent="Other/CanvasLayer/SunCenterSystem"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -600.0
+offset_bottom = -300.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Other/CanvasLayer/SunCenterSystem/Control"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+offset_right = 240.0
+offset_bottom = 120.0
+
+[node name="TextureRect" type="TextureRect" parent="Other/CanvasLayer/SunCenterSystem/Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_yihhn")
+expand_mode = 2
+
+[node name="SunShowLabel" type="Label" parent="Other/CanvasLayer/SunCenterSystem/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "0"

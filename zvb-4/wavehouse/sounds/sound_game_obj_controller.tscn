@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://crbw8wgirbf30"]
+
+[ext_resource type="Script" uid="uid://clm1dp3woe7j5" path="res://scripts/caps/SoundGameObjController.cs" id="1_ctqxa"]
+
+[node name="SoundGameObjController" type="Node2D"]
+script = ExtResource("1_ctqxa")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"Enmy"

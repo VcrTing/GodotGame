@@ -1,0 +1,27 @@
+
+bg:
+  base: -1
+
+tilemap:
+  base: 1
+
+ux:
+  dealine: 40
+  carkiller: 60
+  sun: 1280
+
+zombi:
+  base: 100 - 1100
+
+plans:
+  base: 1220
+
+shooter:
+  base: 2200
+  table: 1160
+
+bullet:
+  base: 1320
+
+miao:
+  base: 2000

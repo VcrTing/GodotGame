@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc2kgjgamoc2p"]
+
+[ext_resource type="Script" uid="uid://bs66hbj8ntvep" path="res://scripts/deal/LimitAreaPlayerTouch.cs" id="1_je5pu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+
+[node name="LimitAreaPlayerTouch" type="Node2D"]
+scale = Vector2(60, 1)
+script = ExtResource("1_je5pu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kdubu")

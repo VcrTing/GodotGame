@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6gq7ow2a4bvm"]
+
+[ext_resource type="PackedScene" uid="uid://c0shbhb1xdu8p" path="res://element/follower.tscn" id="1_hqns4"]
+[ext_resource type="PackedScene" uid="uid://df7rdeps7ayb8" path="res://element/things/money.tscn" id="3_x0ka3"]
+[ext_resource type="PackedScene" uid="uid://dgk2g0rv4xum3" path="res://element/player_body.tscn" id="4_d21ai"]
+[ext_resource type="PackedScene" uid="uid://dkpwpnrp5f47i" path="res://things/方块.tscn" id="4_kdubu"]
+[ext_resource type="PackedScene" uid="uid://cc2kgjgamoc2p" path="res://element/things/limit_area_player_touch.tscn" id="5_rj586"]
+[ext_resource type="PackedScene" uid="uid://dskdqkbfw4ia7" path="res://element/systems.tscn" id="6_4d7sh"]
+[ext_resource type="PackedScene" uid="uid://ccfcceg31jb8m" path="res://element/things/finished_door.tscn" id="11_0h7mo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Follower" parent="." instance=ExtResource("1_hqns4")]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="方块" parent="Map" instance=ExtResource("4_kdubu")]
+position = Vector2(0, 175)
+
+[node name="方块2" parent="Map" instance=ExtResource("4_kdubu")]
+position = Vector2(200, 125)
+scale = Vector2(4, 1)
+
+[node name="SmallCubeGroup4" type="Node2D" parent="Map"]
+position = Vector2(525, -200)
+
+[node name="方块9" parent="Map/SmallCubeGroup4" instance=ExtResource("4_kdubu")]
+position = Vector2(-75, 275)
+scale = Vector2(0.5, 1)
+
+[node name="方块10" parent="Map/SmallCubeGroup4" instance=ExtResource("4_kdubu")]
+position = Vector2(25, 275)
+scale = Vector2(0.5, 1)
+
+[node name="方块3" parent="Map/SmallCubeGroup4" instance=ExtResource("4_kdubu")]
+position = Vector2(-175, 275)
+scale = Vector2(0.5, 1)
+
+[node name="SmallCubeGroup3" type="Node2D" parent="Map"]
+
+[node name="方块9" parent="Map/SmallCubeGroup3" instance=ExtResource("4_kdubu")]
+position = Vector2(-75, 275)
+scale = Vector2(0.5, 1)
+
+[node name="方块10" parent="Map/SmallCubeGroup3" instance=ExtResource("4_kdubu")]
+position = Vector2(25, 275)
+scale = Vector2(0.5, 1)
+
+[node name="方块3" parent="Map/SmallCubeGroup3" instance=ExtResource("4_kdubu")]
+position = Vector2(-175, 275)
+scale = Vector2(0.5, 1)
+
+[node name="方块4" parent="Map" instance=ExtResource("4_kdubu")]
+position = Vector2(-300, 100)
+
+[node name="方块5" parent="Map" instance=ExtResource("4_kdubu")]
+position = Vector2(400, 150)
+scale = Vector2(0.4, 1)
+
+[node name="方块6" parent="Map" instance=ExtResource("4_kdubu")]
+position = Vector2(500, 200)
+scale = Vector2(0.6, 1)
+
+[node name="方块7" parent="Map" instance=ExtResource("4_kdubu")]
+position = Vector2(650, 200)
+scale = Vector2(1, 1)
+
+[node name="Money" parent="Map" instance=ExtResource("3_x0ka3")]
+position = Vector2(-175, 200)
+
+[node name="Money2" parent="Map" instance=ExtResource("3_x0ka3")]
+position = Vector2(75, 100)
+
+[node name="Money3" parent="Map" instance=ExtResource("3_x0ka3")]
+position = Vector2(450, 0)
+
+[node name="方块8" parent="Map" instance=ExtResource("4_kdubu")]
+position = Vector2(800, 125)
+scale = Vector2(4, 1)
+
+[node name="方块9" parent="Map" instance=ExtResource("4_kdubu")]
+position = Vector2(75, 300)
+scale = Vector2(0.6, 1)
+
+[node name="Money4" parent="Map" instance=ExtResource("3_x0ka3")]
+position = Vector2(650, 175)
+
+[node name="PlayerBody" parent="." instance=ExtResource("4_d21ai")]
+position = Vector2(-300, 0)
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="LimitAreaPlayerTouch" parent="Areas" instance=ExtResource("5_rj586")]
+position = Vector2(200, 400)
+scale = Vector2(80, 1)
+
+[node name="Systems" parent="." instance=ExtResource("6_4d7sh")]
+
+[node name="Uxs" type="Node2D" parent="."]
+
+[node name="FinishedDoor" parent="Uxs" instance=ExtResource("11_0h7mo")]
+position = Vector2(850, 60)
+NextScenePath = "3"

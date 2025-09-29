@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6ds1gjwrriuf"]
+
+[ext_resource type="Script" uid="uid://d1qe6bm0crskn" path="res://scripts/ui/SoundUiController.cs" id="1_dyp2q"]
+
+[node name="SoundUiController" type="Node2D"]
+script = ExtResource("1_dyp2q")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

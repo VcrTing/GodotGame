@@ -1,0 +1,100 @@
+{
+    "type": "normal",
+    "basic": {
+        "initsun": 50
+    },
+    "suns": {
+        "3": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ],
+        "7": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ],
+        "12": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ],
+        "16": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ]
+    },
+    "enmyswaveflag": {
+        "19": 1
+    },
+    "enmys": {
+        "4": [
+            {
+                "types": [ "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 1, 5 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 0,
+                "speedmode": "normal"
+            }
+        ],
+        "10": [
+            {
+                "types": [ "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 1, 5 ],
+                "generatormode": "next",
+                "lazyall": 0,
+                "lazyme": 2,
+                "speedmode": "normal"
+            }
+        ],
+        "17": [
+            {
+                "types": [ "zombi_s", "zombi_mu_tong", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 3, 7, 9 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 2,
+                "speedmode": "normal"
+            }
+        ],
+        "25": [
+            {
+                "types": [ "zombi_s", "zombi_mu_tong", "zombi_tie_tong" ],
+                "typesmode": "random",
+                "generator": [ 2, 4, 8 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 3,
+                "speedmode": "normal"
+            }
+        ],
+        "32": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+                "typesmode": "random",
+                "generator": [ 1, 6, 3, 10, 8 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 4,
+                "speedmode": "normal"
+            }
+        ]
+    }
+}

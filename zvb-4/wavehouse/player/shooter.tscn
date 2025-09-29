@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://djj2owxqbqx8u"]
+
+[ext_resource type="Script" uid="uid://dri1oo7g2iqo4" path="res://scripts/player/Shooter.cs" id="1_rekx1"]
+[ext_resource type="Script" uid="uid://ci4jfivrvg878" path="res://scripts/player/ShooterView.cs" id="2_tdfpe"]
+[ext_resource type="Texture2D" uid="uid://vb73j64nphe8" path="res://pngs/plans/Pea.png" id="3_rekx1"]
+[ext_resource type="Texture2D" uid="uid://c7siq6ynlf5b0" path="res://pngs/plans/XiguaBing.png" id="4_qqxrb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdfpe"]
+atlas = ExtResource("3_rekx1")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ho6x"]
+atlas = ExtResource("3_rekx1")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_at5dv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdfpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ho6x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mftsw"]
+atlas = ExtResource("4_qqxrb")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6ayx"]
+atlas = ExtResource("4_qqxrb")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iq7xp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mftsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6ayx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Shooter" type="Node2D"]
+z_index = 2200
+scale = Vector2(4, 4)
+script = ExtResource("1_rekx1")
+
+[node name="Pea" type="Node2D" parent="."]
+script = ExtResource("2_tdfpe")
+
+[node name="View" type="AnimatedSprite2D" parent="Pea"]
+sprite_frames = SubResource("SpriteFrames_at5dv")
+frame_progress = 0.01379809
+
+[node name="XiguaBing" type="Node2D" parent="."]
+script = ExtResource("2_tdfpe")
+
+[node name="View" type="AnimatedSprite2D" parent="XiguaBing"]
+sprite_frames = SubResource("SpriteFrames_iq7xp")
+frame_progress = 0.8481541

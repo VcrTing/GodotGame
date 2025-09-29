@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk5h870mbbttm"]
+
+[ext_resource type="AudioStream" uid="uid://dptlfextm73qy" path="res://musics/Main.mp3" id="1_pc4pd"]
+[ext_resource type="Texture2D" uid="uid://c4ikvkko603or" path="res://pngs/ui/mainBg.png" id="2_c63kw"]
+[ext_resource type="PackedScene" uid="uid://c6ds1gjwrriuf" path="res://wavehouse/ui/sound_ui_controller.tscn" id="3_c63kw"]
+
+[node name="SystemForMain" type="Node2D"]
+
+[node name="Bgm" type="Node2D" parent="."]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Bgm"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Bgm"]
+stream = ExtResource("1_pc4pd")
+autoplay = true
+
+[node name="MainBg" type="Sprite2D" parent="."]
+texture = ExtResource("2_c63kw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SoundUiController" parent="." instance=ExtResource("3_c63kw")]

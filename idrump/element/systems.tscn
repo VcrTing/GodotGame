@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dskdqkbfw4ia7"]
+
+[ext_resource type="AudioStream" uid="uid://5v53mwwicfd3" path="res://musics/theme.ogg" id="1_1g161"]
+[ext_resource type="Script" uid="uid://cdrd78swhg48h" path="res://scripts/Systems.cs" id="1_m2tle"]
+
+[node name="Systems" type="Node2D"]
+script = ExtResource("1_m2tle")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_1g161")
+volume_db = -6.563
+autoplay = true
+parameters/looping = true
+
+[node name="Cvs" type="CanvasLayer" parent="."]
+
+[node name="MoneyLabel" type="Label" parent="Cvs"]
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 53.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 20
+text = "金币：1"
