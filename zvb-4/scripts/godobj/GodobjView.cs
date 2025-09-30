@@ -62,15 +62,26 @@ public partial class GodobjView : Node2D, IHealth
         {
             isDie = true;
             // 隐藏所有子节点
-            GodotTool.SwitchAnimatedSprite(this, NameConstants.Die);
+            if (lastHurt == EnumHurts.Boom)
+            {
+                GodotTool.SwitchAnimatedSprite(this, NameConstants.DieForBoom);
+            }
+            else
+            {
+                GodotTool.SwitchAnimatedSprite(this, NameConstants.Die);
+            }
             // GD.Print($"{Name} 死亡. ");
             // 0.5秒后调用DieFaker
             await ToSignal(GetTree().CreateTimer(AnimationConstants.GetViewDieAniTime(myObj)), "timeout");
             DieFaker();
         }
     }
+
+    EnumHurts lastHurt = EnumHurts.Pea;
+
     public int CostHealth(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
+        lastHurt = enumHurts;
         Health -= damage;
         PlayHurtEffect(objType, damage, enumHurts);
         SwitchViewIfHealthHalf();

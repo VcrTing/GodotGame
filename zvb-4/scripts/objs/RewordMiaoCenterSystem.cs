@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ZVB4.Conf;
 
 public partial class RewordMiaoCenterSystem : Node2D
+
 {
     public static RewordMiaoCenterSystem Instance { get; private set; }
     public override void _Ready()
@@ -11,7 +12,31 @@ public partial class RewordMiaoCenterSystem : Node2D
         Instance = this;
     }
 
-    Dictionary<string, int> PlansDict = new Dictionary<string, int>(); 
+    Dictionary<string, int> PlansDict = new Dictionary<string, int>();
+
+
+
+    float spawnTimer = 0f;
+    float spawnInterval = 1f;
+    public override void _Process(double delta)
+    {
+        spawnTimer += (float)delta;
+        if (spawnTimer >= spawnInterval)
+        {
+            spawnTimer = 0f;
+            // SpawnRewordPlansMiao(3);
+        }
+    }
+
+    void SpawnRewordPlansMiao(int count)
+    {
+        var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + "reword_plans_miao.tscn");
+        for (int i = 0; i < count; i++)
+        {
+            var instance = scene.Instantiate<Node2D>();
+            AddChild(instance);
+        }
+    }
 
     public string GetRandomPlansName()
     {

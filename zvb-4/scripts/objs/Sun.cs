@@ -72,6 +72,7 @@ public partial class Sun : Node2D, IWorking, IReword
         if (hasAdded) return;
         hasAdded = true;
         // 增加阳光方法
+        if (SunCenterSystem.Instance == null) return;
         SunCenterSystem.Instance.AddValue(value);
         value = 0;
     }

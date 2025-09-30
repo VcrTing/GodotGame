@@ -29,6 +29,7 @@ public partial class RewordPlansMiao : Node2D, IWorking
             {
                 Position = alivePosition;
             }
+            
         }
         // 存活10秒后自动销毁
         aliveTimer += (float)delta;
@@ -37,18 +38,18 @@ public partial class RewordPlansMiao : Node2D, IWorking
             QueueFree();
         }
 
-        // KKK
+        // 自动追踪花盆
         checkTimer += (float)delta;
         if (checkTimer >= checkInterval)
         {
             checkTimer = 0f;
-            // 每隔0.5s生成3个reword_plans_miao
-            var scene = GD.Load<PackedScene>("/wavehouse/obj/reword_plans_miao.tscn");
-            for (int i = 0; i < 3; i++)
+            if (!isLock)
             {
-                var miao = scene.Instantiate<Node2D>();
-                miao.Position = Position; // 可根据需求调整初始位置
-                GetTree().CurrentScene.AddChild(miao);
+                var flowerPeng = FlowerPengSystem.Instance?.GetAUseFullFlowerPeng();
+                if (flowerPeng != null)
+                {
+                    StartToFlowerPeng(flowerPeng);
+                }
             }
         }
     }
@@ -69,7 +70,7 @@ public partial class RewordPlansMiao : Node2D, IWorking
     float checkInterval = 0.5f;
 
     float aliveTimer = 0f;
-    float aliveDuration = 10f;
+    float aliveDuration = 4f;
 
     public override void _Ready()
     {
@@ -99,8 +100,9 @@ public partial class RewordPlansMiao : Node2D, IWorking
     void Init()
     {
         var rwm = RewordMiaoCenterSystem.Instance;
-        if (rwm == null)
+        if (rwm != null)
         {
+            // PlansName = PlansConstants.GetRandomPlansName();
             PlansName = rwm.GetRandomPlansNameWithPowerWeight();
         }
         else

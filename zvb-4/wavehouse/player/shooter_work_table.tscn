@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://36rfmc3ixu1j" path="res://scripts/player/ShooterWorkTable.cs" id="1_bgl10"]
 [ext_resource type="Texture2D" uid="uid://pbfyml2nrhqc" path="res://pngs/ux/table.png" id="2_khky8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2cnsr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgl10"]
 atlas = ExtResource("2_khky8")
 region = Rect2(0, 0, 80, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4k8fq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_khky8"]
 atlas = ExtResource("2_khky8")
 region = Rect2(80, 0, 80, 60)
 
@@ -15,10 +15,10 @@ region = Rect2(80, 0, 80, 60)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2cnsr")
+"texture": SubResource("AtlasTexture_bgl10")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4k8fq")
+"texture": SubResource("AtlasTexture_khky8")
 }],
 "loop": true,
 "name": &"default",
@@ -43,6 +43,8 @@ texture = ExtResource("2_khky8")
 position = Vector2(-7, 4)
 scale = Vector2(3.6, 3.6)
 sprite_frames = SubResource("SpriteFrames_75pfo")
+autoplay = "default"
+frame_progress = 0.844097
 
 [node name="ShooterWorkTableBody" type="StaticBody2D" parent="."]
 position = Vector2(0, 12)

@@ -126,9 +126,17 @@ public partial class FlowerPengSystem : Node2D
     }
     public FlowerPeng GetAUseFullFlowerPeng()
     {
-        List<FlowerPeng> src = GetUseFullFlowerPeng();
-        if (src.Count == 0) return null;
-        int idx = (int)GD.RandRange(0, src.Count);
-        return src[idx];
+        try
+        {
+            List<FlowerPeng> src = GetUseFullFlowerPeng();
+            if (src.Count == 0) return null;
+            int idx = (int)GD.RandRange(0, src.Count);
+            return src[idx];
+        }
+        catch (Exception ex)
+        {
+            GD.PrintErr("GetAUseFullFlowerPeng error: " + ex.Message);
+            return null;
+        }
     }
 }

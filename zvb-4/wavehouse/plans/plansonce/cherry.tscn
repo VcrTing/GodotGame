@@ -19,13 +19,13 @@ region = Rect2(80, 0, 80, 80)
 atlas = ExtResource("2_bswmn")
 region = Rect2(160, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xe8bl"]
-atlas = ExtResource("2_sfjm0")
-region = Rect2(0, 0, 60, 60)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dcip"]
+atlas = ExtResource("2_bswmn")
+region = Rect2(0, 0, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bswmn"]
-atlas = ExtResource("2_sfjm0")
-region = Rect2(60, 0, 60, 60)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs34y"]
+atlas = ExtResource("2_bswmn")
+region = Rect2(80, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pwbcj"]
 animations = [{
@@ -45,14 +45,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xe8bl")
+"texture": SubResource("AtlasTexture_2dcip")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bswmn")
+"texture": SubResource("AtlasTexture_rs34y")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m13oa"]
@@ -115,6 +115,8 @@ script = ExtResource("1_kvus3")
 [node name="View" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.0000001, 1.0000001)
 sprite_frames = SubResource("SpriteFrames_pwbcj")
+autoplay = "default"
+frame_progress = 0.4528889
 
 [node name="ViewDoing" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, 0)

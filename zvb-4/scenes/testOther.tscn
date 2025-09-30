@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csoklck3bhn0a"]
+[gd_scene load_steps=11 format=3 uid="uid://csoklck3bhn0a"]
 
 [ext_resource type="PackedScene" uid="uid://tyfyw8v7besx" path="res://wavehouse/bullet/bullet_zero.tscn" id="1_thh5b"]
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="2_1bcut"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://d38vgruxqe4rl" path="res://scripts/caps/CapsCenter.cs" id="6_kesu3"]
 [ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="6_ulph4"]
 [ext_resource type="Script" uid="uid://cxcgsqncwoqqb" path="res://scripts/ux/FlowerPengSystem.cs" id="8_3r76w"]
+[ext_resource type="Script" uid="uid://cg23d5r85c0lt" path="res://scripts/objs/RewordMiaoCenterSystem.cs" id="10_jteds"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -40,3 +41,6 @@ enumChapter = 102
 [node name="FlowerPengSystem" type="Node2D" parent="CapsCenter"]
 position = Vector2(0, 400)
 script = ExtResource("8_3r76w")
+
+[node name="RewordMiaoCenterSystem" type="Node2D" parent="CapsCenter/FlowerPengSystem"]
+script = ExtResource("10_jteds")

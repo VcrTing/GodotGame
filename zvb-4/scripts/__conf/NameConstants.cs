@@ -16,6 +16,7 @@ namespace ZVB4.Conf
         public const string AliveHalf = "AliveHalf";
         public const string AniView = "AniView";
         public const string Die = "Die";
+        public const string DieForBoom = "DieForBoom";
 
         public const string Area = "Area";
         public const string Body = "Body";

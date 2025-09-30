@@ -78,6 +78,9 @@ public partial class PlayerUxTileMap : TileMapLayer, IPlansPlanting
                 // 设置工作模式
                 if (pls is IWorking working)
                 {
+
+                    //
+                    SoundFxController.Instance?.PlayFx("Ux/zhongxia", "ZhongXia", 4, pls.GlobalPosition);
                     working.SetWorkingMode(true);
                     // 标记占用
                     UseCell(pos);
