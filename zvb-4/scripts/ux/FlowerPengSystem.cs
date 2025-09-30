@@ -1,10 +1,12 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using ZVB4.Conf;
 using ZVB4.Entity;
 
 public partial class FlowerPengSystem : Node2D
 {
+    public static FlowerPengSystem Instance { get; private set; }
     float locationY = 0;
 
     float pingMuBianJu = 90;
@@ -15,8 +17,8 @@ public partial class FlowerPengSystem : Node2D
 
     public override void _Ready()
     {
+        Instance = this;
         GenerateGeziPosition();
-
         // 初始化就生成多少个花盆
         Init();
     }
@@ -62,6 +64,7 @@ public partial class FlowerPengSystem : Node2D
         {
             playerData = sdm.GetPlayerData();
             int numNow = playerData.CapterFlowerPengNumNow;
+            GD.Print("玩家现在多少花盆: " + numNow);
             __Init(8);
         }
         else
@@ -71,6 +74,7 @@ public partial class FlowerPengSystem : Node2D
             Init();
         }
     }
+
 
     void __Init(int limit)
     {
@@ -90,9 +94,41 @@ public partial class FlowerPengSystem : Node2D
         var flowerPengScene = GD.Load<PackedScene>(FolderConstants.WaveUx + "flower_peng.tscn");
         for (int i = 0; i < limit; i++)
         {
-            var flowerPeng = flowerPengScene.Instantiate<Node2D>();
-            flowerPeng.Position = PositionList[i];
-            AddChild(flowerPeng);
+            GenerateFlowerPengByCode(flowerPengScene, i);
         }
+    }
+
+    // 根据编号生成花盆
+    void GenerateFlowerPengByCode(PackedScene flowerPengScene, int code)
+    {
+        var flowerPeng = flowerPengScene.Instantiate<Node2D>();
+        flowerPeng.Position = PositionList[code];
+        AddChild(flowerPeng);
+        // 记录花盆
+        flowerPengList.Add(flowerPeng as FlowerPeng);
+    }
+
+    List<FlowerPeng> flowerPengList = new List<FlowerPeng>();
+
+
+    // 获取所有可用花盆
+    public List<FlowerPeng> GetUseFullFlowerPeng()
+    {
+        List<FlowerPeng> result = new List<FlowerPeng>();
+        foreach (var item in flowerPengList)
+        {
+            if (item.IsAllowPlans())
+            {
+                result.Add(item);
+            }
+        }
+        return result;
+    }
+    public FlowerPeng GetAUseFullFlowerPeng()
+    {
+        List<FlowerPeng> src = GetUseFullFlowerPeng();
+        if (src.Count == 0) return null;
+        int idx = (int)GD.RandRange(0, src.Count);
+        return src[idx];
     }
 }

@@ -1,8 +1,10 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using ZVB4.Conf;
 using ZVB4.Entity;
 using ZVB4.Interface;
+using ZVB4.Tool;
 
 public partial class Shooter : Node2D, IShooter
 {
@@ -10,104 +12,35 @@ public partial class Shooter : Node2D, IShooter
     EntityPlayerData playerData = null;
     string shooterNowName;
     int shooterCostSun;
+    string bulletScenePath = string.Empty;
     Vector2 InitPosition;
 
     public override void _Ready()
     {
-        // GD.Print($"Shooter position: {Position}");
         InitPosition = Position;
-        // 
+        Init();
         LoadShooter();
     }
-
-    void LoadShooter()
-    {
-        // 获取玩家数据
-        try
-        {
-            playerData = SaveDataManager.Instance?.GetPlayerData();
-        }
-        catch
-        {
-
-        }
-        if (playerData == null)
-        {
-            // 延迟0.2f后重试
-            var _ = DelayAndReload();
-            return;
-        }
-        // 获取当前射手
-        shooterNowName = playerData.ShooterNow;
-        // 
-        _LoadNow(shooterNowName);
-    }
-    async System.Threading.Tasks.Task DelayAndReload()
-    {
-        await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
-        LoadShooter();
-    }
-    void _LoadNow(string shooterName)
-    {
-        shooterNowName = shooterName;
-        shooterCostSun = SunMoneyConstants.GetPlansSunCost(shooterName);
-        // 获取射手对应的子弹实例
-        bulletScenePath = PlansConstants.GetBullet(shooterName);
-    }
-
-    string bulletScenePath = string.Empty;
 
     public void ChangeShooter(string shooterName)
     {
-        // 先隐藏所有子节点
-        foreach (Node child in GetChildren())
-        {
-            if (child is CanvasItem canvasItem)
-                canvasItem.Visible = false;
-        }
-        // 再显示指定射手子节点
-        var shooterNode = GetNodeOrNull<Node2D>(shooterName);
-        if (shooterNode is CanvasItem shooterCanvas)
-        {
-            shooterCanvas.Visible = true;
-        }
-        _LoadNow(shooterName);
+        GodotTool.SwitchOneVisible(this, shooterName);
+        // 重新加载参数
+        _LoadShooterParams(shooterName);
         // 切换了射手，保存数据
         SaveDataManager.Instance?.SetPlayerShooter(shooterName);
     }
 
-    bool CheckAttackSun()
+    bool CostSunForAttack()
     {
         if (bulletScenePath == string.Empty) return false;
-
         if (playerData == null) return false;
-        try
-        {
-            bool isZero = SunCenterSystem.Instance.NextSunIsZero(shooterCostSun);
-            if (isZero)
-            {
-                // 错误音效
-                SoundUiController.Instance?.Error();
-                return false;
-            }
-            else
-            {
-                // 扣除阳光
-                SunCenterSystem.Instance?.ForAttack(shooterCostSun);
-            }
-            return true;
-        }
-        catch
-        {
-
-        }
-        return false;
+        if (SunCenterSystem.Instance == null) return false;
+        return SunCenterSystem.Instance.CostForAttack(shooterCostSun);
     }
 
-    public void AttackAtPosition(Vector2 startPosition, Vector2 direction)
+    void ShootBullet(Vector2 startPosition, Vector2 direction)
     {
-        // 阳光问题
-        if (!CheckAttackSun()) return;
         // 正式攻击
         var bulletScene = GD.Load<PackedScene>(bulletScenePath);
         if (bulletScene != null)
@@ -125,9 +58,221 @@ public partial class Shooter : Node2D, IShooter
         }
     }
 
+    public bool AttackAtPosition(Vector2 startPosition, Vector2 direction)
+    {
+        // 阳光问题
+        if (!CostSunForAttack()) return false;
+        // 正式攻击
+        ShootBullet(startPosition, direction);
+        return true;
+    }
+
     public void RotateToDirection(Vector2 direction)
     {
         // 默认朝向为上，旋转到目标方向，加90度
         Rotation = direction.Angle() + Mathf.Pi / 2;
+    }
+    private Vector2 _attackDirection = Vector2.Zero;
+    public Vector2 AttackDirection
+    {
+        get => _attackDirection;
+        set => _attackDirection = value;
+    }
+    // 
+    public void Init()
+    {
+        attackNum = 0;
+        __attackFlagTime = 0f;
+        AttackDirection = Vector2.Up;
+        Rotation = 0f;
+        Position = InitPosition;
+        NowRotationDir = Vector2.Up;
+        ResetAttackModel();
+    }
+    public void ReleaseAttack()
+    {
+        // 只保留最后一个方向
+        if (attackDirectionList.Count > 0)
+        {
+            AttackDirection = attackDirectionList[attackDirectionList.Count - 1];
+            attackDirectionList.Clear();
+            RotateToDirection(AttackDirection);
+            AttackAtPosition(GlobalPosition, AttackDirection);
+            attackNum = 0;
+            __attackFlagTime = 0f;
+            ResetAttackModel();
+        }
+        else
+        {
+            attackNum = 0;
+            __attackFlagTime = 0f;
+            ResetAttackModel();
+        }
+    }
+
+    List<Vector2> attackDirectionList = new List<Vector2>();
+    bool addAttackDirectionFlag = false;
+    int attackNum = 0;
+    public void Attack(Vector2 attackPos, bool isFirstAttack)
+    {
+        // 计算方向
+        Vector2 pos = this.GlobalPosition;
+        Vector2 dir = (attackPos - pos).Normalized();
+        // 首次攻击放行
+        if (isFirstAttack)
+        {
+            attackNum = 0;
+            __attackFlagTime = 0f;
+            RotateToDirection(dir);
+            AttackAtPosition(pos, dir);
+            ResetAttackModel();
+        }
+        else
+        {
+            NowRotationDir = dir;
+            attackNum += 1;
+        }
+        if (addAttackDirectionFlag)
+        {
+            addAttackDirectionFlag = false;
+            attackDirectionList.Add(dir);
+        }
+    }
+
+    float __attackFlagTime = 0f;
+    float __attackTime = 0f;
+
+
+    bool succAttack = true;
+    public override void _Process(double delta)
+    {
+        if (attackNum > 0)
+        {
+            __attackFlagTime += (float)delta;
+            if (__attackFlagTime >= __attackSpeed)
+            {
+                addAttackDirectionFlag = true;
+                __attackFlagTime = 0f;
+            }
+
+            //
+            __attackTime += (float)delta;
+            if (__attackTime >= __attackSpeed)
+            {
+                // 
+                if (attackDirectionList.Count > 0)
+                {
+                    Vector2 one = attackDirectionList[0];
+                    AttackDirection = one;
+                    attackDirectionList.RemoveAt(0);
+                    RotateToDirection(AttackDirection);
+                    succAttack = AttackAtPosition(this.GlobalPosition, AttackDirection);
+                }
+            }
+            if (succAttack) { RunnerAttackInterval(delta);}
+        }
+        RotationEveryFrame(NowRotationDir, delta);
+    }
+    float attackSpeedStart = 0.3f;
+    float attackSpeedEnd = 0.3f;
+    float attackSpeedSnap = 0.05f;
+    float attackSpeedSnapSnap = 0.005f;
+
+    float __attackSpeedSnapLowest = 0.005f;
+    float __attackSpeed = 0.3f;
+    float __attackSpeedSnap = 0.05f;
+    float __attackSnapTime = 0f;
+    // 每次攻击间隔
+    void ResetAttackModel()
+    {
+        __attackSpeed = attackSpeedStart;
+        __attackSnapTime = 0f;
+        __attackSpeedSnap = attackSpeedSnap;
+        succAttack = true;
+    }
+    float RunnerAttackInterval(double delta)
+    {
+        __attackSnapTime += (float)delta;
+        if (__attackSnapTime >= __attackSpeed)
+        {
+            __attackSnapTime = 0f;
+            __attackSpeed -= __attackSpeedSnap;
+            if (__attackSpeed <= attackSpeedEnd)
+            {
+                __attackSpeed = attackSpeedEnd;
+            }
+            // 曲线降速
+            __attackSpeedSnap -= attackSpeedSnapSnap;
+            if (__attackSpeedSnap <= __attackSpeedSnapLowest)
+            {
+                __attackSpeedSnap = __attackSpeedSnapLowest;
+            }
+        }
+        return __attackSpeed;
+    }
+    float RotationSpeed = 100f; // 每秒旋转100度
+    Vector2 NowRotationDir = Vector2.Up;
+    void RotationEveryFrame(Vector2 dir, double delta)
+    {
+        if (dir != Vector2.Zero)
+        {
+            float targetAngle = dir.Angle() + Mathf.Pi / 2;
+            float currentAngle = Rotation;
+            // 计算每帧旋转速度（10度/0.1s）
+            float rotateSpeed = Mathf.DegToRad(RotationSpeed / 10) / 0.1f * (float)delta; // 每秒100度
+            float angleDiff = Mathf.Wrap(targetAngle - currentAngle, -Mathf.Pi, Mathf.Pi);
+            if (Mathf.Abs(angleDiff) < rotateSpeed)
+            {
+                Rotation = targetAngle;
+                OnRotationArrived(targetAngle);
+            }
+            else
+            {
+                Rotation += Mathf.Sign(angleDiff) * rotateSpeed;
+            }
+        }
+    }
+    // 旋转到达目标方向时调用
+    void OnRotationArrived(float targetAngle)
+    {
+        // TODO: 实现到达目标方向后的逻辑
+    }
+
+    // 加载当前射手
+    void LoadShooter()
+    {
+        if (SaveDataManager.Instance == null)
+        {
+            var _ = DelayAndReload();
+            return;
+        }
+        playerData = SaveDataManager.Instance.GetPlayerData();
+        if (playerData == null)
+        {
+            var _ = DelayAndReload();
+            return;
+        }
+        shooterNowName = playerData.ShooterNow;
+        _LoadShooterParams(shooterNowName);
+    }
+    async System.Threading.Tasks.Task DelayAndReload()
+    {
+        await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
+        LoadShooter();
+    }
+    void _LoadShooterParams(string shooterName)
+    {
+        if (shooterName == string.Empty) return;
+        shooterNowName = shooterName;
+        shooterCostSun = SunMoneyConstants.GetPlansSunCost(shooterName);
+        // 获取射手对应的子弹实例
+        bulletScenePath = PlansConstants.GetBullet(shooterName);
+        // 获取攻击速度
+        attackSpeedStart = PlansConstants.GetPlansAttackSpeedStart(shooterName);
+        attackSpeedEnd = PlansConstants.GetPlansAttackSpeedEnd(shooterName);
+        attackSpeedSnap = PlansConstants.GetPlansAttackSpeedSnap(shooterName);
+        __attackSpeed = attackSpeedStart;
+        attackSpeedSnapSnap = PlansConstants.GetPlansAttackSpeedSnapSnap(shooterName);
+        __attackSpeedSnap = attackSpeedSnap;
     }
 }

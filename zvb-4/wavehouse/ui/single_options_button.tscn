@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://xguhn7vnih0e"]
+
+[ext_resource type="Texture2D" uid="uid://drn3gvybyk55r" path="res://pngs/ui/button2.png" id="1_jr8bg"]
+[ext_resource type="Texture2D" uid="uid://b6lr1fxfw0yr7" path="res://pngs/ui/button_1.png" id="2_u230w"]
+[ext_resource type="Script" uid="uid://d064thwk1uxjt" path="res://scripts/ui/ingame/SingleOptionsButton.cs" id="3_l1x6q"]
+
+[node name="SingleOptionsButton" type="TextureButton"]
+texture_pressed = ExtResource("1_jr8bg")
+texture_hover = ExtResource("2_u230w")
+texture_focused = ExtResource("2_u230w")
+stretch_mode = 0
+script = ExtResource("3_l1x6q")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -25.0
+offset_right = 90.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "NO"
+horizontal_alignment = 1
+vertical_alignment = 1

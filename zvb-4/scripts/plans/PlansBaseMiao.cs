@@ -45,7 +45,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         
     }
 
-
     public bool Init(string plansName)
     {
         SetWorkingMode(true);
@@ -195,10 +194,15 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         }
     }
 
+    // 种下后，解锁花盆占用
     public string ZhongXia()
     {
-        // GD.Print($"{PlanName} 中下");
-        QueueFree();
+        FlowerPeng flowerPeng = GetParent<FlowerPeng>();
+        if (flowerPeng != null)
+        {
+            flowerPeng.ReleaseLock();
+            QueueFree();
+        }
         return PlanName;
     }
 

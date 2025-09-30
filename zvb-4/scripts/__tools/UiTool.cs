@@ -16,13 +16,34 @@ public static class UiTool {
 		{
 			currentScene.QueueFree();
 		}
-        tree.ChangeSceneToFile(FolderConstants.Scenes + "main.tscn");
+        tree.ChangeSceneToFile(FolderConstants.Scenes + ChapterTool.MainMenuScene);
+    }
+    public static async void PrevScene(TextureButton node, string ScenePath)
+    {
+        try
+        {
+            SoundUiController.Instance.Back();
+            // 0.2s后切换下一个场景
+            await node.ToSignal(node.GetTree().CreateTimer(GameContants.UiLazyTouchTime), "timeout");
+            node.GetTree().ChangeSceneToFile(ScenePath);
+        }
+        catch (Exception ex)
+        {
+            GD.PrintErr("PrevScene error: " + ex.Message);
+        }
     }
     public static async void NextScene(TextureButton node, string ScenePath)
     {
-        SoundUiController.Instance.Sure();
-        // 0.2s后切换下一个场景
-        await node.ToSignal(node.GetTree().CreateTimer(GameContants.UiLazyTouchTime), "timeout");
-        node.GetTree().ChangeSceneToFile(ScenePath);
+        try
+        {
+            SoundUiController.Instance.Sure();
+            // 0.2s后切换下一个场景
+            await node.ToSignal(node.GetTree().CreateTimer(GameContants.UiLazyTouchTime), "timeout");
+            node.GetTree().ChangeSceneToFile(ScenePath);
+        }
+        catch (Exception ex)
+        {
+            GD.PrintErr("NextScene error: " + ex.Message);
+        }
     }
 }

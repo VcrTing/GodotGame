@@ -19,18 +19,29 @@ public partial class CapsCenter : Node2D
 
     public Godot.Collections.Dictionary CapData => _capData;
 
-    EntityPlayerData playerData = null;
+    EntityGameRunnerData gameRunnerData = null;
 
     public override void _Ready()
     {
         Instance = this;
+        LoadGame();
     }
+
+    public int CapterNumber = (int) EnumChapter.One1;
 
     void LoadGame()
     {
-        playerData = SaveDataManager.Instance.GetPlayerData();
-        
-        string jsonPath = $"res://designs/jindian/cap_{(int)enumChapter}.json";
+        var ins = SaveGamerRunnerDataManger.Instance;
+        if (ins == null)
+        {
+            GD.Print("LoadGame => SaveGamerRunnerDataManger.Instance: " + (ins != null));
+            GetTree().CreateTimer(0.1f).Timeout += () => LoadGame();
+            return;
+        }
+        gameRunnerData = ins.GetGameRunnerData();
+        CapterNumber = ins.GetCapterNumber();
+        GD.Print("加载章节 => CapterNumber: " + CapterNumber);
+        string jsonPath = $"res://designs/jindian/cap_{CapterNumber}.json";
         LoadCapData(jsonPath);
     }
 
@@ -56,6 +67,8 @@ public partial class CapsCenter : Node2D
     // 敌人工作器
     void WorkForEnmys()
     {
+        if (enmys == null) return;
+        if (enmys.Count == 0) return;
         // 取enmys数据
         foreach (string key in enmys.Keys)
         {
@@ -97,7 +110,7 @@ public partial class CapsCenter : Node2D
         {
             lazyme = generateInfo["lazyme"].AsSingle();
         }
-        
+
         // 
         EnmyGenerator.GenerateEnemiesByConfig(types, generator, typesmode, generatormode, lazyme);
     }
@@ -119,14 +132,7 @@ public partial class CapsCenter : Node2D
             if (result.VariantType == Variant.Type.Dictionary)
             {
                 _capData = (Godot.Collections.Dictionary)result;
-                if (_capData.ContainsKey("enmys"))
-                {
-                    var enmysVariant = _capData["enmys"].AsGodotDictionary();
-                    if (enmysVariant is Godot.Collections.Dictionary)
-                    {
-                        enmys = (Godot.Collections.Dictionary)enmysVariant;
-                    }
-                }
+                LoadZombis(_capData);
                 if (_capData.ContainsKey("suns"))
                 {
                     var sunsVariant = _capData["suns"].AsGodotDictionary();
@@ -143,13 +149,72 @@ public partial class CapsCenter : Node2D
                         enmyswaveflag = (Godot.Collections.Dictionary)enmyswaveflagVariant;
                     }
                 }
+                //
+                LoadVar(_capData);
             }
             else
                 GD.PrintErr($"Failed to parse dictionary from {jsonPath}");
         }
-        else
+    }
+
+    void LoadZombis(Godot.Collections.Dictionary _capData)
+    {
+        if (_capData.ContainsKey("enmys"))
         {
-            GD.PrintErr($"File not found: {jsonPath}");
+            var enmysVariant = _capData["enmys"].AsGodotDictionary();
+            if (enmysVariant is Godot.Collections.Dictionary)
+            {
+                // 加入僵尸数据
+                enmys = (Godot.Collections.Dictionary)enmysVariant;
+                // 计算全部僵尸数量
+                int totalZombiCount = 0;
+                foreach (string key in enmys.Keys)
+                {
+                    Godot.Collections.Array enmyInfo = enmys[key].AsGodotArray();
+                    foreach (var item in enmyInfo)
+                    {
+                        var info = (Godot.Collections.Dictionary)item;
+                        if (info != null && info.ContainsKey("types"))
+                        {
+                            int count = info["types"].AsGodotArray().Count;
+                            totalZombiCount += count;
+                        }
+                    }
+                }
+                GameStatistic.Instance?.SetZombieChapterTotal(totalZombiCount);
+            }
         }
+    }
+
+    void LoadVar(Godot.Collections.Dictionary varData)
+    {
+        if (varData.ContainsKey("initsun"))
+        {
+            // 初始阳光
+            int initsun = (int)varData["initsun"];
+            // 设置阳光
+            LoadInitSun(initsun);
+        }
+        if (varData.ContainsKey("gamechecktime"))
+        {
+            // 游戏检测时间
+            float gamechecktime = (float)varData["gamechecktime"];
+            GameWinnerChecker.Instance?.AddTimePoint(gamechecktime);
+            // 多加 10s
+            GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 10f);
+            // 多加 20s
+            GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 20f);
+        }
+    }
+
+    void LoadInitSun(int v)
+    {
+        var suns = SunCenterSystem.Instance;
+        if (suns == null)
+        {
+            GD.PrintErr("LoadInitSun => SunCenterSystem.Instance is null");
+            return;
+        }
+        suns?.SetValue(v);
     }
 }

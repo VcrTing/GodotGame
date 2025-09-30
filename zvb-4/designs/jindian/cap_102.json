@@ -1,44 +1,7 @@
 {
     "type": "normal",
-    "basic": {
-        "initsun": 50
-    },
-    "suns": {
-        "3": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
-            }
-        ],
-        "7": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
-            }
-        ],
-        "12": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
-            }
-        ],
-        "16": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
-            }
-        ]
-    },
-    "initsun": 100,
-    "gamechecktime": 45,
+    "initsun": 10000,
+    "gamechecktime": 40,
     "enmyswaveflag": {
         "19": 1
     },
@@ -107,6 +70,41 @@
                 "lazyall": 0,
                 "lazyme": 3,
                 "speedmode": "normal"
+            }
+        ]
+    },
+    
+    "suns": {
+        "3": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ],
+        "7": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ],
+        "12": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ],
+        "16": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
             }
         ]
     }

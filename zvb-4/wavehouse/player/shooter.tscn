@@ -69,6 +69,7 @@ sprite_frames = SubResource("SpriteFrames_at5dv")
 frame_progress = 0.01379809
 
 [node name="XiguaBing" type="Node2D" parent="."]
+visible = false
 script = ExtResource("2_tdfpe")
 
 [node name="View" type="AnimatedSprite2D" parent="XiguaBing"]

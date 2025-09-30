@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://wavehouse/pages/system_for_main.tscn" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://b3067rcwroi85" path="res://pngs/ui/logo.png" id="2_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dwxu4c2ind8i6" path="res://wavehouse/ui/main_next_button.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://xguhn7vnih0e" path="res://wavehouse/ui/single_options_button.tscn" id="3_jyhfs"]
 
 [node name="System" type="Node2D"]
 
@@ -61,13 +61,17 @@ grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(360, 180)
 
-[node name="MainStartButton" parent="CanvasLayer/ControlButton" instance=ExtResource("3_sugp2")]
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton" instance=ExtResource("3_jyhfs")]
 layout_mode = 1
 anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -180.0
 offset_top = -60.0
 offset_right = 180.0
 offset_bottom = 60.0
+grow_horizontal = 2
 grow_vertical = 2
+LabelText = "START"

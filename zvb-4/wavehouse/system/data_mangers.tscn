@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c20gy31whur46"]
+
+[ext_resource type="Script" uid="uid://bngscwsc4eikr" path="res://scripts/system/SaveDataManager.cs" id="1_napvj"]
+[ext_resource type="Script" uid="uid://dgdp3w1cpyfau" path="res://scripts/system/SaveGamerRunnerDataManger.cs" id="2_kubxa"]
+
+[node name="DataMangers" type="Node2D"]
+
+[node name="PlayerDataManger" type="Node2D" parent="."]
+script = ExtResource("1_napvj")
+
+[node name="GameChapterDataManger" type="Node2D" parent="."]
+script = ExtResource("2_kubxa")

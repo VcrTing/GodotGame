@@ -1,9 +1,14 @@
 
+using System;
+using System.Linq;
+
 namespace ZVB4.Conf
 {
     public static class PlansConstants
     {
         public const string Miao = "Miao";
+
+        // 植物名
         public const string Pea = "Pea";
         public const string XiguaBing = "XiguaBing";
 
@@ -50,6 +55,33 @@ namespace ZVB4.Conf
             { SunFlower, (int)EnumHealth.Two },
             { Cherry, (int)EnumHealth.Four }
         };
+
+        // 获取植物攻击速度
+        public static float GetPlansAttackSpeedStart(string key)
+        {
+            if (key == Pea) return 0.5f;
+            if (key == XiguaBing) return 1f;
+            return 0f;
+        }
+        public static float GetPlansAttackSpeedSnap(string key)
+        {
+            if (key == Pea) return 0.08f;
+            if (key == XiguaBing) return 0.1f;
+            return 0f;
+        }
+        public static float GetPlansAttackSpeedEnd(string key)
+        {
+            if (key == Pea) return 0.15f;
+            if (key == XiguaBing) return 0.2f;
+            return 0f;
+        }
+        public static float GetPlansAttackSpeedSnapSnap(string key)
+        {
+            if (key == Pea) return 0.01f;
+            if (key == XiguaBing) return 0.01f;
+            return 0f;
+        }
+
         // 根据key获取植物生命值
         public static int GetPlansHealth(string key)
         {
@@ -87,6 +119,16 @@ namespace ZVB4.Conf
             if (PlanGrowTimeDict.TryGetValue(key, out var value))
                 return value;
             return 0f;
+        }
+
+        //
+        
+        public static string GetRandomPlansName()
+        {
+            var keys = PlanSceneDict.Keys.ToList();
+            var rand = new Random();
+            string key = keys[rand.Next(keys.Count)];
+            return key;
         }
 
     }

@@ -29,7 +29,7 @@ public static class GameTool
             return SpeedInit * t;
         }
     }
-    public static bool RunnerBulletZeroWhenDieFx(Node2D node2D, double delta, ref float fadeElapsed, float fadeDuration = AnimationConstants.BulletFadeDieDuration, float fadeLowest = 0f)
+    public static bool RunnerBulletZeroWhenDieFx(Node2D node2D, CanvasItem view, double delta, ref float fadeElapsed, float fadeDuration = AnimationConstants.BulletFadeDieDuration, float fadeLowest = 0f)
     {
         Vector2 Scale = node2D.Scale;
         if (Scale.X > 0.11f)
@@ -38,7 +38,6 @@ public static class GameTool
             float newScale = Mathf.Lerp(Scale.X, 0.1f, scaleT);
             node2D.Scale = new Vector2(newScale, newScale);
         }
-        var view = node2D.GetNodeOrNull<CanvasItem>(NameConstants.View);
         if (view != null)
         {
             if (fadeElapsed < fadeDuration)
@@ -54,6 +53,11 @@ public static class GameTool
             }
         }
         return true;
+    }
+    public static bool RunnerBulletZeroWhenDieFx(Node2D node2D, double delta, ref float fadeElapsed, float fadeDuration = AnimationConstants.BulletFadeDieDuration, float fadeLowest = 0f)
+    {
+        var view = node2D.GetNodeOrNull<CanvasItem>(NameConstants.View);
+        return RunnerBulletZeroWhenDieFx(node2D, view, delta, ref fadeElapsed, fadeDuration, fadeLowest);
     }
 
     // 生成奖励组

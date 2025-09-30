@@ -71,7 +71,7 @@ public partial class SoundUiController : Node2D
     // sure 
     public void Sure()
     {
-        EnqueueSound("Ui", "sure", 4);
+        EnqueueSound("Ui/btn_sure_down", "sure", 4);
     }
 
     // back
@@ -84,5 +84,16 @@ public partial class SoundUiController : Node2D
     public void Error()
     {
         EnqueueSound("Ui", "error", 3);
+    }
+
+    // win
+    public void Win()
+    {
+        EnqueueSound("Ui/win", "win_s", 4);
+    }
+    // die
+    public void Die()
+    {
+        EnqueueSound("Ui/losegame", "game_over_ready", 4);
     }
 }

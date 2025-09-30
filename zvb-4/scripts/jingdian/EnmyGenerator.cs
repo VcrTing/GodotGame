@@ -63,7 +63,11 @@ public partial class EnmyGenerator : Node2D
     public static void GenerateEnemiesByConfig(Godot.Collections.Array types, Godot.Collections.Array generator, string typesmode, string generatormode, float lazyme)
     {
         var gen = Instance;
-        if (gen == null) return;
+        if (gen == null)
+        {
+            GD.PrintErr("EnmyGenerator.Instance is null");
+            return;
+        }
         if (typesmode == "next")
         {
             int count = Math.Min(types.Count, generator.Count);
@@ -114,6 +118,9 @@ public partial class EnmyGenerator : Node2D
             GD.PrintErr($"未找到敌人场景: {path}");
             return null;
         }
+        // 加计数
+        GameStatistic.Instance?.AddZombie(1);
+        //
         var instance = packed.Instantiate<Node2D>();
         // 取格子区间
         if (tileIndex < 1 || tileIndex > tiles.Count)

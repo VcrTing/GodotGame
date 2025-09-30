@@ -31,6 +31,23 @@ public static class GodotTool
         return null;
     }
 
+    public static void SwitchOneVisible(Node2D node, string name)
+    {
+        if (node == null) return;
+
+        // 隐藏所有子节点
+        foreach (Node child in node.GetChildren())
+        {
+            if (child is CanvasItem ci)
+                ci.Visible = false;
+        }
+        // 获取指定名称的子节点并显示
+        var target = node.GetNodeOrNull<CanvasItem>(name);
+        if (target != null)
+        {
+            target.Visible = true;
+        }
+    }
     public static void SwitchAnimatedSprite(Node2D node, string viewName, string animationName = "default")
     {
         if (node == null) return;

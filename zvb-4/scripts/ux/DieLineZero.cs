@@ -28,20 +28,18 @@ public partial class DieLineZero : Area2D
 
     async void Over()
     {
-        SoundFxController.Instance?.PlayFx("Ux/over", "game_over_ready", 4);
         BgmController.Instance?.PauseBgm();
-        await ToSignal(GetTree().CreateTimer(1f), "timeout");
-        SoundFxController.Instance?.PlayFx("Ux/over", "game_over", 3);
-        await ToSignal(GetTree().CreateTimer(5f), "timeout");
-        // 场景重置
-        GetTree().ReloadCurrentScene();
+        SoundFxController.Instance?.PlayFx("Ux/die", "die_aoxiao", 4);
+        await ToSignal(GetTree().CreateTimer(2f), "timeout");
+        CapterDiePopup.Instance?.ShowPopup();
+        // 暂停场景
+        // GetTree().Paused = true;
     }
 
     private void OnBodyEntered(Node body)
     {
         if (body != null && body.Name == NameConstants.AttackBody)
         {
-            GD.Print("游戏结束");
             Over();
         }
     }

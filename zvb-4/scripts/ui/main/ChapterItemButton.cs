@@ -22,16 +22,23 @@ public partial class ChapterItemButton : TextureButton
 
     private async void OnButtonPressed()
     {
-        GD.Print("ChapterItemButton Pressed!");
         SoundUiController.Instance.Sure();
         await ToSignal(GetTree().CreateTimer(GameContants.UiLazyTouchTime), "timeout");
         // 加载章节场景
         int _cap = (int)Chapter;
         string _caps = _cap.ToString();
+
+        // 保存场景
+        var manager = SaveGamerRunnerDataManger.Instance;
+        if (manager == null) return;
+        GD.Print("ChapterItemButton Working! _cap = " + _cap);
+        manager.SetCapterNumber(_cap);
+        string sceneName = ChapterTool.GetNextChapterSceneName(_cap);
+
         // 第一章
         if (_caps.StartsWith("1"))
         {
-            string scenePath = FolderConstants.Scenes + "test.tscn";
+            string scenePath = FolderConstants.Scenes + sceneName;
             GetTree().ChangeSceneToFile(scenePath);
         }
 	}

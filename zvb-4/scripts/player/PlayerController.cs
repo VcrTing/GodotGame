@@ -73,7 +73,7 @@ public partial class PlayerController : Node2D
         }
     }
 
-    void Attack(Vector2 clickPosition)
+    void Attack(Vector2 clickPosition, bool isFirstAttack)
     {
         if (_shooter == null)
         {
@@ -81,15 +81,7 @@ public partial class PlayerController : Node2D
         }
         // 必须要 _shooter
         if (_shooter == null) return;
-        _shooterInitPosition = _shooter.GlobalPosition;
-        // 计算方向
-        Vector2 direction = (clickPosition - _shooterInitPosition).Normalized();
-        // 让shooter朝向该方向旋转
-        if (_shooter != null)
-        {
-            _shooter.RotateToDirection(direction);
-            _shooter.AttackAtPosition(_shooterInitPosition, direction);
-        }
+        _shooter.Attack(clickPosition, isFirstAttack);
     }
 
     bool __startAttack = false;
@@ -105,12 +97,8 @@ public partial class PlayerController : Node2D
         __startAttack = false;
         firstAttack = false;
         __attackTime = 0;
-        __attackSpeed = attackSpeedStart;
-    }
-
-    void Attack()
-    {
-        if (__startAttack) Attack(__lastClickPos);
+        if (_shooter == null) return;
+        _shooter?.ReleaseAttack();
     }
 
     public float bounceTime = 3f;
@@ -121,18 +109,14 @@ public partial class PlayerController : Node2D
     bool firstAttack = false;
     public override void _Process(double delta)
     {
-        // CCC
         if (__startAttack)
         {
             __attackTime += (float)delta;
 
             if (firstAttack)
             {
-                if (__attackTime >= GetAttackSpeed(delta))
-                {
-                    __attackTime = 0;
-                    Attack(__lastClickPos);
-                }
+                __attackTime = 0;
+                Attack(__lastClickPos, false);
             }
             else
             {
@@ -140,23 +124,20 @@ public partial class PlayerController : Node2D
                 {
                     firstAttack = true;
                     __attackTime = 0;
-                    __attackSpeed = attackSpeedStart;
-                    Attack(__lastClickPos);
+                    Attack(__lastClickPos, true);
                 }
             }
         }
-        else
-        {
-
-        }
     }
 
-    public float __attackSpeed = 1f;
-    public float attackSpeedStart = 1f;
+    /*
+    public float __attackSpeed = 0f;
+    public float attackSpeedStart = 0.4f;
     public float attackSpeedFast = 0.05f;
     public float attackSpeedStep = 0.02f;
     float GetAttackSpeed(double delta)
     {
+        return __attackSpeed;
         if (__attackSpeed > attackSpeedFast)
         {
             __attackSpeed -= attackSpeedStep;
@@ -164,4 +145,5 @@ public partial class PlayerController : Node2D
         }
         return __attackSpeed;
     }
+    */
 }

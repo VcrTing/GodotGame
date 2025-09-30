@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://j1afhac3mr6i"]
+
+[ext_resource type="Script" uid="uid://c4trwv1sdpl2h" path="res://scripts/ui/pop/CapterWinPopup.cs" id="1_ey7r4"]
+[ext_resource type="Texture2D" uid="uid://dpx5pnoy8tvma" path="res://pngs/ui/win.png" id="2_7386v"]
+[ext_resource type="PackedScene" uid="uid://xguhn7vnih0e" path="res://wavehouse/ui/single_options_button.tscn" id="3_ey7r4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq7xp"]
+atlas = ExtResource("2_7386v")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6cx0"]
+atlas = ExtResource("2_7386v")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emonu"]
+atlas = ExtResource("2_7386v")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pdwa4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq7xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6cx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emonu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="CapterWinPopup" type="PopupPanel"]
+oversampling_override = 1.0
+mode = 3
+initial_position = 2
+size = Vector2i(720, 728)
+visible = true
+transient_to_focused = true
+min_size = Vector2i(720, 720)
+max_size = Vector2i(1080, 1920)
+script = ExtResource("1_ey7r4")
+
+[node name="ControlWIn" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlWIn"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ControlWIn/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 72
+text = "游戏胜利"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ControlWIn"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 120.0
+offset_bottom = 240.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ControlWIn/HBoxContainer2"]
+position = Vector2(347, 180)
+rotation = -0.4886922
+scale = Vector2(2.4, 2.4)
+sprite_frames = SubResource("SpriteFrames_pdwa4")
+autoplay = "default"
+frame_progress = 0.3380354
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ControlWIn"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -240.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SingleOptionsButton" parent="ControlWIn/HBoxContainer3" instance=ExtResource("3_ey7r4")]
+layout_mode = 2
+LabelText = "下一关"
+ButtonType = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ControlWIn"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SingleOptionsButton" parent="ControlWIn/HBoxContainer4" instance=ExtResource("3_ey7r4")]
+layout_mode = 2
+LabelText = "返回主菜单"
+ButtonType = 111

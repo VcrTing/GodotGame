@@ -105,7 +105,7 @@ public partial class GodobjWrapper : Node2D, IMove, IBeHurt, IObj, IAttack
     {
         ObjTool.RunningDie(this, objType, damage, enumHurts);
         await ToSignal(GetTree().CreateTimer(AnimationConstants.GetDieAniTime(this)), "timeout");
-        QueueFree();
+        Die();
         return true;
     }
 
@@ -117,6 +117,8 @@ public partial class GodobjWrapper : Node2D, IMove, IBeHurt, IObj, IAttack
 
     public bool Die()
     {
-        return false;
+        GameStatistic.Instance?.AddZombieDead(1);
+        QueueFree();
+        return true;
     }
 }

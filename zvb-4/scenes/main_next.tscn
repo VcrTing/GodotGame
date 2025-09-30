@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c27m86rjt4p1"]
+[gd_scene load_steps=4 format=3 uid="uid://c27m86rjt4p1"]
 
 [ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://wavehouse/ui/control_back_button.tscn" id="1_4qkyl"]
 [ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://wavehouse/pages/system_for_main.tscn" id="1_yl3b4"]
-[ext_resource type="PackedScene" uid="uid://dwxu4c2ind8i6" path="res://wavehouse/ui/main_next_button.tscn" id="2_m3dq7"]
 [ext_resource type="PackedScene" uid="uid://jc70r5c6v35f" path="res://wavehouse/ui/chapter_item_button.tscn" id="3_yjp08"]
 
 [node name="System" type="Node2D"]
@@ -150,27 +149,3 @@ layout_mode = 2
 [node name="ChapterItemButton2" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 102
-
-[node name="ControlButton" type="Control" parent="CanvasLayer"]
-visible = false
-clip_contents = true
-custom_minimum_size = Vector2(720, 360)
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-pivot_offset = Vector2(360, 180)
-
-[node name="MainStartButton" parent="CanvasLayer/ControlButton" instance=ExtResource("2_m3dq7")]
-layout_mode = 1
-anchors_preset = 8
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -60.0
-offset_right = 180.0
-offset_bottom = 60.0
-grow_vertical = 2

@@ -7,11 +7,13 @@ using ZVB4.Tool;
 
 public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWorking
 {
+    CanvasItem view = null;
     public override async void _Ready()
     {
         maxScale = Scale.X;
         minScale = ViewTool.GetYouMinScale(maxScale);
         Init();
+        view = GodotTool.FindNode2DByName(this, NameConstants.View);        
         // MMM
         //
         AdjustView();
@@ -25,8 +27,10 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         DoDie();
     }
 
+    bool canMove = true;
     public void MoveBullet(Vector2 direction, float speed, double delta)
     {
+        if (!canMove) return;
         Position += direction * speed * (float)delta;
     }
 
@@ -164,6 +168,7 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         {
             StartAttack();
             DieOfFade();
+            canMove = false;
         }
     }
 

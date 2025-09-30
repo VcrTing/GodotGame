@@ -12,33 +12,49 @@ public partial class FlowerPeng : Node2D
 
     public override void _Ready()
     {
-        Test();
+        // Test();
+    }
+
+    string MiaoScenePath = "plans_base_miao.tscn";
+
+    public void GeneratePlansMiao(string plansName)
+    {
+        _PlansMiao(plansName);
+        isLock = true;
+    }
+    public async void DelayGeneratePlansMiao(float delayTime, string plansName)
+    {
+        if (isLock) return;
+        isLock = true;
+        await this.ToSignal(this.GetTree().CreateTimer(delayTime + 0.1f), "timeout");
+        _PlansMiao(plansName);
+    }
+
+    bool isLock = false;
+    public void _PlansMiao(string plansName)
+    {
+        // 加载场景
+        var scene = GD.Load<PackedScene>(FolderConstants.WavePlayer + MiaoScenePath);
+        // 生成实例
+        var instance = scene.Instantiate();
+        AddChild(instance);
+        if (instance is PlansBaseMiao miao)
+        {
+            miao.Init(plansName);
+        }
+    }
+
+    public bool IsAllowPlans()
+    {
+        return !isLock;
+    }
+    public void ReleaseLock()
+    {
+        isLock = false;
     }
 
     public void Test()
     {
-        // 加载场景
-        var scene = GD.Load<PackedScene>("res://wavehouse/player/plans_base_miao.tscn");
-        if (scene == null)
-        {
-            GD.PrintErr("加载 plans_base_miao.tscn 失败");
-            return;
-        }
-        // 生成实例
-        var instance = scene.Instantiate();
-        AddChild(instance);
-        // 获取PlansBaseMiao脚本
-        if (instance is PlansBaseMiao miao)
-        {
-            // 随机获取PlanSceneDict的键
-            var keys = ZVB4.Conf.PlansConstants.PlanSceneDict.Keys.ToList();
-            var rand = new Random();
-            string key = keys[rand.Next(keys.Count)];
-            miao.Init(key);
-        }
-        else
-        {
-            GD.PrintErr("实例未绑定PlansBaseMiao脚本");
-        }
+        GeneratePlansMiao(PlansConstants.GetRandomPlansName());
     }
 }

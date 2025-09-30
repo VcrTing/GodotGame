@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqjnmevvfr4r"]
+
+[ext_resource type="Script" uid="uid://70ufbmgs1pj2" path="res://scripts/objs/RewordPlansMiao.cs" id="1_qlj2o"]
+[ext_resource type="Script" uid="uid://chyxysni1msvq" path="res://scripts/objs/FxShiningLight.cs" id="2_n1jgv"]
+[ext_resource type="Texture2D" uid="uid://bt2qlbwupid2x" path="res://pngs/ux/suprise.png" id="3_6nc6h"]
+[ext_resource type="Texture2D" uid="uid://xgu4xl0x0kpf" path="res://pngs/planscard/miao.png" id="4_n8s5w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kesu3"]
+atlas = ExtResource("3_6nc6h")
+region = Rect2(0, 0, 265, 265)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulph4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kesu3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r76w"]
+atlas = ExtResource("4_n8s5w")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulph4"]
+atlas = ExtResource("4_n8s5w")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jteds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r76w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulph4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jteds"]
+radius = 30.0
+
+[node name="RewordPlansMiao" type="Node2D"]
+z_index = 2000
+script = ExtResource("1_qlj2o")
+
+[node name="FxShiningLight" type="Node2D" parent="."]
+script = ExtResource("2_n1jgv")
+
+[node name="View" type="AnimatedSprite2D" parent="FxShiningLight"]
+sprite_frames = SubResource("SpriteFrames_ulph4")
+autoplay = "default"
+
+[node name="ViewExtra" type="AnimatedSprite2D" parent="FxShiningLight"]
+rotation = 0.3926991
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ulph4")
+autoplay = "default"
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_jteds")
+autoplay = "default"
+frame_progress = 0.6738075
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jteds")

@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqwpvqnfkp735"]
+
+[ext_resource type="Script" uid="uid://bmiw6ubl5dx7t" path="res://scripts/ui/pop/CapterDiePopup.cs" id="1_tly41"]
+[ext_resource type="Texture2D" uid="uid://bqa5rcibtmt5j" path="res://pngs/ui/die.png" id="2_ejile"]
+[ext_resource type="PackedScene" uid="uid://xguhn7vnih0e" path="res://wavehouse/ui/single_options_button.tscn" id="3_ejile"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptn7h"]
+atlas = ExtResource("2_ejile")
+region = Rect2(0, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beah6"]
+atlas = ExtResource("2_ejile")
+region = Rect2(160, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po8vl"]
+atlas = ExtResource("2_ejile")
+region = Rect2(320, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i77en"]
+atlas = ExtResource("2_ejile")
+region = Rect2(480, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_busgw"]
+atlas = ExtResource("2_ejile")
+region = Rect2(640, 0, 160, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xidw"]
+atlas = ExtResource("2_ejile")
+region = Rect2(800, 0, 160, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84uvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptn7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beah6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po8vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i77en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_busgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xidw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CapterDiePopup" type="PopupPanel"]
+oversampling_override = 1.0
+mode = 3
+initial_position = 2
+size = Vector2i(720, 728)
+visible = true
+min_size = Vector2i(720, 720)
+max_size = Vector2i(1080, 1920)
+script = ExtResource("1_tly41")
+
+[node name="ControlWIn" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlWIn"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ControlWIn/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 72
+text = "游戏失败"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ControlWIn"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 120.0
+offset_bottom = 240.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ControlWIn/HBoxContainer2"]
+position = Vector2(355, 190)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_84uvl")
+autoplay = "default"
+frame_progress = 0.912345
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ControlWIn"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -240.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SingleOptionsButton" parent="ControlWIn/HBoxContainer3" instance=ExtResource("3_ejile")]
+layout_mode = 2
+LabelText = "重新玩"
+ButtonType = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ControlWIn"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SingleOptionsButton" parent="ControlWIn/HBoxContainer4" instance=ExtResource("3_ejile")]
+layout_mode = 2
+LabelText = "返回主菜单"
+ButtonType = 111

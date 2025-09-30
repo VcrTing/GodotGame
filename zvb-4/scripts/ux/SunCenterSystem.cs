@@ -46,6 +46,7 @@ public partial class SunCenterSystem : Control
     {
         _value += v;
         UpdateSunLabel();
+        GameStatistic.Instance?.AddSunProduced(v);
     }
 
     // 减少 value，不能为负
@@ -55,6 +56,7 @@ public partial class SunCenterSystem : Control
         if (_value < 0)
             _value = 0;
         UpdateSunLabel();
+        GameStatistic.Instance?.AddSunConsumed(v);
     }
 
     private void UpdateSunLabel()
@@ -83,8 +85,20 @@ public partial class SunCenterSystem : Control
     }
 
     // 攻击扣除
-    public void ForAttack(int v)
+    public bool CostForAttack(int v)
     {
-        SubValue(v);
+        bool isZero = NextSunIsZero(v);
+        if (isZero)
+        {
+            // 错误音效
+            SoundUiController.Instance?.Error();
+            return false;
+        }
+        else
+        {
+            // 扣除阳光
+            SubValue(v);
+        }
+        return true;
     }
 }

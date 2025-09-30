@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 namespace ZVB4.Conf
 {
     public static class RewordConstants
@@ -9,7 +11,7 @@ namespace ZVB4.Conf
         public const string Baoshi = "Baoshi";
 
         // 
-        public static readonly System.Collections.Generic.Dictionary<string, string> RewordSceneDict = new System.Collections.Generic.Dictionary<string, string>
+        public static readonly Dictionary<string, string> RewordSceneDict = new Dictionary<string, string>
         {
             { Sun, FolderConstants.WaveObj + "sun.tscn" },
         };
@@ -24,6 +26,22 @@ namespace ZVB4.Conf
             if (RewordSceneDict.TryGetValue(key, out var value))
                 return value;
             return string.Empty;
+        }
+
+        // 植物随机加权值
+        public static readonly Dictionary<string, int> PlansRewordWeightDict = new Dictionary<string, int>
+        {
+            { PlansConstants.Pea, 10 },
+            { PlansConstants.XiguaBing, 5 },
+            { PlansConstants.SunFlower, 30 },
+            { PlansConstants.Cherry, 10 },
+        };
+
+        public static int GetPlansRewordWeight(string key)
+        {
+            if (PlansRewordWeightDict.TryGetValue(key, out var value))
+                return value;
+            return 0;
         }
 
     }

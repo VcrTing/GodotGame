@@ -1,6 +1,11 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://cu0nr542x2rqu"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cu0nr542x2rqu"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
+resource_name = "Limiter"
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")
+bus/0/effect/0/enabled = true
 bus/1/name = &"Enmy"
 bus/1/solo = false
 bus/1/mute = false
@@ -29,5 +34,5 @@ bus/5/name = &"BGM"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
-bus/5/volume_db = 0.0
+bus/5/volume_db = -2.212512
 bus/5/send = &"Master"
