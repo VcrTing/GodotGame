@@ -26,8 +26,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75pfo"]
-radius = 90.0
-height = 260.0
+radius = 96.0
+height = 300.0
 
 [node name="ShooterWorkTable" type="Node2D"]
 script = ExtResource("1_bgl10")

@@ -17,6 +17,16 @@ public partial class RewordPlansMiao : Node2D, IWorking
     float speed = 600f; // 可调整速度
     public override void _Process(double delta)
     {
+        // 存活10秒后自动销毁
+        aliveTimer += (float)delta;
+        if (aliveTimer >= aliveDuration)
+        {
+            QueueFree();
+        }
+        
+        if (!init) return;
+
+
         if (isWorking)
         {
             // 加速移动到alivePosition
@@ -29,13 +39,7 @@ public partial class RewordPlansMiao : Node2D, IWorking
             {
                 Position = alivePosition;
             }
-            
-        }
-        // 存活10秒后自动销毁
-        aliveTimer += (float)delta;
-        if (aliveTimer >= aliveDuration)
-        {
-            QueueFree();
+
         }
 
         // 自动追踪花盆
@@ -53,14 +57,17 @@ public partial class RewordPlansMiao : Node2D, IWorking
             }
         }
     }
-    float workingTime = 1f;
+    float workingTime = 1.5f;
     bool isLock = false;
+    float h = GameContants.ScreenHalfH - 90;
     async void StartToFlowerPeng(FlowerPeng flowerPeng)
     {
         if (isLock) return;
         isLock = true;
         SetWorkingMode(true);
-        RefreshAlivePosition(flowerPeng.GlobalPosition);
+        // Vector2 pos = flowerPeng.GlobalPosition;
+        // pos = flowerPeng.ToGlobal(pos);
+        RefreshAlivePosition(new Vector2(0, h));
         flowerPeng.DelayGeneratePlansMiao(workingTime, PlansName);
         await this.ToSignal(this.GetTree().CreateTimer(workingTime + 0.2f), "timeout");
         QueueFree();
@@ -76,7 +83,7 @@ public partial class RewordPlansMiao : Node2D, IWorking
     {
         alivePosition = Position;
         InitPosition = Position;
-        Init();
+        // Init();
     }
     bool isWorking = false;
     public void SetWorkingMode(bool working)
@@ -97,7 +104,8 @@ public partial class RewordPlansMiao : Node2D, IWorking
         }
     }
 
-    void Init()
+    bool init = false;
+    public void Init()
     {
         var rwm = RewordMiaoCenterSystem.Instance;
         if (rwm != null)
@@ -110,7 +118,15 @@ public partial class RewordPlansMiao : Node2D, IWorking
             PlansName = PlansConstants.GetRandomPlansName();
             GD.Print("随机到的植物是: " + PlansName);
         }
-        SoundFxController.Instance?.PlayFx("Ux/suprise", "suprise", 4, GlobalPosition);
+        init = true;
+    }
+
+    public void Init(Vector2 position, string plansName)
+    {
+        Position = position;
+        InitPosition = position;
+        PlansName = plansName;
+        init = true;
     }
 
     async void Test()

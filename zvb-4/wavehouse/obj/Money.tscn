@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://br0revff2jaxi"]
+
+[ext_resource type="Script" uid="uid://dm7o3nh2qwugn" path="res://scripts/objs/Money.cs" id="1_1s51k"]
+[ext_resource type="Texture2D" uid="uid://co80kput3ccrn" path="res://pngs/ui/money.png" id="2_esga7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cbsw"]
+atlas = ExtResource("2_esga7")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prudh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cbsw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4cbsw"]
+
+[node name="Money" type="RigidBody2D"]
+z_index = 1999
+script = ExtResource("1_1s51k")
+
+[node name="G" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_prudh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4cbsw")

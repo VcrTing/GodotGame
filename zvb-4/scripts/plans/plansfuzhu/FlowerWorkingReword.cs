@@ -7,9 +7,9 @@ public partial class FlowerWorkingReword: Node2D
 {
     public float sunTimer = 0f;
     [Export]
-    public float FirstGenerateInterval = 3f; // 首次3秒
+    public float FirstGenerateInterval = 2f; // 首次3秒
     [Export]
-    public float EveryGenerateInterval = 10f; // 每次间隔
+    public float EveryGenerateInterval = 8f; // 每次间隔
 
     public int GetRewordValue() => RewordValue;
     public int GetRewordCount() => RewordCount;
@@ -21,6 +21,14 @@ public partial class FlowerWorkingReword: Node2D
     public int RewordCount = 1;
     [Export]
     public string RewordName = SunMoneyConstants.Sun;
+
+
+    public override void _Ready()
+    {
+        int a = GD.RandRange(0, 200);
+        float v = a / 100;
+        FirstGenerateInterval += v;
+    }
 
 
     public void ProcessingForFlower(double delta, IObj obj)
@@ -37,11 +45,12 @@ public partial class FlowerWorkingReword: Node2D
 
     public float RandomGenerateInterval()
     {
-        var rand = new Random();
-        float randomOffset = (float)(rand.NextDouble() * 4.0 - 2.0); // -2 到 +2 之间的随机数
-        float newInterval = EveryGenerateInterval + randomOffset;
+        int a = GD.RandRange(0, 200);
+        float v = a / 100;
+        // float randomOffset = (float)(rand.NextDouble() * 4.0 - 2.0); // -2 到 +2 之间的随机数
+        float newInterval = EveryGenerateInterval + v;
         if (newInterval < 5f) newInterval = 5f;
-        if (newInterval > 15f) newInterval = 15f;
+        if (newInterval > 12f) newInterval = 12f;
         return newInterval;
     }
 

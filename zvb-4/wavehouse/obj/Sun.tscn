@@ -19,10 +19,10 @@ animations = [{
 }]
 
 [node name="Sun" type="Node2D"]
+z_index = 1980
 script = ExtResource("1_plwk5")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 visible = false
-z_index = 280
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_xiptw")

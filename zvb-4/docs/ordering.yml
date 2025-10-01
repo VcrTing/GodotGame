@@ -23,5 +23,11 @@ shooter:
 bullet:
   base: 1320
 
+sun:
+  base: 1980
+
 miao:
   base: 2000
+
+money: 
+  base: 1999

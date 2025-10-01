@@ -46,6 +46,8 @@ namespace ZVB4.Conf
 
         public const string PlansWorkingTileMap = "PlansWorkingTileMap";
 
+        public const string WorkingDumpReword = "WorkingDumpReword";
+
         public const string CollisionShape2D = "CollisionShape2D";
 
         public const string Fx = "Fx";

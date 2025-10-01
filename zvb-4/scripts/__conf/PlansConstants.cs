@@ -41,10 +41,10 @@ namespace ZVB4.Conf
         // 植物生长时长
         public static readonly System.Collections.Generic.Dictionary<string, float> PlanGrowTimeDict = new System.Collections.Generic.Dictionary<string, float>
         {
-            { Pea, 3f },
+            { Pea, 2f },
             { XiguaBing, 5f },
             { SunFlower, 1f },
-            { Cherry, 2f }
+            { Cherry, 3f }
         };
 
         // 植物生命值
@@ -55,6 +55,17 @@ namespace ZVB4.Conf
             { SunFlower, (int)EnumHealth.Two },
             { Cherry, (int)EnumHealth.Four }
         };
+
+        // 不会占用格子的植物
+        public static bool IsWillZhanYongGeZi(string planName)
+        {
+            if (planName == SunFlower)
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         // 获取植物攻击速度
         public static float GetPlansAttackSpeedStart(string key)

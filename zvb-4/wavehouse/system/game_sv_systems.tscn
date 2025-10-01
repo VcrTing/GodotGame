@@ -1,0 +1,119 @@
+[gd_scene load_steps=18 format=3 uid="uid://b0ouqeell2x2u"]
+
+[ext_resource type="Script" uid="uid://bemgn7umj6lpa" path="res://scripts/system/SystemConfig.cs" id="1_fnkl6"]
+[ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="2_5vk2o"]
+[ext_resource type="Texture2D" uid="uid://80g2un26x6vh" path="res://pngs/ui/Stop.png" id="3_t3bwm"]
+[ext_resource type="Texture2D" uid="uid://b1syu5inaurkx" path="res://pngs/ui/Stop_fcs.png" id="4_oke30"]
+[ext_resource type="Texture2D" uid="uid://guv06p3w7fot" path="res://pngs/ui/Stop_hv.png" id="5_o21ck"]
+[ext_resource type="Script" uid="uid://du1rc4h5c8gt7" path="res://scripts/ui/ingame/InGameBackButton.cs" id="6_su7pk"]
+[ext_resource type="Script" uid="uid://dx07d6odlbs4e" path="res://scripts/ux/SunCenterSystem.cs" id="7_754vr"]
+[ext_resource type="Texture2D" uid="uid://dkp32atjlrfko" path="res://pngs/ui/btn_things_bg.png" id="8_hx4eg"]
+[ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="9_hjp3a"]
+[ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://wavehouse/ui/control_back_button.tscn" id="10_7dr2n"]
+[ext_resource type="PackedScene" uid="uid://bqwpvqnfkp735" path="res://wavehouse/ui/capter_die_popup.tscn" id="11_crkn6"]
+[ext_resource type="PackedScene" uid="uid://j1afhac3mr6i" path="res://wavehouse/ui/capter_win_popup.tscn" id="12_dwo5b"]
+[ext_resource type="PackedScene" uid="uid://c6ds1gjwrriuf" path="res://wavehouse/ui/sound_ui_controller.tscn" id="13_0niu7"]
+[ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="14_fv2u0"]
+[ext_resource type="PackedScene" uid="uid://crbw8wgirbf30" path="res://wavehouse/sounds/sound_game_obj_controller.tscn" id="15_xtsm4"]
+[ext_resource type="PackedScene" uid="uid://dnrecc1uscn34" path="res://wavehouse/sounds/bgm_controller.tscn" id="16_xu36e"]
+[ext_resource type="PackedScene" uid="uid://c20gy31whur46" path="res://wavehouse/system/data_mangers.tscn" id="17_5n8d8"]
+
+[node name="GameSVSystems" type="Node2D"]
+script = ExtResource("1_fnkl6")
+
+[node name="Sky" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Sky"]
+script = ExtResource("2_5vk2o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ControlStop" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlStop"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/ControlStop/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("3_t3bwm")
+texture_pressed = ExtResource("4_oke30")
+texture_hover = ExtResource("5_o21ck")
+texture_focused = ExtResource("5_o21ck")
+stretch_mode = 0
+script = ExtResource("6_su7pk")
+
+[node name="ControlSun" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 90.0
+offset_bottom = 160.0
+grow_horizontal = 2
+script = ExtResource("7_754vr")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ControlSun"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 200.0
+grow_vertical = 2
+texture = ExtResource("8_hx4eg")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlSun"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -35.0
+offset_right = 260.0
+offset_bottom = 35.0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ControlSun/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_hjp3a")
+expand_mode = 2
+
+[node name="SunShowLabel" type="Label" parent="CanvasLayer/ControlSun/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="ControlBack" parent="CanvasLayer" instance=ExtResource("10_7dr2n")]
+visible = false
+
+[node name="CapterDiePopup" parent="CanvasLayer" instance=ExtResource("11_crkn6")]
+visible = false
+
+[node name="CapterWinPopup" parent="CanvasLayer" instance=ExtResource("12_dwo5b")]
+visible = false
+
+[node name="Ear" type="Node2D" parent="."]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Ear"]
+
+[node name="SoundUiController" parent="Ear" instance=ExtResource("13_0niu7")]
+
+[node name="SoundFxController" parent="Ear" instance=ExtResource("14_fv2u0")]
+
+[node name="SoundGameObjController" parent="Ear" instance=ExtResource("15_xtsm4")]
+
+[node name="BgmController" parent="Ear" instance=ExtResource("16_xu36e")]
+
+[node name="DataMangers" parent="." instance=ExtResource("17_5n8d8")]

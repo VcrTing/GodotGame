@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using ZVB4.Conf;
 
 public partial class SystemConfig : Node2D
 {
@@ -13,6 +14,6 @@ public partial class SystemConfig : Node2D
     
     void Init()
     {
-        DisplayServer.WindowSetSize(new Vector2I(1080, 1920));
+        DisplayServer.WindowSetSize(new Vector2I((int)GameContants.ScreenHalfW * 2, (int)GameContants.ScreenHalfH * 2));
     }
 }

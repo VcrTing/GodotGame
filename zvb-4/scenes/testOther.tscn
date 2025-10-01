@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://csoklck3bhn0a"]
+[gd_scene load_steps=13 format=3 uid="uid://csoklck3bhn0a"]
 
 [ext_resource type="PackedScene" uid="uid://tyfyw8v7besx" path="res://wavehouse/bullet/bullet_zero.tscn" id="1_thh5b"]
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="2_1bcut"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="6_ulph4"]
 [ext_resource type="Script" uid="uid://cxcgsqncwoqqb" path="res://scripts/ux/FlowerPengSystem.cs" id="8_3r76w"]
 [ext_resource type="Script" uid="uid://cg23d5r85c0lt" path="res://scripts/objs/RewordMiaoCenterSystem.cs" id="10_jteds"]
+[ext_resource type="Script" uid="uid://lh6wuyr0v4sq" path="res://scripts/objs/MoneyCenterSystem.cs" id="11_kesu3"]
+[ext_resource type="PackedScene" uid="uid://br0revff2jaxi" path="res://wavehouse/obj/Money.tscn" id="12_bfg5g"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -33,6 +35,7 @@ position = Vector2(0, 600)
 script = ExtResource("6_ulph4")
 
 [node name="RewordPlansMiao" parent="." instance=ExtResource("6_3r76w")]
+visible = false
 
 [node name="CapsCenter" type="Node2D" parent="."]
 script = ExtResource("6_kesu3")
@@ -43,4 +46,18 @@ position = Vector2(0, 400)
 script = ExtResource("8_3r76w")
 
 [node name="RewordMiaoCenterSystem" type="Node2D" parent="CapsCenter/FlowerPengSystem"]
+position = Vector2(0, -700)
 script = ExtResource("10_jteds")
+
+[node name="MoneyCenterSystem" type="Node2D" parent="CapsCenter"]
+script = ExtResource("11_kesu3")
+
+[node name="Moneys" type="Node2D" parent="."]
+
+[node name="Money" parent="Moneys" instance=ExtResource("12_bfg5g")]
+
+[node name="Money3" parent="Moneys" instance=ExtResource("12_bfg5g")]
+
+[node name="Money4" parent="Moneys" instance=ExtResource("12_bfg5g")]
+
+[node name="Money2" parent="Moneys" instance=ExtResource("12_bfg5g")]

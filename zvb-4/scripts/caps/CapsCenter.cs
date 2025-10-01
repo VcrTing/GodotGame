@@ -132,6 +132,7 @@ public partial class CapsCenter : Node2D
             if (result.VariantType == Variant.Type.Dictionary)
             {
                 _capData = (Godot.Collections.Dictionary)result;
+                LoadMiao(_capData);
                 LoadZombis(_capData);
                 if (_capData.ContainsKey("suns"))
                 {
@@ -154,6 +155,21 @@ public partial class CapsCenter : Node2D
             }
             else
                 GD.PrintErr($"Failed to parse dictionary from {jsonPath}");
+        }
+    }
+
+    void LoadMiao(Godot.Collections.Dictionary _capData)
+    {
+        string initmiaomode = _capData["initmiaomode"].AsString();
+        if (initmiaomode != null && initmiaomode != "" && initmiaomode != "none")
+        {
+            string initmiaorandomnummode = _capData["initmiaorandomnummode"].AsString();
+            Godot.Collections.Array initmiaolist = _capData["initmiaolist"].AsGodotArray();
+            var miaoCenter = RewordMiaoCenterSystem.Instance;
+            if (miaoCenter != null)
+            {
+                miaoCenter.DumpInitPlansMiao(initmiaomode, initmiaorandomnummode, initmiaolist);
+            }
         }
     }
 
@@ -203,7 +219,11 @@ public partial class CapsCenter : Node2D
             // 多加 10s
             GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 10f);
             // 多加 20s
+            GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 15f);
+            // 多加 30s
             GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 20f);
+            // 多加 30s
+            GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 30f);
         }
     }
 

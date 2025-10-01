@@ -7,41 +7,41 @@ using ZVB4.Entity;
 
 public partial class SaveDataManager : Node
 {
-	private const string SaveFileName = "user://playerdata.json";
-	public static SaveDataManager Instance { get; private set; }
+    private const string SaveFileName = "user://playerdata.json";
+    public static SaveDataManager Instance { get; private set; }
 
-	private EntityPlayerData _playerData = null;
+    private EntityPlayerData _playerData = null;
 
-	public override void _Ready()
-	{
-		Instance = this;
-		LoadPlayerData();
-	}
+    public override void _Ready()
+    {
+        Instance = this;
+        LoadPlayerData();
+    }
 
-	public EntityPlayerData GetPlayerData()
-	{
-		if (_playerData == null)
-		{
-			LoadPlayerData();
-		}
-		return _playerData;
-	}
+    public EntityPlayerData GetPlayerData()
+    {
+        if (_playerData == null)
+        {
+            LoadPlayerData();
+        }
+        return _playerData;
+    }
 
-	public void SavePlayerData()
-	{
-		try
-		{
-			string json = JsonSerializer.Serialize(_playerData);
-			using var file = Godot.FileAccess.Open(SaveFileName, Godot.FileAccess.ModeFlags.Write);
-			file.StoreString(json);
-			file.Close();
-		}
-		catch (Exception e)
-		{
-			GD.PrintErr($"Save failed: {e.Message}");
-		}
-	}
-    
+    public void SavePlayerData()
+    {
+        try
+        {
+            string json = JsonSerializer.Serialize(_playerData);
+            using var file = Godot.FileAccess.Open(SaveFileName, Godot.FileAccess.ModeFlags.Write);
+            file.StoreString(json);
+            file.Close();
+        }
+        catch (Exception e)
+        {
+            GD.PrintErr($"Save failed: {e.Message}");
+        }
+    }
+
     public void SetPlayerShooter(string shooterName)
     {
         if (_playerData == null)
@@ -55,7 +55,7 @@ public partial class SaveDataManager : Node
         }
     }
 
-	public void LoadPlayerData()
+    public void LoadPlayerData()
     {
         try
         {
@@ -76,6 +76,19 @@ public partial class SaveDataManager : Node
         {
             GD.PrintErr($"Load failed: {e.Message}");
             _playerData = new EntityPlayerData();
+            SavePlayerData();
+        }
+    }
+
+    public void SetMoneyAndSave(int value)
+    {
+        if (_playerData == null)
+        {
+            LoadPlayerData();
+        }
+        if (_playerData != null)
+        {
+            _playerData.Money = value;
             SavePlayerData();
         }
     }

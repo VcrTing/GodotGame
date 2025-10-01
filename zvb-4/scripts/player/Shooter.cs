@@ -89,15 +89,22 @@ public partial class Shooter : Node2D, IShooter
         NowRotationDir = Vector2.Up;
         ResetAttackModel();
     }
-    public void ReleaseAttack()
+    public void ReleaseAttack(bool mustEmpty = false)
     {
-        // 只保留最后一个方向
         if (attackDirectionList.Count > 0)
         {
-            AttackDirection = attackDirectionList[attackDirectionList.Count - 1];
-            attackDirectionList.Clear();
-            RotateToDirection(AttackDirection);
-            AttackAtPosition(GlobalPosition, AttackDirection);
+            if (mustEmpty)
+            {
+                attackDirectionList.Clear();
+            }
+            // 只保留最后一个方向
+            else
+            {
+                AttackDirection = attackDirectionList[attackDirectionList.Count - 1];
+                attackDirectionList.Clear();
+                RotateToDirection(AttackDirection);
+                AttackAtPosition(GlobalPosition, AttackDirection);
+            }
             attackNum = 0;
             __attackFlagTime = 0f;
             ResetAttackModel();

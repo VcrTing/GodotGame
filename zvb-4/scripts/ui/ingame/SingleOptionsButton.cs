@@ -27,6 +27,11 @@ public partial class SingleOptionsButton : TextureButton
         {
             label.Text = LabelText;
         }
+
+        if (ButtonType == EnumOptions.NextChapterAuto)
+        {
+            
+        }
     }
 
     private async void OnButtonPressed()
@@ -69,7 +74,13 @@ public partial class SingleOptionsButton : TextureButton
         GetTree().ReloadCurrentScene();
     }
 
-    void NextChapter()
+    async void NextChapterAuto()
+    {
+        await this.ToSignal(this.GetTree().CreateTimer(3f), "timeout");
+        NextChapter(false);
+    }
+
+    void NextChapter(bool isBackToMain = true)
     {
         // TODO: 这里写点击后的逻辑
         var manager = SaveGamerRunnerDataManger.Instance;
@@ -81,7 +92,7 @@ public partial class SingleOptionsButton : TextureButton
         int nextCap = manager.DoNextChapter();
         if (nextCap == (int)EnumChapter.None)
         {
-            UiTool.BackToMainScene(this);
+            if (isBackToMain) UiTool.BackToMainScene(this);
             return;
         }
         UiTool.NextScene(this, FolderConstants.Scenes + ChapterTool.GetNextChapterSceneName(nextCap));

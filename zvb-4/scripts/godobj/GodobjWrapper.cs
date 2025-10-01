@@ -103,6 +103,9 @@ public partial class GodobjWrapper : Node2D, IMove, IBeHurt, IObj, IAttack
 
     public async Task<bool> Die(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
+        // 生成奖励
+        IWhenDie whenDie = this.GetNodeOrNull<IWhenDie>(NameConstants.WorkingDumpReword);
+        whenDie?.WorkingWhenDie(objName);
         ObjTool.RunningDie(this, objType, damage, enumHurts);
         await ToSignal(GetTree().CreateTimer(AnimationConstants.GetDieAniTime(this)), "timeout");
         Die();
@@ -118,6 +121,7 @@ public partial class GodobjWrapper : Node2D, IMove, IBeHurt, IObj, IAttack
     public bool Die()
     {
         GameStatistic.Instance?.AddZombieDead(1);
+        //
         QueueFree();
         return true;
     }

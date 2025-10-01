@@ -14,8 +14,6 @@ public partial class RewordMiaoCenterSystem : Node2D
 
     Dictionary<string, int> PlansDict = new Dictionary<string, int>();
 
-
-
     float spawnTimer = 0f;
     float spawnInterval = 1f;
     public override void _Process(double delta)
@@ -65,7 +63,7 @@ public partial class RewordMiaoCenterSystem : Node2D
             PlansRewordWeightDict[key] = newWeight;
         }
     }
-    
+
     public static readonly Dictionary<string, int> PlansRewordWeightDict = new Dictionary<string, int>
     {
         { PlansConstants.Pea, 10 },
@@ -144,4 +142,92 @@ public partial class RewordMiaoCenterSystem : Node2D
         return PlansDict.ContainsKey(name) && PlansDict[name] > 0;
     }
 
+    /*
+
+
+    */
+    float w = GameContants.ScreenHalfW - 90;
+    // 随机地点出生苗
+    public void DumpPlansMiaoRandomPosition(string name, bool playSound = true)
+    {
+        Vector2 pos = this.GlobalPosition;
+        float x = pos.X;
+        float y = pos.Y;
+
+        int v = (int)GD.RandRange(1, w);
+        int v2 = (int)GD.RandRange(1, w);
+
+        x += v;
+        y += v2;
+        DumpPlansMiao(new Vector2(x, y), name, playSound);
+    }
+
+    public void DumpPlansMiao(Vector2 pos, string name, bool playSound = true)
+    {
+        try
+        {
+            var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + "reword_plans_miao.tscn");
+            var instance = scene.Instantiate<RewordPlansMiao>();
+            instance.Init(pos, name);
+            AddChild(instance);
+            if (playSound)
+                SoundFxController.Instance?.PlayFx("Ux/suprise", "suprise", 4, GlobalPosition);
+        }
+        catch (Exception e)
+        {
+            GD.PrintErr("生成苗失败: " + e.Message);
+            return;
+        }
+    }
+
+    public void DumpInitPlansMiao(string initmiaomode, string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
+    {
+        switch (initmiaomode)
+        {
+            case "random":
+                DumpRandomPlansMiao(initmiaorandomnummode, initmiaolist);
+                break;
+            case "all":
+                DumpAllPlansMiao(initmiaolist);
+                break;
+            case "无":
+                GD.Print("不生成苗");
+                break;
+        }
+    }
+
+    void DumpRandomPlansMiao(string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
+    {
+        int num = 0;
+        int penNum = FlowerPengSystem.Instance?.GetUseFullFlowerPeng().Count ?? 0;
+        GD.Print("当前可用花盆数量: " + penNum);
+        switch (initmiaorandomnummode)
+        {
+            case "FlowerPeng":
+                num = 6; // FlowerPengSystem.Instance?.GetUseFullFlowerPeng().Count ?? 0;
+                break;
+            default:
+                num = 3;
+                break;
+        }
+        for (int i = 0; i < num; i++)
+        {
+            string name = GetRandomPlansNameWithPowerWeight();
+            if (name != null && name != "")
+            {
+                DumpPlansMiaoRandomPosition(name, false);
+            }
+        }
+    }
+    void DumpAllPlansMiao(Godot.Collections.Array initmiaolist)
+    {
+        foreach (var item in initmiaolist)
+        {
+            string name = item.AsString();
+            if (name != null && name != "")
+            {
+                DumpPlansMiaoRandomPosition(name, false);
+            }
+        }
+    }
 }

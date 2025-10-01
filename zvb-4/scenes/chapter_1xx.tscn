@@ -1,6 +1,5 @@
-[gd_scene load_steps=51 format=3 uid="uid://n2tf7bjt1fe0"]
+[gd_scene load_steps=37 format=3 uid="uid://n2tf7bjt1fe0"]
 
-[ext_resource type="Script" uid="uid://bemgn7umj6lpa" path="res://scripts/system/SystemConfig.cs" id="1_iyx0m"]
 [ext_resource type="Script" uid="uid://bdtd1kvhadi8c" path="res://scripts/system/Envs.cs" id="1_j5jx5"]
 [ext_resource type="Texture2D" uid="uid://bqcf2l7q7h4g" path="res://pngs/ux/grass1.png" id="2_iyx0m"]
 [ext_resource type="Texture2D" uid="uid://b45fb5malrj1v" path="res://pngs/ui/GameBg.png" id="3_gsk6d"]
@@ -16,31 +15,18 @@
 [ext_resource type="Script" uid="uid://bikplbsxucboc" path="res://scripts/player/PlayerAttackArea.cs" id="15_1dqgb"]
 [ext_resource type="PackedScene" uid="uid://br3fnkwdn12o7" path="res://wavehouse/player/shooter_work_table.tscn" id="15_gv2t6"]
 [ext_resource type="Script" uid="uid://d38vgruxqe4rl" path="res://scripts/caps/CapsCenter.cs" id="16_5jxlq"]
-[ext_resource type="PackedScene" uid="uid://c6ds1gjwrriuf" path="res://wavehouse/ui/sound_ui_controller.tscn" id="16_j7bvy"]
 [ext_resource type="Script" uid="uid://bngscwsc4eikr" path="res://scripts/system/SaveDataManager.cs" id="16_kay4s"]
 [ext_resource type="Script" uid="uid://csciyfvn7fqbk" path="res://scripts/player/PlayerUxTileMap.cs" id="16_y81of"]
 [ext_resource type="PackedScene" uid="uid://bfthejwtbkxar" path="res://wavehouse/obj/bullet_wall.tscn" id="18_4k8fq"]
 [ext_resource type="Script" uid="uid://bctsx0boajko" path="res://scripts/ux/BulletLowDown.cs" id="18_75pfo"]
-[ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="20_1dqgb"]
-[ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="20_2cnsr"]
-[ext_resource type="Script" uid="uid://dx07d6odlbs4e" path="res://scripts/ux/SunCenterSystem.cs" id="21_j7bvy"]
+[ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
 [ext_resource type="Script" uid="uid://ckcymbhwfhj3" path="res://scripts/jingdian/EnmyGenerator.cs" id="21_n74k2"]
 [ext_resource type="Script" uid="uid://dvqi22qwhhnnd" path="res://scripts/caps/EnmyCenter.cs" id="21_si7kk"]
-[ext_resource type="PackedScene" uid="uid://crbw8wgirbf30" path="res://wavehouse/sounds/sound_game_obj_controller.tscn" id="22_1dqgb"]
 [ext_resource type="Script" uid="uid://cxcgsqncwoqqb" path="res://scripts/ux/FlowerPengSystem.cs" id="24_gsk6d"]
-[ext_resource type="Texture2D" uid="uid://80g2un26x6vh" path="res://pngs/ui/Stop.png" id="24_mi64w"]
-[ext_resource type="Texture2D" uid="uid://b1syu5inaurkx" path="res://pngs/ui/Stop_fcs.png" id="25_ds53i"]
-[ext_resource type="Texture2D" uid="uid://dkp32atjlrfko" path="res://pngs/ui/btn_things_bg.png" id="25_gv2t6"]
-[ext_resource type="Texture2D" uid="uid://guv06p3w7fot" path="res://pngs/ui/Stop_hv.png" id="26_p8c7m"]
-[ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://wavehouse/ui/control_back_button.tscn" id="27_1xwo4"]
-[ext_resource type="Script" uid="uid://du1rc4h5c8gt7" path="res://scripts/ui/ingame/InGameBackButton.cs" id="27_ds53i"]
-[ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="29_gsk6d"]
-[ext_resource type="PackedScene" uid="uid://bqwpvqnfkp735" path="res://wavehouse/ui/capter_die_popup.tscn" id="30_kh47s"]
-[ext_resource type="PackedScene" uid="uid://dnrecc1uscn34" path="res://wavehouse/sounds/bgm_controller.tscn" id="31_1xwo4"]
-[ext_resource type="PackedScene" uid="uid://j1afhac3mr6i" path="res://wavehouse/ui/capter_win_popup.tscn" id="31_bnwl7"]
-[ext_resource type="PackedScene" uid="uid://c20gy31whur46" path="res://wavehouse/system/data_mangers.tscn" id="36_emonu"]
 [ext_resource type="Script" uid="uid://cxkn12vympk8" path="res://scripts/jingdian/GameWinnerChecker.cs" id="36_p8c7m"]
 [ext_resource type="Script" uid="uid://bxgen0vqmpkb2" path="res://scripts/caps/GameStatistic.cs" id="37_3ss0b"]
+[ext_resource type="Script" uid="uid://cg23d5r85c0lt" path="res://scripts/objs/RewordMiaoCenterSystem.cs" id="39_bnwl7"]
+[ext_resource type="Script" uid="uid://lh6wuyr0v4sq" path="res://scripts/objs/MoneyCenterSystem.cs" id="40_us61u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7bvy"]
 size = Vector2(1080, 960)
@@ -119,12 +105,12 @@ size = Vector2(1160, 90)
 [node name="System" type="Node2D"]
 script = ExtResource("16_kay4s")
 
-[node name="Envs" type="Node2D" parent="."]
+[node name="EnvJinDian" type="Node2D" parent="."]
 script = ExtResource("1_j5jx5")
 
-[node name="Background" type="Node2D" parent="Envs"]
+[node name="Background" type="Node2D" parent="EnvJinDian"]
 
-[node name="GameBg" type="Sprite2D" parent="Envs/Background"]
+[node name="GameBg" type="Sprite2D" parent="EnvJinDian/Background"]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_gsk6d")
 
@@ -194,114 +180,19 @@ rotation = 0.05235988
 position = Vector2(600, 0)
 rotation = -0.05235988
 
-[node name="GameSystems" type="Node2D" parent="."]
-script = ExtResource("1_iyx0m")
-
-[node name="SoundUiController" parent="GameSystems" instance=ExtResource("16_j7bvy")]
-
-[node name="Sky" type="Node2D" parent="GameSystems"]
-
-[node name="Camera2D" type="Camera2D" parent="GameSystems/Sky"]
-script = ExtResource("20_2cnsr")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="GameSystems"]
-
-[node name="ControlStop" type="Control" parent="GameSystems/CanvasLayer"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -60.0
-offset_bottom = 60.0
-grow_horizontal = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GameSystems/CanvasLayer/ControlStop"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureButton" type="TextureButton" parent="GameSystems/CanvasLayer/ControlStop/HBoxContainer"]
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-texture_normal = ExtResource("24_mi64w")
-texture_pressed = ExtResource("25_ds53i")
-texture_hover = ExtResource("26_p8c7m")
-texture_focused = ExtResource("26_p8c7m")
-stretch_mode = 0
-script = ExtResource("27_ds53i")
-
-[node name="ControlSun" type="Control" parent="GameSystems/CanvasLayer"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 3
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 90.0
-offset_bottom = 160.0
-grow_horizontal = 2
-script = ExtResource("21_j7bvy")
-
-[node name="TextureRect" type="TextureRect" parent="GameSystems/CanvasLayer/ControlSun"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 200.0
-grow_vertical = 2
-texture = ExtResource("25_gv2t6")
-expand_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GameSystems/CanvasLayer/ControlSun"]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -35.0
-offset_right = 260.0
-offset_bottom = 35.0
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="GameSystems/CanvasLayer/ControlSun/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("20_1dqgb")
-expand_mode = 2
-
-[node name="SunShowLabel" type="Label" parent="GameSystems/CanvasLayer/ControlSun/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "0"
-
-[node name="ControlBack" parent="GameSystems/CanvasLayer" instance=ExtResource("27_1xwo4")]
-visible = false
-
-[node name="CapterDiePopup" parent="GameSystems/CanvasLayer" instance=ExtResource("30_kh47s")]
-visible = false
-
-[node name="CapterWinPopup" parent="GameSystems/CanvasLayer" instance=ExtResource("31_bnwl7")]
-visible = false
-
-[node name="Ear" type="Node2D" parent="GameSystems"]
-
-[node name="AudioListener2D" type="AudioListener2D" parent="GameSystems/Ear"]
-
-[node name="DataMangers" parent="GameSystems" instance=ExtResource("36_emonu")]
+[node name="GameSVSystems" parent="." instance=ExtResource("19_pniwq")]
 
 [node name="CapsCenter" type="Node2D" parent="."]
 script = ExtResource("16_5jxlq")
 enumChapter = 102
 
-[node name="EnmyGenerator" type="Node2D" parent="CapsCenter"]
-position = Vector2(0, -380)
-script = ExtResource("21_n74k2")
-
 [node name="FlowerPengSystem" type="Node2D" parent="CapsCenter"]
 position = Vector2(0, 850)
 script = ExtResource("24_gsk6d")
 
-[node name="EnmyEnvBuilder" type="Node2D" parent="CapsCenter"]
-script = ExtResource("21_si7kk")
+[node name="RewordMiaoCenterSystem" type="Node2D" parent="CapsCenter/FlowerPengSystem"]
+position = Vector2(0, -1150)
+script = ExtResource("39_bnwl7")
 
 [node name="GameWinnerChecker" type="Node2D" parent="CapsCenter"]
 script = ExtResource("36_p8c7m")
@@ -309,10 +200,14 @@ script = ExtResource("36_p8c7m")
 [node name="GameStatistic" type="Node2D" parent="CapsCenter"]
 script = ExtResource("37_3ss0b")
 
-[node name="CapJingDian" type="Node2D" parent="."]
+[node name="MoneyCenterSystem" type="Node2D" parent="CapsCenter"]
+script = ExtResource("40_us61u")
 
-[node name="SoundFxController" parent="CapJingDian" instance=ExtResource("29_gsk6d")]
+[node name="Enmys" type="Node2D" parent="CapsCenter"]
 
-[node name="SoundGameObjController" parent="CapJingDian" instance=ExtResource("22_1dqgb")]
+[node name="EnmyEnvBuilder" type="Node2D" parent="CapsCenter/Enmys"]
+script = ExtResource("21_si7kk")
 
-[node name="BgmController" parent="CapJingDian" instance=ExtResource("31_1xwo4")]
+[node name="EnmyGenerator" type="Node2D" parent="CapsCenter/Enmys"]
+position = Vector2(0, -380)
+script = ExtResource("21_n74k2")

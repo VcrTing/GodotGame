@@ -125,7 +125,15 @@ public partial class PlayerAttackArea : Area2D
         _isActive = false;
     }
 
-    void ForPlayerController(Vector2 worldPos, bool isRelease = false)
+    void PlayerAttackDoing(Vector2 worldPos)
+    {
+        __PlayerController(worldPos, false);
+    }
+    void PlayerAttackRelease(Vector2 worldPos, bool isClear)
+    {
+        __PlayerController(worldPos, true);
+    }
+    void __PlayerController(Vector2 worldPos, bool isRelease = false, bool isClear = false)
     {
         try
         {
@@ -134,7 +142,14 @@ public partial class PlayerAttackArea : Area2D
             {
                 if (isRelease)
                 {
-                    playerController.ReleaseAttack(worldPos);
+                    if (isClear)
+                    {
+                        playerController.ReleaseAttackClear(worldPos, true);
+                    }
+                    else
+                    {
+                        playerController.ReleaseAttack(worldPos);
+                    }
                 }
                 else
                 {
@@ -142,10 +157,7 @@ public partial class PlayerAttackArea : Area2D
                 }
             }
         }
-        catch
-        {
-            
-        }
+        catch { }
     }
 
     // 持续拖拽/触摸时调用的方法
@@ -154,14 +166,15 @@ public partial class PlayerAttackArea : Area2D
         var worldPos = this.ToGlobal(pos);
         // TODO: 替换为你需要持续调用的逻辑
         // GD.Print($"持续拖拽/触摸: {pos}");
+        lastPos = worldPos;
         if (optionType == EnumOptionType.CatchPlans)
         {
             // GD.Print($"持续拖拽/触摸: {pos} CatchPlans");
         }
         else
         {
-            // 空白区域触摸
-            ForPlayerController(worldPos);
+            // 攻击
+            PlayerAttackDoing(worldPos);
             //
             ChangeOptionType(EnumOptionType.EmptyTouch);
         }
@@ -171,6 +184,7 @@ public partial class PlayerAttackArea : Area2D
     private void OnRelease(Vector2 pos)
     {
         var worldPos = this.ToGlobal(pos);
+        lastPos = worldPos;
         // TODO: 替换为你需要的松开逻辑
         // GD.Print($"区域内松开/抬起: {pos} CatchPlans {GetLocalMousePosition()} {worldPos}");
         if (optionType == EnumOptionType.CatchPlans)
@@ -181,11 +195,7 @@ public partial class PlayerAttackArea : Area2D
                 WorkForPlans(worldPos, lastObj.GetObjName());
             }
         }
-        else
-        {
-            //
-        }
-        ForPlayerController(worldPos, true);
+        PlayerAttackRelease(worldPos, false);
         ResetOptionType();
     }
 
@@ -194,7 +204,8 @@ public partial class PlayerAttackArea : Area2D
         string name = area.Name;
         if (name == NameConstants.MiaoArea)
         {
-            TurnBackOptionType(EnumOptionType.CatchPlans);
+            ResetOptionType();
+            // TurnBackOptionType(EnumOptionType.CatchPlans);
             lastObj = null;
             lastNode = null;
         }
@@ -202,12 +213,14 @@ public partial class PlayerAttackArea : Area2D
 
     IObj lastObj = null;
     Node2D lastNode = null;
+    Vector2 lastPos = Vector2.Up;
 
     private void OnAreaEntered(Area2D area)
     {
         string name = area.Name;
         if (name == NameConstants.MiaoArea)
         {
+            PlayerAttackRelease(lastPos, true);
             ChangeOptionType(EnumOptionType.CatchPlans);
             IObj obj = area.GetParent() as IObj;
             if (obj != null)
@@ -239,6 +252,9 @@ public partial class PlayerAttackArea : Area2D
     {
         if (lastObj != null)
         {
+            ReleaseFlowerPeng();
+            PlayerAttackRelease(lastPos, true);
+            ResetOptionType();
             lastObj.Die();
             lastObj = null;
             lastNode = null;
@@ -268,8 +284,18 @@ public partial class PlayerAttackArea : Area2D
             // GD.Print($"区域内松开/抬起: {pos} CatchPlans {GetLocalMousePosition()}");
             isOk = plansPlanting.ZhongZhiPlans(pos, planName);
             DieLastObj();
+            // 解开花盆
         }
         return isOk;
+    }
+
+    void ReleaseFlowerPeng()
+    {
+        FlowerPeng flowerPeng = lastNode.GetParent<FlowerPeng>();
+        if (flowerPeng != null)
+        {
+            flowerPeng.ReleaseLock();
+        }
     }
 
     void ChangeOptionType(EnumOptionType newType)

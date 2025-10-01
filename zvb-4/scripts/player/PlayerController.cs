@@ -93,12 +93,16 @@ public partial class PlayerController : Node2D
     }
     public void ReleaseAttack(Vector2 clickPosition)
     {
+        ReleaseAttackClear(clickPosition, false);
+    }
+    public void ReleaseAttackClear(Vector2 clickPosition, bool isClear = true)
+    {
         __lastClickPos = clickPosition;
         __startAttack = false;
         firstAttack = false;
         __attackTime = 0;
         if (_shooter == null) return;
-        _shooter?.ReleaseAttack();
+        _shooter?.ReleaseAttack(isClear);
     }
 
     public float bounceTime = 3f;

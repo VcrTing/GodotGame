@@ -88,14 +88,14 @@ public partial class GameWinnerChecker : Node2D
         if (isAllDie)
         {
             if (hasChecked) return;
-            GD.Print("所有僵尸已被消灭，玩家获胜！");
+            // GD.Print("所有僵尸已被消灭，玩家获胜！");
             // 在这里执行玩家获胜的逻辑
             CapterWinPopup.Instance?.ShowPopup();
             hasChecked = true;
         }
         else
         {
-            GD.Print("仍有僵尸存活，继续游戏。");
+            // GD.Print("仍有僵尸存活，继续游戏。");
             // 继续游戏逻辑
         }
     }

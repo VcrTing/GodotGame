@@ -8,34 +8,16 @@
                 "generatormode": "random",
                 "lazyme": 0
             }
-        ],
-        "7": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
-            }
-        ],
-        "12": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
-            }
-        ],
-        "16": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
-            }
         ]
     },
     "initsun": 50,
-    "gamechecktime": 36,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "initmiaolist": [
+        "Pea", "SunFlower", "SunFlower"
+    ],
+
+    "gamechecktime": 50,
     "enmyswaveflag": {
         "19": 1
     },
@@ -73,25 +55,25 @@
                 "speedmode": "normal"
             }
         ],
-        "25": [
+        "28": [
             {
-                "types": [ "zombi_s", "zombi_mu_tong", "zombi_tie_tong" ],
+                "types": [ "zombi_s", "zombi_s", "zombi_s" ],
                 "typesmode": "random",
                 "generator": [ 2, 4, 8 ],
                 "generatormode": "random",
                 "lazyall": 0,
-                "lazyme": 3,
+                "lazyme": 4,
                 "speedmode": "normal"
             }
         ],
-        "32": [
+        "40": [
             {
-                "types": [ "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+                "types": [ "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s" ],
                 "typesmode": "random",
                 "generator": [ 1, 6, 3, 10, 8 ],
                 "generatormode": "random",
                 "lazyall": 0,
-                "lazyme": 4,
+                "lazyme": 5,
                 "speedmode": "normal"
             }
         ]

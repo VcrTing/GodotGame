@@ -64,7 +64,7 @@ public partial class FlowerPengSystem : Node2D
         {
             playerData = sdm.GetPlayerData();
             int numNow = playerData.CapterFlowerPengNumNow;
-            GD.Print("玩家现在多少花盆: " + numNow);
+            // GD.Print("玩家现在多少花盆: " + numNow);
             __Init(8);
         }
         else
@@ -122,6 +122,7 @@ public partial class FlowerPengSystem : Node2D
                 result.Add(item);
             }
         }
+        GD.Print("检测可用花盆数量 =" + result.Count);
         return result;
     }
     public FlowerPeng GetAUseFullFlowerPeng()
