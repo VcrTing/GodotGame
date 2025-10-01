@@ -10,7 +10,7 @@ namespace ZVB4.Entity
     {
         public EnumChapter ChapterNow { get; set; } = EnumChapter.One1;
 
-        public int CapterFlowerPengNumNow { get; set; } = 2;
+        public int CapterFlowerPengNumNow { get; set; } = 6;
         public int EndlessFlowerPengNumNow { get; set; } = 8;
 
         public int Money { get; set; } = 0;

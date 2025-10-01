@@ -8,7 +8,7 @@ using ZVB4.Tool;
 public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWorking
 {
     CanvasItem view = null;
-    public override async void _Ready()
+    public override void _Ready()
     {
         maxScale = Scale.X;
         minScale = ViewTool.GetYouMinScale(maxScale);
@@ -83,6 +83,7 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
     public Vector2 GetDirection() => Direction;
     public void SetDirection(Vector2 direction) => Direction = direction;
     public void FlipXDirection() => Direction = new Vector2(-Direction.X, Direction.Y);
+    public void FlipYDirection() => Direction = new Vector2(Direction.X, -Direction.Y);
 
     async void __Die()
     {

@@ -20,7 +20,9 @@ public static class ChapterTool
     public static int GetNextChapterNum(int chapter)
     {
         if (chapter == (int)EnumChapter.One1) return (int)EnumChapter.One2;
-        if (chapter == (int)EnumChapter.One2) return (int)EnumChapter.None;
+        if (chapter == (int)EnumChapter.One2) return (int)EnumChapter.One3;
+        if (chapter == (int)EnumChapter.One3) return (int)EnumChapter.One4;
+        if (chapter == (int)EnumChapter.One4) return (int)EnumChapter.None;
         return (int)EnumChapter.None;
     }
 }

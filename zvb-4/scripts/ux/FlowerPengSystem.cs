@@ -20,7 +20,7 @@ public partial class FlowerPengSystem : Node2D
         Instance = this;
         GenerateGeziPosition();
         // 初始化就生成多少个花盆
-        Init();
+        // Init();
     }
 
     void GenerateGeziPosition()
@@ -57,15 +57,19 @@ public partial class FlowerPengSystem : Node2D
 
     EntityPlayerData playerData;
 
-    async void Init()
+    public async void Init(int i = -1)
     {
         var sdm = SaveDataManager.Instance;
         if (sdm != null)
         {
             playerData = sdm.GetPlayerData();
             int numNow = playerData.CapterFlowerPengNumNow;
+            if (i != -1)
+            {
+                numNow = i;
+            }
             // GD.Print("玩家现在多少花盆: " + numNow);
-            __Init(8);
+            __Init(numNow);
         }
         else
         {
@@ -122,7 +126,6 @@ public partial class FlowerPengSystem : Node2D
                 result.Add(item);
             }
         }
-        GD.Print("检测可用花盆数量 =" + result.Count);
         return result;
     }
     public FlowerPeng GetAUseFullFlowerPeng()

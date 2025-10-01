@@ -40,7 +40,7 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
 
     Vector2 _initPosition = Vector2.Zero;
 
-    public override async void _Ready()
+    public override void _Ready()
     {
         
     }

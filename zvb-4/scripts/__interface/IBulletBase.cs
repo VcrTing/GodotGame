@@ -9,6 +9,7 @@ namespace ZVB4.Interface
         void SetDirection(Vector2 direction);
         Vector2 GetDirection();
         void FlipXDirection();
+        void FlipYDirection();
         EnumHurts GetHurtType();
     }
 }

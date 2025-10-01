@@ -1,6 +1,7 @@
 
 
 using Godot;
+using Godot.Collections;
 using System;
 using ZVB4.Conf;
 using ZVB4.Entity;
@@ -15,9 +16,9 @@ public partial class CapsCenter : Node2D
 
     public static CapsCenter Instance { get; private set; }
 
-    private Godot.Collections.Dictionary _capData;
+    private  Dictionary _capData;
 
-    public Godot.Collections.Dictionary CapData => _capData;
+    public  Dictionary CapData => _capData;
 
     EntityGameRunnerData gameRunnerData = null;
 
@@ -87,7 +88,7 @@ public partial class CapsCenter : Node2D
                     Godot.Collections.Array enmyInfo = enmys[key].AsGodotArray();
                     for (int i = 0; i < enmyInfo.Count; i++)
                     {
-                        var info = (Godot.Collections.Dictionary)enmyInfo[i];
+                        var info = ( Dictionary)enmyInfo[i];
                         if (info != null)
                         {
                             WorkForGenerateEnmys(info);
@@ -97,7 +98,7 @@ public partial class CapsCenter : Node2D
             }
         }
     }
-    void WorkForGenerateEnmys(Godot.Collections.Dictionary generateInfo)
+    void WorkForGenerateEnmys( Dictionary generateInfo)
     {
 
         Godot.Collections.Array types = generateInfo["types"].AsGodotArray();
@@ -119,9 +120,9 @@ public partial class CapsCenter : Node2D
     public void ResumeGaming() => _gamingPaused = false;
 
 
-    Godot.Collections.Dictionary enmyswaveflag;
-    Godot.Collections.Dictionary enmys;
-    Godot.Collections.Dictionary suns;
+     Dictionary enmyswaveflag;
+     Dictionary enmys;
+     Dictionary suns;
     void LoadCapData(string jsonPath)
     {
         if (Godot.FileAccess.FileExists(jsonPath))
@@ -131,23 +132,24 @@ public partial class CapsCenter : Node2D
             var result = Json.ParseString(json);
             if (result.VariantType == Variant.Type.Dictionary)
             {
-                _capData = (Godot.Collections.Dictionary)result;
+                _capData = ( Dictionary)result;
                 LoadMiao(_capData);
                 LoadZombis(_capData);
+                LoadFlowerPeng(_capData);
                 if (_capData.ContainsKey("suns"))
                 {
                     var sunsVariant = _capData["suns"].AsGodotDictionary();
-                    if (sunsVariant is Godot.Collections.Dictionary)
+                    if (sunsVariant is Dictionary)
                     {
-                        suns = (Godot.Collections.Dictionary)sunsVariant;
+                        suns = (Dictionary)sunsVariant;
                     }
                 }
                 if (_capData.ContainsKey("enmyswaveflag"))
                 {
-                    var enmyswaveflagVariant = _capData["enmyswaveflag"];
-                    if (enmyswaveflagVariant is Godot.Collections.Dictionary)
+                    var enmyswaveflagVariant = _capData["enmyswaveflag"].AsGodotDictionary();
+                    if (enmyswaveflagVariant is Dictionary)
                     {
-                        enmyswaveflag = (Godot.Collections.Dictionary)enmyswaveflagVariant;
+                        enmyswaveflag = ( Dictionary)enmyswaveflagVariant;
                     }
                 }
                 //
@@ -158,7 +160,7 @@ public partial class CapsCenter : Node2D
         }
     }
 
-    void LoadMiao(Godot.Collections.Dictionary _capData)
+    void LoadMiao( Dictionary _capData)
     {
         string initmiaomode = _capData["initmiaomode"].AsString();
         if (initmiaomode != null && initmiaomode != "" && initmiaomode != "none")
@@ -173,15 +175,25 @@ public partial class CapsCenter : Node2D
         }
     }
 
-    void LoadZombis(Godot.Collections.Dictionary _capData)
+    void LoadFlowerPeng( Dictionary _capData)
+    {
+        int initpeng = _capData["initpeng"].AsInt32();
+        var flowers = FlowerPengSystem.Instance;
+        if (flowers != null)
+        {
+            flowers.Init(initpeng);
+        }
+    }
+
+    void LoadZombis(Dictionary _capData)
     {
         if (_capData.ContainsKey("enmys"))
         {
             var enmysVariant = _capData["enmys"].AsGodotDictionary();
-            if (enmysVariant is Godot.Collections.Dictionary)
+            if (enmysVariant is  Dictionary)
             {
                 // 加入僵尸数据
-                enmys = (Godot.Collections.Dictionary)enmysVariant;
+                enmys = ( Dictionary)enmysVariant;
                 // 计算全部僵尸数量
                 int totalZombiCount = 0;
                 foreach (string key in enmys.Keys)
@@ -189,7 +201,7 @@ public partial class CapsCenter : Node2D
                     Godot.Collections.Array enmyInfo = enmys[key].AsGodotArray();
                     foreach (var item in enmyInfo)
                     {
-                        var info = (Godot.Collections.Dictionary)item;
+                        var info = ( Dictionary)item;
                         if (info != null && info.ContainsKey("types"))
                         {
                             int count = info["types"].AsGodotArray().Count;
@@ -202,7 +214,7 @@ public partial class CapsCenter : Node2D
         }
     }
 
-    void LoadVar(Godot.Collections.Dictionary varData)
+    void LoadVar( Dictionary varData)
     {
         if (varData.ContainsKey("initsun"))
         {
@@ -216,14 +228,6 @@ public partial class CapsCenter : Node2D
             // 游戏检测时间
             float gamechecktime = (float)varData["gamechecktime"];
             GameWinnerChecker.Instance?.AddTimePoint(gamechecktime);
-            // 多加 10s
-            GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 10f);
-            // 多加 20s
-            GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 15f);
-            // 多加 30s
-            GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 20f);
-            // 多加 30s
-            GameWinnerChecker.Instance?.AddTimePoint(gamechecktime + 30f);
         }
     }
 

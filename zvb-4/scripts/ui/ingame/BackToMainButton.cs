@@ -8,9 +8,8 @@ public partial class BackToMainButton : TextureButton
 		this.Pressed += OnBackButtonPressed;
 	}
 
-    private async void OnBackButtonPressed()
+    private void OnBackButtonPressed()
     {
-        GD.Print("BackToMainButton Pressed!");
         UiTool.BackToMainScene(this);
 	}
 }

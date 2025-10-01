@@ -47,7 +47,7 @@ public partial class BulletXiguaBingAttackExtraArea : Area2D
         }
     }
     bool isWorking = false;
-    float collectionTime = 0.3f; // 收集时间
+    float collectionTime = 0.08f; // 收集时间
     public override void _Process(double delta)
     {
         // MMM
@@ -79,7 +79,7 @@ public partial class BulletXiguaBingAttackExtraArea : Area2D
     {
         try
         {
-            GD.Print($"溅射伤害 DoTakeDamage: {area.Name}, Damage: {damage}");
+            // GD.Print($"溅射伤害 DoTakeDamage: {area.Name}, Damage: {damage}");
             if (area is IHurtBase hurt)
             {
                 hurt.TakeDamage(myType, damage, enumHurts);

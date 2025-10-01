@@ -59,7 +59,7 @@ namespace ZVB4.Conf
         // 子弹初始速度
 
         public const float SpeedPea = 800f;
-        public const float SpeedXiguaBing = 920f;
+        public const float SpeedXiguaBing = 1120f;
         public static float GetSpeed(string n)
         {
             return n switch

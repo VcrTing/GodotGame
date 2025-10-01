@@ -16,8 +16,9 @@
     "initmiaolist": [
         "Pea", "SunFlower", "SunFlower"
     ],
-
-    "gamechecktime": 50,
+    "initpeng": 3,
+    
+    "gamechecktime": 27,
     "enmyswaveflag": {
         "19": 1
     },
@@ -33,7 +34,7 @@
                 "speedmode": "normal"
             }
         ],
-        "10": [
+        "9": [
             {
                 "types": [ "zombi_s", "zombi_s" ],
                 "typesmode": "next",
@@ -44,9 +45,9 @@
                 "speedmode": "normal"
             }
         ],
-        "17": [
+        "15": [
             {
-                "types": [ "zombi_s", "zombi_mu_tong", "zombi_s" ],
+                "types": [ "zombi_s", "zombi_s", "zombi_s" ],
                 "typesmode": "next",
                 "generator": [ 3, 7, 9 ],
                 "generatormode": "random",
@@ -55,25 +56,14 @@
                 "speedmode": "normal"
             }
         ],
-        "28": [
+        "22": [
             {
-                "types": [ "zombi_s", "zombi_s", "zombi_s" ],
+                "types": [ "zombi_s", "zombi_mu_tong", "zombi_s" ],
                 "typesmode": "random",
                 "generator": [ 2, 4, 8 ],
                 "generatormode": "random",
                 "lazyall": 0,
-                "lazyme": 4,
-                "speedmode": "normal"
-            }
-        ],
-        "40": [
-            {
-                "types": [ "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s" ],
-                "typesmode": "random",
-                "generator": [ 1, 6, 3, 10, 8 ],
-                "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 5,
+                "lazyme": 2,
                 "speedmode": "normal"
             }
         ]

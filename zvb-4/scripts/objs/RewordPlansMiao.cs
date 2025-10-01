@@ -74,15 +74,17 @@ public partial class RewordPlansMiao : Node2D, IWorking
     }
 
     float checkTimer = 0f;
-    float checkInterval = 0.5f;
+    float checkInterval = 0.3f;
 
     float aliveTimer = 0f;
-    float aliveDuration = 4f;
+    float aliveDuration = 5f;
 
     public override void _Ready()
     {
         alivePosition = Position;
         InitPosition = Position;
+        int a = (int)GD.RandRange(0, 20);
+        aliveDuration += (a / 10f);
         // Init();
     }
     bool isWorking = false;

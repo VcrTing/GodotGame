@@ -1,12 +1,15 @@
 {
     "type": "normal",
     "initsun": 200,
-    "initmiaomode": "random",
+    "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "initmiaolist": [
-        "Pea", "SunFlower", "Cherry", "XiguaBing"
+        "Pea", "SunFlower", "SunFlower"
     ],
-    "gamechecktime": 50,
+    "gamechecktime": 76,
+    
+    "initpeng": 6,
+
     "enmyswaveflag": {
         "19": 1
     },
@@ -22,20 +25,20 @@
                 "speedmode": "normal"
             }
         ],
-        "10": [
+        "12": [
             {
                 "types": [ "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_mu_tong" ],
                 "typesmode": "next",
                 "generator": [ 9, 2, 8, 6 ],
                 "generatormode": "next",
                 "lazyall": 0,
-                "lazyme": 2,
+                "lazyme": 1.5,
                 "speedmode": "normal"
             }
         ],
-        "17": [
+        "23": [
             {
-                "types": [ "zombi_s", "zombi_tie_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_s", "zombi_mu_tong" ],
+                "types": [ "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong" ],
                 "typesmode": "next",
                 "generator": [ 3, 7, 9, 4, 1, 6 ],
                 "generatormode": "random",
@@ -44,9 +47,9 @@
                 "speedmode": "normal"
             }
         ],
-        "29": [
+        "40": [
             {
-                "types": [ "zombi_tie_tong", "zombi_s", "zombi_tie_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_mu_tong" ],
+                "types": [ "zombi_s", "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_mu_tong", "zombi_mu_tong" ],
                 "typesmode": "random",
                 "generator": [ 2, 4, 10, 1, 5, 8 ],
                 "generatormode": "random",
@@ -55,25 +58,25 @@
                 "speedmode": "normal"
             }
         ],
-        "36": [
+        "50": [
             {
-                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s" ],
                 "typesmode": "random",
                 "generator": [ 3, 4, 10, 1, 6, 9 ],
                 "generatormode": "random",
                 "lazyall": 0,
-                "lazyme": 1,
+                "lazyme": 2,
                 "speedmode": "normal"
             }
         ],
-        "47": [
+        "66": [
             {
-                "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+                "types": [ "zombi_tie_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_tie_tong" ],
                 "typesmode": "random",
                 "generator": [ 2, 5, 7, 10, 8 ],
                 "generatormode": "random",
                 "lazyall": 0,
-                "lazyme": 3,
+                "lazyme": 1,
                 "speedmode": "normal"
             }
         ]

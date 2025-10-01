@@ -5,6 +5,8 @@ using ZVB4.Interface;
 
 public partial class BulletWall : Area2D
 {
+    [Export]
+    public bool IsX = true;
     public override void _Ready()
     {
         AreaEntered += OnAreaEntered;
@@ -26,6 +28,13 @@ public partial class BulletWall : Area2D
     void FroBullet(Area2D area, IBulletBase ib)
     {
         // 
-        ib?.FlipXDirection();
+        if (IsX)
+        {
+            ib?.FlipXDirection();
+        }
+        else
+        {
+            ib?.FlipYDirection();
+        }
     }
 }

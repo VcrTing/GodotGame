@@ -1,6 +1,5 @@
 using Godot;
 using ZVB4.Conf;
-using Godot;
 using System;
 using ZVB4.Interface;
 using ZVB4.Tool;
@@ -37,7 +36,7 @@ public partial class PlansPea : Node2D, IObj
     }
 
 
-    public override async void _Ready()
+    public override void _Ready()
     {
         view = GodotTool.GetViewAndAutoPlay(this);
         maxScale = Scale.X;

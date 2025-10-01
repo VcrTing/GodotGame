@@ -45,11 +45,11 @@ public partial class MoneyCenterSystem : Node2D
             instance.Position = position;
             // 设置名称
             // GD.Print("生成巨前");
-            // AddChild(instance);
             if (playSound)
             {
                 // SoundFxController.Instance?.PlayFx("Ux/coll", "coll_sun", 4);
             }
+            AddChild(instance);
         }
         catch
         {

@@ -9,7 +9,7 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
 {
     private Area2D _area2D;
 
-    public override async void _Ready()
+    public override void _Ready()
     {
         maxScale = Scale.X;
         minScale = ViewTool.GetYouMinScale(maxScale);
@@ -121,6 +121,7 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
 
     public void SetDirection(Vector2 direction) => Direction = direction;
     public void FlipXDirection() => Direction = new Vector2(-Direction.X, Direction.Y);
+    public void FlipYDirection() => Direction = new Vector2(Direction.X, -Direction.Y);
 
     async void __Die()
     {

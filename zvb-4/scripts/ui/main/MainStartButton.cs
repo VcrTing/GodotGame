@@ -17,9 +17,8 @@ public partial class MainStartButton : TextureButton
         this.Pressed += OnButtonPressed;
     }
 
-    private async void OnButtonPressed()
+    private void OnButtonPressed()
     {
-        GD.Print("MainStartButton Pressed!");
         // TODO: 这里写点击后的逻辑
         UiTool.NextScene(this, FolderConstants.Scenes + SceneName);
     }

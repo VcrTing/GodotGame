@@ -11,9 +11,9 @@ public partial class Sun : Node2D, IWorking, IReword
 
     private bool IsWorkingMode = false;
     private Vector2 targetWorldPos = Vector2.Zero;
-    private float minScale = 0.5f; // 最小缩放比例
-    private float moveSpeedMin = 300f; // 起始速度
-    private float moveSpeedMax = 700f; // 最大速度
+    private float minScale = 0.7f; // 最小缩放比例
+    private float moveSpeedMin = 400f; // 起始速度
+    private float moveSpeedMax = 900f; // 最大速度
     private float movePhaseTime = 0.5f; // 加速到最大速度所需时间
     private float moveTimer = 0f;
     private Action onArriveTarget = null;
@@ -43,7 +43,7 @@ public partial class Sun : Node2D, IWorking, IReword
     {
         value = _value;
         float rd = (float)GD.RandRange(0f, 0.1f);
-        originScale = 1f - rd;
+        originScale = 1.03f - rd;
         if (value < 50) originScale = 0.7f - rd;
         if (value >= 100) originScale = 1.5f - rd;
         // Scale = new Vector2(originScale, originScale);
@@ -71,6 +71,12 @@ public partial class Sun : Node2D, IWorking, IReword
     {
         if (hasAdded) return;
         hasAdded = true;
+        // 设置 view 的透明度 = 0.618f
+        if (view != null)
+        {
+            var c = view.Modulate;
+            view.Modulate = new Color(c.R, c.G, c.B, 0.618f);
+        }
         // 增加阳光方法
         if (SunCenterSystem.Instance == null) return;
         SunCenterSystem.Instance.AddValue(value);

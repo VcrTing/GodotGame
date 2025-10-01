@@ -81,7 +81,7 @@ public partial class BulletXiguaBingAttackArea : Area2D
     private void HandleGroupDamage(Area2D area)
     {
         if (area == null) return;
-        GD.Print($"组团伤害 HandleGroupDamage: {area.Name}, Damage: {myAttack.GetDamage() / 3}");
+        // GD.Print($"组团伤害 HandleGroupDamage: {area.Name}, Damage: {myAttack.GetDamage() / 3}");
         DoTakeDamage(area, myAttack.GetDamage() / 3);
     }
 
@@ -89,7 +89,7 @@ public partial class BulletXiguaBingAttackArea : Area2D
     private void HandleSingleDamage(Area2D area)
     {
         if (area == null) return;
-        GD.Print($"单体伤害 HandleSingleDamage: {area.Name}, Damage: {myAttack.GetDamage()}");
+        // GD.Print($"单体伤害 HandleSingleDamage: {area.Name}, Damage: {myAttack.GetDamage()}");
         DoTakeDamage(area, myAttack.GetDamage());
     }
     

@@ -18,7 +18,7 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
     public bool IsWorking() => IsWorkingMode;
 
     AnimatedSprite2D view;
-    public override async void _Ready()
+    public override void _Ready()
     {
         view = GodotTool.GetViewAndAutoPlay(this);
         maxScale = Scale.X;

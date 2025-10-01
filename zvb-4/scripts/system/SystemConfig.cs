@@ -11,9 +11,15 @@ public partial class SystemConfig : Node2D
         Instance = this;
         Init();
     }
-    
+
     void Init()
     {
         DisplayServer.WindowSetSize(new Vector2I((int)GameContants.ScreenHalfW * 2, (int)GameContants.ScreenHalfH * 2));
+        
+        // 获取场景树
+        var sceneTree = GetTree();
+        
+        // 固定最大帧率为60（0表示不限制）
+        Engine.MaxFps = 60;
     }
 }

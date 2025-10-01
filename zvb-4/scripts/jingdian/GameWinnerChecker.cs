@@ -18,7 +18,8 @@ public partial class GameWinnerChecker : Node2D
     public void AddTimePoint(float timePoint)
     {
         timePoints.Add(timePoint);
-        UpdateMinTimePoint();
+        minTimePoint = timePoint;
+        // UpdateMinTimePoint();
     }
 
     private bool isWaiting = false;
@@ -30,20 +31,12 @@ public partial class GameWinnerChecker : Node2D
     public override void _Process(double delta)
     {
         timer += (float)delta;
-        if (!isWaiting && minTimePoint != float.MaxValue && timer >= minTimePoint)
+        if (!isWaiting && timer >= minTimePoint)
         {
             isWaiting = true;
-            waitTimer = 0f;
-            workingSnapTime = 0f;
         }
         if (isWaiting)
         {
-            waitTimer += (float)delta;
-            if (waitTimer >= waitDuration)
-            {
-                isWaiting = false;
-                UpdateMinTimePoint();
-            }
             workingSnapTime += (float)delta;
             if (workingSnapTime >= 0.5f)
             {
@@ -59,10 +52,10 @@ public partial class GameWinnerChecker : Node2D
     {
         if (timePoints.Count == 0)
         {
-            minTimePoint = float.MaxValue;
+            minTimePoint = 100f;
             return;
         }
-        minTimePoint = float.MaxValue;
+        minTimePoint = 100f;
         int minIdx = -1;
         for (int i = 0; i < timePoints.Count; i++)
         {
@@ -79,10 +72,21 @@ public partial class GameWinnerChecker : Node2D
     }
 
     bool hasChecked = false;
+    bool hasPrinted = false;
 
     // 到达时间点时执行的方法
     private void OnTimePointReached(float timePoint)
     {
+        if (hasPrinted)
+        {
+
+        }
+        else
+        {
+            // GD.Print("到达检测时间 timePoint =" + timePoint);
+            hasPrinted = true;
+        }
+        // GD.Print("到达检测时间 timePoint =" + timePoint);
         // 等待3秒后再执行下一个时间点
         bool isAllDie = GameStatistic.Instance?.IsAllZombieDead() ?? false;
         if (isAllDie)

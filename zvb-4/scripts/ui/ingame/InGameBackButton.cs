@@ -9,9 +9,8 @@ public partial class InGameBackButton : TextureButton
 		this.Pressed += OnBackButtonPressed;
 	}
 
-    private async void OnBackButtonPressed()
+    private void OnBackButtonPressed()
     {
-        GD.Print("InGameBackButton Pressed!");
         UiTool.BackToMainScene(this);
 	}
 }

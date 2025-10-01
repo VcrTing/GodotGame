@@ -97,7 +97,7 @@ public partial class SoundGameObjController : Node2D
                 // GD.Print("播放被植物攻击受伤音效");
                 if (enumHurts == EnumHurts.Boom)
                 {
-                    GD.Print("NO 播放被植物爆炸攻击受伤音效");
+                    // GD.Print("NO 播放被植物爆炸攻击受伤音效");
                 }
                 else
                 {

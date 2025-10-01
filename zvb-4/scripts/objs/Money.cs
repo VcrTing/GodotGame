@@ -49,15 +49,15 @@ public partial class Money : RigidBody2D, IWorking, IReword
         ApplyImpulse(Vector2.Zero, dir * impulse);
     }
 
-    float speed = 340f;
+    float speed = 440f;
     public async void Init()
     {
         int rd = (int)GD.RandRange(0, 50);
-        float v = 1.2f - (rd / 100f);
+        float v = 1.1f - (rd / 100f);
         originScale = v;
         Scale = new Vector2(originScale, originScale);
         // GD.Print("原始缩放 =" + v);
-        speed += ((float)rd * 2);
+        speed += ((float)rd * 10);
         GravityScale = GravityScale + (rd / 100f);
         // LLL
         TanShe();
@@ -87,7 +87,6 @@ public partial class Money : RigidBody2D, IWorking, IReword
         try
         {
             if (hasAdded) return;
-            GD.Print("Release Sun " + value);
             // 播放音效
             SoundFxController.Instance.PlayFx("Ux/coll", "coll_sun", 4);
             hasAdded = true;
@@ -95,6 +94,13 @@ public partial class Money : RigidBody2D, IWorking, IReword
             if (MoneyCenterSystem.Instance == null) return;
             MoneyCenterSystem.Instance.AddMoney(value);
             value = 0;
+
+            //
+            if (view != null)
+            {
+                var c = view.Modulate;
+                view.Modulate = new Color(c.R, c.G, c.B, 0.618f);
+            }
         }
         catch
         {

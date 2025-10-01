@@ -54,7 +54,6 @@ public partial class RewordGroup : Node2D
             float x = startPos.X + i * spacing;
             Vector2 pos = new Vector2(x, startPos.Y);
             //
-            GD.Print(pos);
             Gen(rewordName, i, pos, value);
         }
 

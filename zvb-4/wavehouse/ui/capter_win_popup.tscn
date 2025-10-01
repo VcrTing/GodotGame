@@ -89,6 +89,22 @@ sprite_frames = SubResource("SpriteFrames_pdwa4")
 autoplay = "default"
 frame_progress = 0.3380354
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="ControlWIn"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 420.0
+offset_bottom = 480.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ControlWIn/HBoxContainer5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6117647)
+theme_override_font_sizes/font_size = 20
+text = "温馨提示：花盆内多余的植物，都可以移到草地上。"
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="ControlWIn"]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 1

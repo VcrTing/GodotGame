@@ -72,7 +72,7 @@ public partial class GodobjViewExtra : Node2D, IHealth
         return yichu;
     }
 
-    async void PlayHurtEffect(EnumObjType objType, int damage, EnumHurts enumHurts)
+    void PlayHurtEffect(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
         // 根据攻击类型，播放不同的受伤音效
         SoundGameObjController.PlayBeHurtFx(objType, damage, enumHurts, WhatYouObj, this.GlobalPosition);

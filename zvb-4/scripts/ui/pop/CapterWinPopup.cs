@@ -24,7 +24,7 @@ public partial class CapterWinPopup : PopupPanel
         SoundUiController.Instance?.Win();
     }
 
-	public async void HidePopup()
+	public void HidePopup()
 	{
         if (!isShowing) return;
         isShowing = false;

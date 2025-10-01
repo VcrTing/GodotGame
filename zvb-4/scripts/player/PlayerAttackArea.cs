@@ -283,7 +283,10 @@ public partial class PlayerAttackArea : Area2D
             // 一般植物
             // GD.Print($"区域内松开/抬起: {pos} CatchPlans {GetLocalMousePosition()}");
             isOk = plansPlanting.ZhongZhiPlans(pos, planName);
-            DieLastObj();
+            if (isOk)
+            {
+                DieLastObj();
+            }
             // 解开花盆
         }
         return isOk;

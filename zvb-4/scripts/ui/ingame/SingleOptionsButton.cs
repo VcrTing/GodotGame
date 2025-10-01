@@ -34,7 +34,7 @@ public partial class SingleOptionsButton : TextureButton
         }
     }
 
-    private async void OnButtonPressed()
+    private void OnButtonPressed()
     {
         switch (ButtonType)
         {

@@ -35,7 +35,7 @@ public partial class PlansXiguaBing : Node2D, IObj
     }
 
 
-    public override async void _Ready()
+    public override void _Ready()
     {
         view = GodotTool.GetViewAndAutoPlay(this);
         maxScale = Scale.X;

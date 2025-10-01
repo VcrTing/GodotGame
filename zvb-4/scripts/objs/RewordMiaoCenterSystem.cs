@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using ZVB4.Conf;
 
 public partial class RewordMiaoCenterSystem : Node2D
-
 {
     public static RewordMiaoCenterSystem Instance { get; private set; }
     public override void _Ready()
@@ -108,15 +107,16 @@ public partial class RewordMiaoCenterSystem : Node2D
         }
         return "";
     }
-
+    bool usePower = false;
     public string GetRandomPlansNameWithPowerWeight()
     {
         string n = GetNameByWeight();
-        GD.Print("加权随机到的植物是: " + n);
+        if (!usePower) { n = ""; }
+        // GD.Print("加权随机到的植物是: " + n);
         if (n == "")
         {
             n = PlansConstants.GetRandomPlansName();
-            GD.Print("无，随机到的植物是: " + n);
+            // GD.Print("无，随机到的植物是: " + n);
         }
         else
         {
@@ -169,9 +169,11 @@ public partial class RewordMiaoCenterSystem : Node2D
             var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + "reword_plans_miao.tscn");
             var instance = scene.Instantiate<RewordPlansMiao>();
             instance.Init(pos, name);
-            AddChild(instance);
             if (playSound)
+            {
                 SoundFxController.Instance?.PlayFx("Ux/suprise", "suprise", 4, GlobalPosition);
+            }
+            AddChild(instance);
         }
         catch (Exception e)
         {

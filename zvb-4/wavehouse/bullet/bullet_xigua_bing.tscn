@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dw2furgw83cid"]
+[gd_scene load_steps=21 format=3 uid="uid://dw2furgw83cid"]
 
 [ext_resource type="Script" uid="uid://dfurguu7vsarl" path="res://scripts/bullet/BulletXiguaBing.cs" id="1_oxk42"]
 [ext_resource type="Script" uid="uid://bpksaepv20mgq" path="res://scripts/bullet/BulletXiguaBingAttackArea.cs" id="2_3rvto"]
@@ -65,10 +65,6 @@ height = 60.0
 radius = 60.0
 height = 170.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xk5c5"]
-atlas = ExtResource("5_oxk42")
-region = Rect2(0, 0, 300, 300)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4ggs"]
 atlas = ExtResource("5_oxk42")
 region = Rect2(300, 0, 300, 300)
@@ -84,9 +80,6 @@ region = Rect2(900, 0, 300, 300)
 [sub_resource type="SpriteFrames" id="SpriteFrames_mfqwq"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xk5c5")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g4ggs")
 }, {
@@ -134,7 +127,8 @@ shape = SubResource("CapsuleShape2D_sgq3c")
 
 [node name="View" type="AnimatedSprite2D" parent="AttackExtraArea"]
 sprite_frames = SubResource("SpriteFrames_mfqwq")
-frame = 3
+autoplay = "default"
+frame = 2
 frame_progress = 1.0
 
 [node name="UxArea" type="Area2D" parent="."]

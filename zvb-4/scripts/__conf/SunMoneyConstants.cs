@@ -30,7 +30,7 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> DieSunDict = new Dictionary<string, int>
         {
             { PlansConstants.Pea, 100 },
-            { PlansConstants.XiguaBing, 300 }
+            { PlansConstants.XiguaBing, 200 }
         };
 
         public static int GetPlansSunCost(string plansName)

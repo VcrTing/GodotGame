@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://n2tf7bjt1fe0"]
+[gd_scene load_steps=36 format=3 uid="uid://n2tf7bjt1fe0"]
 
 [ext_resource type="Script" uid="uid://bdtd1kvhadi8c" path="res://scripts/system/Envs.cs" id="1_j5jx5"]
 [ext_resource type="Texture2D" uid="uid://bqcf2l7q7h4g" path="res://pngs/ux/grass1.png" id="2_iyx0m"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://bikplbsxucboc" path="res://scripts/player/PlayerAttackArea.cs" id="15_1dqgb"]
 [ext_resource type="PackedScene" uid="uid://br3fnkwdn12o7" path="res://wavehouse/player/shooter_work_table.tscn" id="15_gv2t6"]
 [ext_resource type="Script" uid="uid://d38vgruxqe4rl" path="res://scripts/caps/CapsCenter.cs" id="16_5jxlq"]
-[ext_resource type="Script" uid="uid://bngscwsc4eikr" path="res://scripts/system/SaveDataManager.cs" id="16_kay4s"]
 [ext_resource type="Script" uid="uid://csciyfvn7fqbk" path="res://scripts/player/PlayerUxTileMap.cs" id="16_y81of"]
 [ext_resource type="PackedScene" uid="uid://bfthejwtbkxar" path="res://wavehouse/obj/bullet_wall.tscn" id="18_4k8fq"]
 [ext_resource type="Script" uid="uid://bctsx0boajko" path="res://scripts/ux/BulletLowDown.cs" id="18_75pfo"]
@@ -103,7 +102,6 @@ size = Vector2(1200, 20)
 size = Vector2(1160, 90)
 
 [node name="System" type="Node2D"]
-script = ExtResource("16_kay4s")
 
 [node name="EnvJinDian" type="Node2D" parent="."]
 script = ExtResource("1_j5jx5")
@@ -180,11 +178,16 @@ rotation = 0.05235988
 position = Vector2(600, 0)
 rotation = -0.05235988
 
+[node name="BulletWall3" parent="Player/Ux/BulletFixer" instance=ExtResource("18_4k8fq")]
+position = Vector2(0, 1000)
+rotation = 1.5707964
+IsX = false
+
 [node name="GameSVSystems" parent="." instance=ExtResource("19_pniwq")]
 
 [node name="CapsCenter" type="Node2D" parent="."]
 script = ExtResource("16_5jxlq")
-enumChapter = 102
+enumChapter = 103
 
 [node name="FlowerPengSystem" type="Node2D" parent="CapsCenter"]
 position = Vector2(0, 850)

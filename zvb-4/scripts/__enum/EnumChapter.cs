@@ -5,6 +5,8 @@ namespace ZVB4.Conf
         None = 0,
         One1 = 101,
         One2 = 102,
+        One3 = 103,
+        One4 = 104,
 
     }
 }

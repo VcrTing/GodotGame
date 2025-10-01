@@ -94,7 +94,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqyfq"]
@@ -185,7 +185,7 @@ visible = false
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_uhqg2")
 autoplay = "default"
-frame_progress = 0.93425727
+frame_progress = 0.08842398
 
 [node name="AliveHalf" type="AnimatedSprite2D" parent="View"]
 visible = false
