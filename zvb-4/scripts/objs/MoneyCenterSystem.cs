@@ -6,9 +6,12 @@ public partial class MoneyCenterSystem : Node2D
 {
     public static MoneyCenterSystem Instance { get; private set; }
 
+    Node working;
+
     public override void _Ready()
     {
         Instance = this;
+        working = GetNodeOrNull<Node2D>(NameConstants.Working);
     }
 
     public void AddMoney(int value)
@@ -27,10 +30,10 @@ public partial class MoneyCenterSystem : Node2D
         Vector2 pos = this.GlobalPosition;
         float x = pos.X;
         float y = pos.Y;
-
+        //
         int v = (int)GD.RandRange(1, w);
         int v2 = (int)GD.RandRange(1, w);
-
+        //
         x += v;
         y += v2;
         DumpMoney(new Vector2(x, y), name, playSound);
@@ -44,12 +47,11 @@ public partial class MoneyCenterSystem : Node2D
             var instance = scene.Instantiate<Node2D>();
             instance.Position = position;
             // 设置名称
-            // GD.Print("生成巨前");
             if (playSound)
             {
                 // SoundFxController.Instance?.PlayFx("Ux/coll", "coll_sun", 4);
             }
-            AddChild(instance);
+            working.AddChild(instance);
         }
         catch
         {

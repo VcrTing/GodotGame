@@ -1,5 +1,6 @@
 using Godot;
 using ZVB4.Conf;
+using ZVB4.Entity;
 
 
 public partial class PlayerController : Node2D
@@ -9,30 +10,12 @@ public partial class PlayerController : Node2D
     private Shooter _shooter;
     public Vector2 _shooterInitPosition;
 
-    private bool _mouseHeld = false;
-    private float _attackInterval = 0.2f;
-    private const double LongPressThreshold = 0.3;
-    private float _attackTimer = 0f;
-    private double _mouseDownTime = 0f;
-    private bool _isLongPressing = false;
-
-    // Area2D attckArea;
-    // RectangleShape2D attackRect;
-    bool canAttack = true;
-
-    public void SetCanAttack(bool value)
-    {
-        canAttack = value;
-    }
+    EntityPlayerData playerData;
 
     public override void _Ready()
     {
         Instance = this;
         AfterGetShooter();
-        //
-        // attckArea = GetNode<Area2D>(NameConstants.PlayerAttackArea);
-        // var shapeNode = attckArea.GetNodeOrNull<CollisionShape2D>("CollisionShape2D");
-        // attackRect = shapeNode?.Shape as RectangleShape2D;
     }
 
     public void TrashOldShooter()
@@ -84,6 +67,7 @@ public partial class PlayerController : Node2D
         _shooter.Attack(clickPosition, isFirstAttack);
     }
 
+    //
     bool __startAttack = false;
     Vector2 __lastClickPos = Vector2.Zero;
     public void TryAttack(Vector2 clickPosition)
@@ -105,9 +89,7 @@ public partial class PlayerController : Node2D
         _shooter?.ReleaseAttack(isClear);
     }
 
-    public float bounceTime = 3f;
-
-    public float touchShortPressTime = 0.05f; // 长按时间，秒
+    public float touchShortPressTime = 0.02f; // 长按时间，秒
 
     float __attackTime = 0;
     bool firstAttack = false;
@@ -133,21 +115,4 @@ public partial class PlayerController : Node2D
             }
         }
     }
-
-    /*
-    public float __attackSpeed = 0f;
-    public float attackSpeedStart = 0.4f;
-    public float attackSpeedFast = 0.05f;
-    public float attackSpeedStep = 0.02f;
-    float GetAttackSpeed(double delta)
-    {
-        return __attackSpeed;
-        if (__attackSpeed > attackSpeedFast)
-        {
-            __attackSpeed -= attackSpeedStep;
-            if (__attackSpeed < attackSpeedFast) __attackSpeed = attackSpeedFast;
-        }
-        return __attackSpeed;
-    }
-    */
 }

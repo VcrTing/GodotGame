@@ -1,6 +1,7 @@
 
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ZVB4.Conf
 {
@@ -17,7 +18,7 @@ namespace ZVB4.Conf
         public const string Cherry = "Cherry";
 
         // 植物名，卡片
-        public static readonly System.Collections.Generic.Dictionary<string, string> PlanSceneDict = new System.Collections.Generic.Dictionary<string, string>
+        public static readonly  Dictionary<string, string> PlanSceneDict = new  Dictionary<string, string>
         {
             { Pea, FolderConstants.WavePlans + "plansshooter/pea.tscn" },
             { XiguaBing, FolderConstants.WavePlans + "plansshooter/xigua_bing.tscn" },
@@ -26,20 +27,21 @@ namespace ZVB4.Conf
         };
 
         // 植物名，shooter
-        public static readonly System.Collections.Generic.Dictionary<string, string> ShooterDict = new System.Collections.Generic.Dictionary<string, string>
+        public static readonly  Dictionary<string, string> ShooterDict = new  Dictionary<string, string>
         {
             { Pea, FolderConstants.WavePlayer + "shooter.tscn" },
             { XiguaBing, FolderConstants.WavePlayer + "shooter.tscn" },
         };
+
         // 植物名，bullet
-        public static readonly System.Collections.Generic.Dictionary<string, string> BulletDict = new System.Collections.Generic.Dictionary<string, string>
+        public static readonly  Dictionary<string, string> BulletDict = new  Dictionary<string, string>
         {
             { Pea, FolderConstants.WaveBullet + "bullet_zero.tscn" },
             { XiguaBing, FolderConstants.WaveBullet + "bullet_xigua_bing.tscn" },
         };
 
         // 植物生长时长
-        public static readonly System.Collections.Generic.Dictionary<string, float> PlanGrowTimeDict = new System.Collections.Generic.Dictionary<string, float>
+        public static readonly  Dictionary<string, float> PlanGrowTimeDict = new  Dictionary<string, float>
         {
             { Pea, 2f },
             { XiguaBing, 5f },
@@ -48,7 +50,7 @@ namespace ZVB4.Conf
         };
 
         // 植物生命值
-        public static readonly System.Collections.Generic.Dictionary<string, int> PlanHealthDict = new System.Collections.Generic.Dictionary<string, int>
+        public static readonly  Dictionary<string, int> PlanHealthDict = new  Dictionary<string, int>
         {
             { Pea, (int)EnumHealth.One },
             { XiguaBing, (int)EnumHealth.Four },
@@ -65,18 +67,30 @@ namespace ZVB4.Conf
             }
             return false;
         }
+        
+        // 射手限制
+        public static readonly  Dictionary<string, int> ShooterAttackLimitDict = new  Dictionary<string, int>
+        {
+            { Pea, 0 },
+            { XiguaBing, 8 },
+        };
+        public static int GetShooterAttackLimit(string key) {
+            if (ShooterAttackLimitDict.TryGetValue(key, out var value))
+                return value;
+            return 0;
+        }
 
 
         // 获取植物攻击速度
         public static float GetPlansAttackSpeedStart(string key)
         {
-            if (key == Pea) return 0.5f;
+            if (key == Pea) return 0.4f;
             if (key == XiguaBing) return 1f;
             return 0f;
         }
         public static float GetPlansAttackSpeedSnap(string key)
         {
-            if (key == Pea) return 0.08f;
+            if (key == Pea) return 0.07f;
             if (key == XiguaBing) return 0.1f;
             return 0f;
         }

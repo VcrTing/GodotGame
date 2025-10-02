@@ -72,13 +72,11 @@ public partial class PlayerUxTileMap : TileMapLayer, IPlansPlanting
                 Vector2 cellCenter = GetCellCenter(pos);
                 pls.Position = cellCenter;
                 // 调整视图
-                if (pls is IObj iobj)
-                    iobj.AdjustView();
+                if (pls is IObj iobj) iobj.AdjustView();
                     
                 // 设置工作模式
                 if (pls is IWorking working)
                 {
-
                     //
                     SoundFxController.Instance?.PlayFx("Ux/zhongxia", "ZhongXia", 4, pls.GlobalPosition);
                     working.SetWorkingMode(true);
@@ -87,7 +85,6 @@ public partial class PlayerUxTileMap : TileMapLayer, IPlansPlanting
                     {
                         UseCell(pos);
                     }
-                    // GD.Print($"种植植物 SUCC : {pls.Position} at {pos} pls {GetGlobalMousePosition()}");
                     // 成功
                     return true;
                 }

@@ -24,7 +24,7 @@ animations = [{
 z_index = 1999
 script = ExtResource("1_1s51k")
 
-[node name="G" type="AnimatedSprite2D" parent="."]
+[node name="View" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_prudh")

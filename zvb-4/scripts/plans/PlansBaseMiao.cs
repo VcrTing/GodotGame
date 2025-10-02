@@ -58,13 +58,10 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         {
             _viewAnim.Play(NameConstants.Default);
         }
-        // 获取Area2D并监听input_event
         _area2D = GetNodeOrNull<Area2D>(NameConstants.MiaoArea);
         if (_area2D != null)
         {
             _area2D.Connect("input_event", new Callable(this, nameof(OnAreaInputEvent)));
-            // _area2D.BodyEntered += OnBodyEntered;
-            // _area2D.BodyExited += OnBodyExited;
         }
         // 10秒后生长完成
         StartGrow();
@@ -89,9 +86,20 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
 
     private bool _isDragging = false;
 
+    // 停止射手攻击
+    void StopShooterAttack()
+    {
+        var ps = PlayerController.Instance;
+        if (ps != null)
+        {
+            ps.ReleaseAttackClear(new Vector2(0, 0));
+        }
+    }
+
     private void OnAreaInputEvent(Node viewport, InputEvent @event, int shapeIdx)
     {
         if (!IsComplete) return; // 只有生长完成后才能拖动
+        StopShooterAttack();
         if (@event is InputEventMouseButton mouse && mouse.Pressed && mouse.ButtonIndex == MouseButton.Left)
         {
             _isDragging = true;
@@ -113,7 +121,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
             }
         }
         // 是否放在攻击区
-
         //
         _isDragging = false;
         if (!succ)
@@ -122,7 +129,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         }
         // 延迟0.1f
         await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-        PlayerController.Instance?.SetCanAttack(true);
     }
 
     public override void _Input(InputEvent @event)
@@ -145,8 +151,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
                 {
                     Position = globalPos;
                 }
-
-                PlayerController.Instance?.SetCanAttack(false);
             }
         }
     }
@@ -156,7 +160,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
     protected virtual void OnGrowFinished()
     {
         IsComplete = true;
-
         // 删除Miao动画节点
         var miaoNode = GetNodeOrNull(new NodePath(PlansConstants.Miao));
         // 不再在进入时直接拖动
@@ -167,7 +170,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         _area2D.Visible = true;
         // 
         ViewPlans();
-
         // 播放生长完成音效
         SoundFxController.Instance?.PlayFx("Ux/grow", "grow", 4);
     }
@@ -187,8 +189,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
                 {
                     obj.Init(PlanName);
                 }
-                Node2D node2D = planInstance as Node2D;
-                float sc = node2D.Scale.X;
                 AddChild(planInstance);
             }
         }

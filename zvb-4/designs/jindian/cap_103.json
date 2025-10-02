@@ -38,7 +38,7 @@
         ],
         "19": [
             {
-                "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+                "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_mu_tong" ],
                 "typesmode": "next",
                 "generator": [ 3, 7, 9, 4, 1, 6 ],
                 "generatormode": "random",
@@ -69,14 +69,14 @@
                 "speedmode": "normal"
             }
         ],
-        "66": [
+        "60": [
             {
-                "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+                "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
                 "typesmode": "random",
                 "generator": [ 2, 5, 7, 10, 8, 1, 3, 6 ],
                 "generatormode": "random",
                 "lazyall": 0,
-                "lazyme": 2,
+                "lazyme": 4,
                 "speedmode": "normal"
             }
         ]

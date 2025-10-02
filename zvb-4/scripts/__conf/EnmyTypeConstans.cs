@@ -27,9 +27,9 @@ namespace ZVB4.Conf
         // 储存速度的字典
         public static readonly Dictionary<string, float> SpeedDict = new Dictionary<string, float>()
         {
-            { ZombiS, 25f },
-            { ZombiMuTong, 20f },
-            { ZombiTieTong, 15f }
+            { ZombiS, 20f },
+            { ZombiMuTong, 15f },
+            { ZombiTieTong, 10f }
         };
 
         static int BaseDamage = (int)EnumHealth.One / 5;

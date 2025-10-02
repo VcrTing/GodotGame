@@ -101,8 +101,8 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_xe8bl")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwbcj"]
-radius = 100.0
-height = 250.0
+radius = 80.0
+height = 200.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bswmn"]
 size = Vector2(40, 20)
@@ -120,7 +120,7 @@ frame_progress = 0.4528889
 
 [node name="ViewDoing" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, 0)
-scale = Vector2(3.7, 3.7)
+scale = Vector2(3.4, 3.4)
 sprite_frames = SubResource("SpriteFrames_2dcip")
 frame = 2
 frame_progress = 1.0

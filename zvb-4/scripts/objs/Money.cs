@@ -52,6 +52,7 @@ public partial class Money : RigidBody2D, IWorking, IReword
     float speed = 440f;
     public async void Init()
     {
+        view = GodotTool.GetViewAndAutoPlay(this);
         int rd = (int)GD.RandRange(0, 50);
         float v = 1.1f - (rd / 100f);
         originScale = v;
@@ -95,7 +96,7 @@ public partial class Money : RigidBody2D, IWorking, IReword
             MoneyCenterSystem.Instance.AddMoney(value);
             value = 0;
 
-            //
+            // 设置 view 的透明度 = 0.618f
             if (view != null)
             {
                 var c = view.Modulate;

@@ -3,6 +3,7 @@ using Godot;
 using System;
 using System.IO;
 using System.Text.Json;
+using ZVB4.Conf;
 using ZVB4.Entity;
 
 public partial class SaveDataManager : Node
@@ -42,19 +43,6 @@ public partial class SaveDataManager : Node
         }
     }
 
-    public void SetPlayerShooter(string shooterName)
-    {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
-        }
-        if (_playerData != null)
-        {
-            _playerData.ShooterNow = shooterName;
-            SavePlayerData();
-        }
-    }
-
     public void LoadPlayerData()
     {
         try
@@ -80,6 +68,44 @@ public partial class SaveDataManager : Node
         }
     }
 
+    public void SetPlayerShooter(string shooterName)
+    {
+        if (_playerData == null)
+        {
+            LoadPlayerData();
+        }
+        if (_playerData != null)
+        {
+            _playerData.ShooterNow = shooterName;
+            SavePlayerData();
+        }
+    }
+
+    public string GetLastBaseShooter()
+    {
+        if (_playerData == null)
+        {
+            LoadPlayerData();
+        }
+        if (_playerData == null) return PlansConstants.Pea;
+        return _playerData.ShooterBaseLast;
+    }
+
+    public void TrySavePlayerShooterBaseLast(string shooterName)
+    {
+        if (_playerData == null)
+        {
+            LoadPlayerData();
+        }
+        if (_playerData != null)
+        {
+            if (shooterName == PlansConstants.Pea)
+            {
+                _playerData.ShooterBaseLast = shooterName;
+                SavePlayerData();
+            }
+        }
+    }
     public void SetMoneyAndSave(int value)
     {
         if (_playerData == null)
@@ -89,6 +115,37 @@ public partial class SaveDataManager : Node
         if (_playerData != null)
         {
             _playerData.Money = value;
+            SavePlayerData();
+        }
+    }
+
+    // 是否有此射手
+    public bool HasThisShooter(string n)
+    {
+        if (_playerData == null)
+        {
+            LoadPlayerData();
+        }
+        if (_playerData != null)
+        {
+            string UnlockShooter = _playerData.UnlockShooter;
+            if (UnlockShooter.Contains("_" + n + "_"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 解锁该射手
+    public void UnlockThisShooter(string n)
+    {
+        bool has = HasThisShooter(n);
+        if (!has)
+        {
+            string UnlockShooter = _playerData.UnlockShooter;
+            UnlockShooter += ("_" + n + "_");
+            _playerData.UnlockShooter = UnlockShooter;
             SavePlayerData();
         }
     }

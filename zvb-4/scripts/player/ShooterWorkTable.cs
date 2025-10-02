@@ -11,9 +11,7 @@ public partial class ShooterWorkTable : Node2D
     public override void _Ready()
     {
         Instance = this;
-        //
         GetBodtRect();
-        //
         GodotTool.GetViewAndAutoPlay(this);
     }
 
@@ -50,50 +48,79 @@ public partial class ShooterWorkTable : Node2D
     {
         if (plansNameNow == plansName)
         {
-            // 开启可攻击
-            PlayerController.Instance?.SetCanAttack(true);
+            Node2D node2D = GodotTool.FindNode2DByName(this.GetParent(), NameConstants.Shooter);
+            DieToReword(node2D);
+            return true;
+        }
+        return ChangeShooter(plansName);
+    }
+
+    public bool ChangeToLastBaseShooter()
+    {
+        if (SaveDataManager.Instance == null) return false;
+        string lastBaseShooter = SaveDataManager.Instance?.GetLastBaseShooter();
+        return ChangeShooter(lastBaseShooter);
+    }
+
+    public bool ChangeShooter(string plansName)
+    {
+        string shooterScene = PlansConstants.GetShooterScene(plansName);
+        if (!string.IsNullOrEmpty(shooterScene))
+        {
+            var scene = GD.Load<PackedScene>(shooterScene);
+            if (scene == null) return false;
+            plansNameNow = plansName;
+            SaveDataManager.Instance?.TrySavePlayerShooterBaseLast(plansNameNow);
+            // 删掉老射手。
+            PlayerController.Instance?.TrashOldShooter();
+            GenerateShooter(scene);
             return true;
         }
         else
         {
-            string shooterScene = PlansConstants.GetShooterScene(plansName);
-            if (!string.IsNullOrEmpty(shooterScene))
-            {
-                plansNameNow = plansName;
-                ZhongXiaShooter(plansName, shooterScene);
-                return true;
-            }
-            else
-            {
-                SoundUiController.Instance?.Error();
-            }
+            SoundUiController.Instance?.Error();
         }
         return false;
     }
 
-    void ZhongXiaShooter(string shooterName, string shooterScene)
+    void GenerateShooter(PackedScene scene)
     {
-        // 生成shooter实例
-        var scene = GD.Load<PackedScene>(shooterScene);
-        if (scene == null)
-        {
-            return;
-        }
-
-        // 删掉老射手。
-        PlayerController.Instance?.TrashOldShooter();
         //
         var shooterInstance = scene.Instantiate();
         shooterInstance.Name = NameConstants.Shooter;
         AddChild(shooterInstance);
-        if (shooterInstance is IShooter shooterInterface)
+        if (shooterInstance is IShooter s)
         {
-            shooterInterface.ChangeShooter(shooterName);
-            // 开启可攻击
-            PlayerController.Instance?.SetCanAttack(true);
+            s.ChangeShooter(plansNameNow);
             // 播放音效
             SoundFxController.Instance.PlayFx("Fx/upshooter", "up", 4);
         }
+    }  
+
+    public void DieToReword(Node2D lastNode)
+    {
+        // 生成奖励组
+        try
+        {
+            var rewordGroupScene = GD.Load<PackedScene>(FolderConstants.WaveObj + "reword_group.tscn");
+            var rewordGroupNode = rewordGroupScene.Instantiate<Node2D>();
+            GetParent().AddChild(rewordGroupNode);
+            var rewordGroup = rewordGroupNode as RewordGroup;
+            if (rewordGroup != null)
+            {
+                Vector2 pos = lastNode != null ? lastNode.Position : this.Position;
+                IObj lastObj = lastNode as IObj;
+                // 阳光数量
+                int num = SunMoneyConstants.GetSunNumNormal(lastObj.GetObjName());
+                // 生成阳光奖励
+                rewordGroup.SpawnReword(SunMoneyConstants.Sun, num, pos, SunMoneyConstants.SunNormal);
+                // 销毁植物
+                SoundFxController.Instance?.PlayFx("Ux/trash", "trash", 4, pos);
+            }
+        }
+        catch
+        {
             
-    }
+        }
+    }  
 }

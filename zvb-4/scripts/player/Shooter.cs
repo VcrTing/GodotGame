@@ -14,6 +14,8 @@ public partial class Shooter : Node2D, IShooter
     int shooterCostSun;
     string bulletScenePath = string.Empty;
     Vector2 InitPosition;
+    
+    int allowAttackNum = 0;
 
     public override void _Ready()
     {
@@ -29,6 +31,15 @@ public partial class Shooter : Node2D, IShooter
         _LoadShooterParams(shooterName);
         // 切换了射手，保存数据
         SaveDataManager.Instance?.SetPlayerShooter(shooterName);
+        
+        // 检查是否解锁该射手
+        allowAttackNum = PlansConstants.GetShooterAttackLimit(shooterNowName);
+        if (SaveDataManager.Instance == null) return;
+        bool hasShooter = (bool)(SaveDataManager.Instance?.HasThisShooter(shooterNowName));
+        if (hasShooter)
+        {
+            allowAttackNum = -1;
+        }
     }
 
     bool CostSunForAttack()
@@ -62,8 +73,18 @@ public partial class Shooter : Node2D, IShooter
     {
         // 阳光问题
         if (!CostSunForAttack()) return false;
+        num += 1;
         // 正式攻击
         ShootBullet(startPosition, direction);
+        // 计算次数是否限制
+        if (allowAttackNum != -1)
+        {
+            if (num >= allowAttackNum)
+            {
+                GD.Print("你没有这个射手");
+                ShooterWorkTable.Instance?.ChangeToLastBaseShooter();
+            }
+        }
         return true;
     }
 
@@ -150,6 +171,7 @@ public partial class Shooter : Node2D, IShooter
     float __attackTime = 0f;
 
 
+    int num = 0;
     bool succAttack = true;
     public override void _Process(double delta)
     {

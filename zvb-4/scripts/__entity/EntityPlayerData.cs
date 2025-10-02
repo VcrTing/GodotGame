@@ -16,6 +16,9 @@ namespace ZVB4.Entity
         public int Money { get; set; } = 0;
 
         public string ShooterNow { get; set; } = PlansConstants.Pea;
+        public string ShooterBaseLast { get; set; } = PlansConstants.Pea;
+
+        public string UnlockShooter { get; set; } = "_" + PlansConstants.Pea + "_";
 
         public List<string> ShooterUnlockedList { get; set; } = new List<string>() {
             PlansConstants.Pea,

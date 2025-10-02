@@ -233,19 +233,9 @@ public partial class PlayerAttackArea : Area2D
 
     void DieToReword()
     {
-        // 生成奖励组
-        var rewordGroupScene = GD.Load<PackedScene>(FolderConstants.WaveObj + "reword_group.tscn");
-        var rewordGroupNode = rewordGroupScene.Instantiate<Node2D>();
-        GetParent().AddChild(rewordGroupNode);
-        var rewordGroup = rewordGroupNode as RewordGroup;
-        if (rewordGroup != null)
-        {
-            Vector2 pos = lastNode != null ? lastNode.Position : this.Position;
-            // 生成阳光奖励
-            rewordGroup.SpawnReword(SunMoneyConstants.Sun, SunMoneyConstants.GetSunNumNormal(lastObj.GetObjName()), pos, SunMoneyConstants.SunNormal);
-            // 销毁植物
-            SoundFxController.Instance?.PlayFx("Ux/trash", "trash", 4, pos);
-        }
+        var table = ShooterWorkTable.Instance;
+        if (table == null) return;
+        table.DieToReword(lastNode);
     }
 
     void DieLastObj()
