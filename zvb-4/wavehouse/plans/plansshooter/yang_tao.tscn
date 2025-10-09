@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://ba62rq6huwgxv"]
+
+[ext_resource type="Script" uid="uid://cj8rgxcdhbkct" path="res://scenes/PlansYangTao.cs" id="1_n1d3v"]
+[ext_resource type="Texture2D" uid="uid://3jutnbi32er8" path="res://pngs/plans/YangTao.png" id="2_ccn1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlc07"]
+atlas = ExtResource("2_ccn1j")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiptw"]
+atlas = ExtResource("2_ccn1j")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad81k"]
+atlas = ExtResource("2_ccn1j")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56n5j"]
+atlas = ExtResource("2_ccn1j")
+region = Rect2(360, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgq3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlc07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiptw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ad81k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56n5j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="YangTao" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_n1d3v")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+z_index = 220
+position = Vector2(3, 6)
+sprite_frames = SubResource("SpriteFrames_sgq3c")
+autoplay = "default"

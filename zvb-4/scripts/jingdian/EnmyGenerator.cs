@@ -3,6 +3,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using ZVB4.Conf;
+using ZVB4.Interface;
 
 public partial class EnmyGenerator : Node2D
 {
@@ -41,7 +42,7 @@ public partial class EnmyGenerator : Node2D
         return points;
     }
 
-    async void Generate(string type, int grid, bool israndom, float lazyme)
+    async void Generate(string type, int grid, bool israndom, float lazyme, int randomXRate)
     {
         if (lazyme > 0)
         {
@@ -49,23 +50,43 @@ public partial class EnmyGenerator : Node2D
         }
         if (israndom)
         {
-            Instance.GenerateEnemyByCode(type);
+            Instance.GenerateEnemyByCode(type, randomXRate);
         }
         else
         {
-            Instance.GenerateEnemyByCode(type, grid);
+            Instance.GenerateEnemyByCode(type, grid, randomXRate);
         }
     }
-        /// <summary>
+
+    [Export]
+    public float InitMoveSpeedScale = 1f;
+    [Export]
+    public float InitBeHurtScale = 1f;
+    [Export]
+    public float InitViewScale = 1f;
+    [Export]
+    public float InitAttackSpeedScale = 1f;
+
+    public static void SetInitScale(float movespeedscale, float behurtscale, float viewscale, float attackspeedscale)
+    {
+        if (Instance == null)
+        {
+            return;
+        }
+        Instance.InitMoveSpeedScale = movespeedscale;
+        Instance.InitBeHurtScale = behurtscale;
+        Instance.InitViewScale = viewscale; 
+        Instance.InitAttackSpeedScale = attackspeedscale;
+    }
+    /// <summary>
 
     /// 根据types、generator、typesmode、generatormode批量生成敌人
     /// </summary>
-    public static void GenerateEnemiesByConfig(Godot.Collections.Array types, Godot.Collections.Array generator, string typesmode, string generatormode, float lazyme)
+    public static void GenerateEnemiesByConfig(Godot.Collections.Array types, Godot.Collections.Array generator, string typesmode, string generatormode, float lazyme, int randomXRate)
     {
         var gen = Instance;
         if (gen == null)
         {
-            GD.PrintErr("EnmyGenerator.Instance is null");
             return;
         }
         if (typesmode == "next")
@@ -73,7 +94,7 @@ public partial class EnmyGenerator : Node2D
             int count = Math.Min(types.Count, generator.Count);
             for (int i = 0; i < count; i++)
             {
-                gen.Generate(types[i].AsString(), (int)generator[i], generatormode == "random", lazyme * i);
+                gen.Generate(types[i].AsString(), (int)generator[i], generatormode == "random", lazyme * i, randomXRate);
             }
         }
         if (typesmode == "random")
@@ -86,7 +107,7 @@ public partial class EnmyGenerator : Node2D
                 foreach (var idx in idxList)
                 {
                     i += 1;
-                    gen.Generate(types[idx].AsString(), (int)generator[idx], generatormode == "random", lazyme * i);
+                    gen.Generate(types[idx].AsString(), (int)generator[idx], generatormode == "random", lazyme * i, randomXRate);
                 }
             }
         }
@@ -97,11 +118,23 @@ public partial class EnmyGenerator : Node2D
     /// </summary>
     /// <param name="code">敌人代号名称</param>
     /// <returns>生成的敌人节点（Node2D），失败返回null</returns>
-    public Node2D GenerateEnemyByCode(string code)
+    public Node2D GenerateEnemyByCode(string code, int randomXRate)
     {
         int max = TileNumHalf * 2;
         int tileIndex = (int)GD.RandRange(1, max);
-        return GenerateEnemyByCode(code, tileIndex);
+        return GenerateEnemyByCode(code, tileIndex, randomXRate);
+    }
+
+    float DoRandomX(Vector2 tilePos, int randomXRate)
+    {
+        if (randomXRate <= 0)
+        {
+            return tilePos.X;
+        }
+        float left = tilePos.X - TileMapW / 2f;
+        float right = tilePos.X + TileMapW / 2f;
+        float randX = (float)GD.RandRange(left, right);
+        return randX;
     }
     /// <summary>
     /// 根据敌人代号名称和格子编号生成敌人实例，x坐标在格子区间内随机
@@ -109,9 +142,9 @@ public partial class EnmyGenerator : Node2D
     /// <param name="code">敌人代号名称</param>
     /// <param name="tileIndex">格子编号（1-10）</param>
     /// <returns>生成的敌人节点（Node2D），失败返回null</returns>
-    public Node2D GenerateEnemyByCode(string code, int tileIndex)
+    public Node2D GenerateEnemyByCode(string code, int tileIndex, int randomXRate)
     {
-        string path = $"res://wavehouse/zombi/{code}.tscn";
+        string path = FolderConstants.WaveEnemy + "wrapper/zombi_s_wrapper.tscn";
         var packed = GD.Load<PackedScene>(path);
         if (packed == null)
         {
@@ -130,12 +163,16 @@ public partial class EnmyGenerator : Node2D
             return instance;
         }
         var tilePos = tiles[tileIndex - 1];
-        float left = tilePos.X - TileMapW / 2f;
-        float right = tilePos.X + TileMapW / 2f;
-        float randX = (float)GD.RandRange(left, right);
         var pos = instance.Position;
-        pos.X = randX;
+        pos.X = DoRandomX(tilePos, randomXRate);
         instance.Position = pos;
+        // 设置缩放
+        if (instance is IEnmy enmy)
+        {
+            enmy.SetObjName(code);
+            enmy.SetInitScale(InitMoveSpeedScale, InitBeHurtScale, InitViewScale, InitAttackSpeedScale);
+        }
+        //
         AddChild(instance);
         return instance;
     }

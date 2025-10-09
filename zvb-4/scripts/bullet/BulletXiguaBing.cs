@@ -36,7 +36,7 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
 
     // 渐隐相关变量
     float fadeElapsed = 0f;
-    float fadeDuration = AnimationConstants.BulletFadeDieDuration;
+    float fadeDuration = AnimationConstants.BulletXiGuaFadeDieDuration;
     float fadeLowest = 0f;
     public override void _Process(double delta)
     {
@@ -163,8 +163,10 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         }
     }
 
+    bool isWorkingMode = false;
     public void SetWorkingMode(bool working)
     {
+        isWorkingMode = working;
         if (working)
         {
             StartAttack();
@@ -173,4 +175,5 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         }
     }
 
+    public bool IsWorking() => isWorkingMode;
 }

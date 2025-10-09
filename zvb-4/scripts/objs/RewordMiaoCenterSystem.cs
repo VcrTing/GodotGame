@@ -108,20 +108,43 @@ public partial class RewordMiaoCenterSystem : Node2D
         return "";
     }
     bool usePower = false;
+    public static readonly Dictionary<string, int> PlansStarPowerDict = new Dictionary<string, int>
+    {
+        { PlansConstants.Pea, 0 },
+        { PlansConstants.XiguaBing, 0 },
+        { PlansConstants.SunFlower, 3 },
+        { PlansConstants.Cherry, 3 },
+    };
+    public static readonly Dictionary<string, int> PlansPowerDict = new Dictionary<string, int>
+    {
+        { PlansConstants.Pea, 0 },
+        { PlansConstants.XiguaBing, 0 },
+        { PlansConstants.SunFlower, 50 },
+        { PlansConstants.Cherry, 50 },
+    };
+    bool RandomPlansForPower(string name)
+    {
+        int i = GD.RandRange(0, 100);
+        int power = 0;
+        int younum = GameStatistic.Instance?.GetPlansCount(name) ?? 0;
+        int numlimit = PlansStarPowerDict.ContainsKey(name) ? PlansStarPowerDict[name] : 0;
+        if (numlimit > 0)
+        {
+            if (younum >= numlimit)
+            {
+                power = PlansPowerDict.ContainsKey(name) ? PlansPowerDict[name] : 0;
+                GD.Print("当前拥有 " + name + " 数量: " + younum + "，超过上限 " + numlimit + "，触发概率限制，概率值: " + power + " i = " + i);
+            }
+        }
+        if (power <= 0) return true;
+        return i < power;
+    }
+
     public string GetRandomPlansNameWithPowerWeight()
     {
-        string n = GetNameByWeight();
-        if (!usePower) { n = ""; }
-        // GD.Print("加权随机到的植物是: " + n);
-        if (n == "")
-        {
-            n = PlansConstants.GetRandomPlansName();
-            // GD.Print("无，随机到的植物是: " + n);
-        }
-        else
-        {
-            ReComputedWeight();
-        }
+        string n = PlansConstants.GetRandomPlansName();
+        bool isAllow = RandomPlansForPower(n);
+        if (!isAllow) return "";
         AddOne(n);
         return n;
     }
@@ -144,7 +167,6 @@ public partial class RewordMiaoCenterSystem : Node2D
 
     /*
 
-
     */
     float w = GameContants.ScreenHalfW - 90;
     // 随机地点出生苗
@@ -162,6 +184,7 @@ public partial class RewordMiaoCenterSystem : Node2D
         DumpPlansMiao(new Vector2(x, y), name, playSound);
     }
 
+    int count = 0;
     public void DumpPlansMiao(Vector2 pos, string name, bool playSound = true)
     {
         try
@@ -173,6 +196,9 @@ public partial class RewordMiaoCenterSystem : Node2D
             {
                 SoundFxController.Instance?.PlayFx("Ux/suprise", "suprise", 4, GlobalPosition);
             }
+            count += 1;
+            string n = "Miao" + count;
+            instance.Name = n;
             AddChild(instance);
         }
         catch (Exception e)
@@ -201,8 +227,7 @@ public partial class RewordMiaoCenterSystem : Node2D
     void DumpRandomPlansMiao(string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
     {
         int num = 0;
-        int penNum = FlowerPengSystem.Instance?.GetUseFullFlowerPeng().Count ?? 0;
-        GD.Print("当前可用花盆数量: " + penNum);
+        // int penNum = FlowerPengSystem.Instance?.GetUseFullFlowerPeng().Count ?? 0;
         switch (initmiaorandomnummode)
         {
             case "FlowerPeng":

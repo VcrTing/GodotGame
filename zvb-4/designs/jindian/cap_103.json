@@ -3,12 +3,18 @@
     "initsun": 200,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
-    "initmiaolist": [
-        "Pea", "SunFlower", "SunFlower", "Cherry"
-    ],
     "gamechecktime": 80,
     
-    "initpeng": 6,
+    "initpeng": 5,
+    
+    "initshooter": "Pea",
+    "initmiaolist": [
+        "SunFlower", "SunFlower", "Cherry"
+    ],
+    "enmyspeedattackscale": 1.0,
+    "enmyspeedmovescale": 1.0,
+    "enmyviewscale": 1.0,
+    "enmybehurtscale": 1.0,
 
     "enmyswaveflag": {
         "19": 1

@@ -47,8 +47,8 @@ namespace ZVB4.Conf
 
         static float MoneyBaseLv = 0.3f;
         public static float MoneyPrevSuccRewordSubLv = 0.1f;
-        static float MiaoBaseLv = 0.1f;
-        public static float MiaoPrevSuccRewordSubLv = 0.1f;
+        static float MiaoBaseLv = 0.05f;
+        public static float MiaoPrevSuccRewordSubLv = 0.05f;
         public static readonly Dictionary<string, float> ZombiMoneyLvDict = new Dictionary<string, float>
         {
             { EnmyTypeConstans.ZombiS, 0.1f },

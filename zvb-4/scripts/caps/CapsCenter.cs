@@ -113,12 +113,18 @@ public partial class CapsCenter : Node2D
         }
 
         // 
-        EnmyGenerator.GenerateEnemiesByConfig(types, generator, typesmode, generatormode, lazyme);
+        int randomxrate = 0;
+        if (generateInfo.ContainsKey("randomxrate"))
+        {
+            randomxrate = generateInfo["randomxrate"].AsInt32();
+        }
+
+        // 通过配置生成敌人
+        EnmyGenerator.GenerateEnemiesByConfig(types, generator, typesmode, generatormode, lazyme, randomxrate);
     }
 
     public void PauseGaming() => _gamingPaused = true;
     public void ResumeGaming() => _gamingPaused = false;
-
 
      Dictionary enmyswaveflag;
      Dictionary enmys;
@@ -167,6 +173,10 @@ public partial class CapsCenter : Node2D
         {
             string initmiaorandomnummode = _capData["initmiaorandomnummode"].AsString();
             Godot.Collections.Array initmiaolist = _capData["initmiaolist"].AsGodotArray();
+            //
+            string initshooter = _capData["initshooter"].AsString();
+            initmiaolist.Add(initshooter);
+            //
             var miaoCenter = RewordMiaoCenterSystem.Instance;
             if (miaoCenter != null)
             {
@@ -190,10 +200,10 @@ public partial class CapsCenter : Node2D
         if (_capData.ContainsKey("enmys"))
         {
             var enmysVariant = _capData["enmys"].AsGodotDictionary();
-            if (enmysVariant is  Dictionary)
+            if (enmysVariant is Dictionary)
             {
                 // 加入僵尸数据
-                enmys = ( Dictionary)enmysVariant;
+                enmys = (Dictionary)enmysVariant;
                 // 计算全部僵尸数量
                 int totalZombiCount = 0;
                 foreach (string key in enmys.Keys)
@@ -201,7 +211,7 @@ public partial class CapsCenter : Node2D
                     Godot.Collections.Array enmyInfo = enmys[key].AsGodotArray();
                     foreach (var item in enmyInfo)
                     {
-                        var info = ( Dictionary)item;
+                        var info = (Dictionary)item;
                         if (info != null && info.ContainsKey("types"))
                         {
                             int count = info["types"].AsGodotArray().Count;
@@ -210,6 +220,15 @@ public partial class CapsCenter : Node2D
                     }
                 }
                 GameStatistic.Instance?.SetZombieChapterTotal(totalZombiCount);
+                // 设置全局缩放
+                
+                // 设置默认缩放
+                EnmyGenerator.SetInitScale(
+                    (float)_capData["enmyspeedmovescale"],
+                    (float)_capData["enmybehurtscale"],
+                    (float)_capData["enmyviewscale"], 
+                    (float)_capData["enmyspeedattackscale"]
+                    );
             }
         }
     }

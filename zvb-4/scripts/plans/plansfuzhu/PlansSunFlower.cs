@@ -26,6 +26,15 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
         AdjustView();
         SetWorkingMode(true);
         _flowerWorking = GetNodeOrNull<FlowerWorkingReword>(NameConstants.Working);
+
+        //
+        
+        //
+        var gs = GameStatistic.Instance;
+        if (gs != null)
+        {
+            gs.AddPlansCount(objName, 1);
+        }
     }
     // 点击回调，销毁自身
     private void Input(InputEvent @event)
@@ -95,4 +104,8 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
         return true;
     }
 
+    public EnumMoveType GetEnumMoveType()
+    {
+        throw new NotImplementedException();
+    }
 }

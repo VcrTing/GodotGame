@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3i7tctp8hx4w"]
+
+[ext_resource type="Script" uid="uid://d3wydtoj820gx" path="res://scripts/ground/GeZi.cs" id="1_sa0h7"]
+[ext_resource type="Script" uid="uid://plns1ly8t2au" path="res://scripts/ground/GeZiPlantingArea.cs" id="2_sa0h7"]
+[ext_resource type="Texture2D" uid="uid://b5e1d610nng2e" path="res://pngs/ux/gezi_hightlight_x.png" id="3_c0nkq"]
+[ext_resource type="Texture2D" uid="uid://bkr4amm2uisl" path="res://pngs/ux/gezi_hightlight_y.png" id="4_b1ln1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8jy"]
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa0h7"]
+size = Vector2(160, 160)
+
+[node name="GeZi" type="Node2D"]
+script = ExtResource("1_sa0h7")
+
+[node name="PlantingArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("2_sa0h7")
+
+[node name="HightLight" type="Node2D" parent="PlantingArea"]
+visible = false
+
+[node name="HightLightX" type="Sprite2D" parent="PlantingArea/HightLight"]
+z_index = 1
+texture = ExtResource("3_c0nkq")
+
+[node name="HightLightY" type="Sprite2D" parent="PlantingArea/HightLight"]
+z_index = 1
+texture = ExtResource("4_b1ln1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantingArea"]
+shape = SubResource("RectangleShape2D_1q8jy")
+
+[node name="UxArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UxArea"]
+shape = SubResource("RectangleShape2D_sa0h7")

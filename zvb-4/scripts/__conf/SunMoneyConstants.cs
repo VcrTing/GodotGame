@@ -17,19 +17,17 @@ namespace ZVB4.Conf
         public const int FlowerGetSun = 50;
         public const int SkyGetSun = 50;
 
-        public const int AttackCostPea = 10;
-
-        public const int AttackCostXigua = 50;
-
         // 攻击消耗字典
         public static readonly Dictionary<string, int> AttackCostDict = new Dictionary<string, int>
         {
-            { PlansConstants.Pea, AttackCostPea },
-            { PlansConstants.XiguaBing, AttackCostXigua }
+            { PlansConstants.Pea, 10 },
+            { PlansConstants.YangTao, 30 },
+            { PlansConstants.XiguaBing, 50 }
         };
         public static readonly Dictionary<string, int> DieSunDict = new Dictionary<string, int>
         {
             { PlansConstants.Pea, 100 },
+            { PlansConstants.YangTao, 150 },
             { PlansConstants.XiguaBing, 200 }
         };
 

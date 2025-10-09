@@ -13,12 +13,19 @@
     "initsun": 50,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
-    "initmiaolist": [
-        "Pea", "SunFlower", "SunFlower"
-    ],
     "initpeng": 3,
-    
-    "gamechecktime": 27,
+
+    "initshooter": "YangTao",
+    "initmiaolist": [
+        "SunFlower", "IceFlower"
+    ],
+
+    "enmyspeedattackscale": 1.0,
+    "enmyspeedmovescale": 1.0,
+    "enmyviewscale": 1.0,
+    "enmybehurtscale": 1.0,
+
+    "gamechecktime": 6,
     "enmyswaveflag": {
         "19": 1
     },
@@ -27,43 +34,10 @@
             {
                 "types": [ "zombi_s" ],
                 "typesmode": "next",
-                "generator": [ 1, 5 ],
+                "generator": [ 4 ],
                 "generatormode": "random",
                 "lazyall": 0,
                 "lazyme": 0,
-                "speedmode": "normal"
-            }
-        ],
-        "9": [
-            {
-                "types": [ "zombi_s", "zombi_s" ],
-                "typesmode": "next",
-                "generator": [ 1, 5 ],
-                "generatormode": "next",
-                "lazyall": 0,
-                "lazyme": 2,
-                "speedmode": "normal"
-            }
-        ],
-        "15": [
-            {
-                "types": [ "zombi_s", "zombi_s", "zombi_s" ],
-                "typesmode": "next",
-                "generator": [ 3, 7, 9 ],
-                "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 2,
-                "speedmode": "normal"
-            }
-        ],
-        "22": [
-            {
-                "types": [ "zombi_s", "zombi_mu_tong", "zombi_s" ],
-                "typesmode": "random",
-                "generator": [ 2, 4, 8 ],
-                "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 2,
                 "speedmode": "normal"
             }
         ]

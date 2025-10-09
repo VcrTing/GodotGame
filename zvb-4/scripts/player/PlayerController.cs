@@ -7,7 +7,7 @@ public partial class PlayerController : Node2D
 {
     public static PlayerController Instance { get; private set; }
     public Vector2 _lastClickPosition;
-    private Shooter _shooter;
+    private ShooterWrapper _shooter;
     public Vector2 _shooterInitPosition;
 
     EntityPlayerData playerData;
@@ -22,9 +22,9 @@ public partial class PlayerController : Node2D
     {
         try
         {
-            Node2D nd = GodotTool.FindNode2DByName(this, NameConstants.Shooter);
+            Node2D nd = GodotTool.FindNode2DByName(this, NameConstants.ShooterWrapper);
             if (nd == null) return;
-            nd.Name = NameConstants.Shooter + "_to_be_deleted";
+            nd.Name = NameConstants.ShooterWrapper + "_to_be_deleted";
             nd.QueueFree();
             _shooter = null;
         }
@@ -37,14 +37,14 @@ public partial class PlayerController : Node2D
     {
         try
         {
-            Node2D nd = GodotTool.FindNode2DByName(this, NameConstants.Shooter);
+            Node2D nd = GodotTool.FindNode2DByName(this, NameConstants.ShooterWrapper);
             if (nd == null)
             {
                 return;
             }
-            if (nd is Shooter)
+            if (nd is ShooterWrapper)
             {
-                _shooter = nd as Shooter;
+                _shooter = nd as ShooterWrapper;
             }
             if (_shooter != null)
             {

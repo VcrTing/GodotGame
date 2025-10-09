@@ -48,7 +48,7 @@ public partial class ShooterWorkTable : Node2D
     {
         if (plansNameNow == plansName)
         {
-            Node2D node2D = GodotTool.FindNode2DByName(this.GetParent(), NameConstants.Shooter);
+            Node2D node2D = GodotTool.FindNode2DByName(this.GetParent(), NameConstants.ShooterWrapper);
             DieToReword(node2D);
             return true;
         }
@@ -64,7 +64,8 @@ public partial class ShooterWorkTable : Node2D
 
     public bool ChangeShooter(string plansName)
     {
-        string shooterScene = PlansConstants.GetShooterScene(plansName);
+        string shooterScene = FolderConstants.WavePlayer + "shooter_wrapper.tscn";
+        // GD.Print("切换射手:" + shooterScene);
         if (!string.IsNullOrEmpty(shooterScene))
         {
             var scene = GD.Load<PackedScene>(shooterScene);
@@ -87,13 +88,11 @@ public partial class ShooterWorkTable : Node2D
     {
         //
         var shooterInstance = scene.Instantiate();
-        shooterInstance.Name = NameConstants.Shooter;
+        shooterInstance.Name = NameConstants.ShooterWrapper;
         AddChild(shooterInstance);
-        if (shooterInstance is IShooter s)
+        if (shooterInstance is IShooterWrapper s)
         {
             s.ChangeShooter(plansNameNow);
-            // 播放音效
-            SoundFxController.Instance.PlayFx("Fx/upshooter", "up", 4);
         }
     }  
 

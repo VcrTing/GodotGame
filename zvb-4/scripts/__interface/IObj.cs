@@ -10,7 +10,5 @@ namespace ZVB4.Interface
         bool Init(string name = null);
 
         bool Die();
-
-        bool AdjustView();
     }
 }

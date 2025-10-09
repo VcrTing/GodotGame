@@ -42,7 +42,7 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
 
     public override void _Ready()
     {
-        
+
     }
 
     public bool Init(string plansName)
@@ -106,6 +106,18 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         }
     }
 
+
+    // 种下后，解锁花盆占用
+    public string ZhongXia()
+    {
+        FlowerPeng flowerPeng = GetParent<FlowerPeng>();
+        if (flowerPeng != null)
+        {
+            flowerPeng.ReleaseLock();
+            QueueFree();
+        }
+        return PlanName;
+    }
     async void OnRealease()
     {
         // 
@@ -120,8 +132,7 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
                 ZhongXia();
             }
         }
-        // 是否放在攻击区
-        //
+        // 否
         _isDragging = false;
         if (!succ)
         {
@@ -194,18 +205,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         }
     }
 
-    // 种下后，解锁花盆占用
-    public string ZhongXia()
-    {
-        FlowerPeng flowerPeng = GetParent<FlowerPeng>();
-        if (flowerPeng != null)
-        {
-            flowerPeng.ReleaseLock();
-            QueueFree();
-        }
-        return PlanName;
-    }
-
     public bool CanDie()
     {
         return true;
@@ -222,4 +221,13 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         throw new NotImplementedException();
     }
 
+    public EnumMoveType GetEnumMoveType()
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool IsWorking() => IsWorkingMode;
+
+
+    //
 }

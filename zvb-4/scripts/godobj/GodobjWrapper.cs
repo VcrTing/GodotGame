@@ -125,4 +125,10 @@ public partial class GodobjWrapper : Node2D, IMove, IBeHurt, IObj, IAttack
         QueueFree();
         return true;
     }
+
+    public Vector2 GetMyPosition()
+    {
+        throw new NotImplementedException();
+    }
+
 }

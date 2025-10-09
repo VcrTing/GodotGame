@@ -8,7 +8,7 @@ namespace ZVB4.Conf
 
 
         public const string WaveBullet = "res://wavehouse/bullet/";
-        public const string WaveEnemy = "res://wavehouse/enemy/";
+        public const string WaveEnemy = "res://wavehouse/zombi/";
         public const string WaveUx = "res://wavehouse/ux/";
         public const string WavePlans = "res://wavehouse/plans/";
         public const string WaveHouse = "res://wavehouse/";

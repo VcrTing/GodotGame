@@ -38,13 +38,13 @@ public partial class EnmyWorkingDumpReword : Node2D, IWhenDie
     }
 
     //
-    
     void DumpPlansMiao()
     {
         var ms = RewordMiaoCenterSystem.Instance;
         if (ms != null)
         {
             string m = ms.GetRandomPlansNameWithPowerWeight();
+            if (m == "") return;
             ms.DumpPlansMiao(GlobalPosition, m);
         }
     }

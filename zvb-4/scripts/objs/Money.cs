@@ -150,4 +150,7 @@ public partial class Money : RigidBody2D, IWorking, IReword
             }
         }
     }
+
+    public bool IsWorking() => true;
+
 }

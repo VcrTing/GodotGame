@@ -78,7 +78,7 @@ public partial class GodobjView : Node2D, IHealth
     }
 
     EnumHurts lastHurt = EnumHurts.Pea;
-
+    //
     public int CostHealth(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
         lastHurt = enumHurts;
@@ -90,14 +90,12 @@ public partial class GodobjView : Node2D, IHealth
         DoingDie(); // 仍然存活
         return yichu;
     }
-
+    //
     void PlayHurtEffect(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
         SoundGameObjController.PlayBeHurtFx(objType, damage, enumHurts, WhatYouObj, this.GlobalPosition);
         HurtFx();
     }
-
-
     async void HurtFx()
     {
         Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, 0.7f);
@@ -105,7 +103,6 @@ public partial class GodobjView : Node2D, IHealth
         if (isDie) return;
         Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, 1f);
     }
-
     void DieFaker()
     {
         Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, 0f);

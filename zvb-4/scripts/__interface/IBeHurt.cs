@@ -7,11 +7,7 @@ namespace ZVB4.Interface
     {
 
         bool BeHurt(EnumObjType objType, int damage, EnumHurts enumHurts);
-        bool BeCure(int cure);
-        void StopBeHurt();
-        void StartBeHurt();
 
         Task<bool> Die(EnumObjType enumAttack, int damage, EnumHurts enumHurts);
-        // void BeHurtEffect(EnumObjType enumAttack, int damage, EnumHurts enumHurts);
     }
 }

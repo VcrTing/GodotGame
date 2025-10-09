@@ -14,16 +14,14 @@ public partial class PlansAttackArea : Area2D
 
     private void OnAreaEntered(Area2D area)
     {
-        if (area is GodBeHurtArea)
+        if (area == null) return;
+        var parent = area.GetParent();
+        if (parent is IObj obj)
         {
-            var parent = area.GetParent();
-            if (parent is IObj obj)
+            var type = obj.GetEnumObjType();
+            if (type == EnumObjType.Zombie || type == EnumObjType.Stone)
             {
-                var type = obj.GetEnumObjType();
-                if (type == EnumObjType.Zombie || type == EnumObjType.Stone)
-                {
-                    Attack(area, obj);
-                }
+                Attack(area, obj);
             }
         }
     }

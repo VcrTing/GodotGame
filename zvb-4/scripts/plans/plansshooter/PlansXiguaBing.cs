@@ -43,4 +43,8 @@ public partial class PlansXiguaBing : Node2D, IObj
         AdjustView();
     }
 
+    public EnumMoveType GetEnumMoveType()
+    {
+        throw new NotImplementedException();
+    }
 }

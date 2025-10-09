@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://b12upl6p1d460"]
+[gd_scene load_steps=16 format=3 uid="uid://b12upl6p1d460"]
 
 [ext_resource type="Script" uid="uid://bdtd1kvhadi8c" path="res://scripts/system/Envs.cs" id="1_iqn62"]
 [ext_resource type="Texture2D" uid="uid://b45fb5malrj1v" path="res://pngs/ui/GameBg.png" id="2_rh23g"]
 [ext_resource type="Script" uid="uid://bu22knj6i5gk8" path="res://scripts/ux/DieLineZero.cs" id="3_8fgd1"]
+[ext_resource type="Texture2D" uid="uid://cic44sv3qc2y6" path="res://pngs/bg/Bk.jpg" id="3_rh23g"]
 [ext_resource type="Texture2D" uid="uid://e7bx6uj52710" path="res://pngs/ux/dieline.png" id="4_0ktxj"]
+[ext_resource type="Texture2D" uid="uid://diqbcv5q0bqmv" path="res://pngs/bg/floor.png" id="4_8fgd1"]
 [ext_resource type="Script" uid="uid://bctsx0boajko" path="res://scripts/ux/BulletLowDown.cs" id="5_shtsd"]
 [ext_resource type="PackedScene" uid="uid://bfthejwtbkxar" path="res://wavehouse/obj/bullet_wall.tscn" id="6_6veu1"]
 [ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="7_5l6ha"]
@@ -24,8 +26,19 @@ script = ExtResource("1_iqn62")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="GameBg" type="Sprite2D" parent="Background"]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_rh23g")
+
+[node name="Bk" type="Sprite2D" parent="Background"]
+z_index = -1
+scale = Vector2(1.87, 1.87)
+texture = ExtResource("3_rh23g")
+
+[node name="Floor" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(0, 220)
+texture = ExtResource("4_8fgd1")
 
 [node name="Ux" type="Node2D" parent="."]
 
@@ -56,12 +69,10 @@ script = ExtResource("5_shtsd")
 shape = SubResource("RectangleShape2D_2cnsr")
 
 [node name="BulletWall" parent="Ux/BulletFixer" instance=ExtResource("6_6veu1")]
-position = Vector2(-600, 0)
-rotation = 0.05235988
+position = Vector2(-800, 0)
 
 [node name="BulletWall2" parent="Ux/BulletFixer" instance=ExtResource("6_6veu1")]
-position = Vector2(600, 0)
-rotation = -0.05235988
+position = Vector2(800, 0)
 
 [node name="BulletWall3" parent="Ux/BulletFixer" instance=ExtResource("6_6veu1")]
 position = Vector2(0, 1000)

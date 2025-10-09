@@ -44,10 +44,3 @@ collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_ajshl")
-
-[node name="UxArea" type="Area2D" parent="."]
-collision_layer = 524288
-collision_mask = 524288
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UxArea"]
-shape = SubResource("CircleShape2D_ajshl")

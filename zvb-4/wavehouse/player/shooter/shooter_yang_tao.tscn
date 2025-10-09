@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnnwqhpyyve7v"]
+
+[ext_resource type="Script" uid="uid://bpantil0pbes0" path="res://scripts/player/shooter/ShooterYangTao.cs" id="1_i8fqu"]
+[ext_resource type="Texture2D" uid="uid://3jutnbi32er8" path="res://pngs/plans/YangTao.png" id="2_i8fqu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8fqu"]
+atlas = ExtResource("2_i8fqu")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0vbk"]
+atlas = ExtResource("2_i8fqu")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emnyw"]
+atlas = ExtResource("2_i8fqu")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy7wg"]
+atlas = ExtResource("2_i8fqu")
+region = Rect2(360, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcus6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8fqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0vbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emnyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy7wg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ShooterYangTao" type="Node2D"]
+script = ExtResource("1_i8fqu")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 0)
+scale = Vector2(0.89, 0.89)
+sprite_frames = SubResource("SpriteFrames_bcus6")
+autoplay = "default"
+frame_progress = 0.6443043

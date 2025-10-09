@@ -29,13 +29,10 @@ public partial class PlansPea : Node2D, IObj
     {
         return objName;
     }
-
     public bool Init(string name = null)
     {
         return true;
     }
-
-
     public override void _Ready()
     {
         view = GodotTool.GetViewAndAutoPlay(this);

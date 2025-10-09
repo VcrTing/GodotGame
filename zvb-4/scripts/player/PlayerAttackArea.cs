@@ -251,18 +251,21 @@ public partial class PlayerAttackArea : Area2D
         }
     }
 
+    bool IsShooter(string planName)
+    {
+        bool isOk = false;
+        if (planName == PlansConstants.Pea || planName == PlansConstants.XiguaBing || planName == PlansConstants.YangTao)
+        {
+            isOk = true;
+        }
+        return isOk;
+    }
+
     bool WorkForPlans(Vector2 pos, string planName)
     {
         bool isOk = false;
         // Pea
-        if (planName == PlansConstants.Pea)
-        {
-            // 错误
-            DieToReword();
-            DieLastObj();
-        }
-        // 西瓜冰
-        else if (planName == PlansConstants.XiguaBing)
+        if (IsShooter(planName))
         {
             // 错误
             DieToReword();
@@ -271,13 +274,11 @@ public partial class PlayerAttackArea : Area2D
         else
         {
             // 一般植物
-            // GD.Print($"区域内松开/抬起: {pos} CatchPlans {GetLocalMousePosition()}");
             isOk = plansPlanting.ZhongZhiPlans(pos, planName);
             if (isOk)
             {
                 DieLastObj();
             }
-            // 解开花盆
         }
         return isOk;
     }

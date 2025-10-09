@@ -1,0 +1,115 @@
+[gd_scene load_steps=16 format=3 uid="uid://ccl1qb7772jox"]
+
+[ext_resource type="Script" uid="uid://cfkrx1dp2cfy5" path="res://scripts/plans/plansonce/PlansIceFlower.cs" id="1_pglv1"]
+[ext_resource type="Texture2D" uid="uid://dx2dwn0bd2w3f" path="res://pngs/plans/IceFlower.png" id="2_lh6yv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2oao"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eo64"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3me16"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pglv1"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh6yv"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(360, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xc13"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(480, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd11p"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(600, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vcnl"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(720, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_madd3"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(840, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj6cd"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(960, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6do0u"]
+atlas = ExtResource("2_lh6yv")
+region = Rect2(1080, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tlc07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2oao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eo64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3me16")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pglv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh6yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xc13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd11p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vcnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_madd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj6cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6do0u")
+}],
+"loop": false,
+"name": &"working",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bcp43"]
+radius = 600.0
+
+[node name="IceFlower" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_pglv1")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -18)
+scale = Vector2(0.78, 0.78)
+sprite_frames = SubResource("SpriteFrames_tlc07")
+animation = &"working"
+autoplay = "default"
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_bcp43")

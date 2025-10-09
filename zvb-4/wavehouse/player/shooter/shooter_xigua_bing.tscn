@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://e7u73d4iu0cp"]
+
+[ext_resource type="Script" uid="uid://bo4jybuqglmls" path="res://scripts/player/shooter/ShooterXiguaBing.cs" id="1_t61gt"]
+[ext_resource type="Texture2D" uid="uid://b4xo3kuevk8y0" path="res://pngs/plans/XiguaBing2.png" id="2_2dnwl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqxrb"]
+atlas = ExtResource("2_2dnwl")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytor7"]
+atlas = ExtResource("2_2dnwl")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7klwc"]
+atlas = ExtResource("2_2dnwl")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iq7xp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqxrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytor7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7klwc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="ShooterXiguaBing" type="Node2D"]
+script = ExtResource("1_t61gt")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_iq7xp")
+autoplay = "default"
+frame = 2
+frame_progress = 0.6473648

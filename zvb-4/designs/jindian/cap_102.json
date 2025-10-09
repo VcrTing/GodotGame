@@ -3,12 +3,18 @@
     "initsun": 200,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
-    "initmiaolist": [
-        "Pea", "SunFlower", "SunFlower"
-    ],
-    "gamechecktime": 76,
+    "gamechecktime": 45,
     
-    "initpeng": 6,
+    "initpeng": 4,
+    
+    "initshooter": "YangTao",
+    "initmiaolist": [
+        "SunFlower", "SunFlower", "JianGuo"
+    ],
+    "enmyspeedattackscale": 1.0,
+    "enmyspeedmovescale": 1.0,
+    "enmyviewscale": 1.0,
+    "enmybehurtscale": 1.0,
 
     "enmyswaveflag": {
         "19": 1
@@ -27,7 +33,7 @@
         ],
         "12": [
             {
-                "types": [ "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_mu_tong" ],
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
                 "typesmode": "next",
                 "generator": [ 9, 2, 8, 6 ],
                 "generatormode": "next",
@@ -43,40 +49,18 @@
                 "generator": [ 3, 7, 9, 4, 1, 6 ],
                 "generatormode": "random",
                 "lazyall": 0,
-                "lazyme": 2,
+                "lazyme": 3,
                 "speedmode": "normal"
             }
         ],
         "40": [
             {
-                "types": [ "zombi_s", "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_mu_tong", "zombi_mu_tong" ],
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_mu_tong" ],
                 "typesmode": "random",
                 "generator": [ 2, 4, 10, 1, 5, 8 ],
                 "generatormode": "random",
                 "lazyall": 0,
                 "lazyme": 0.2,
-                "speedmode": "normal"
-            }
-        ],
-        "50": [
-            {
-                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s" ],
-                "typesmode": "random",
-                "generator": [ 3, 4, 10, 1, 6, 9 ],
-                "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 2,
-                "speedmode": "normal"
-            }
-        ],
-        "66": [
-            {
-                "types": [ "zombi_tie_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_tie_tong" ],
-                "typesmode": "random",
-                "generator": [ 2, 5, 7, 10, 8 ],
-                "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 1,
                 "speedmode": "normal"
             }
         ]

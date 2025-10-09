@@ -5,6 +5,8 @@ namespace ZVB4.Conf
         Pea = 1,
         XiguaBing = 11,
 
+        IceFreeze = 90,
+
         Boom = 100,
 
         Bait = 200,

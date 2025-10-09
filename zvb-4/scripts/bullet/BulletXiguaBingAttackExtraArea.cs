@@ -62,7 +62,7 @@ public partial class BulletXiguaBingAttackExtraArea : Area2D
                 {
                     DoTakeDamage(area, d);
                 }
-                QueueFree();
+                Die();
             }
         }
     }
@@ -73,6 +73,15 @@ public partial class BulletXiguaBingAttackExtraArea : Area2D
     IAttack myAttack = null;
     EnumHurts enumHurts = EnumHurts.XiguaBing;
     EnumObjType myType = EnumObjType.Plans;
+
+    bool isDie = false;
+    async void Die()
+    {
+        if (isDie) return;
+        isDie = true;
+        await ToSignal(GetTree().CreateTimer(0.32f), "timeout");
+        QueueFree();
+    }
     
     // 伤害处理方法
     void DoTakeDamage(Area2D area, int damage)

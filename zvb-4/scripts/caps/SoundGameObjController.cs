@@ -37,6 +37,24 @@ public partial class SoundGameObjController : Node2D
         TryPlayNext();
     }
 
+    public void PlayFx(string folderPath, string soundName, int c, Vector2 pos)
+    {
+        string path = SoundTool.GetRandomSoundPath(folderPath, soundName, c);
+        float volume = 1f;
+        float pan = SoundTool.CalcPanByX(pos.X);
+        EnqueueSound(path, volume, pan, pos);
+    }
+    
+    float w = GameContants.ScreenHalfW;
+    public void PlayFxRandomPos(string folderPath, string soundName, int c)
+    {
+        float randX = (float)GD.RandRange(-w, w);
+        Vector2 pos = new Vector2(randX, 0f);
+        string path = SoundTool.GetRandomSoundPath(folderPath, soundName, c);
+        float pan = SoundTool.CalcPanByX(pos.X);
+        EnqueueSound(path, 1f, pan, pos);
+    }
+
     private void TryPlayNext()
     {
         foreach (var player in _players)
@@ -74,6 +92,7 @@ public partial class SoundGameObjController : Node2D
     public static void PlayObjHitSound(EnumWhatYouObj whatYouObj, Vector2 position)
     {
         int obji = (int)whatYouObj;
+        if (obji == 0) return;
         int c = obji == 1 ? 8 : 4;
         string folderPath = "Hit/" + obji;
         string soundName = "hit_" + obji;

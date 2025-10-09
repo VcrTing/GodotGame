@@ -156,7 +156,11 @@ public partial class Sun : Node2D, IWorking, IReword
             }
         }
     }
+
+    public bool IsWorking() => IsWorkingMode;
+
     // --- 淡出销毁相关字段 ---
+
     private bool _isFadingOut = false;
     private float _fadeTime = 0f;
 }

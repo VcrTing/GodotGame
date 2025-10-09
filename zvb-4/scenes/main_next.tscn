@@ -170,9 +170,8 @@ layout_mode = 2
 Chapter = 104
 
 [node name="ChapterItemButton2" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
-visible = false
 layout_mode = 2
-Chapter = 102
+Chapter = 105
 
 [node name="ChapterItemButton3" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
 visible = false

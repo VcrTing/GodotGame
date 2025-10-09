@@ -14,6 +14,13 @@ mask: 被哪些层碰撞
   检测层:
     layer: 5
     mask: 5 # 玩家
+场地:
+  碰撞层:
+    layer: 6
+    mask: 6 # 场地交互，严格判断
+  交互层:
+    layer: 2
+    mask: 2 # 鼠标、触摸交互
     
 游戏GameOver:
   检测层:

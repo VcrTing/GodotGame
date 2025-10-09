@@ -43,12 +43,33 @@ public partial class GameStatistic : Node2D
 	public void AddSunConsumed(int count = 1) => SunConsumed += count;
 	public void AddCoinCollected(int count = 1) => CoinCollected += count;
 
-	public void ResetAll()
-	{
-		ZombieCount = 0;
-		ZombieDeadCount = 0;
-		SunProduced = 0;
-		SunConsumed = 0;
-		CoinCollected = 0;
-	}
+    public void ResetAll()
+    {
+        ZombieCount = 0;
+        ZombieDeadCount = 0;
+        SunProduced = 0;
+        SunConsumed = 0;
+        CoinCollected = 0;
+        SunFlowerCount = 0;
+    }
+
+    // 本关向日葵数量
+    public int SunFlowerCount { get; set; } = 0;
+
+    // 植物名称-数量字典
+    public System.Collections.Generic.Dictionary<string, int> PlantCountDict { get; private set; } = new System.Collections.Generic.Dictionary<string, int>();
+
+    // 增加指定植物的数量（默认向日葵）
+    public void AddPlansCount( string plantName, int count = 1)
+    {
+        if (!PlantCountDict.ContainsKey(plantName))
+            PlantCountDict[plantName] = 0;
+        PlantCountDict[plantName] += count;
+    }
+    public int GetPlansCount(string plantName)
+    {
+        if (PlantCountDict.ContainsKey(plantName))
+            return PlantCountDict[plantName];
+        return 0;
+    }
 }

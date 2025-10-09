@@ -138,4 +138,7 @@ public partial class RewordPlansMiao : Node2D, IWorking
         RefreshAlivePosition(new Vector2(-GameContants.ScreenHalfW, -GameContants.ScreenHalfH - 100));
         SetWorkingMode(true);
     }
+
+    public bool IsWorking() => isWorking;
+
 }

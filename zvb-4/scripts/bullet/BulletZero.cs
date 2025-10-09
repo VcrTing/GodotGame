@@ -9,6 +9,9 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
 {
     private Area2D _area2D;
 
+    [Export]
+    public bool isRotate = false;
+
     public override void _Ready()
     {
         maxScale = Scale.X;
@@ -69,6 +72,12 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
         else
         {
             AdjustView();
+        }
+
+        if (isRotate)
+        {
+            // GGG: 自身慢速旋转
+            Rotation += Mathf.DegToRad(60f) * (float)delta; // 每秒60度
         }
     }
     void RunningDieFx(double delta)
@@ -175,4 +184,5 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
     public int GetDamageExtra() => 0;
 
     public Vector2 GetDirection() => Direction;
+
 }

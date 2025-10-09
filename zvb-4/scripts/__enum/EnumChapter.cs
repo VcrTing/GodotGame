@@ -7,6 +7,7 @@ namespace ZVB4.Conf
         One2 = 102,
         One3 = 103,
         One4 = 104,
+        One5 = 105,
 
     }
 }

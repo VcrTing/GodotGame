@@ -6,6 +6,7 @@ namespace ZVB4.Conf
     public static class BulletConstants
     {
         public const string BulletPeaName = "BulletPea";
+        public const string BulletYangTaoName = "BulletYangTao";
         public const string BulletXiguaBingName = "BulletXiguaBing";
 
         public const float LiveTimeTotal = 8f;
@@ -13,7 +14,10 @@ namespace ZVB4.Conf
         public const int DamagePea = 500;
         public const int DamageGroupPea = 0;
         public const int DamageExtraPea = 0;
-
+        //
+        public const int DamageYangTao = 500;
+        public const int DamageGroupYangTao = 0;
+        public const int DamageExtraYangTao = 0;
         //
         public const int DamageXiguaBing = 3000;
         public const int DamageGroupXiguaBing = 1000;
@@ -22,17 +26,20 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> BulletDamageDict = new Dictionary<string, int>
         {
             { BulletPeaName, DamagePea },
+            { BulletYangTaoName, DamageYangTao },
             { BulletXiguaBingName, DamageXiguaBing },
         };
         public static readonly Dictionary<string, int> BulletGroupDamageDict = new Dictionary<string, int>
         {
             { BulletPeaName, DamageGroupPea },
+            { BulletYangTaoName, DamageGroupYangTao },
             { BulletXiguaBingName, DamageGroupXiguaBing },
         };
 
         public static readonly Dictionary<string, int> BulletExtraDamageDict = new Dictionary<string, int>
         {
             { BulletPeaName, DamageExtraPea },
+            { BulletYangTaoName, DamageExtraYangTao },
             { BulletXiguaBingName, DamageExtraXiguaBing },
         };
 
@@ -59,12 +66,14 @@ namespace ZVB4.Conf
         // 子弹初始速度
 
         public const float SpeedPea = 800f;
+        public const float SpeedYangTao = 1000f;
         public const float SpeedXiguaBing = 1120f;
         public static float GetSpeed(string n)
         {
             return n switch
             {
                 BulletPeaName => SpeedPea,
+                BulletYangTaoName => SpeedYangTao,
                 BulletXiguaBingName => SpeedXiguaBing,
                 _ => 700f,
             };

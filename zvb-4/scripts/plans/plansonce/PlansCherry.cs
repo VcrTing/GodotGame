@@ -146,4 +146,5 @@ public partial class PlansCherry : Node2D, IWorking, IObj, IAttack
         return true;
     }
 
+    public bool IsWorking() => IsWorkingMode;
 }

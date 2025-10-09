@@ -19,6 +19,7 @@ namespace ZVB4.Conf
         public const string DieForBoom = "DieForBoom";
 
         public const string Area = "Area";
+        public const string UxArea = "UxArea";
         public const string Body = "Body";
         public const string Working = "Working";
         public const string AttackArea = "AttackArea";
@@ -32,6 +33,7 @@ namespace ZVB4.Conf
         public const string BeHurtBody = "BeHurtBody";
 
         // 可继续添加其他名字常量
+        public const string ShooterWrapper = "ShooterWrapper";
         public const string Shooter = "Shooter";
         public const string Sprite = "Sprite";
 
@@ -51,8 +53,10 @@ namespace ZVB4.Conf
         public const string CollisionShape2D = "CollisionShape2D";
 
         public const string Fx = "Fx";
+
+        public const string IceFreeze = "IceFreeze";
         // 动画
-        
+
         public const string Default = "default";
         public const string Boom = "boom";
         public const string Move = "move";

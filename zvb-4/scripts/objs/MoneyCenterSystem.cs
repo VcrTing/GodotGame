@@ -39,6 +39,7 @@ public partial class MoneyCenterSystem : Node2D
         DumpMoney(new Vector2(x, y), name, playSound);
     }
 
+    int countMoney = 0;
     public void DumpMoney(Vector2 position, string name, bool playSound)
     {
         try
@@ -46,16 +47,21 @@ public partial class MoneyCenterSystem : Node2D
             var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + "Money.tscn");
             var instance = scene.Instantiate<Node2D>();
             instance.Position = position;
+            countMoney += 1;
+            string n = "Money" + countMoney;
+            instance.Name = n;
             // 设置名称
             if (playSound)
             {
                 // SoundFxController.Instance?.PlayFx("Ux/coll", "coll_sun", 4);
             }
-            working.AddChild(instance);
+            // 使用SetDeferred避免物理状态错误
+            AddChild(instance);
+            // this.SetDeferred("add_child", instance);
         }
         catch
         {
-            
+
         }
     }
 }

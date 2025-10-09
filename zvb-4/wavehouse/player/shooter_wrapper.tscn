@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://djj2owxqbqx8u"]
+
+[ext_resource type="Script" uid="uid://cjdoko7g5exo5" path="res://scripts/player/ShooterWrapper.cs" id="1_idyt1"]
+
+[node name="ShooterWrapper" type="Node2D"]
+z_index = 2200
+scale = Vector2(4, 4)
+script = ExtResource("1_idyt1")
