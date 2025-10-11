@@ -19,20 +19,28 @@ public partial class GeZiPlantingArea : Area2D
     //
     private void OnAreaEntered(Area2D area)
     {
-        lastArea = null;
-        lastObj = null;
-        IWorking iwk = area.GetParent<IWorking>();
-        if (iwk != null)
+        try
         {
-            if (iwk.IsWorking())
+            lastArea = null;
+            lastObj = null;
+            IWorking iwk = area.GetParent<IWorking>();
+            if (iwk != null)
             {
-                SetHighlightVisible(true);
-                IObj obj = area.GetParent<IObj>();
-                if (obj != null)
+                if (iwk.IsWorking())
                 {
-                    EnterGrass(area, obj);
+                    SetHighlightVisible(true);
+                    IObj obj = area.GetParent<IObj>();
+                    if (obj != null)
+                    {
+                        EnterGrass(area, obj);
+                    }
                 }
             }
+        }
+        catch (Exception ex)
+        {
+            // GD.PrintErr($"GeZiPlantingArea OnAreaEntered error: {ex.Message}");
+            return;
         }
     }
     //

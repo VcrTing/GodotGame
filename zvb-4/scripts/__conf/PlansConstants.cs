@@ -94,8 +94,8 @@ namespace ZVB4.Conf
         public static readonly  Dictionary<string, int> ShooterAttackLimitDict = new  Dictionary<string, int>
         {
             { Pea, 0 },
-            { LanMei, 12 },
-            { YangTao, 20 },
+            { LanMei, 14 },
+            { YangTao, 12 },
             { XiguaBing, 8 },
         };
         public static int GetShooterAttackLimit(string key) {
@@ -108,15 +108,15 @@ namespace ZVB4.Conf
         public static float GetPlansAttackSpeedStart(string key)
         {
             if (key == Pea) return 0.4f;
-            if (key == LanMei) return 0.4f;
-            if (key == YangTao) return 0.3f;
+            if (key == LanMei) return 0.5f;
+            if (key == YangTao) return 0.36f;
             if (key == XiguaBing) return 1f;
             return 0f;
         }
         public static float GetPlansAttackSpeedSnap(string key)
         {
             if (key == Pea) return 0.07f;
-            if (key == LanMei) return 0.07f;
+            if (key == LanMei) return 0.06f;
             if (key == YangTao) return 0.05f;
             if (key == XiguaBing) return 0.1f;
             return 0f;
@@ -124,7 +124,7 @@ namespace ZVB4.Conf
         public static float GetPlansAttackSpeedEnd(string key)
         {
             if (key == Pea) return 0.15f;
-            if (key == LanMei) return 0.15f;
+            if (key == LanMei) return 0.2f;
             if (key == YangTao) return 0.2f;
             if (key == XiguaBing) return 0.2f;
             return 0f;
@@ -132,8 +132,8 @@ namespace ZVB4.Conf
         public static float GetPlansAttackSpeedSnapSnap(string key)
         {
             if (key == Pea) return 0.01f;
-            if (key == LanMei) return 0.01f;
-            if (key == YangTao) return 0.01f;
+            if (key == LanMei) return 0.012f;
+            if (key == YangTao) return 0.012f;
             if (key == XiguaBing) return 0.01f;
             return 0f;
         }
@@ -155,7 +155,6 @@ namespace ZVB4.Conf
                 return value;
             return string.Empty;
         }
-
         // 根据key获取Shooter场景路径
         public static string GetBullet(string key)
         {
@@ -163,7 +162,6 @@ namespace ZVB4.Conf
                 return value;
             return string.Empty;
         }
-
         // 根据key获取Shooter场景路径
         public static string GetShooterScene(string key)
         {
@@ -171,7 +169,6 @@ namespace ZVB4.Conf
                 return value;
             return string.Empty;
         }
-
         // 根据key获取生长时长
         public static float GetPlanGrowTime(string key)
         {
@@ -179,9 +176,7 @@ namespace ZVB4.Conf
                 return value;
             return 0f;
         }
-
         //
-
         public static string GetRandomPlansName()
         {
             var keys = PlanSceneDict.Keys.ToList();
@@ -189,8 +184,6 @@ namespace ZVB4.Conf
             string key = keys[rand.Next(keys.Count)];
             return key;
         }
-
-
         public static bool IsShooter(string planName)
         {
             if (planName == Pea || planName == XiguaBing || planName == YangTao || planName == LanMei)
@@ -199,7 +192,6 @@ namespace ZVB4.Conf
             }
             return false;
         }
-        
         public static Node2D GeneratePlans(Node2D father, string PlanName) {
             
             // 根据PlanName获取场景路径

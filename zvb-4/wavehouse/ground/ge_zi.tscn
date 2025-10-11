@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bkr4amm2uisl" path="res://pngs/ux/gezi_hightlight_y.png" id="4_b1ln1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8jy"]
-size = Vector2(120, 120)
+size = Vector2(119.5, 119.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa0h7"]
 size = Vector2(160, 160)
@@ -34,6 +34,7 @@ texture = ExtResource("4_b1ln1")
 shape = SubResource("RectangleShape2D_1q8jy")
 
 [node name="UxArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 

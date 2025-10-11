@@ -8,6 +8,7 @@ namespace ZVB4.Conf
         Two = 1000 * 2,
         Three = 1000 * 3,
         Four = 1000 * 4,
+        Five = 1000 * 5,
         // 可继续添加更多类型
         JianGuo = 1000 * 80, // 坚果血量
     }

@@ -37,7 +37,7 @@ namespace ZVB4.Conf
             { ZombiTieTong, 10f }
         };
 
-        static int BaseDamage = (int)EnumHealth.One / 5;
+        static int BaseDamage = (int)EnumHealth.One / 6;
         // 储存伤害的字典
         public static readonly Dictionary<string, int> DamageDict = new Dictionary<string, int>()
         {

@@ -95,6 +95,14 @@ animations = [{
 "texture": SubResource("AtlasTexture_sgq3c")
 }],
 "loop": true,
+"name": &"attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgq3c")
+}],
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -159,5 +167,5 @@ autoplay = "default"
 [node name="View" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 10)
 sprite_frames = SubResource("SpriteFrames_00yj6")
-animation = &"outro"
+animation = &"attack"
 autoplay = "default"

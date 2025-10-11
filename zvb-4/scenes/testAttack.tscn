@@ -33,9 +33,6 @@ position = Vector2(100, 500)
 
 [node name="BulletXiguaBing" parent="Bullets" instance=ExtResource("2_sgq3c")]
 position = Vector2(300, 900)
-objType = null
-objName = null
-hurtType = null
 
 [node name="BulletZero4" parent="Bullets" instance=ExtResource("1_fmfhj")]
 position = Vector2(0, 1700)
@@ -63,7 +60,7 @@ objName = "zombi_m"
 position = Vector2(0, 300)
 
 [node name="SunFlower" parent="Plans" instance=ExtResource("10_rf7gy")]
-position = Vector2(-400, -500)
+position = Vector2(0, -480)
 
 [node name="XiguaBing" parent="Plans" instance=ExtResource("5_56n5j")]
 position = Vector2(200, 200)

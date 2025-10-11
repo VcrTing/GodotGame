@@ -301,12 +301,13 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
     
     public int GetDamage()
     {
-        return (int)(EnmyTypeConstans.GetZombieDamage(objName) * InitBeHurtScale);
+        int v = (int)(EnmyTypeConstans.GetZombieDamage(objName));
+        return v;
     }
 
     public int GetDamageExtra()
     {
-        return (int)(EnmyTypeConstans.GetZombieDamage(objName) * InitBeHurtScale);
+        return (int)(EnmyTypeConstans.GetZombieDamage(objName));
     }
 
     //

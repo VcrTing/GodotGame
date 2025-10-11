@@ -103,6 +103,17 @@ public partial class ZeroZombiAttackArea : Area2D
     double attackIntervalElapsed = 0.0;
     float attackWhenStart = EnmyTypeConstans.BaseBaitLazyStart;
     float attackSpeed = EnmyTypeConstans.BaseBaitSpeed;
+
+    float GetAttackSpeed() {
+        IStatus s = myObj as IStatus;
+        if (s != null)
+        {
+            float spd = s.GetAttackSpeedScale();
+            return attackSpeed / spd;
+        }
+        return attackSpeed;
+    }
+
     public override void _Process(double delta)
     {
         if (attackWho != null)
@@ -115,7 +126,7 @@ public partial class ZeroZombiAttackArea : Area2D
                 if (attackElapsed >= attackWhenStart)
                 {
                     attackIntervalElapsed += delta;
-                    if (attackIntervalElapsed >= attackSpeed)
+                    if (attackIntervalElapsed >= GetAttackSpeed())
                     {
                         TryAttack(p, delta);
                         attackIntervalElapsed = 0.0;
