@@ -18,26 +18,18 @@ public partial class PlayerAttackArea : Area2D
     private Vector2 _lastDragPos = Vector2.Zero;
     private bool _isPointerInside = false;
     private bool _isActive = false; // 是否处于“持续调用”状态
-
     EnumOptionType optionType = EnumOptionType.None;
     EnumOptionType lastOptionType = EnumOptionType.None;
-
-    //
-    IPlansPlanting plansPlanting;
 
     public override void _Ready()
     {
         AreaEntered += OnAreaEntered;
         AreaExited += OnAreaExited;
-
         MouseEntered += OnPointerEnter;
         MouseExited += OnPointerExit;
-
         PlansWorkingTileMap = GetNodeOrNull<TileMapLayer>(NameConstants.PlansWorkingTileMap);
         SetProcessInput(true);
         SetProcess(true);
-        ResetOptionType();
-        plansPlanting = PlansWorkingTileMap as IPlansPlanting;
     }
 
     public override void _Input(InputEvent @event)
@@ -106,12 +98,9 @@ public partial class PlayerAttackArea : Area2D
             OnDragOrTouch(_lastDragPos);
         }
     }
-
     private void OnPointerEnter()
     {
-        // GD.Print("PlayerAttackArea 鼠标进入");
         _isPointerInside = true;
-        // 只有在按下状态下，滑入才激活持续调用
         if (_isPressing)
         {
             _isActive = true;
@@ -120,16 +109,15 @@ public partial class PlayerAttackArea : Area2D
     }
     private void OnPointerExit()
     {
-        // GD.Print("PlayerAttackArea 鼠标离开");
         _isPointerInside = false;
         _isActive = false;
     }
 
-    void PlayerAttackDoing(Vector2 worldPos)
+    public void PlayerAttacking(Vector2 worldPos)
     {
         __PlayerController(worldPos, false);
     }
-    void PlayerAttackRelease(Vector2 worldPos, bool isClear)
+    public void PlayerAttackRelease(Vector2 worldPos, bool isClear)
     {
         __PlayerController(worldPos, true);
     }
@@ -163,65 +151,35 @@ public partial class PlayerAttackArea : Area2D
     // 持续拖拽/触摸时调用的方法
     private void OnDragOrTouch(Vector2 pos)
     {
-        var worldPos = this.ToGlobal(pos);
-        // TODO: 替换为你需要持续调用的逻辑
-        // GD.Print($"持续拖拽/触摸: {pos}");
-        lastPos = worldPos;
-        if (optionType == EnumOptionType.CatchPlans)
-        {
-            // GD.Print($"持续拖拽/触摸: {pos} CatchPlans");
-        }
-        else
-        {
-            // 攻击
-            PlayerAttackDoing(worldPos);
-            //
-            ChangeOptionType(EnumOptionType.EmptyTouch);
-        }
+        // 攻击
+        PlayerAttacking(this.ToGlobal(pos));
     }
-
     // 区域内松开/抬起时调用的方法
     private void OnRelease(Vector2 pos)
     {
-        var worldPos = this.ToGlobal(pos);
-        lastPos = worldPos;
-        // TODO: 替换为你需要的松开逻辑
-        // GD.Print($"区域内松开/抬起: {pos} CatchPlans {GetLocalMousePosition()} {worldPos}");
-        if (optionType == EnumOptionType.CatchPlans)
-        {
-            if (lastObj != null)
-            {
-                // 种植物
-                WorkForPlans(worldPos, lastObj.GetObjName());
-            }
-        }
-        PlayerAttackRelease(worldPos, false);
-        ResetOptionType();
+        // 攻击
+        PlayerAttackRelease(this.ToGlobal(pos), false);
     }
-
     void OnAreaExited(Area2D area)
     {
         string name = area.Name;
         if (name == NameConstants.MiaoArea)
         {
-            ResetOptionType();
-            // TurnBackOptionType(EnumOptionType.CatchPlans);
             lastObj = null;
             lastNode = null;
         }
     }
-
+    //
     IObj lastObj = null;
     Node2D lastNode = null;
     Vector2 lastPos = Vector2.Up;
-
+    //
     private void OnAreaEntered(Area2D area)
     {
         string name = area.Name;
         if (name == NameConstants.MiaoArea)
         {
             PlayerAttackRelease(lastPos, true);
-            ChangeOptionType(EnumOptionType.CatchPlans);
             IObj obj = area.GetParent() as IObj;
             if (obj != null)
             {
@@ -230,7 +188,7 @@ public partial class PlayerAttackArea : Area2D
             }
         }
     }
-
+    /*
     void DieToReword()
     {
         var table = ShooterWorkTable.Instance;
@@ -291,7 +249,6 @@ public partial class PlayerAttackArea : Area2D
             flowerPeng.ReleaseLock();
         }
     }
-
     void ChangeOptionType(EnumOptionType newType)
     {
         if (optionType != newType)
@@ -311,5 +268,6 @@ public partial class PlayerAttackArea : Area2D
         lastOptionType = EnumOptionType.None;
         optionType = EnumOptionType.None;
     }
+    */
 
 }

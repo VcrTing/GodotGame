@@ -6,6 +6,7 @@ namespace ZVB4.Conf
     public static class BulletConstants
     {
         public const string BulletPeaName = "BulletPea";
+        public const string BulletLanMeiName = "BulletLanMei";
         public const string BulletYangTaoName = "BulletYangTao";
         public const string BulletXiguaBingName = "BulletXiguaBing";
 
@@ -14,6 +15,10 @@ namespace ZVB4.Conf
         public const int DamagePea = 500;
         public const int DamageGroupPea = 0;
         public const int DamageExtraPea = 0;
+        //
+        public const int DamageLanMei = 700;
+        public const int DamageGroupLanMei = 200;
+        public const int DamageExtraLanMei = 0;
         //
         public const int DamageYangTao = 500;
         public const int DamageGroupYangTao = 0;
@@ -26,12 +31,14 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> BulletDamageDict = new Dictionary<string, int>
         {
             { BulletPeaName, DamagePea },
+            { BulletLanMeiName, DamageLanMei },
             { BulletYangTaoName, DamageYangTao },
             { BulletXiguaBingName, DamageXiguaBing },
         };
         public static readonly Dictionary<string, int> BulletGroupDamageDict = new Dictionary<string, int>
         {
             { BulletPeaName, DamageGroupPea },
+            { BulletLanMeiName, DamageGroupLanMei },
             { BulletYangTaoName, DamageGroupYangTao },
             { BulletXiguaBingName, DamageGroupXiguaBing },
         };
@@ -39,6 +46,7 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> BulletExtraDamageDict = new Dictionary<string, int>
         {
             { BulletPeaName, DamageExtraPea },
+            { BulletLanMeiName, DamageExtraLanMei },
             { BulletYangTaoName, DamageExtraYangTao },
             { BulletXiguaBingName, DamageExtraXiguaBing },
         };
@@ -66,6 +74,7 @@ namespace ZVB4.Conf
         // 子弹初始速度
 
         public const float SpeedPea = 800f;
+        public const float SpeedLanMei = 600f;
         public const float SpeedYangTao = 1000f;
         public const float SpeedXiguaBing = 1120f;
         public static float GetSpeed(string n)
@@ -73,6 +82,7 @@ namespace ZVB4.Conf
             return n switch
             {
                 BulletPeaName => SpeedPea,
+                BulletLanMeiName => SpeedLanMei,
                 BulletYangTaoName => SpeedYangTao,
                 BulletXiguaBingName => SpeedXiguaBing,
                 _ => 700f,

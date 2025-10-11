@@ -4,6 +4,7 @@ namespace ZVB4.Interface
 {
     public interface IAttack
     {
+        bool CanAttack();
         int GetDamage();
         int GetDamageExtra();
     }

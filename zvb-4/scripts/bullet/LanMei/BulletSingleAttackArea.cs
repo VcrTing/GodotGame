@@ -1,49 +1,53 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 using ZVB4.Conf;
 using ZVB4.Interface;
 using ZVB4.Tool;
 
-public partial class BulletXiguaBingAttackArea : Area2D
+public partial class BulletSingleAttackArea : Area2D, IInit
 {
     AnimatedSprite2D view;
     IBulletBase bulletBase;
-
+    IObj myObj = null;
+    IAttack myAttack = null;
+    EnumObjType myType;
+    EnumHurts enumHurts;
     public override void _Ready()
     {
         view = GetNode<AnimatedSprite2D>(NameConstants.View);
         view.Play(NameConstants.Default);
         view.Visible = true;
         AreaEntered += OnAreaEntered;
-        bulletBase = GetParent<IBulletBase>();
+        //
+        myObj = GetParent<IObj>();
+        myAttack = myObj as IAttack;
+        bulletBase = myObj as IBulletBase;
         ViewTool.RotationALittleByX(view, bulletBase.GetDirection());
         //
-        myAttack = GetParent<IAttack>();
-        myObj = GetParent<IObj>();
-        enumHurts = myObj is IBulletBase bullet ? bullet.GetHurtType() : EnumHurts.XiguaBing;
         myType = myObj.GetEnumObjType();
+        enumHurts = myObj is IBulletBase bullet ? bullet.GetHurtType() : EnumHurts.Cold;
         //
         EnableCollision(false);
     }
 
-    public void Init()
+    public bool Init(string objName = null)
     {
         EnableCollision(true);
         view.Visible = false;
+        return true;
     }
+
     // 开关碰撞检测
     public void EnableCollision(bool enable)
     {
         Monitoring = enable;
         SetProcess(enable);
     }
-    float collectionTime = 0.3f; // 收集时间
+    float collectionTime = 0.1f; // 收集时间
     public override void _Process(double delta)
     {
         // Rotation
         ViewTool.RotationALittleByX(view, bulletBase.GetDirection());
-        // MMM
         if (isWorking)
         {
             timerElapsed += (float)delta;
@@ -55,7 +59,6 @@ public partial class BulletXiguaBingAttackArea : Area2D
     }
     // 计时相关变量
     private float timerElapsed = 0f;
-
     bool isWorking = false;
     bool firstHit = false;
     private void OnAreaEntered(Area2D area)
@@ -72,16 +75,11 @@ public partial class BulletXiguaBingAttackArea : Area2D
         }
     }
 
-    IObj myObj = null;
-    IAttack myAttack = null;
-    EnumHurts enumHurts = EnumHurts.XiguaBing;
-    EnumObjType myType = EnumObjType.Plans;
     
     // 群体伤害判定方法
     private void HandleGroupDamage(Area2D area)
     {
         if (area == null) return;
-        // GD.Print($"组团伤害 HandleGroupDamage: {area.Name}, Damage: {myAttack.GetDamage() / 3}");
         DoTakeDamage(area, myAttack.GetDamage() / 3);
     }
 
@@ -89,7 +87,6 @@ public partial class BulletXiguaBingAttackArea : Area2D
     private void HandleSingleDamage(Area2D area)
     {
         if (area == null) return;
-        // GD.Print($"单体伤害 HandleSingleDamage: {area.Name}, Damage: {myAttack.GetDamage()}");
         DoTakeDamage(area, myAttack.GetDamage());
     }
     
@@ -109,4 +106,5 @@ public partial class BulletXiguaBingAttackArea : Area2D
             }
         }
     }
+
 }

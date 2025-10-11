@@ -121,4 +121,10 @@ public partial class PlansIceFlower : Node2D, IObj, IWorking, IAttack
     }
 
     public bool IsWorking() => isWorking;
+
+    public bool CanAttack()
+    {
+        throw new NotImplementedException();
+    }
+
 }

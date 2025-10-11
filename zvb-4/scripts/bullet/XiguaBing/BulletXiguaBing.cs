@@ -106,7 +106,7 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
     string objName = BulletConstants.BulletXiguaBingName;
     public string GetObjName() => objName;
     [Export]
-    public EnumHurts hurtType { get; set; } = EnumHurts.XiguaBing;
+    public EnumHurts hurtType { get; set; } = EnumHurts.Cold;
     public EnumHurts GetHurtType() => hurtType;
 
 
@@ -176,4 +176,10 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
     }
 
     public bool IsWorking() => isWorkingMode;
+
+    public bool CanAttack()
+    {
+        throw new NotImplementedException();
+    }
+
 }

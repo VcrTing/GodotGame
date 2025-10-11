@@ -1,18 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://n2tf7bjt1fe0"]
+[gd_scene load_steps=16 format=3 uid="uid://n2tf7bjt1fe0"]
 
 [ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
-[ext_resource type="Texture2D" uid="uid://bqcf2l7q7h4g" path="res://pngs/ux/grass1.png" id="2_iyx0m"]
-[ext_resource type="Texture2D" uid="uid://dygepy5utjac6" path="res://pngs/ux/grass2.png" id="3_iyx0m"]
-[ext_resource type="Texture2D" uid="uid://biblfyasxj5e1" path="res://pngs/ux/floor3.png" id="4_jcd4p"]
-[ext_resource type="Texture2D" uid="uid://re5vllxlca6j" path="res://pngs/ux/floor4.png" id="5_uacia"]
-[ext_resource type="Texture2D" uid="uid://cog06pruwsl2m" path="res://pngs/ux/maps.png" id="7_5f8cm"]
+[ext_resource type="PackedScene" uid="uid://k3linm4rcf5o" path="res://wavehouse/ground/ge_zi_wrapper_7x7.tscn" id="2_d3r8w"]
 [ext_resource type="Script" uid="uid://gmsjbkn1xbya" path="res://scripts/player/PlayerController.cs" id="7_ff6ho"]
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="11_1dqgb"]
 [ext_resource type="Script" uid="uid://dbjditv1jl2b8" path="res://scripts/player/PlayerBuffController.cs" id="13_pn65j"]
 [ext_resource type="Script" uid="uid://bikplbsxucboc" path="res://scripts/player/PlayerAttackArea.cs" id="15_1dqgb"]
 [ext_resource type="PackedScene" uid="uid://br3fnkwdn12o7" path="res://wavehouse/player/shooter_work_table.tscn" id="15_gv2t6"]
 [ext_resource type="Script" uid="uid://d38vgruxqe4rl" path="res://scripts/caps/CapsCenter.cs" id="16_5jxlq"]
-[ext_resource type="Script" uid="uid://csciyfvn7fqbk" path="res://scripts/player/PlayerUxTileMap.cs" id="16_y81of"]
 [ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
 [ext_resource type="Script" uid="uid://ckcymbhwfhj3" path="res://scripts/jingdian/EnmyGenerator.cs" id="21_n74k2"]
 [ext_resource type="Script" uid="uid://dvqi22qwhhnnd" path="res://scripts/caps/EnmyCenter.cs" id="21_si7kk"]
@@ -23,76 +18,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7bvy"]
 size = Vector2(1080, 960)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl13t"]
-texture = ExtResource("2_iyx0m")
-texture_region_size = Vector2i(60, 60)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74lek"]
-texture = ExtResource("3_iyx0m")
-texture_region_size = Vector2i(60, 60)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yk7ts"]
-texture = ExtResource("4_jcd4p")
-texture_region_size = Vector2i(60, 60)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ajshl"]
-texture = ExtResource("5_uacia")
-texture_region_size = Vector2i(60, 60)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gm488"]
-texture = ExtResource("7_5f8cm")
-texture_region_size = Vector2i(60, 60)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_iyx0m"]
-tile_size = Vector2i(110, 110)
-sources/0 = SubResource("TileSetAtlasSource_bl13t")
-sources/1 = SubResource("TileSetAtlasSource_74lek")
-sources/2 = SubResource("TileSetAtlasSource_yk7ts")
-sources/3 = SubResource("TileSetAtlasSource_ajshl")
-sources/4 = SubResource("TileSetAtlasSource_gm488")
-
 [node name="System" type="Node2D"]
 
 [node name="GameEnvBuiler" parent="." instance=ExtResource("1_5wvqh")]
 
 [node name="Player" type="Node2D" parent="."]
+
+[node name="GeZiWrapper7x7" parent="Player" instance=ExtResource("2_d3r8w")]
+position = Vector2(0, 400)
 
 [node name="SoundPlayerController" parent="Player" instance=ExtResource("11_1dqgb")]
 position = Vector2(0, -600)
@@ -106,11 +39,6 @@ script = ExtResource("15_1dqgb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerAttackArea"]
 position = Vector2(0, 210)
 shape = SubResource("RectangleShape2D_j7bvy")
-
-[node name="PlansWorkingTileMap" type="TileMapLayer" parent="Player/PlayerAttackArea"]
-position = Vector2(0, -90)
-tile_set = SubResource("TileSet_iyx0m")
-script = ExtResource("16_y81of")
 
 [node name="PlayerController" type="Node2D" parent="Player"]
 z_index = 100

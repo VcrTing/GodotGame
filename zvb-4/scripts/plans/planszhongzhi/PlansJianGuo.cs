@@ -64,8 +64,14 @@ public partial class PlansJianGuo : Node2D, IObj, IBeHurt, IWorking
         await ToSignal(GetTree().CreateTimer(outroTime), "timeout");
         return Die();
     }
-    public bool Die()
-    {
+    public bool Die() {
+        // 解锁格子
+        GeZi gz = GetParent() as GeZi;
+        if (gz != null)
+        {
+            gz.UnLockGezi(this);
+        }
+        // 销毁自己
         QueueFree();
         return true;
     }

@@ -11,9 +11,7 @@ namespace ZVB4.Conf
         public const string MoneyG = "MoneyG";
         public const string MoneyS = "MoneyS";
         public const int SunNormal = 50;
-
         public const int SunLarge = 150;
-
         public const int FlowerGetSun = 50;
         public const int SkyGetSun = 50;
 
@@ -21,16 +19,17 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> AttackCostDict = new Dictionary<string, int>
         {
             { PlansConstants.Pea, 10 },
+            { PlansConstants.LanMei, 20 },
             { PlansConstants.YangTao, 30 },
             { PlansConstants.XiguaBing, 50 }
         };
         public static readonly Dictionary<string, int> DieSunDict = new Dictionary<string, int>
         {
-            { PlansConstants.Pea, 100 },
-            { PlansConstants.YangTao, 150 },
+            { PlansConstants.Pea, 50 },
+            { PlansConstants.LanMei, 50 },
+            { PlansConstants.YangTao, 100 },
             { PlansConstants.XiguaBing, 200 }
         };
-
         public static int GetPlansSunCost(string plansName)
         {
             return AttackCostDict[plansName];
@@ -46,7 +45,6 @@ namespace ZVB4.Conf
             if (v < 1) v = 1;
             return v;
         }
-
         //
         public static int GetMoneyValue(string n)
         {
@@ -54,7 +52,6 @@ namespace ZVB4.Conf
             else if (n == MoneyS) return 25;
             return 25;
         }
-
         public static string GetRnadomMoneyName()
         {
             int i = GD.RandRange(1, 10);
@@ -64,9 +61,7 @@ namespace ZVB4.Conf
             }
             return MoneyS;
         }
-
         static float DefGravity = 1;
-
         public static float GetMoneyGravity()
         {
             int i = GD.RandRange(70, 200);

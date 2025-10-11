@@ -29,7 +29,6 @@ public partial class ShooterYangTao : Node2D, IObj, IShooter
         List<Vector2> ds = new List<Vector2>();
         direction = direction.Normalized();
         ds.Add(direction);
-        // MMM: 计算五角星的其他4个方向
         float angle = direction.Angle();
         float starStep = Mathf.Pi * 2f / 5f; // 72度
         for (int i = 1; i < 5; i++)

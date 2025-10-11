@@ -8,7 +8,6 @@ public partial class GeZi : Node2D
 	private Area2D _blockArea;
 	GeZiPlantingArea plantingArea;
 
-
 	public override void _Ready()
 	{
 		_blockArea = GetNodeOrNull<Area2D>(NameConstants.UxArea);
@@ -47,19 +46,91 @@ public partial class GeZi : Node2D
 		}
 	}
 
-    void RunningPlanting(Area2D area, IObj obj)
+    void RunningPlanting(IObj obj)
     {
-        PlansPlantingArea ppa = area as PlansPlantingArea;
-        if (ppa != null)
+        bool ok = false;
+        string n = obj.GetObjName();
+        if (n != "")
         {
-            Area2D me = ppa.GetLastEnteredArea();
-            if (me == plantingArea) {
-                // GD.Print("锁定你这个格子");
-                // 尝试种植
-
-                // 
+            string allowName = AllowPlans(obj as Node2D);
+            if (allowName != "")
+            {
+                // 射手就销毁
+                if (PlansConstants.IsShooter(allowName))
+                {
+                    DieToReword(plantingArea.lastObj as Node2D);
+                    ok = true;
+                }
+                // 种植
+                else {
+                    Node2D plantNode = ReplaceOldThenNewOne(allowName);
+                    if (plantNode != null)
+                    {
+                        ok = true;
+                        // 非消费型植物才加入列表
+                        if (PlansConstants.IsWillZhanYongGeZi(allowName))
+                        {
+                            AddNode2DOnlyOne(plantNode as Node2D);
+                        }
+                        // 播放种植音效
+                        SoundFxController.Instance?.PlayFx("Ux/zhongxia", "ZhongXia", 4);
+                    }
+                }
             }
         }
+        //
+        if (ok)
+        {
+            plantingArea.AfterDoingKilling();
+        }
+        else
+        {
+            plantingArea.AfterDoingBacking();
+        }
+    }
+
+    Node2D ReplaceOldThenNewOne(string n) {
+        Node2D node = null;
+        if (_node2DList.Count == 0)
+        {
+            node = ZhongXiaPlans(n);
+        }
+        else {
+            // 删掉旧的
+            foreach (var nd in _node2DList)
+            {
+                string oldName = (nd as IObj)?.GetObjName() ?? "";
+                if (oldName == n) {
+                    _node2DList.Remove(nd);
+                    nd.QueueFree();
+                    node = ZhongXiaPlans(n);
+                    break;
+                }
+            }
+        }
+        return node;
+    }
+
+    Node2D ZhongXiaPlans(string n) {
+        // 开始种植
+        string scenePath = PlansConstants.GetPlanScene(n);
+        if (!string.IsNullOrEmpty(scenePath))
+        {
+            var scene = GD.Load<PackedScene>(scenePath);
+            if (scene != null)
+            {
+                Node2D pls = (Node2D)scene.Instantiate();
+                // 拿到格子中心点
+                AddChild(pls);
+                // 设置工作模式
+                if (pls is IWorking working)
+                {
+                    working.SetWorkingMode(true);
+                    return pls;
+                }
+            }
+        }
+        return null;
     }
 
     private void OnBlockAreaMouseUp()
@@ -70,14 +141,22 @@ public partial class GeZi : Node2D
             IObj obj = plantingArea.lastObj;
             if (obj != null)
             {
-                RunningPlanting(plantingArea.lastArea, obj);
+                PlansPlantingArea ppa = plantingArea.lastArea as PlansPlantingArea;
+                if (ppa != null)
+                {
+                    Area2D me = ppa.GetLastEnteredArea();
+                    if (me == plantingArea)
+                    {
+                        RunningPlanting(obj);
+                    }
+                }
             }
         }
     }
 
     private void OnBlockAreaMouseDown()
     {
-        GD.Print("GeZi: Area2D内鼠标按下");
+        // GD.Print("GeZi: Area2D内鼠标按下");
         // TODO: 实现点击时的逻辑
     }
     
@@ -87,56 +166,95 @@ public partial class GeZi : Node2D
     /// <summary>
     /// 尝试将Node2D加入列表，若已存在则不加，加入时可做复杂判断（此处默认true）
     /// </summary>
-    public bool TryAddNode2D(Node2D node)
+    public bool AddNode2D(Node2D node)
     {
         if (node == null) return false;
         if (_node2DList.Contains(node)) return false;
-        // 复杂判断逻辑，现默认true
-        bool canAdd = IsAllowJoin(node);
-        if (canAdd)
-        {
-            _node2DList.Add(node);
-            return true;
-        }
-        return false;
+        _node2DList.Add(node);
+        return true;
     }
-    
-	/// <summary>
-	/// 移除Node2D对象，若存在则移除
-	/// </summary>
-	public bool RemoveNode2D(Node2D node)
-	{
-		if (node == null) return false;
-		return _node2DList.Remove(node);
-	}
+    public bool AddNode2DOnlyOne(Node2D node)
+    {
+        if (node == null) return false;
+        if (_node2DList.Contains(node)) return false;
+        _node2DList.Clear();
+        _node2DList.Add(node);
+        return true;
+    }
+    /// <summary>
+    /// 移除Node2D对象，若存在则移除
+    /// </summary>
+    public bool RemoveNode2D(Node2D node)
+    {
+        if (node == null) return false;
+        return _node2DList.Remove(node);
+    }
 
-	public bool IsAllowJoin(Node2D node)
-	{
-		if (node == null) return false;
-        IObj youobj = node as IObj;
-        if (youobj == null) return false;
-        string name = youobj.GetObjName();
-        string nameSame = "";
+    string AllowPlans(Node2D node) {
+        string name = CommonTool.GetNameOfNode2D(node);
+        // 无植物
+        if (_node2DList.Count == 0) return name;
+        string ns = "";
         // MMM: 检查列表中是否有同名的IObj
         foreach (var n in _node2DList)
         {
             IObj other = n as IObj;
             if (other != null && other.GetObjName() == name)
             {
-                nameSame = other.GetObjName();
+                ns = other.GetObjName();
                 break;
             }
         }
         // 相同的坚果，阔以种下
-        if (nameSame == PlansConstants.JianGuo)
+        if (ns == PlansConstants.JianGuo)
         {
+            return ns;
+        }
+        return "";
+    }
+    public bool IsAllowJoin(Node2D node) => (AllowPlans(node) != "");
+
+    // 解锁格子
+    public bool UnLockGezi(IObj obj)
+    {
+        if (obj == null) return false;
+        string n = obj.GetObjName();    
+        Node2D nd = CommonTool.LocationNode2DByName(_node2DList, n);
+        if (nd != null)
+        {
+            _node2DList.Remove(nd);
             return true;
         }
-        // 有其他同名的植物，不允许种下
-        if (nameSame != "")
+        return false;
+    }
+    
+    // 死亡
+    public void DieToReword(Node2D lastNode)
+    {
+        // 生成奖励组
+        try
         {
-            return false;
+            var rewordGroupScene = GD.Load<PackedScene>(FolderConstants.WaveObj + "reword_group.tscn");
+            var rewordGroupNode = rewordGroupScene.Instantiate<Node2D>();
+            GetParent().AddChild(rewordGroupNode);
+            var rewordGroup = rewordGroupNode as RewordGroup;
+            if (rewordGroup != null)
+            {
+                Vector2 pos = lastNode != null ? lastNode.Position : this.Position;
+                IObj lastObj = lastNode as IObj;
+                // 阳光数量
+                int num = SunMoneyConstants.GetSunNumNormal(lastObj.GetObjName());
+                // 生成阳光奖励
+                rewordGroup.SpawnReword(SunMoneyConstants.Sun, num, pos, SunMoneyConstants.SunNormal);
+                // 
+                SoundFxController.Instance?.PlayFx("Ux/trash", "trash", 4, pos);
+            }
+
+            // 销毁苗
         }
-        return true;
-	}
+        catch
+        {
+            
+        }
+    }  
 }

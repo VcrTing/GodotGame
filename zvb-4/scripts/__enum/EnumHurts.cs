@@ -3,7 +3,7 @@ namespace ZVB4.Conf
     public enum EnumHurts
     {
         Pea = 1,
-        XiguaBing = 11,
+        Cold = 11,
 
         IceFreeze = 90,
 

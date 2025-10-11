@@ -187,4 +187,10 @@ public partial class BulletYangTao : Node2D, IBulletBase, IObj, IAttack
     public int GetDamageExtra() => BulletConstants.GetDamageExtra(objName);
 
     public Vector2 GetDirection() => Direction;
+
+    public bool CanAttack()
+    {
+        throw new NotImplementedException();
+    }
+
 }

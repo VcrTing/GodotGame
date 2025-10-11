@@ -6,18 +6,20 @@ using ZVB4.Interface;
 public partial class GeZiPlantingArea : Area2D
 {
 	private Node2D _highlightNode;
-
+    //
 	public override void _Ready()
 	{
 		AreaEntered += OnAreaEntered;
 		AreaExited += OnAreaExited;
         _highlightNode = GetNodeOrNull<Node2D>("HightLight");
         SetHighlightVisible(false);
+        lastArea = null;
+        lastObj = null;
 	}
-
+    //
     private void OnAreaEntered(Area2D area)
     {
-        lastArea = null; 
+        lastArea = null;
         lastObj = null;
         IWorking iwk = area.GetParent<IWorking>();
         if (iwk != null)
@@ -26,12 +28,35 @@ public partial class GeZiPlantingArea : Area2D
             {
                 SetHighlightVisible(true);
                 IObj obj = area.GetParent<IObj>();
-                if (obj != null) 
+                if (obj != null)
                 {
                     EnterGrass(area, obj);
                 }
             }
         }
+    }
+    //
+    public void AfterDoingKilling()
+    {
+        PlansBaseMiao miao = lastObj as PlansBaseMiao;
+        if (miao != null)
+        {
+            miao.ReleasePlanting();
+        }
+        SetHighlightVisible(false);
+        lastArea = null;
+        lastObj = null;
+    }
+    public void AfterDoingBacking()
+    {
+        PlansBaseMiao miao = lastObj as PlansBaseMiao;
+        if (miao != null)
+        {
+            miao.BackToPosition();
+        }
+        SetHighlightVisible(false);
+        lastArea = null;
+        lastObj = null;
     }
     public Area2D lastArea;
     public IObj lastObj;
@@ -43,7 +68,7 @@ public partial class GeZiPlantingArea : Area2D
     {
         lastArea = null; lastObj = null;
     }
-
+    //
     private void OnAreaExited(Area2D area)
     {
         IWorking iwk = area.GetParent<IWorking>();
@@ -60,10 +85,7 @@ public partial class GeZiPlantingArea : Area2D
             }
         }
     }
-    
-	/// <summary>
-	/// 控制 HightLight 子节点的显示或隐藏
-	/// </summary>
+    //
 	public void SetHighlightVisible(bool visible)
 	{
 		if (_highlightNode != null)

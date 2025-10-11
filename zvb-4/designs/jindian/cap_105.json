@@ -1,9 +1,9 @@
 {
     "type": "normal",
-    "initsun": 200,
+    "initsun": 250,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
-    "gamechecktime": 215,
+    "gamechecktime": 170,
     
     "initpeng": 8,
     "allowmiaolist": [
@@ -12,7 +12,7 @@
     
     "initshooter": "YangTao",
     "initmiaolist": [
-        "SunFlower", "IceFlower"
+        "SunFlower", "IceFlower", "IceFlower", "LanMei"
     ],
     "enmyspeedattackscale": 1.0,
     "enmyspeedmovescale": 1,

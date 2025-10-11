@@ -12,14 +12,14 @@ public partial class BulletXiguaBingAttackExtraArea : Area2D
 
     public override void _Ready()
     {
-        view = GetNode<AnimatedSprite2D>(NameConstants.View);
+        view = GetNode<AnimatedSprite2D>(NameConstants.ViewExtra);
         view.Visible = false;
         AreaEntered += OnAreaEntered;
         EnableCollision(false);
         //
         myAttack = GetParent<IAttack>();
         myObj = GetParent<IObj>();
-        enumHurts = myObj is IBulletBase bullet ? bullet.GetHurtType() : EnumHurts.XiguaBing;
+        enumHurts = myObj is IBulletBase bullet ? bullet.GetHurtType() : EnumHurts.Cold;
         myType = myObj.GetEnumObjType();
     }
 
@@ -71,7 +71,7 @@ public partial class BulletXiguaBingAttackExtraArea : Area2D
     
     IObj myObj = null;
     IAttack myAttack = null;
-    EnumHurts enumHurts = EnumHurts.XiguaBing;
+    EnumHurts enumHurts = EnumHurts.Cold;
     EnumObjType myType = EnumObjType.Plans;
 
     bool isDie = false;

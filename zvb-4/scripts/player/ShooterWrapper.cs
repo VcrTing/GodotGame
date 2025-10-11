@@ -46,7 +46,6 @@ public partial class ShooterWrapper : Node2D, IShooterWrapper
 
     bool CostSunForAttack()
     {
-        // if (playerData == null) return false;
         if (SunCenterSystem.Instance == null) return false;
         return SunCenterSystem.Instance.CostForAttack(shooterCostSun);
     }
@@ -65,7 +64,7 @@ public partial class ShooterWrapper : Node2D, IShooterWrapper
         {
             if (num >= allowAttackNum)
             {
-                GD.Print("你没有这个射手");
+                // GD.Print("你没有这个射手");
                 ShooterWorkTable.Instance?.ChangeToLastBaseShooter();
             }
         }

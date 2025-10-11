@@ -43,10 +43,10 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
     }
 
     float iceFreezeTime = 0f;
-    float iceFreezeTimeInit = 5f;
+    float iceFreezeTimeInit = GameContants.IceTime;
     float __freezeTime = 0f;
     float iceColdTime = 0f;
-    float iceColdTimeInit = 5f;
+    float iceColdTimeInit = GameContants.ColdTime;
     float __coldTime = 0f;
     public override void _Process(double delta)
     {
@@ -191,9 +191,9 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
         __coldTime += 0.01f;
         // GD.Print("3. 减速 =" + iceColdTime);
         //
-        moveSpeedScale = 0.5f;
-        attackSpeedScale = 0.5f;
-        animationSpeedScale = 0.5f;
+        moveSpeedScale = GameContants.ColdScale;
+        attackSpeedScale = GameContants.ColdScale;
+        animationSpeedScale = GameContants.ColdScale;
         (bodyNode as IStatus).DoCold(time);
         return true;
     }
@@ -257,7 +257,7 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
             }
             
             // 处理 可减速攻击
-            if (enumHurts == EnumHurts.XiguaBing)
+            if (enumHurts == EnumHurts.Cold)
             {
                 DoCold(iceColdTimeInit);
             }
@@ -339,4 +339,8 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
 
     public bool IsWorking() => isWorking;
 
+    public bool CanAttack()
+    {
+        return isWorking && __freezeTime <= 0f;
+    }
 }

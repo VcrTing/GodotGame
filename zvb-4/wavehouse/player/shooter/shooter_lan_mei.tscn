@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwr1yaho4cin5"]
+
+[ext_resource type="Script" uid="uid://bicmdk7g0w8pu" path="res://scripts/player/shooter/ShooterLanMei.cs" id="1_qlx4v"]
+[ext_resource type="Texture2D" uid="uid://h86vmx2w318x" path="res://pngs/plans/LanMei.png" id="2_6vod8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56n5j"]
+atlas = ExtResource("2_6vod8")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgq3c"]
+atlas = ExtResource("2_6vod8")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qj52"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56n5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgq3c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="ShooterLanMei" type="Node2D"]
+script = ExtResource("1_qlx4v")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_5qj52")
+autoplay = "default"

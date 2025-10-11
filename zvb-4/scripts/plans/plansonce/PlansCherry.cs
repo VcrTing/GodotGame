@@ -147,4 +147,10 @@ public partial class PlansCherry : Node2D, IWorking, IObj, IAttack
     }
 
     public bool IsWorking() => IsWorkingMode;
+
+    public bool CanAttack()
+    {
+        throw new NotImplementedException();
+    }
+
 }

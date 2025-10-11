@@ -46,12 +46,14 @@ public partial class ShooterWorkTable : Node2D
 
     public bool HandleCollision(string plansName)
     {
+        /*
         if (plansNameNow == plansName)
         {
             Node2D node2D = GodotTool.FindNode2DByName(this.GetParent(), NameConstants.ShooterWrapper);
             DieToReword(node2D);
             return true;
         }
+        */
         return ChangeShooter(plansName);
     }
 
@@ -64,6 +66,11 @@ public partial class ShooterWorkTable : Node2D
 
     public bool ChangeShooter(string plansName)
     {
+        var pc = PlayerController.Instance;
+        if (pc == null) return false;
+        GD.Print("ShooterWorkTable: ChangeShooter to " + plansName);
+        pc.ReleaseAttack();
+        //
         string shooterScene = FolderConstants.WavePlayer + "shooter_wrapper.tscn";
         // GD.Print("切换射手:" + shooterScene);
         if (!string.IsNullOrEmpty(shooterScene))
@@ -94,6 +101,7 @@ public partial class ShooterWorkTable : Node2D
         {
             s.ChangeShooter(plansNameNow);
         }
+        // 删掉花盆
     }  
 
     public void DieToReword(Node2D lastNode)

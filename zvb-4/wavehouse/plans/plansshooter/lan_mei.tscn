@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceb0ton6gj7p5"]
+
+[ext_resource type="Script" uid="uid://fjunkhvfkmnc" path="res://scripts/plans/plansshooter/PlansLanMei.cs" id="1_c1jq1"]
+[ext_resource type="Texture2D" uid="uid://2c1aoif1eeyy" path="res://pngs/planscard/lanmei.png" id="2_602bt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad81k"]
+atlas = ExtResource("2_602bt")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56n5j"]
+atlas = ExtResource("2_602bt")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgq3c"]
+atlas = ExtResource("2_602bt")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qj52"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ad81k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56n5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgq3c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="LanMei" type="Node2D"]
+script = ExtResource("1_c1jq1")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -18)
+scale = Vector2(3.6, 3.6)
+sprite_frames = SubResource("SpriteFrames_5qj52")
+autoplay = "default"
+frame = 1
+frame_progress = 0.12186375

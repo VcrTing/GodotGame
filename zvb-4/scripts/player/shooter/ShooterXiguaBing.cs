@@ -19,6 +19,7 @@ public partial class ShooterXiguaBing : Node2D, IObj, IShooter
     {
         ObjName = name ?? PlansConstants.XiguaBing;
         LoadBullet();
+        DoInitEffect(GlobalPosition);
         init = true;
         return true;
     }

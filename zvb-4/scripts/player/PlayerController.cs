@@ -9,15 +9,11 @@ public partial class PlayerController : Node2D
     public Vector2 _lastClickPosition;
     private ShooterWrapper _shooter;
     public Vector2 _shooterInitPosition;
-
-    EntityPlayerData playerData;
-
     public override void _Ready()
     {
         Instance = this;
         AfterGetShooter();
     }
-
     public void TrashOldShooter()
     {
         try
@@ -28,45 +24,41 @@ public partial class PlayerController : Node2D
             nd.QueueFree();
             _shooter = null;
         }
-        catch
-        {
-        }
+        catch { }
     }
-
     void AfterGetShooter()
     {
         try
         {
             Node2D nd = GodotTool.FindNode2DByName(this, NameConstants.ShooterWrapper);
-            if (nd == null)
-            {
-                return;
-            }
-            if (nd is ShooterWrapper)
-            {
-                _shooter = nd as ShooterWrapper;
-            }
-            if (_shooter != null)
-            {
-                _shooterInitPosition = _shooter.GlobalPosition;
-            }
+            if (nd == null) return;
+            if (nd is ShooterWrapper) { _shooter = nd as ShooterWrapper; }
+            if (_shooter != null) { _shooterInitPosition = _shooter.GlobalPosition; }
         }
-        catch
-        {
-        }
+        catch { }
     }
 
+    bool canAttack = true;
+    public void ForbiddenAttack()
+    {
+        canAttack = false;
+        ReleaseAttackClear(__lastClickPos, true);
+    }
+    public void ReleaseAttack()
+    {
+        canAttack = true;
+    }
+    //
     void Attack(Vector2 clickPosition, bool isFirstAttack)
     {
-        if (_shooter == null)
-        {
-            AfterGetShooter();
-        }
+        // GD.Print("攻击 canAttack = " + canAttack);
+        if (canAttack == false) return;
+        // 确保有 _shooter
+        if (_shooter == null) AfterGetShooter();
         // 必须要 _shooter
         if (_shooter == null) return;
         _shooter.Attack(clickPosition, isFirstAttack);
     }
-
     //
     bool __startAttack = false;
     Vector2 __lastClickPos = Vector2.Zero;
@@ -90,7 +82,6 @@ public partial class PlayerController : Node2D
     }
 
     public float touchShortPressTime = 0.02f; // 长按时间，秒
-
     float __attackTime = 0;
     bool firstAttack = false;
     public override void _Process(double delta)

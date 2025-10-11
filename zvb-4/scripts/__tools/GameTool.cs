@@ -31,6 +31,7 @@ public static class GameTool
     }
     public static bool RunnerBulletZeroWhenDieFx(Node2D node2D, CanvasItem view, double delta, ref float fadeElapsed, float fadeDuration = AnimationConstants.BulletFadeDieDuration, float fadeLowest = 0f)
     {
+        if (view == null) return false;
         Vector2 Scale = node2D.Scale;
         if (Scale.X > 0.11f)
         {
@@ -38,19 +39,26 @@ public static class GameTool
             float newScale = Mathf.Lerp(Scale.X, 0.1f, scaleT);
             node2D.Scale = new Vector2(newScale, newScale);
         }
-        if (view != null)
+        try
         {
-            if (fadeElapsed < fadeDuration)
+            if (view != null)
             {
-                fadeElapsed += (float)delta;
-                float t = Mathf.Clamp(fadeElapsed / fadeDuration, 0f, 1f);
-                float alpha = Mathf.Lerp(1f, fadeLowest, t);
-                view.Modulate = new Color(1, 1, 1, alpha);
+                if (fadeElapsed < fadeDuration)
+                {
+                    fadeElapsed += (float)delta;
+                    float t = Mathf.Clamp(fadeElapsed / fadeDuration, 0f, 1f);
+                    float alpha = Mathf.Lerp(1f, fadeLowest, t);
+                    view.Modulate = new Color(1, 1, 1, alpha);
+                }
+                else
+                {
+                    view.Modulate = new Color(1, 1, 1, fadeLowest);
+                }
             }
-            else
-            {
-                view.Modulate = new Color(1, 1, 1, fadeLowest);
-            }
+        }
+        catch (Exception ex)
+        {
+            GD.PrintErr($"RunnerBulletZeroWhenDieFx Exception: {ex.Message}");
         }
         return true;
     }

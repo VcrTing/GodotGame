@@ -17,7 +17,6 @@ public partial class ShooterPea : Node2D, IShooter, IObj
     bool init = false;
     public bool Init(string name = null)
     {
-        GD.Print("Init name =" + name);
         ObjName = name ?? PlansConstants.Pea;
         LoadBullet();
         init = true;

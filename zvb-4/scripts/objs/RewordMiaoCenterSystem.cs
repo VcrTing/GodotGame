@@ -119,7 +119,7 @@ public partial class RewordMiaoCenterSystem : Node2D
     {
         { PlansConstants.Pea, 0 },
         { PlansConstants.XiguaBing, 0 },
-        { PlansConstants.SunFlower, 50 },
+        { PlansConstants.SunFlower, 30 },
         { PlansConstants.Cherry, 50 },
     };
     bool RandomPlansForPower(string name)

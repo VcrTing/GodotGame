@@ -66,7 +66,6 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
 
     public bool Init(string name = null) => true;
 
-    public bool Die() => throw new NotImplementedException();
 
     float minScale = GameContants.MinScale;
     float maxScale = GameContants.MaxScale;
@@ -96,12 +95,22 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
     public void StopBeHurt() => canBeHurt = false;
     public void StartBeHurt() => canBeHurt = true;
 
+    public bool Die() {
+        // 解锁格子
+        GeZi gz = GetParent() as GeZi;
+        if (gz != null)
+        {
+            gz.UnLockGezi(this);
+        }
+        // 销毁自己
+        QueueFree();
+        return true;
+    }
     public async Task<bool> Die(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
         ObjTool.RunningDie(this, objType, damage, enumHurts);
         await ToSignal(GetTree().CreateTimer(AnimationConstants.GetDieAniTime(this)), "timeout");
-        QueueFree();
-        return true;
+        return Die();
     }
 
     public EnumMoveType GetEnumMoveType()

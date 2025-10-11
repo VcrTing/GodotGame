@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://gmsjbkn1xbya" path="res://scripts/player/PlayerController.cs" id="7_ff6ho"]
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="11_1dqgb"]
 [ext_resource type="Script" uid="uid://dbjditv1jl2b8" path="res://scripts/player/PlayerBuffController.cs" id="13_pn65j"]
+[ext_resource type="PackedScene" uid="uid://k3linm4rcf5o" path="res://wavehouse/ground/ge_zi_wrapper_7x7.tscn" id="14_tqo7j"]
 [ext_resource type="Script" uid="uid://bikplbsxucboc" path="res://scripts/player/PlayerAttackArea.cs" id="15_1dqgb"]
 [ext_resource type="PackedScene" uid="uid://br3fnkwdn12o7" path="res://wavehouse/player/shooter_work_table.tscn" id="15_gv2t6"]
 [ext_resource type="Script" uid="uid://d38vgruxqe4rl" path="res://scripts/caps/CapsCenter.cs" id="16_5jxlq"]
 [ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
-[ext_resource type="PackedScene" uid="uid://d3i7tctp8hx4w" path="res://wavehouse/ground/ge_zi.tscn" id="20_3h106"]
 [ext_resource type="Script" uid="uid://ckcymbhwfhj3" path="res://scripts/jingdian/EnmyGenerator.cs" id="21_n74k2"]
 [ext_resource type="Script" uid="uid://dvqi22qwhhnnd" path="res://scripts/caps/EnmyCenter.cs" id="21_si7kk"]
 [ext_resource type="Script" uid="uid://cxcgsqncwoqqb" path="res://scripts/ux/FlowerPengSystem.cs" id="24_gsk6d"]
@@ -78,13 +78,5 @@ script = ExtResource("21_si7kk")
 position = Vector2(0, -380)
 script = ExtResource("21_n74k2")
 
-[node name="GeZiWrapper" type="Node2D" parent="."]
-position = Vector2(0, 340)
-
-[node name="GeZi" parent="GeZiWrapper" instance=ExtResource("20_3h106")]
-
-[node name="GeZi2" parent="GeZiWrapper" instance=ExtResource("20_3h106")]
-position = Vector2(-120, 0)
-
-[node name="GeZi3" parent="GeZiWrapper" instance=ExtResource("20_3h106")]
-position = Vector2(120, 0)
+[node name="GeZiWrapper7x7" parent="." instance=ExtResource("14_tqo7j")]
+position = Vector2(0, 400)

@@ -44,7 +44,9 @@ public partial class ZeroZombiAttackArea : Area2D
         if (area == null) return;
         try
         {
-            StartAttack(area);
+            if (myAttack.CanAttack()) {
+                StartAttack(area);
+            }
         }
         catch (Exception ex)
         {
@@ -132,6 +134,7 @@ public partial class ZeroZombiAttackArea : Area2D
     string lastAnimationName = AnimationConstants.AniWalk;
     void TryAttack(IObj p, double delta)
     {
+        if (!myAttack.CanAttack()) return;
         EnumObjType t = p.GetEnumObjType();
         if (t == EnumObjType.Plans)
         {

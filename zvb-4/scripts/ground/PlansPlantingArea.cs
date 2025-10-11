@@ -3,7 +3,7 @@ using System;
 
 public partial class PlansPlantingArea : Area2D
 {
-	public Area2D LastEnteredArea { get; private set; }
+	public Area2D LastEnteredGeZi { get; private set; }
 
 	public override void _Ready()
 	{
@@ -12,12 +12,25 @@ public partial class PlansPlantingArea : Area2D
 
     private void OnAreaEntered(Area2D area)
     {
-        LastEnteredArea = area;
-        GD.Print($"PlansPlantingArea: Area entered: {area?.Name}");
+        LastEnteredGeZi = area;
     }
-    
+
     public Area2D GetLastEnteredArea()
     {
-        return LastEnteredArea;
+        return LastEnteredGeZi;
+    }
+    
+    public void UnLockGezi() {
+        if (LastEnteredGeZi != null) {
+            
+        }
+        LastEnteredGeZi = null;
+    }
+
+    public void ReleasePlanting() 
+    {
+        // LastEnteredGeZi = null;
+        // GD.Print("PlansPlantingArea: Released planting area.");
+        
     }
 }

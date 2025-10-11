@@ -77,39 +77,16 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
     }
 
     bool _isInAttackArea = false;
-
-
-    void BackToPosition()
+    // 回到初始位置
+    public void BackToPosition()
     {
+        ChangeShooterAttackStatus(true); // 允许射手攻击
         Position = _initPosition;
     }
-
-    private bool _isDragging = false;
-
-    // 停止射手攻击
-    void StopShooterAttack()
-    {
-        var ps = PlayerController.Instance;
-        if (ps != null)
-        {
-            ps.ReleaseAttackClear(new Vector2(0, 0));
-        }
-    }
-
-    private void OnAreaInputEvent(Node viewport, InputEvent @event, int shapeIdx)
-    {
-        if (!IsComplete) return; // 只有生长完成后才能拖动
-        StopShooterAttack();
-        if (@event is InputEventMouseButton mouse && mouse.Pressed && mouse.ButtonIndex == MouseButton.Left)
-        {
-            _isDragging = true;
-        }
-    }
-
-
     // 种下后，解锁花盆占用
-    public string ZhongXia()
+    public string ReleasePlanting()
     {
+        ChangeShooterAttackStatus(true); // 允许射手攻击
         FlowerPeng flowerPeng = GetParent<FlowerPeng>();
         if (flowerPeng != null)
         {
@@ -118,9 +95,38 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         }
         return PlanName;
     }
-    async void OnRealease()
+
+    private bool _isDragging = false;
+
+    // 停止射手攻击
+    void ChangeShooterAttackStatus(bool can = true)
     {
-        // 
+        var ps = PlayerController.Instance;
+        if (ps != null)
+        {
+            if (can)
+            {
+                ps.ReleaseAttack();
+            }
+            else
+            {
+                ps.ForbiddenAttack();
+            }
+        }
+    }
+
+    private void OnAreaInputEvent(Node viewport, InputEvent @event, int shapeIdx)
+    {
+        if (!IsComplete) return; // 只有生长完成后才能拖动
+        if (@event is InputEventMouseButton mouse && mouse.Pressed && mouse.ButtonIndex == MouseButton.Left)
+        {
+            _isDragging = true;
+            ChangeShooterAttackStatus(false); // 停止射手攻击
+        }
+    }
+
+    async void OnTouchRealease()
+    {
         bool succ = false;
         // 是否放进了射手工作台
         ShooterWorkTable swt = ShooterWorkTable.Instance;
@@ -129,7 +135,7 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
             succ = swt.HandleCollision(PlanName);
             if (succ)
             {
-                ZhongXia();
+                ReleasePlanting();
             }
         }
         // 否
@@ -138,17 +144,16 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         {
             BackToPosition();
         }
-        // 延迟0.1f
+        // 延迟 0.1f
         await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
     }
-
     public override void _Input(InputEvent @event)
     {
         if (_isDragging)
         {
             if (@event is InputEventMouseButton mouse && !mouse.Pressed)
             {
-                OnRealease();
+                OnTouchRealease();
             }
             else if (@event is InputEventMouseMotion motion)
             {
@@ -166,7 +171,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         }
     }
 
-
     // 生长完成方法
     protected virtual void OnGrowFinished()
     {
@@ -177,32 +181,10 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         {
             miaoNode.QueueFree();
         }
-        //
         _area2D.Visible = true;
-        // 
-        ViewPlans();
+        PlansConstants.GeneratePlans(this, PlanName);
         // 播放生长完成音效
         SoundFxController.Instance?.PlayFx("Ux/grow", "grow", 4);
-    }
-
-    void ViewPlans()
-    {
-        // 根据PlanName获取场景路径
-        string scenePath = PlansConstants.GetPlanScene(PlanName);
-        if (!string.IsNullOrEmpty(scenePath))
-        {
-            var planScene = GD.Load<PackedScene>(scenePath);
-            if (planScene != null)
-            {
-                var planInstance = planScene.Instantiate();
-                IObj obj = planInstance as IObj;
-                if (obj != null)
-                {
-                    obj.Init(PlanName);
-                }
-                AddChild(planInstance);
-            }
-        }
     }
 
     public bool CanDie()
@@ -216,18 +198,11 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         return true;
     }
 
-    public bool AdjustView()
-    {
-        throw new NotImplementedException();
-    }
-
-    public EnumMoveType GetEnumMoveType()
-    {
-        throw new NotImplementedException();
-    }
-
     public bool IsWorking() => IsWorkingMode;
 
+    public bool CanAttack()
+    {
+        throw new NotImplementedException();
+    }
 
-    //
 }

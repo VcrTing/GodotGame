@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7cd8ou4a7oin"]
+[gd_scene load_steps=9 format=3 uid="uid://b7cd8ou4a7oin"]
 
 [ext_resource type="Script" uid="uid://cn8fhybpbvuo8" path="res://scripts/plans/PlansBaseMiao.cs" id="1_f2xyr"]
 [ext_resource type="Texture2D" uid="uid://xgu4xl0x0kpf" path="res://pngs/planscard/miao.png" id="2_hej8r"]
+[ext_resource type="Script" uid="uid://bcoqmja13b47q" path="res://scripts/ground/PlansPlantingArea.cs" id="3_qitbf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cnsr"]
 atlas = ExtResource("2_hej8r")
@@ -28,6 +29,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gv2t6"]
 radius = 30.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qitbf"]
+size = Vector2(2, 2)
+
 [node name="PlansBaseMiao" type="Node2D"]
 z_index = 2000
 script = ExtResource("1_f2xyr")
@@ -44,3 +48,11 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MiaoArea"]
 shape = SubResource("CircleShape2D_gv2t6")
+
+[node name="PlantingArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("3_qitbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantingArea"]
+shape = SubResource("RectangleShape2D_qitbf")

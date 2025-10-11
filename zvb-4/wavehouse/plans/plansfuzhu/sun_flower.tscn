@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cd848ibmilgja"]
+[gd_scene load_steps=12 format=3 uid="uid://cd848ibmilgja"]
 
 [ext_resource type="Script" uid="uid://bvjp63ndt7exj" path="res://scripts/plans/plansfuzhu/PlansSunFlower.cs" id="1_0w6da"]
 [ext_resource type="Script" uid="uid://bx5hcsjngaxeb" path="res://scripts/godobj/GodobjView.cs" id="2_45h3k"]
 [ext_resource type="Script" uid="uid://xd2b2sm7oqlb" path="res://scripts/plans/PlansBeHurtArea.cs" id="3_r7htr"]
 [ext_resource type="Script" uid="uid://cmcx8217u2avf" path="res://scripts/plans/plansfuzhu/FlowerWorkingReword.cs" id="3_yxjyf"]
 [ext_resource type="Texture2D" uid="uid://ci0utjvye56si" path="res://pngs/planscard/sun2.png" id="4_45h3k"]
-[ext_resource type="Script" uid="uid://bcoqmja13b47q" path="res://scripts/ground/PlansPlantingArea.cs" id="6_j4ffn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxjyf"]
 size = Vector2(40, 30)
@@ -42,9 +41,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_45h3k"]
 radius = 20.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j4ffn"]
-radius = 2.0
-
 [node name="SunFlower" type="Node2D"]
 scale = Vector2(3.4, 3.4)
 script = ExtResource("1_0w6da")
@@ -75,6 +71,7 @@ sprite_frames = SubResource("SpriteFrames_p8c7m")
 frame_progress = 0.6886384
 
 [node name="BodyMove" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(0, 40)
 collision_layer = 16
 collision_mask = 16
@@ -84,12 +81,3 @@ shape = SubResource("CircleShape2D_45h3k")
 
 [node name="Working" type="Node2D" parent="."]
 script = ExtResource("3_yxjyf")
-
-[node name="PlantingArea" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 32
-script = ExtResource("6_j4ffn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantingArea"]
-position = Vector2(0, 20)
-shape = SubResource("CircleShape2D_j4ffn")

@@ -2,29 +2,31 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using Godot;
+using ZVB4.Interface;
 
 namespace ZVB4.Conf
 {
     public static class PlansConstants
     {
         public const string Miao = "Miao";
-
         // 植物名
         public const string Pea = "Pea";
         public const string XiguaBing = "XiguaBing";
         public const string YangTao = "YangTao";
-
+        public const string LanMei = "LanMei";
         //
         public const string SunFlower = "SunFlower";
-        public const string Cherry = "Cherry";
+        public const string JianGuo = "JianGuo";
         // 冰炸弹
         public const string IceFlower = "IceFlower";
-        public const string JianGuo = "JianGuo";
+        public const string Cherry = "Cherry";
 
         // 植物名，卡片
         public static readonly Dictionary<string, string> PlanSceneDict = new Dictionary<string, string>
         {
             { Pea, FolderConstants.WavePlans + "plansshooter/pea.tscn" },
+            { LanMei, FolderConstants.WavePlans + "plansshooter/lan_mei.tscn" },
             { YangTao, FolderConstants.WavePlans + "plansshooter/yang_tao.tscn" },
             { XiguaBing, FolderConstants.WavePlans + "plansshooter/xigua_bing.tscn" },
             { SunFlower, FolderConstants.WavePlans + "plansfuzhu/sun_flower.tscn" },
@@ -37,6 +39,7 @@ namespace ZVB4.Conf
         public static readonly  Dictionary<string, string> ShooterDict = new  Dictionary<string, string>
         {
             { Pea, FolderConstants.WavePlayer + "shooter/shooter_pea.tscn" },
+            { LanMei, FolderConstants.WavePlayer + "shooter/shooter_lan_mei.tscn" },
             { YangTao, FolderConstants.WavePlayer + "shooter/shooter_yang_tao.tscn" },
             { XiguaBing, FolderConstants.WavePlayer + "shooter/shooter_xigua_bing.tscn" },
         };
@@ -45,6 +48,7 @@ namespace ZVB4.Conf
         public static readonly  Dictionary<string, string> BulletDict = new  Dictionary<string, string>
         {
             { Pea, FolderConstants.WaveBullet + "bullet_zero.tscn" },
+            { LanMei, FolderConstants.WaveBullet + "bullet_lan_mei.tscn" },
             { YangTao, FolderConstants.WaveBullet + "bullet_yang_tao.tscn" },
             { XiguaBing, FolderConstants.WaveBullet + "bullet_xigua_bing.tscn" },
         };
@@ -53,6 +57,7 @@ namespace ZVB4.Conf
         public static readonly  Dictionary<string, float> PlanGrowTimeDict = new  Dictionary<string, float>
         {
             { Pea, 2f },
+            { LanMei, 3f },
             { YangTao, 5f },
             { XiguaBing, 7f },
             { SunFlower, 1f },
@@ -65,11 +70,13 @@ namespace ZVB4.Conf
         public static readonly  Dictionary<string, int> PlanHealthDict = new  Dictionary<string, int>
         {
             { Pea, (int)EnumHealth.One },
+            { LanMei, (int)EnumHealth.One },
             { YangTao, (int)EnumHealth.Two },
             { XiguaBing, (int)EnumHealth.Four },
-            { SunFlower, (int)EnumHealth.Two },
             { Cherry, (int)EnumHealth.Four },
             { IceFlower, (int)EnumHealth.Two },
+            //  
+            { SunFlower, (int)EnumHealth.Four },
             { JianGuo, (int)EnumHealth.JianGuo }
         };
 
@@ -87,6 +94,7 @@ namespace ZVB4.Conf
         public static readonly  Dictionary<string, int> ShooterAttackLimitDict = new  Dictionary<string, int>
         {
             { Pea, 0 },
+            { LanMei, 12 },
             { YangTao, 20 },
             { XiguaBing, 8 },
         };
@@ -100,6 +108,7 @@ namespace ZVB4.Conf
         public static float GetPlansAttackSpeedStart(string key)
         {
             if (key == Pea) return 0.4f;
+            if (key == LanMei) return 0.4f;
             if (key == YangTao) return 0.3f;
             if (key == XiguaBing) return 1f;
             return 0f;
@@ -107,6 +116,7 @@ namespace ZVB4.Conf
         public static float GetPlansAttackSpeedSnap(string key)
         {
             if (key == Pea) return 0.07f;
+            if (key == LanMei) return 0.07f;
             if (key == YangTao) return 0.05f;
             if (key == XiguaBing) return 0.1f;
             return 0f;
@@ -114,6 +124,7 @@ namespace ZVB4.Conf
         public static float GetPlansAttackSpeedEnd(string key)
         {
             if (key == Pea) return 0.15f;
+            if (key == LanMei) return 0.15f;
             if (key == YangTao) return 0.2f;
             if (key == XiguaBing) return 0.2f;
             return 0f;
@@ -121,6 +132,7 @@ namespace ZVB4.Conf
         public static float GetPlansAttackSpeedSnapSnap(string key)
         {
             if (key == Pea) return 0.01f;
+            if (key == LanMei) return 0.01f;
             if (key == YangTao) return 0.01f;
             if (key == XiguaBing) return 0.01f;
             return 0f;
@@ -177,15 +189,37 @@ namespace ZVB4.Conf
             string key = keys[rand.Next(keys.Count)];
             return key;
         }
-        
-        
+
+
         public static bool IsShooter(string planName)
         {
-            if (planName == Pea || planName == XiguaBing || planName == YangTao)
+            if (planName == Pea || planName == XiguaBing || planName == YangTao || planName == LanMei)
             {
                 return true;
             }
             return false;
+        }
+        
+        public static Node2D GeneratePlans(Node2D father, string PlanName) {
+            
+            // 根据PlanName获取场景路径
+            string scenePath = GetPlanScene(PlanName);
+            if (!string.IsNullOrEmpty(scenePath))
+            {
+                var planScene = GD.Load<PackedScene>(scenePath);
+                if (planScene != null)
+                {
+                    var planInstance = planScene.Instantiate();
+                    IObj obj = planInstance as IObj;
+                    if (obj != null)
+                    {
+                        obj.Init(PlanName);
+                    }
+                    father.AddChild(planInstance);
+                    return planInstance as Node2D;
+                }
+            }
+            return null;
         }
 
     }

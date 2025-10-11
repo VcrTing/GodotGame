@@ -73,7 +73,6 @@ public partial class PlayerUxTileMap : TileMapLayer, IPlansPlanting
                 pls.Position = cellCenter;
                 // 调整视图
                 // if (pls is IObj iobj) iobj.AdjustView();
-                    
                 // 设置工作模式
                 if (pls is IWorking working)
                 {
