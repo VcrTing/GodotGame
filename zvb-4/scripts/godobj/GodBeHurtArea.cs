@@ -22,7 +22,7 @@ public partial class GodBeHurtArea : Area2D, IHurtBase
             //
             return true;
         }
-        if (Wrapper.objType == EnumObjType.Stone)
+        if (Wrapper.objType == EnumObjType.Things)
         {
             return true;
         }

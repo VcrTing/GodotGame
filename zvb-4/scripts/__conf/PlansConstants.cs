@@ -21,6 +21,7 @@ namespace ZVB4.Conf
         // 冰炸弹
         public const string IceFlower = "IceFlower";
         public const string Cherry = "Cherry";
+        public const string LaJiao = "LaJiao";
 
         // 植物名，卡片
         public static readonly Dictionary<string, string> PlanSceneDict = new Dictionary<string, string>
@@ -32,9 +33,9 @@ namespace ZVB4.Conf
             { SunFlower, FolderConstants.WavePlans + "plansfuzhu/sun_flower.tscn" },
             { Cherry,  FolderConstants.WavePlans + "plansonce/cherry.tscn" },
             { IceFlower,  FolderConstants.WavePlans + "plansonce/ice_flower.tscn" },
-            { JianGuo,  FolderConstants.WavePlans + "planszhongzhi/jian_guo.tscn" }
+            { JianGuo,  FolderConstants.WavePlans + "planszhongzhi/jian_guo.tscn" },
+            { LaJiao,  FolderConstants.WavePlans + "planszhongzhi/la_jiao.tscn" }
         };
-
         // 植物名，shooter
         public static readonly  Dictionary<string, string> ShooterDict = new  Dictionary<string, string>
         {
@@ -43,7 +44,6 @@ namespace ZVB4.Conf
             { YangTao, FolderConstants.WavePlayer + "shooter/shooter_yang_tao.tscn" },
             { XiguaBing, FolderConstants.WavePlayer + "shooter/shooter_xigua_bing.tscn" },
         };
-
         // 植物名，bullet
         public static readonly  Dictionary<string, string> BulletDict = new  Dictionary<string, string>
         {
@@ -52,7 +52,6 @@ namespace ZVB4.Conf
             { YangTao, FolderConstants.WaveBullet + "bullet_yang_tao.tscn" },
             { XiguaBing, FolderConstants.WaveBullet + "bullet_xigua_bing.tscn" },
         };
-
         // 植物生长时长
         public static readonly  Dictionary<string, float> PlanGrowTimeDict = new  Dictionary<string, float>
         {
@@ -63,9 +62,9 @@ namespace ZVB4.Conf
             { SunFlower, 1f },
             { Cherry, 5f },
             { JianGuo, 1f },
-            { IceFlower, 10f }
+            { IceFlower, 10f },
+            { LaJiao, 1f }
         };
-
         // 植物生命值
         public static readonly  Dictionary<string, int> PlanHealthDict = new  Dictionary<string, int>
         {
@@ -73,13 +72,14 @@ namespace ZVB4.Conf
             { LanMei, (int)EnumHealth.One },
             { YangTao, (int)EnumHealth.Two },
             { XiguaBing, (int)EnumHealth.Four },
-            { Cherry, (int)EnumHealth.Four },
-            { IceFlower, (int)EnumHealth.Two },
             //  
             { SunFlower, (int)EnumHealth.Four },
-            { JianGuo, (int)EnumHealth.JianGuo }
+            { JianGuo, (int)EnumHealth.JianGuo },
+            //
+            { IceFlower, (int)EnumHealth.Two },
+            { Cherry, (int)EnumHealth.Four },
+            { LaJiao, (int)EnumHealth.Four }
         };
-
         // 会占用格子的植物
         public static bool IsWillZhanYongGeZi(string planName)
         {
@@ -89,7 +89,6 @@ namespace ZVB4.Conf
             }
             return false;
         }
-        
         // 射手限制
         public static readonly  Dictionary<string, int> ShooterAttackLimitDict = new  Dictionary<string, int>
         {
@@ -103,7 +102,6 @@ namespace ZVB4.Conf
                 return value;
             return 0;
         }
-
         // 获取植物攻击速度
         public static float GetPlansAttackSpeedStart(string key)
         {
@@ -137,7 +135,6 @@ namespace ZVB4.Conf
             if (key == XiguaBing) return 0.01f;
             return 0f;
         }
-
         // 坚果倍数
         public static float BiggerRateMaxJianGuo = 1.5f;
 
@@ -176,14 +173,6 @@ namespace ZVB4.Conf
                 return value;
             return 0f;
         }
-        //
-        public static string GetRandomPlansName()
-        {
-            var keys = PlanSceneDict.Keys.ToList();
-            var rand = new Random();
-            string key = keys[rand.Next(keys.Count)];
-            return key;
-        }
         public static bool IsShooter(string planName)
         {
             if (planName == Pea || planName == XiguaBing || planName == YangTao || planName == LanMei)
@@ -193,7 +182,6 @@ namespace ZVB4.Conf
             return false;
         }
         public static Node2D GeneratePlans(Node2D father, string PlanName) {
-            
             // 根据PlanName获取场景路径
             string scenePath = GetPlanScene(PlanName);
             if (!string.IsNullOrEmpty(scenePath))
@@ -213,7 +201,43 @@ namespace ZVB4.Conf
             }
             return null;
         }
-
+        // 
+        public static Godot.Collections.Array GetAllPlanNamesArray()
+        {
+            var arr = new Godot.Collections.Array();
+            foreach (var k in PlanSceneDict.Keys)
+            {
+                arr.Add(k);
+            }
+            return arr;
+        }        
+        public static Godot.Collections.Array GetSimplePlanNamesArray()
+        {
+            var arr = new Godot.Collections.Array();
+            arr.Add(Pea);
+            arr.Add(JianGuo);
+            arr.Add(SunFlower);
+            return arr;
+        }
+        //
+        public static string GetRandomPlansName()
+        {
+            var keys = PlanSceneDict.Keys.ToList();
+            var rand = new Random();
+            string key = keys[rand.Next(keys.Count)];
+            return key;
+        }
+        public static string GetRandomPlansName(Godot.Collections.Array allowList)
+        {
+            if (allowList == null || allowList.Count == 0)
+            {
+                return GetRandomPlansName();
+            }
+            // OOO: 从allowList中随机取一个
+            var rand = new Random();
+            string key = allowList[rand.Next(allowList.Count)].AsString();
+            return key;
+        }
     }
 
 }

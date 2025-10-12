@@ -9,11 +9,6 @@ public partial class GameStatistic : Node2D
         Instance = this;
         ResetAll();
     }
-    public bool IsAllZombieDead()
-    {
-        bool a = ZombieDeadCount > 0 && ZombieDeadCount == ZombieChapterTotal;
-        return a;
-    }
     // 僵尸数量
     public int ZombieCount { get; private set; } = 0;
     // 僵尸总数
@@ -26,7 +21,7 @@ public partial class GameStatistic : Node2D
     public int SunConsumed { get; private set; } = 0;
     // 金币收集数量
     public int CoinCollected { get; private set; } = 0;
-
+    //
     public void AddZombie(int count = 1)
     {
         ZombieCount += count;
@@ -51,14 +46,16 @@ public partial class GameStatistic : Node2D
         SunConsumed = 0;
         CoinCollected = 0;
         SunFlowerCount = 0;
-    }
 
+        GuanZiChapterTotal = 0;
+        ZombieChapterTotal = 0;
+
+        GuanZiDieCount = 0;
+    }
     // 本关向日葵数量
     public int SunFlowerCount { get; set; } = 0;
-
     // 植物名称-数量字典
     public System.Collections.Generic.Dictionary<string, int> PlantCountDict { get; private set; } = new System.Collections.Generic.Dictionary<string, int>();
-
     // 增加指定植物的数量（默认向日葵）
     public void AddPlansCount( string plantName, int count = 1)
     {
@@ -71,5 +68,42 @@ public partial class GameStatistic : Node2D
         if (PlantCountDict.ContainsKey(plantName))
             return PlantCountDict[plantName];
         return 0;
+    }
+
+    //
+    
+    // 罐子数量
+    public int GuanZiChapterTotal { get; private set; } = 0;
+    // 罐子打破数量
+    public int GuanZiDieCount { get; private set; } = 0;
+
+    //
+    public bool JinDianWinCheck()
+    {
+        if (ZombieChapterTotal > 0)
+        {
+            return ZombieDeadCount > 0 && ZombieDeadCount == ZombieChapterTotal;
+        }
+        return false;
+    }
+    public void AddGuanZiChapterTotal(int n = 1)
+    {
+        GuanZiChapterTotal += 1;
+    }
+    public void AddGuanziDie(int num = 1) {
+        GuanZiDieCount += num;
+    }
+    public bool GuanZiWinCheck()
+    {
+        bool star = false;
+        if (GuanZiChapterTotal > 0)
+        {
+            star = GuanZiDieCount > 0 && GuanZiDieCount == GuanZiChapterTotal;
+            // GD.Print("检查罐子star = " + GuanZiDieCount + " " + GuanZiChapterTotal + " true = " + ( ZombieDeadCount == ZombieCount));
+            if (star) {
+                return ZombieDeadCount == ZombieCount;
+            }
+        }
+        return false;
     }
 }

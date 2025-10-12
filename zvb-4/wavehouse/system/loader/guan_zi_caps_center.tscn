@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://ro3en2jbcatp"]
+
+[ext_resource type="Script" uid="uid://dbhow5i70jk8w" path="res://scripts/caps/GuanZiCapsCenter.cs" id="1_15d0d"]
+[ext_resource type="Script" uid="uid://cg23d5r85c0lt" path="res://scripts/objs/RewordMiaoCenterSystem.cs" id="2_a2ip6"]
+[ext_resource type="Script" uid="uid://cxcgsqncwoqqb" path="res://scripts/ux/FlowerPengSystem.cs" id="3_7rncl"]
+[ext_resource type="Script" uid="uid://lh6wuyr0v4sq" path="res://scripts/objs/MoneyCenterSystem.cs" id="4_q86ro"]
+[ext_resource type="Script" uid="uid://dvqi22qwhhnnd" path="res://scripts/caps/EnmyCenter.cs" id="5_w4bcn"]
+[ext_resource type="Script" uid="uid://ckcymbhwfhj3" path="res://scripts/jingdian/EnmyGenerator.cs" id="6_ge2b6"]
+[ext_resource type="PackedScene" uid="uid://k3linm4rcf5o" path="res://wavehouse/ground/ge_zi_wrapper_7x7.tscn" id="7_a2ip6"]
+[ext_resource type="Script" uid="uid://i1tjq10jpkgy" path="res://scripts/objs/GuanZiCenterSystem.cs" id="8_7rncl"]
+
+[node name="GuanZiCapsCenter" type="Node2D"]
+script = ExtResource("1_15d0d")
+
+[node name="RewordMiaoCenterSystem" type="Node2D" parent="."]
+position = Vector2(0, -300)
+script = ExtResource("2_a2ip6")
+
+[node name="FlowerPengSystem" type="Node2D" parent="."]
+position = Vector2(0, 850)
+script = ExtResource("3_7rncl")
+
+[node name="GameDynamicHardSystem" type="Node2D" parent="FlowerPengSystem"]
+position = Vector2(0, -850)
+
+[node name="MoneyCenterSystem" type="Node2D" parent="."]
+script = ExtResource("4_q86ro")
+
+[node name="Working" type="Node2D" parent="MoneyCenterSystem"]
+
+[node name="Enmys" type="Node2D" parent="."]
+
+[node name="EnmyEnvBuilder" type="Node2D" parent="Enmys"]
+script = ExtResource("5_w4bcn")
+
+[node name="EnmyGenerator" type="Node2D" parent="Enmys"]
+script = ExtResource("6_ge2b6")
+
+[node name="GeZiWrapper7x7" parent="." instance=ExtResource("7_a2ip6")]
+position = Vector2(0, 10)
+
+[node name="GuanZiCenterSystem" type="Node2D" parent="."]
+script = ExtResource("8_7rncl")

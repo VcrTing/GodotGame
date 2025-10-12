@@ -22,9 +22,13 @@ namespace ZVB4.Conf
         public const float MinScale = 0.3f;
         // 物体内地图里的最大缩放
         public const float MaxScale = 1.0f;
-        // 地平线位置
+        // 地平线长度
         public const float HorizonY = 500f;
         public const float HorizonBulletY = 500f;
+
+        // 僵尸生成位置
+        public const float HorizonYEnmyGen = -380f;
+
         // Ui
         public const float UiLazyTouchTime = 0.2f;
         // 冰冻

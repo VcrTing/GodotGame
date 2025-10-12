@@ -148,11 +148,11 @@ layout_mode = 2
 
 [node name="ChapterItemButton2" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 102
+Chapter = 1002
 
 [node name="ChapterItemButton3" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 103
+Chapter = 1003
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(720, 120)
@@ -167,13 +167,12 @@ grow_vertical = 0
 
 [node name="ChapterItemButton" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 104
+Chapter = 1004
 
 [node name="ChapterItemButton2" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 105
+Chapter = 1005
 
 [node name="ChapterItemButton3" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
-visible = false
 layout_mode = 2
-Chapter = 103
+Chapter = 7001

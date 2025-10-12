@@ -1,0 +1,107 @@
+{
+    "type": "normal",
+    "initsun": 350,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "gamechecktime": 20,
+    
+    "initpeng": 8,
+    
+    "allowmiaolist": [
+        "SunFlower", "IceFlower", "YangTao", "Pea", "JianGuo", "Cherry"
+    ],
+    
+    "initshooter": "YangTao",
+    "initmiaolist": [ ],
+    "enmyspeedattackscale": 1.0,
+    "enmyspeedmovescale": 1,
+    "enmyviewscale": 0.1,
+    "enmybehurtscale": 1.0,
+
+    "enmyswaveflag": {
+        "19": 1
+    },
+    "guanzis": [
+        {
+            "gezi": 1, "view": 1, "mustenmyratio": 1, 
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "Pea" ]
+        },
+        {
+            "gezi": 2, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "Pea" ]
+        },
+        {
+            "gezi": 3, "view": 2, "mustenmyratio": 0.5,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 4, "view": 1, "mustenmyratio": 0,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "Pea" ]
+        },
+        {
+            "gezi": 5, "view": 1, "mustenmyratio": 0,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 6, "view": 1, "mustenmyratio": 0.7,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "JianGuo" ]
+        },
+        {
+            "gezi": 7, "view": 1, "mustenmyratio": 0.7,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "Cherry" ]
+        },
+        {
+            "gezi": 8, "view": 1, "mustenmyratio": 0.7,
+            "enmyrandomlist": [ "zombi_tie_tong" ],
+            "plansrandomlist": [ "Cherry" ]
+        },
+        {
+            "gezi": 9, "view": 1, "mustenmyratio": 0.7,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "JianGuo" ]
+        },
+        {
+            "gezi": 10, "view": 2, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 11, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 12, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 13, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 14, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "SunFlower" ]
+        }
+    ],
+    
+    "suns": {
+        "3": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ]
+    }
+}

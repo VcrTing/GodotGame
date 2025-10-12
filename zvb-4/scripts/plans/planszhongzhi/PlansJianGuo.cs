@@ -18,6 +18,8 @@ public partial class PlansJianGuo : Node2D, IObj, IBeHurt, IWorking
 
     public bool Init(string name = null)
     {
+        maxScale = Scale.X;
+        minScale = ViewTool.GetYouMinScale(maxScale);
         return true;
     }
 

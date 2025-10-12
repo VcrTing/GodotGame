@@ -15,11 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://c4314c54wcerx" path="res://wavehouse/plans/plansonce/cherry.tscn" id="12_yihhn"]
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="13_tlc07"]
 [ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="13_xiptw"]
-[ext_resource type="PackedScene" uid="uid://ctpvaeuf7ceyd" path="res://wavehouse/bullet/bullet_yang_tao.tscn" id="30_bcp43"]
+[ext_resource type="PackedScene" uid="uid://cxp8h1au7mu3g" path="res://wavehouse/plans/plansonce/la_jiao.tscn" id="16_ad81k"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Bullets" type="Node2D" parent="."]
+visible = false
 position = Vector2(400, 0)
 
 [node name="BulletZero3" parent="Bullets" instance=ExtResource("1_fmfhj")]
@@ -46,7 +47,8 @@ position = Vector2(0, 1900)
 [node name="BulletLanMei" parent="Bullets" instance=ExtResource("3_ad81k")]
 
 [node name="Zombis" type="Node2D" parent="."]
-position = Vector2(0, -550)
+visible = false
+position = Vector2(900, -550)
 
 [node name="ZombiSWrapper" parent="Zombis" instance=ExtResource("6_ad81k")]
 position = Vector2(0, 300)
@@ -57,7 +59,8 @@ position = Vector2(0, 310)
 objName = "zombi_m"
 
 [node name="Plans" type="Node2D" parent="."]
-position = Vector2(0, 300)
+visible = false
+position = Vector2(0, 900)
 
 [node name="SunFlower" parent="Plans" instance=ExtResource("10_rf7gy")]
 position = Vector2(0, -480)
@@ -121,7 +124,4 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "0"
 
-[node name="ZhiWu" type="Node2D" parent="."]
-position = Vector2(300, 0)
-
-[node name="BulletYangTao" parent="ZhiWu" instance=ExtResource("30_bcp43")]
+[node name="LaJiao" parent="." instance=ExtResource("16_ad81k")]

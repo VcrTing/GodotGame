@@ -78,4 +78,9 @@ public static class AnimationTool
     {
         view?.Play("dieforboom");
     }
+
+    public static void DoAniDie(AnimatedSprite2D view)
+    {
+        view?.Play("die");
+    }
 }

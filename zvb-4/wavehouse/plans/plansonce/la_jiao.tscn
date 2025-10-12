@@ -1,0 +1,171 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxp8h1au7mu3g"]
+
+[ext_resource type="Script" uid="uid://bt2t1u0ns42fl" path="res://scripts/plans/plansonce/PlansLaJiao.cs" id="1_hnhu7"]
+[ext_resource type="Texture2D" uid="uid://byw1psseenwm2" path="res://pngs/plans/once/LaJiao.png" id="2_ndubb"]
+[ext_resource type="PackedScene" uid="uid://r4tgaon1m7lc" path="res://wavehouse/fx/fire_block_one.tscn" id="3_ms8si"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56n5j"]
+atlas = ExtResource("2_ndubb")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgq3c"]
+atlas = ExtResource("2_ndubb")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qj52"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56n5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgq3c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="LaJiao" type="Node2D"]
+script = ExtResource("1_hnhu7")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5qj52")
+autoplay = "default"
+frame_progress = 0.75895274
+
+[node name="Boom" type="Node2D" parent="."]
+
+[node name="XL" type="Node2D" parent="Boom"]
+position = Vector2(-660, 0)
+
+[node name="FireBlockOne1" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(-120, 0)
+
+[node name="FireBlockOne2" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(-240, 0)
+
+[node name="FireBlockOne3" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(-360, 0)
+
+[node name="FireBlockOne4" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(-480, 0)
+
+[node name="FireBlockOne5" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(-600, 0)
+
+[node name="FireBlockOne6" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(120, 0)
+
+[node name="FireBlockOne7" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(240, 0)
+
+[node name="FireBlockOne8" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(360, 0)
+
+[node name="FireBlockOne9" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(480, 0)
+
+[node name="FireBlockOne10" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+position = Vector2(600, 0)
+
+[node name="FireBlockOne11" parent="Boom/XL" instance=ExtResource("3_ms8si")]
+
+[node name="YD" type="Node2D" parent="Boom"]
+position = Vector2(0, 600)
+
+[node name="FireBlockOne1" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 120)
+
+[node name="FireBlockOne2" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 240)
+
+[node name="FireBlockOne3" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 360)
+
+[node name="FireBlockOne4" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 480)
+
+[node name="FireBlockOne5" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 600)
+
+[node name="FireBlockOne6" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+
+[node name="FireBlockOne7" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+position = Vector2(0, -120)
+
+[node name="FireBlockOne8" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+position = Vector2(0, -240)
+
+[node name="FireBlockOne9" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+position = Vector2(0, -360)
+
+[node name="FireBlockOne10" parent="Boom/YD" instance=ExtResource("3_ms8si")]
+position = Vector2(0, -480)
+
+[node name="XR" type="Node2D" parent="Boom"]
+position = Vector2(660, 0)
+
+[node name="FireBlockOne1" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(-120, 0)
+
+[node name="FireBlockOne2" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(-240, 0)
+
+[node name="FireBlockOne3" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(-360, 0)
+
+[node name="FireBlockOne4" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(-480, 0)
+
+[node name="FireBlockOne5" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(-600, 0)
+
+[node name="FireBlockOne6" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(120, 0)
+
+[node name="FireBlockOne7" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(240, 0)
+
+[node name="FireBlockOne8" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(360, 0)
+
+[node name="FireBlockOne9" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(480, 0)
+
+[node name="FireBlockOne10" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+position = Vector2(600, 0)
+
+[node name="FireBlockOne11" parent="Boom/XR" instance=ExtResource("3_ms8si")]
+
+[node name="YU" type="Node2D" parent="Boom"]
+position = Vector2(0, -720)
+
+[node name="FireBlockOne1" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 120)
+
+[node name="FireBlockOne2" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 240)
+
+[node name="FireBlockOne3" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 360)
+
+[node name="FireBlockOne4" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 480)
+
+[node name="FireBlockOne5" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+position = Vector2(0, 600)
+
+[node name="FireBlockOne6" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+
+[node name="FireBlockOne7" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+position = Vector2(0, -120)
+
+[node name="FireBlockOne8" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+position = Vector2(0, -240)
+
+[node name="FireBlockOne9" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+position = Vector2(0, -360)
+
+[node name="FireBlockOne10" parent="Boom/YU" instance=ExtResource("3_ms8si")]
+position = Vector2(0, -480)

@@ -137,16 +137,23 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
         await ToSignal(GetTree().CreateTimer(fadeDuration), "timeout");
         QueueFree();
     }
+    void CloseArea() {
+        try
+        {
+            if (_area2D != null) _area2D.QueueFree();
+        }
+        catch (Exception e) { }
+    }
     void DieWhenHit()
     {
-        if (_area2D != null) _area2D.QueueFree();
+        CloseArea();
         var view = GetNodeOrNull<CanvasItem>(NameConstants.View);
         view.Visible = false;
         __Die();
     }
     private void DieOfFade()
     {
-        if (_area2D != null) _area2D.QueueFree();
+        CloseArea();
         __Die();
     }
 

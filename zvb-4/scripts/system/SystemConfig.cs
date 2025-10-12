@@ -19,7 +19,7 @@ public partial class SystemConfig : Node2D
         // 获取场景树
         var sceneTree = GetTree();
         
-        // 固定最大帧率为60（0表示不限制）
-        Engine.MaxFps = 60;
+        // 固定最大帧率为90（0表示不限制）
+        Engine.MaxFps = 90;
     }
 }

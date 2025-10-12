@@ -27,7 +27,7 @@ public partial class ZeroZombiBeHurtArea : Area2D, IHurtBase
             return true;
         }
         // 
-        if (iobj.GetEnumObjType() == EnumObjType.Stone)
+        if (iobj.GetEnumObjType() == EnumObjType.Things)
         {
             return true;
         }

@@ -106,7 +106,7 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         {
             if (can)
             {
-                ps.ReleaseAttack();
+                ps.UnLockAttack();
             }
             else
             {

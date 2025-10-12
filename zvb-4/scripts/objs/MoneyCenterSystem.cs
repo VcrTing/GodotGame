@@ -55,9 +55,7 @@ public partial class MoneyCenterSystem : Node2D
             {
                 // SoundFxController.Instance?.PlayFx("Ux/coll", "coll_sun", 4);
             }
-            // 使用SetDeferred避免物理状态错误
             AddChild(instance);
-            // this.SetDeferred("add_child", instance);
         }
         catch
         {

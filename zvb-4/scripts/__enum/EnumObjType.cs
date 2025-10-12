@@ -5,6 +5,6 @@ namespace ZVB4.Conf
         System = 0,
         Plans = 1,
         Zombie = 2,
-        Stone = 3
+        Things = 3
     }
 }

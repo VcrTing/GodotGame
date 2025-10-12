@@ -22,7 +22,7 @@ public partial class BulletSingleUxArea : Area2D
 			{
 				OnFirstAreaEntered(area);
 			}
-			else if (objType == EnumObjType.Stone)
+			else if (objType == EnumObjType.Things)
 			{
 				OnFirstAreaEntered(area);
 			}

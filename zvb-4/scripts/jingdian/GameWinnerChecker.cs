@@ -19,6 +19,7 @@ public partial class GameWinnerChecker : Node2D
     {
         timePoints.Add(timePoint);
         minTimePoint = timePoint;
+        GD.Print($"AddTimePoint: {timePoint}");
         // UpdateMinTimePoint();
     }
 
@@ -74,33 +75,39 @@ public partial class GameWinnerChecker : Node2D
     bool hasChecked = false;
     bool hasPrinted = false;
 
+    int capnum = -1;
+
     // 到达时间点时执行的方法
     private void OnTimePointReached(float timePoint)
     {
+        if (capnum == -1) {
+            var ins = SaveGamerRunnerDataManger.Instance;
+            capnum = ins.GetCapterNumber();
+        }
         if (hasPrinted)
         {
 
         }
         else
         {
-            // GD.Print("到达检测时间 timePoint =" + timePoint);
             hasPrinted = true;
         }
-        // GD.Print("到达检测时间 timePoint =" + timePoint);
+
         // 等待3秒后再执行下一个时间点
-        bool isAllDie = GameStatistic.Instance?.IsAllZombieDead() ?? false;
-        if (isAllDie)
+        bool isWin = false;
+
+        if (ChapterTool.IsJinDian(capnum))
+        {
+            isWin = GameStatistic.Instance?.JinDianWinCheck() ?? false;
+        }
+        else if (ChapterTool.IsGuanZi(capnum)) {
+            isWin = GameStatistic.Instance?.GuanZiWinCheck() ?? false;
+        }
+        //
+        if (isWin)
         {
             if (hasChecked) return;
-            // GD.Print("所有僵尸已被消灭，玩家获胜！");
-            // 在这里执行玩家获胜的逻辑
             CapterWinPopup.Instance?.ShowPopup();
-            hasChecked = true;
-        }
-        else
-        {
-            // GD.Print("仍有僵尸存活，继续游戏。");
-            // 继续游戏逻辑
         }
     }
 }

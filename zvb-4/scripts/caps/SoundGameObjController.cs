@@ -124,7 +124,7 @@ public partial class SoundGameObjController : Node2D
                     // Instance?.EnqueueSound("res://audio/plant_hurt.wav", 1f, 1f, position);
                 }
                 break;
-            case EnumObjType.Stone:
+            case EnumObjType.Things:
                 GD.Print("播放被Stone攻击受伤音效");
                 // Instance?.EnqueueSound("res://audio/stone_hurt.wav", 1f, 1f, position);
                 break;

@@ -68,8 +68,7 @@ public partial class ShooterWorkTable : Node2D
     {
         var pc = PlayerController.Instance;
         if (pc == null) return false;
-        GD.Print("ShooterWorkTable: ChangeShooter to " + plansName);
-        pc.ReleaseAttack();
+        pc.UnLockAttack();
         //
         string shooterScene = FolderConstants.WavePlayer + "shooter_wrapper.tscn";
         // GD.Print("切换射手:" + shooterScene);
@@ -102,32 +101,5 @@ public partial class ShooterWorkTable : Node2D
             s.ChangeShooter(plansNameNow);
         }
         // 删掉花盆
-    }  
-
-    public void DieToReword(Node2D lastNode)
-    {
-        // 生成奖励组
-        try
-        {
-            var rewordGroupScene = GD.Load<PackedScene>(FolderConstants.WaveObj + "reword_group.tscn");
-            var rewordGroupNode = rewordGroupScene.Instantiate<Node2D>();
-            GetParent().AddChild(rewordGroupNode);
-            var rewordGroup = rewordGroupNode as RewordGroup;
-            if (rewordGroup != null)
-            {
-                Vector2 pos = lastNode != null ? lastNode.Position : this.Position;
-                IObj lastObj = lastNode as IObj;
-                // 阳光数量
-                int num = SunMoneyConstants.GetSunNumNormal(lastObj.GetObjName());
-                // 生成阳光奖励
-                rewordGroup.SpawnReword(SunMoneyConstants.Sun, num, pos, SunMoneyConstants.SunNormal);
-                // 销毁植物
-                SoundFxController.Instance?.PlayFx("Ux/trash", "trash", 4, pos);
-            }
-        }
-        catch
-        {
-            
-        }
     }  
 }

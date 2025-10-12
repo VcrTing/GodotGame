@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="4_3r76w"]
 [ext_resource type="PackedScene" uid="uid://c20gy31whur46" path="res://wavehouse/system/data_mangers.tscn" id="5_3r76w"]
 [ext_resource type="PackedScene" uid="uid://dqjnmevvfr4r" path="res://wavehouse/obj/reword_plans_miao.tscn" id="6_3r76w"]
-[ext_resource type="Script" uid="uid://d38vgruxqe4rl" path="res://scripts/caps/CapsCenter.cs" id="6_kesu3"]
+[ext_resource type="Script" path="res://scripts/caps/CapsCenter.cs" id="6_kesu3"]
 [ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="6_ulph4"]
 [ext_resource type="Script" uid="uid://cxcgsqncwoqqb" path="res://scripts/ux/FlowerPengSystem.cs" id="8_3r76w"]
 [ext_resource type="Script" uid="uid://cg23d5r85c0lt" path="res://scripts/objs/RewordMiaoCenterSystem.cs" id="10_jteds"]
@@ -16,7 +16,6 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="BulletZero" parent="." instance=ExtResource("1_thh5b")]
-visible = false
 position = Vector2(0, 600)
 
 [node name="Other" type="Node2D" parent="."]

@@ -120,7 +120,6 @@ public partial class GodobjWrapper : Node2D, IMove, IBeHurt, IObj, IAttack
 
     public bool Die()
     {
-        GameStatistic.Instance?.AddZombieDead(1);
         //
         QueueFree();
         return true;

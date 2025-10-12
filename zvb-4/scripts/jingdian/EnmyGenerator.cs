@@ -124,7 +124,6 @@ public partial class EnmyGenerator : Node2D
         int tileIndex = (int)GD.RandRange(1, max);
         return GenerateEnemyByCode(code, tileIndex, randomXRate);
     }
-
     float DoRandomX(Vector2 tilePos, int randomXRate)
     {
         if (randomXRate <= 0)
@@ -142,7 +141,7 @@ public partial class EnmyGenerator : Node2D
     /// <param name="code">敌人代号名称</param>
     /// <param name="tileIndex">格子编号（1-10）</param>
     /// <returns>生成的敌人节点（Node2D），失败返回null</returns>
-    public Node2D GenerateEnemyByCode(string code, int tileIndex, int randomXRate)
+    public Node2D GenerateEnemyByCode(string name, int tileIndex, int randomXRate)
     {
         string path = FolderConstants.WaveEnemy + "wrapper/zombi_s_wrapper.tscn";
         var packed = GD.Load<PackedScene>(path);
@@ -151,36 +150,48 @@ public partial class EnmyGenerator : Node2D
             GD.PrintErr($"未找到敌人场景: {path}");
             return null;
         }
-        // 加计数
-        GameStatistic.Instance?.AddZombie(1);
         //
         var instance = packed.Instantiate<Node2D>();
         // 取格子区间
         if (tileIndex < 1 || tileIndex > tiles.Count)
         {
             GD.PrintErr($"格子编号超出范围: {tileIndex}");
-            AddChild(instance);
+            // AddChild(instance);
             return instance;
         }
         var tilePos = tiles[tileIndex - 1];
         var pos = instance.Position;
         pos.X = DoRandomX(tilePos, randomXRate);
+        //
+        pos.Y = pos.Y + genY;
+        return Doing(instance, pos, name);
+    }
+
+    float genY = GameContants.HorizonYEnmyGen;
+    public Node2D GenerateEnemyOfPos(Vector2 pos, string name)
+    {
+        string path = FolderConstants.WaveEnemy + "wrapper/zombi_s_wrapper.tscn";
+        var packed = GD.Load<PackedScene>(path);
+        if (packed == null) return null;
+        return Doing(packed.Instantiate<Node2D>(), pos, name);
+    }
+
+    Node2D Doing(Node2D instance, Vector2 pos, string name)
+    {
+        // 
         instance.Position = pos;
         // 设置缩放
         if (instance is IEnmy enmy)
         {
-            enmy.SetObjName(code);
+            enmy.SetObjName(name);
             enmy.SetInitScale(InitMoveSpeedScale, InitBeHurtScale, InitViewScale, InitAttackSpeedScale);
         }
         //
         AddChild(instance);
+        // 加计数
+        GameStatistic.Instance?.AddZombie(1);
         return instance;
     }
-    
-    /// <summary>
-    /// 设置本生成器节点的位置
-    /// </summary>
-    /// <param name="pos">目标位置</param>
     public void SetGeneratorPosition(Vector2 pos)
     {
         this.Position = pos;

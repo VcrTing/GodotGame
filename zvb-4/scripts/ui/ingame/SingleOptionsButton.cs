@@ -95,6 +95,6 @@ public partial class SingleOptionsButton : TextureButton
             if (isBackToMain) UiTool.BackToMainScene(this);
             return;
         }
-        UiTool.NextScene(this, FolderConstants.Scenes + ChapterTool.GetNextChapterSceneName(nextCap));
+        UiTool.NextScene(this, FolderConstants.Scenes + ChapterTool.GetChapterSceneName(nextCap));
     }
 }

@@ -19,7 +19,7 @@ public partial class PlansAttackArea : Area2D
         if (parent is IObj obj)
         {
             var type = obj.GetEnumObjType();
-            if (type == EnumObjType.Zombie || type == EnumObjType.Stone)
+            if (type == EnumObjType.Zombie || type == EnumObjType.Things)
             {
                 Attack(area, obj);
             }

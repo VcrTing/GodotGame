@@ -14,5 +14,8 @@ namespace ZVB4.Conf
         public const string WaveHouse = "res://wavehouse/";
         public const string WavePlayer = "res://wavehouse/player/";
         public const string WaveObj = "res://wavehouse/obj/";
+        public const string WaveSystem = "res://wavehouse/system/";
+        public const string WaveThings = "res://wavehouse/things/";
+        public const string WaveGround = "res://wavehouse/ground/";
     }
 }

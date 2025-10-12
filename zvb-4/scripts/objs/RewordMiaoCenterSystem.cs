@@ -10,7 +10,14 @@ public partial class RewordMiaoCenterSystem : Node2D
     {
         Instance = this;
     }
-
+    Godot.Collections.Array AllowMiaoList = PlansConstants.GetAllPlanNamesArray();
+    public void SetAllowMiaoList(Godot.Collections.Array list)
+    {
+        if (list != null && list.Count > 0)
+        {
+            AllowMiaoList = list;
+        }
+    }
     Dictionary<string, int> PlansDict = new Dictionary<string, int>();
 
     float spawnTimer = 0f;
@@ -24,7 +31,6 @@ public partial class RewordMiaoCenterSystem : Node2D
             // SpawnRewordPlansMiao(3);
         }
     }
-
     void SpawnRewordPlansMiao(int count)
     {
         var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + "reword_plans_miao.tscn");
@@ -34,78 +40,11 @@ public partial class RewordMiaoCenterSystem : Node2D
             AddChild(instance);
         }
     }
-
     public string GetRandomPlansName()
     {
-        String n = PlansConstants.GetRandomPlansName();
+        String n = PlansConstants.GetRandomPlansName(AllowMiaoList);
         AddOne(n);
         return n;
-    }
-
-    void ReComputedWeight()
-    {
-        foreach (var key in PlansRewordWeightDict.Keys)
-        {
-            int baseWeight = PlansRewordWeightDict[key];
-            int subWeight = 0;
-            if (PlansDict.ContainsKey(key))
-            {
-                PlansRewordWeightSubDict.TryGetValue(key, out subWeight);
-            }
-            int newWeight = baseWeight - subWeight;
-            int lowest = 0;
-            PlansRewordWeightLowestDict.TryGetValue(key, out lowest);
-            if (newWeight < lowest)
-            {
-                newWeight = lowest;
-            }
-            PlansRewordWeightDict[key] = newWeight;
-        }
-    }
-
-    public static readonly Dictionary<string, int> PlansRewordWeightDict = new Dictionary<string, int>
-    {
-        { PlansConstants.Pea, 10 },
-        { PlansConstants.XiguaBing, 5 },
-        { PlansConstants.SunFlower, 30 },
-        { PlansConstants.Cherry, 10 },
-    };
-    public static readonly Dictionary<string, int> PlansRewordWeightSubDict = new Dictionary<string, int>
-    {
-        { PlansConstants.Pea, 2 },
-        { PlansConstants.XiguaBing, 2 },
-        { PlansConstants.SunFlower, 1 },
-        { PlansConstants.Cherry, 0 },
-    };
-    public static readonly Dictionary<string, int> PlansRewordWeightLowestDict = new Dictionary<string, int>
-    {
-        { PlansConstants.Pea, 2 },
-        { PlansConstants.XiguaBing, 2 },
-        { PlansConstants.SunFlower, 10 },
-        { PlansConstants.Cherry, 10 },
-    };
-
-    string GetNameByWeight()
-    {
-        // 加权随机
-        int totalWeight = 0;
-        foreach (var kv in PlansRewordWeightDict)
-        {
-            totalWeight += kv.Value;
-        }
-        if (totalWeight <= 0) return "";
-        int rand = (int)GD.RandRange(0, totalWeight);
-        int sum = 0;
-        foreach (var kv in PlansRewordWeightDict)
-        {
-            sum += kv.Value;
-            if (rand < sum)
-            {
-                AddOne(kv.Key);
-                return kv.Key;
-            }
-        }
-        return "";
     }
     bool usePower = false;
     public static readonly Dictionary<string, int> PlansStarPowerDict = new Dictionary<string, int>
@@ -139,16 +78,14 @@ public partial class RewordMiaoCenterSystem : Node2D
         if (power <= 0) return true;
         return i < power;
     }
-
     public string GetRandomPlansNameWithPowerWeight()
     {
-        string n = PlansConstants.GetRandomPlansName();
+        string n = PlansConstants.GetRandomPlansName(AllowMiaoList);
         bool isAllow = RandomPlansForPower(n);
         if (!isAllow) return "";
         AddOne(n);
         return n;
     }
-
     void AddOne(string name)
     {
         if (PlansDict.ContainsKey(name))
@@ -164,7 +101,6 @@ public partial class RewordMiaoCenterSystem : Node2D
     {
         return PlansDict.ContainsKey(name) && PlansDict[name] > 0;
     }
-
     /*
 
     */
@@ -175,15 +111,14 @@ public partial class RewordMiaoCenterSystem : Node2D
         Vector2 pos = this.GlobalPosition;
         float x = pos.X;
         float y = pos.Y;
-
+        //
         int v = (int)GD.RandRange(1, w);
         int v2 = (int)GD.RandRange(1, w);
-
+        //
         x += v;
         y += v2;
         DumpPlansMiao(new Vector2(x, y), name, playSound);
     }
-
     int count = 0;
     public void DumpPlansMiao(Vector2 pos, string name, bool playSound = true)
     {
@@ -207,7 +142,6 @@ public partial class RewordMiaoCenterSystem : Node2D
             return;
         }
     }
-
     public void DumpInitPlansMiao(string initmiaomode, string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
     {
         switch (initmiaomode)
@@ -223,7 +157,6 @@ public partial class RewordMiaoCenterSystem : Node2D
                 break;
         }
     }
-
     void DumpRandomPlansMiao(string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
     {
         int num = 0;
@@ -246,7 +179,7 @@ public partial class RewordMiaoCenterSystem : Node2D
             }
         }
     }
-    void DumpAllPlansMiao(Godot.Collections.Array initmiaolist)
+    public void DumpAllPlansMiao(Godot.Collections.Array initmiaolist)
     {
         foreach (var item in initmiaolist)
         {

@@ -1,0 +1,82 @@
+{
+    "type": "normal",
+    "initsun": 200,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "gamechecktime": 36,
+    
+    "initpeng": 5,
+    "allowmiaolist": [
+        "SunFlower", "Pea", "JianGuo", "Cherry"
+    ],
+    
+    "initshooter": "Pea",
+    "initmiaolist": [
+        "SunFlower", "SunFlower", "Cherry"
+    ],
+    "enmyspeedattackscale": 1.0,
+    "enmyspeedmovescale": 1.0,
+    "enmyviewscale": 1.0,
+    "enmybehurtscale": 1.0,
+
+    "enmyswaveflag": {
+        "19": 1
+    },
+    "enmys": {
+        "4": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 3, 1, 5 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 0.5,
+                "speedmode": "normal"
+            }
+        ],
+        "10": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 9, 2, 8, 6, 4, 10 ],
+                "generatormode": "next",
+                "lazyall": 0,
+                "lazyme": 1,
+                "speedmode": "normal"
+            }
+        ],
+        "20": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 3, 7, 9, 4, 1, 6 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 2,
+                "speedmode": "normal"
+            }
+        ],
+        "32": [
+            {
+                "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_mu_tong" ],
+                "typesmode": "random",
+                "generator": [ 2, 4, 10, 1, 5, 8 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 2,
+                "speedmode": "normal"
+            }
+        ]
+    },
+    
+    "suns": {
+        "3": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ]
+    }
+}

@@ -52,17 +52,17 @@ public partial class GeZi : Node2D
         string n = obj.GetObjName();
         if (n != "")
         {
-            string allowName = AllowPlans(obj as Node2D);
-            if (allowName != "")
+            // 射手就销毁
+            if (PlansConstants.IsShooter(n))
             {
-                // 射手就销毁
-                if (PlansConstants.IsShooter(allowName))
+                DieToReword(plantingArea.lastObj as Node2D);
+                ok = true;
+            }
+            else {
+                string allowName = AllowPlans(obj as Node2D);
+                if (allowName != "")
                 {
-                    DieToReword(plantingArea.lastObj as Node2D);
-                    ok = true;
-                }
-                // 种植
-                else {
+                    // 种植
                     Node2D plantNode = ReplaceOldThenNewOne(allowName);
                     if (plantNode != null)
                     {

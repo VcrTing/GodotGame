@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3i4xs4sei1bo"]
+
+[ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
+[ext_resource type="PackedScene" uid="uid://bs7cg40u3kkix" path="res://wavehouse/player/player.tscn" id="2_ih5oj"]
+[ext_resource type="Script" uid="uid://blws27e75l035" path="res://scripts/system/GameModeSwitchCenter.cs" id="15_lpa67"]
+[ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
+
+[node name="System" type="Node2D"]
+
+[node name="GameEnvBuiler" parent="." instance=ExtResource("1_5wvqh")]
+
+[node name="Player" parent="." instance=ExtResource("2_ih5oj")]
+
+[node name="GameSVSystems" parent="." instance=ExtResource("19_pniwq")]
+
+[node name="GameModeSwitchCenter" type="Node2D" parent="."]
+script = ExtResource("15_lpa67")

@@ -44,9 +44,10 @@ public partial class PlayerController : Node2D
         canAttack = false;
         ReleaseAttackClear(__lastClickPos, true);
     }
-    public void ReleaseAttack()
+    public void UnLockAttack()
     {
         canAttack = true;
+        ReleaseAttackClear(__lastClickPos, true);
     }
     //
     void Attack(Vector2 clickPosition, bool isFirstAttack)
