@@ -13,7 +13,7 @@ namespace ZVB4.Conf
         // 存储血量的字典
         public static readonly Dictionary<string, int> HpDict = new Dictionary<string, int>()
         {
-            { ZombiM, (int)EnumHealth.Two },
+            { ZombiM, (int)EnumHealth.One },
             { ZombiS, (int)EnumHealth.Two },
             { ZombiMuTong, (int)EnumHealth.Two },
             { ZombiTieTong, (int)EnumHealth.Two }

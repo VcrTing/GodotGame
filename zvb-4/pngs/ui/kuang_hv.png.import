@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wqju1l810gvj"
-path="res://.godot/imported/kuang.png-2b3df2814bda66cfdf9b8c645b8e1e9f.ctex"
+uid="uid://cx87o6cwkkygp"
+path="res://.godot/imported/kuang_hv.png-eb408d1cf24c9f83d60d83f6e37b4c3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pngs/ui/kuang.png"
-dest_files=["res://.godot/imported/kuang.png-2b3df2814bda66cfdf9b8c645b8e1e9f.ctex"]
+source_file="res://pngs/ui/kuang_hv.png"
+dest_files=["res://.godot/imported/kuang_hv.png-eb408d1cf24c9f83d60d83f6e37b4c3c.ctex"]
 
 [params]
 

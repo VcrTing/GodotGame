@@ -95,7 +95,7 @@ public partial class FlowerPengSystem : Node2D
             limit = PositionList.Count;
         }
         // 实例化flower_peng
-        var flowerPengScene = GD.Load<PackedScene>(FolderConstants.WaveUx + "flower_peng.tscn");
+        var flowerPengScene = GD.Load<PackedScene>(FolderConstants.WaveGround + "flower_peng.tscn");
         for (int i = 0; i < limit; i++)
         {
             GenerateFlowerPengByCode(flowerPengScene, i);

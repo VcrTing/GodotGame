@@ -13,7 +13,6 @@ public partial class EnmyWorkingDumpReword : Node2D, IWhenDie
         has = TryDumpPlansMiao(n, false);
     }
 
-
     public bool TryDumpMoney(string n, bool prevSucc)
     {
         float v = RewordConstants.GetEnmyDumpMoneyLv(n);
@@ -24,7 +23,6 @@ public partial class EnmyWorkingDumpReword : Node2D, IWhenDie
         }
         return false;
     }
-
 
     public bool TryDumpPlansMiao(string n, bool prevSucc)
     {

@@ -19,8 +19,6 @@ public partial class GameWinnerChecker : Node2D
     {
         timePoints.Add(timePoint);
         minTimePoint = timePoint;
-        GD.Print($"AddTimePoint: {timePoint}");
-        // UpdateMinTimePoint();
     }
 
     private bool isWaiting = false;

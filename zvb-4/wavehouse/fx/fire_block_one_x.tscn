@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://r4tgaon1m7lc"]
+
+[ext_resource type="Script" uid="uid://dfiyv1htypvyl" path="res://scripts/fx/boom/BoomFireBlockOne.cs" id="1_d0h8q"]
+[ext_resource type="Texture2D" uid="uid://bt0f3lggta2vc" path="res://pngs/fx/fire_wu.png" id="2_fkfma"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qj52"]
+atlas = ExtResource("2_fkfma")
+region = Rect2(0, 0, 120, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bugb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qj52")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56n5j"]
+size = Vector2(595, 140)
+
+[node name="FireBlockOneX" type="Node2D"]
+script = ExtResource("1_d0h8q")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(-240, 0)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_3bugb")
+
+[node name="View2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-120, 0)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_3bugb")
+
+[node name="View3" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_3bugb")
+
+[node name="View4" type="AnimatedSprite2D" parent="."]
+position = Vector2(120, 0)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_3bugb")
+
+[node name="View5" type="AnimatedSprite2D" parent="."]
+position = Vector2(240, 0)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_3bugb")
+
+[node name="AttackArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 2048
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("RectangleShape2D_56n5j")

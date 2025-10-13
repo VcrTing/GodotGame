@@ -11,3 +11,4 @@ script = ExtResource("1_76fcr")
 stream = SubResource("AudioStream_daiq8")
 autoplay = true
 bus = &"BGM"
+playback_type = 1

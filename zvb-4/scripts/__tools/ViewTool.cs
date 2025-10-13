@@ -134,17 +134,24 @@ namespace ZVB4.Tool
         // 变蓝
         public static void SetLvJingBlue(CanvasItem node, float blueAmount, bool isBlue)
         {
-            if (node == null) return;
-            if (!isBlue)
+            try
             {
-                node.Modulate = new Color(1, 1, 1, 1f);
-                return;
+                if (node == null) return;
+                if (!isBlue)
+                {
+                    node.Modulate = new Color(1, 1, 1, 1f);
+                    return;
+                }
+                // blueAmount 0~1
+                blueAmount = Mathf.Clamp(blueAmount, 0f, 1f);
+                // 设置调色
+                Color color = new Color(1f - blueAmount, 1f - blueAmount, 1f, 1f);
+                node.Modulate = color;
             }
-            // blueAmount 0~1
-            blueAmount = Mathf.Clamp(blueAmount, 0f, 1f);
-            // 设置调色
-            Color color = new Color(1f - blueAmount, 1f - blueAmount, 1f, 1f);
-            node.Modulate = color;
+            catch (Exception e) 
+            {
+
+            }
         } 
     }
 }

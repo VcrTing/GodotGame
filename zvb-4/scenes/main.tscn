@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdrdpdmg6kgbx"]
+[gd_scene load_steps=5 format=3 uid="uid://cdrdpdmg6kgbx"]
 
-[ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://wavehouse/pages/system_for_main.tscn" id="1_jyhfs"]
+[ext_resource type="PackedScene" path="res://scenes/main/system_for_main.tscn" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://b3067rcwroi85" path="res://pngs/ui/logo.png" id="2_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://xguhn7vnih0e" path="res://wavehouse/ui/single_options_button.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://xguhn7vnih0e" path="res://scenes/ui/single_options_button.tscn" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://nj1o4abovt5f" path="res://pngs/bg/post/mainbg.png" id="4_jyhfs"]
 
 [node name="System" type="Node2D"]
 
@@ -75,3 +76,11 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 LabelText = "START"
+
+[node name="MainEnv" type="Node2D" parent="."]
+
+[node name="Mainbg" type="Sprite2D" parent="MainEnv"]
+z_index = -99
+y_sort_enabled = true
+position = Vector2(6, 12)
+texture = ExtResource("4_jyhfs")

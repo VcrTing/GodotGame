@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjr22se83xjq"]
+
+[ext_resource type="PackedScene" uid="uid://r4tgaon1m7lc" path="res://wavehouse/fx/fire_block_one_x.tscn" id="1_eb2p8"]
+[ext_resource type="PackedScene" uid="uid://daucajgp28mjq" path="res://wavehouse/fx/fire_block_one_y.tscn" id="2_xl24p"]
+
+[node name="LaJiaoBoom" type="Node2D"]
+
+[node name="XL" type="Node2D" parent="."]
+position = Vector2(-900, 0)
+
+[node name="FireBlockOneX3" parent="XL" instance=ExtResource("1_eb2p8")]
+position = Vector2(600, 0)
+
+[node name="FireBlockOneX2" parent="XL" instance=ExtResource("1_eb2p8")]
+position = Vector2(-600, 0)
+
+[node name="FireBlockOneX" parent="XL" instance=ExtResource("1_eb2p8")]
+
+[node name="XR" type="Node2D" parent="."]
+position = Vector2(900, 0)
+
+[node name="FireBlockOneX3" parent="XR" instance=ExtResource("1_eb2p8")]
+position = Vector2(600, 0)
+
+[node name="FireBlockOneX2" parent="XR" instance=ExtResource("1_eb2p8")]
+position = Vector2(-600, 0)
+
+[node name="FireBlockOneX" parent="XR" instance=ExtResource("1_eb2p8")]
+
+[node name="YU" type="Node2D" parent="."]
+position = Vector2(0, -970)
+
+[node name="FireBlockOneY2" parent="YU" instance=ExtResource("2_xl24p")]
+position = Vector2(0, -600)
+
+[node name="FireBlockOneY" parent="YU" instance=ExtResource("2_xl24p")]
+
+[node name="FireBlockOneY3" parent="YU" instance=ExtResource("2_xl24p")]
+position = Vector2(0, 600)
+
+[node name="YD" type="Node2D" parent="."]
+position = Vector2(0, 970)
+
+[node name="FireBlockOneY2" parent="YD" instance=ExtResource("2_xl24p")]
+position = Vector2(0, -600)
+
+[node name="FireBlockOneY" parent="YD" instance=ExtResource("2_xl24p")]
+
+[node name="FireBlockOneY3" parent="YD" instance=ExtResource("2_xl24p")]
+position = Vector2(0, 600)

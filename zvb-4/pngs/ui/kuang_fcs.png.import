@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wqju1l810gvj"
-path="res://.godot/imported/kuang.png-2b3df2814bda66cfdf9b8c645b8e1e9f.ctex"
+uid="uid://cx2t7yvsuhv17"
+path="res://.godot/imported/kuang_fcs.png-3904b45c7e9b9780ade0a57afb01b621.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pngs/ui/kuang.png"
-dest_files=["res://.godot/imported/kuang.png-2b3df2814bda66cfdf9b8c645b8e1e9f.ctex"]
+source_file="res://pngs/ui/kuang_fcs.png"
+dest_files=["res://.godot/imported/kuang_fcs.png-3904b45c7e9b9780ade0a57afb01b621.ctex"]
 
 [params]
 

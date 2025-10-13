@@ -38,6 +38,7 @@ namespace ZVB4.Conf
         public const string Sprite = "Sprite";
 
         public const string Label = "Label";
+        public const string AudioStreamPlayer2D = "AudioStreamPlayer2D";
 
         //
         public const string SunShowLabel = "SunShowLabel";

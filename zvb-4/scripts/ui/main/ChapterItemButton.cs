@@ -16,7 +16,7 @@ public partial class ChapterItemButton : TextureButton
     {
         Instance = this;
         this.Pressed += OnButtonPressed;
-        _label = GetNodeOrNull<Label>("Label");
+        _label = GetNodeOrNull<Label>(NameConstants.Label);
         UpdateLabelText();
     }
 
@@ -30,7 +30,6 @@ public partial class ChapterItemButton : TextureButton
         var manager = SaveGamerRunnerDataManger.Instance;
         if (manager == null) return;
         manager.SetCapterNumber(_cap);
-        GD.Print("ChapterItemButton Working! _cap = " + _cap);
         string scenePath = FolderConstants.Scenes + ChapterTool.GetChapterSceneName(_cap);
         GetTree().ChangeSceneToFile(scenePath);
     }
@@ -43,11 +42,13 @@ public partial class ChapterItemButton : TextureButton
 
     private void UpdateLabelText()
     {
-        int _cap = (int)Chapter;
-        string displayNum = _cap >= 100 ? _cap.ToString().Substring(1) : _cap.ToString();
+        int i = (int)Chapter;
+        string _cap = i.ToString();
+        GD.Print("_cap: " + _cap);
+        string displayNum = _cap.Substring(1, _cap.Length - 1);
         if (_label != null)
         {
-            _label.Text = $"第{displayNum}关";
+            _label.Text = $"{displayNum}";
         }
     }
 

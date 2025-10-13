@@ -16,7 +16,7 @@ namespace ZVB4.Tool
             switch (objType)
             {
                 case EnumObjType.Plans:
-                    return DmageConstants.GetPlansDamage(name);
+                    return BulletConstants.GetPlansDamage(name);
                 case EnumObjType.Zombie:
                     return EnmyTypeConstans.GetZombieDamage(name);
                 default:
@@ -29,7 +29,7 @@ namespace ZVB4.Tool
             switch (objType)
             {
                 case EnumObjType.Plans:
-                    return DmageConstants.GetPlansDamageExtra(name);
+                    return BulletConstants.GetPlansDamageExtra(name);
                 case EnumObjType.Zombie:
                     return 0;
                 default:

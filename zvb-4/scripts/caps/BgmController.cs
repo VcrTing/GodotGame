@@ -7,7 +7,7 @@ public partial class BgmController : Node2D
     private AudioStreamPlayer2D _bgmPlayer;
 
     [Export]
-    public EnumChapter Chapter = EnumChapter.One1; // 章节名称，初始为1，可根据需要修改
+    private int CapterNumber = (int)EnumChapter.One1; // 章节编号，初始为1，可根据需要修改);
 
     private float _targetVolume = 0f;
     private float _volumeChangeDuration = 0.5f;
@@ -21,12 +21,24 @@ public partial class BgmController : Node2D
     public override void _Ready()
     {
         Instance = this;
-        _bgmPlayer = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+        _bgmPlayer = GetNode<AudioStreamPlayer2D>(NameConstants.AudioStreamPlayer2D);
         if (_bgmPlayer != null)
         {
             _initVolume = _bgmPlayer.VolumeDb;
         }
-        PlayChapterBgm((int)Chapter);
+        LoadGame();
+    }
+    
+    void LoadGame()
+    {
+        var ins = SaveGamerRunnerDataManger.Instance;
+        if (ins == null)
+        {
+            GetTree().CreateTimer(0.1f).Timeout += () => LoadGame();
+            return;
+        }
+        CapterNumber = ins.GetCapterNumber();
+        PlayChapterBgm(CapterNumber);
         ResumeBgm();
     }
 
@@ -36,6 +48,7 @@ public partial class BgmController : Node2D
         string chapterStr = chapter.ToString();
         string firstDigit = chapterStr.Length > 0 ? chapterStr.Substring(0, 1) : "1";
         string path = $"res://musics/BGMs/cap_{firstDigit}.mp3";
+        GD.Print("PlayChapterBgm => path: " + path);
         var stream = GD.Load<AudioStream>(path);
         if (stream != null && _bgmPlayer != null)
         {

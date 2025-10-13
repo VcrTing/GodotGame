@@ -9,8 +9,11 @@ namespace ZVB4.Conf
         One4 = 1004,
         One5 = 1005,
 
-
         Seven1 = 7001,
+        One6 = 1006,
+        One7 = 1007,
+        One8 = 1008,
+
         Seven2 = 7002,
 
     }

@@ -31,10 +31,11 @@ namespace ZVB4.Conf
             { YangTao, FolderConstants.WavePlans + "plansshooter/yang_tao.tscn" },
             { XiguaBing, FolderConstants.WavePlans + "plansshooter/xigua_bing.tscn" },
             { SunFlower, FolderConstants.WavePlans + "plansfuzhu/sun_flower.tscn" },
+            { JianGuo,  FolderConstants.WavePlans + "planszhongzhi/jian_guo.tscn" },
+
+            { LaJiao,  FolderConstants.WavePlans + "plansonce/la_jiao.tscn" },
             { Cherry,  FolderConstants.WavePlans + "plansonce/cherry.tscn" },
             { IceFlower,  FolderConstants.WavePlans + "plansonce/ice_flower.tscn" },
-            { JianGuo,  FolderConstants.WavePlans + "planszhongzhi/jian_guo.tscn" },
-            { LaJiao,  FolderConstants.WavePlans + "planszhongzhi/la_jiao.tscn" }
         };
         // 植物名，shooter
         public static readonly  Dictionary<string, string> ShooterDict = new  Dictionary<string, string>

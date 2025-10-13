@@ -88,6 +88,22 @@ namespace ZVB4.Conf
                 _ => 700f,
             };
         }
+
+        // 其他植物
+        public const int DamageCherry = 1000 * 10;
+        public const int DamageLaJiao = 1000 * 16;
+        public static int GetPlansDamage(string plantName)
+        {
+            if (plantName == PlansConstants.Cherry) return DamageCherry;
+            if (plantName == PlansConstants.LaJiao) return DamageLaJiao;
+            return 0;
+        }
+        public static int GetPlansDamageExtra(string plantName)
+        {
+            if (plantName == PlansConstants.Cherry) return 10;
+            if (plantName == PlansConstants.LaJiao) return 16;
+            return 0;
+        }
     }
 
 }

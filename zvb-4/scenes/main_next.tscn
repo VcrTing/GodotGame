@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c27m86rjt4p1"]
+[gd_scene load_steps=5 format=3 uid="uid://c27m86rjt4p1"]
 
-[ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://wavehouse/ui/control_back_button.tscn" id="1_4qkyl"]
-[ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://wavehouse/pages/system_for_main.tscn" id="1_yl3b4"]
-[ext_resource type="PackedScene" uid="uid://jc70r5c6v35f" path="res://wavehouse/ui/chapter_item_button.tscn" id="3_yjp08"]
+[ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://scenes/ui/control_back_button.tscn" id="1_4qkyl"]
+[ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://scenes/main/system_for_main.tscn" id="1_yjp08"]
+[ext_resource type="PackedScene" uid="uid://jc70r5c6v35f" path="res://scenes/ui/chapter_item_button.tscn" id="3_yjp08"]
+[ext_resource type="Texture2D" uid="uid://nj1o4abovt5f" path="res://pngs/bg/post/mainbg.png" id="4_yjp08"]
 
 [node name="System" type="Node2D"]
 
-[node name="SystemForMain" parent="." instance=ExtResource("1_yl3b4")]
-position = Vector2(540, 960)
+[node name="SystemForMain" parent="." instance=ExtResource("1_yjp08")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -23,8 +23,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -432.0
-offset_bottom = 48.0
+offset_top = -740.0
+offset_bottom = -260.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -127,8 +127,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -524.0
-offset_bottom = -284.0
+offset_top = -1000.0
+offset_bottom = -760.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -139,9 +139,12 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -240.0
+offset_top = -300.0
+offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
 
 [node name="ChapterItemButton" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_yjp08")]
 layout_mode = 2
@@ -154,6 +157,10 @@ Chapter = 1002
 layout_mode = 2
 Chapter = 1003
 
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1004
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(720, 120)
 layout_mode = 1
@@ -161,13 +168,12 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 240.0
+offset_top = -40.0
+offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="ChapterItemButton" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
-layout_mode = 2
-Chapter = 1004
+theme_override_constants/separation = 20
+alignment = 1
 
 [node name="ChapterItemButton2" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
@@ -176,3 +182,15 @@ Chapter = 1005
 [node name="ChapterItemButton3" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 7001
+
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1006
+
+[node name="MainEnv" type="Node2D" parent="."]
+
+[node name="Mainbg" type="Sprite2D" parent="MainEnv"]
+z_index = -99
+y_sort_enabled = true
+position = Vector2(6, 12)
+texture = ExtResource("4_yjp08")

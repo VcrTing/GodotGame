@@ -19,9 +19,6 @@ public partial class PlansCherry : Node2D, IWorking, IObj, IAttack
     [Export]
     public int damageExtra = 0;
     public int GetDamageExtra() => damageExtra;
-    [Export]
-    public EnumMoveType moveType = EnumMoveType.Stone;
-    public EnumMoveType GetEnumMoveType() => moveType;
 
     AnimatedSprite2D view;
     AnimatedSprite2D viewDoing;
@@ -34,8 +31,8 @@ public partial class PlansCherry : Node2D, IWorking, IObj, IAttack
         view = GodotTool.GetViewAndAutoPlay(this);
         viewDoing = GetNodeOrNull<AnimatedSprite2D>(NameConstants.ViewDoing);
         viewDoing.Visible = false;
-        damage = DmageConstants.GetPlansDamage(objName);
-        damageExtra = DmageConstants.GetPlansDamageExtra(objName);
+        damage = ObjTool.GetObjDamage(EnumObjType.Plans, objName);
+        damageExtra = ObjTool.GetObjDamageExtra(EnumObjType.Plans, objName);
         //
         _fx = GetNodeOrNull<GpuParticles2D>(NameConstants.Fx);
         if (_fx != null)
@@ -50,7 +47,6 @@ public partial class PlansCherry : Node2D, IWorking, IObj, IAttack
         }
         return true;
     }
-
     public override void _Ready()
     {
         maxScale = Scale.X;
@@ -62,8 +58,6 @@ public partial class PlansCherry : Node2D, IWorking, IObj, IAttack
     {
         AdjustView();
     }
-
-
     public bool IsWorkingMode;
     public void SetWorkingMode(bool working)
     {
