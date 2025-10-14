@@ -48,7 +48,6 @@ public partial class BgmController : Node2D
         string chapterStr = chapter.ToString();
         string firstDigit = chapterStr.Length > 0 ? chapterStr.Substring(0, 1) : "1";
         string path = $"res://musics/BGMs/cap_{firstDigit}.mp3";
-        GD.Print("PlayChapterBgm => path: " + path);
         var stream = GD.Load<AudioStream>(path);
         if (stream != null && _bgmPlayer != null)
         {

@@ -7,6 +7,8 @@ namespace ZVB4.Conf
     {
         public const string ZombiM = "zombi_m";
         public const string ZombiS = "zombi_s";
+        public const string ZombiJi = "zombi_ji";
+        public const string ZombiGlq = "zombi_glq";
         public const string ZombiMuTong = "zombi_mu_tong";
         public const string ZombiTieTong = "zombi_tie_tong";
 
@@ -16,22 +18,26 @@ namespace ZVB4.Conf
             { ZombiM, (int)EnumHealth.One },
             { ZombiS, (int)EnumHealth.Two },
             { ZombiMuTong, (int)EnumHealth.Two },
-            { ZombiTieTong, (int)EnumHealth.Two }
+            { ZombiTieTong, (int)EnumHealth.Two },
+
+            { ZombiJi, (int)EnumHealth.Tiny },
+            { ZombiGlq, (int)EnumHealth.Two },
         };
 
         // 存储额外血量的字典
         public static readonly Dictionary<string, int> ExtraHpDict = new Dictionary<string, int>()
         {
-            { ZombiM, (int)EnumHealth.Zero },
-            { ZombiS, (int)EnumHealth.Zero },
             { ZombiMuTong, (int)EnumHealth.Two },
-            { ZombiTieTong, (int)EnumHealth.Four }
+            { ZombiTieTong, (int)EnumHealth.Four },
+            { ZombiGlq, (int)EnumHealth.Eight },
         };
 
         // 储存速度的字典
         public static readonly Dictionary<string, float> SpeedDict = new Dictionary<string, float>()
         {
-            { ZombiM, 40f },
+            { ZombiJi, 200f },
+            { ZombiM, 50f },
+            { ZombiGlq, 40f },
             { ZombiS, 20f },
             { ZombiMuTong, 15f },
             { ZombiTieTong, 10f }

@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c5d45b6fxh20s" path="res://pngs/ui/squa_hv.png" id="1_d6nrw"]
 [ext_resource type="Texture2D" uid="uid://bpuwmq5uleegp" path="res://pngs/ui/back.png" id="1_u08e0"]
-[ext_resource type="Script" uid="uid://du1rc4h5c8gt7" path="res://scripts/ui/ingame/InGameBackButton.cs" id="2_wua1l"]
 [ext_resource type="Texture2D" uid="uid://d207ca25lpn4v" path="res://pngs/ui/squa_fcs.png" id="2_x7hk5"]
+[ext_resource type="Script" uid="uid://bnmaqam4uvdu5" path="res://scripts/ui/button/InGameBackButton.cs" id="3_xqh0x"]
 
 [node name="ControlBack" type="Control"]
 custom_minimum_size = Vector2(90, 90)
@@ -27,7 +27,7 @@ texture_pressed = ExtResource("2_x7hk5")
 texture_hover = ExtResource("1_d6nrw")
 texture_focused = ExtResource("1_d6nrw")
 stretch_mode = 0
-script = ExtResource("2_wua1l")
+script = ExtResource("3_xqh0x")
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/TextureButton"]
 layout_mode = 0

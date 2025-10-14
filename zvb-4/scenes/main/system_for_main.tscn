@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://bk5h870mbbttm"]
 
-[ext_resource type="Script" uid="uid://bemgn7umj6lpa" path="res://scripts/system/SystemConfig.cs" id="1_oja4u"]
 [ext_resource type="AudioStream" uid="uid://dptlfextm73qy" path="res://musics/Main.mp3" id="1_pc4pd"]
+[ext_resource type="Script" uid="uid://kqenuqg01tbv" path="res://scripts/system/SystemController.cs" id="1_plowi"]
 [ext_resource type="PackedScene" uid="uid://c6ds1gjwrriuf" path="res://scenes/ui/sound_ui_controller.tscn" id="3_c63kw"]
 [ext_resource type="PackedScene" uid="uid://c20gy31whur46" path="res://wavehouse/system/data_mangers.tscn" id="3_jv4j5"]
 [ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="4_4tmeh"]
 
 [node name="SystemForMain" type="Node2D"]
-script = ExtResource("1_oja4u")
+script = ExtResource("1_plowi")
 
 [node name="DataMangers" parent="." instance=ExtResource("3_jv4j5")]
 

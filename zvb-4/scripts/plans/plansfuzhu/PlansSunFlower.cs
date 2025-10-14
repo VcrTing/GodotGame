@@ -24,9 +24,13 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
         maxScale = Scale.X;
         minScale = ViewTool.GetYouMinScale(maxScale);
         AdjustView();
-        SetWorkingMode(true);
-        _flowerWorking = GetNodeOrNull<FlowerWorkingReword>(NameConstants.Working);
 
+        var scs = SunCenterSystem.Instance;
+        if (scs != null)
+        {
+            SetWorkingMode(true);
+        }
+        _flowerWorking = GetNodeOrNull<FlowerWorkingReword>(NameConstants.Working);
         //
         
         //

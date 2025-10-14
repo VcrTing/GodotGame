@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctlm8ased0fhf"]
+
+[ext_resource type="Script" uid="uid://dqgpwi5t38uds" path="res://scripts/ui/pop/GameStopPopup.cs" id="1_fyt8k"]
+[ext_resource type="PackedScene" uid="uid://xguhn7vnih0e" path="res://scenes/ui/single_options_button.tscn" id="1_ybgmd"]
+
+[node name="GameStopPopup" type="PopupPanel"]
+oversampling_override = 1.0
+mode = 3
+initial_position = 2
+size = Vector2i(1080, 720)
+visible = true
+script = ExtResource("1_fyt8k")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -356.0
+offset_right = 536.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 180.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 72
+text = "游戏被暂停"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -390.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SingleOptionsButton" parent="Control/HBoxContainer2" instance=ExtResource("1_ybgmd")]
+layout_mode = 2
+LabelText = "返回主菜单"
+ButtonType = 111
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -270.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SingleOptionsButton" parent="Control/HBoxContainer3" instance=ExtResource("1_ybgmd")]
+layout_mode = 2
+LabelText = "重新开始"
+ButtonType = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SingleOptionsButton" parent="Control/HBoxContainer4" instance=ExtResource("1_ybgmd")]
+layout_mode = 2
+LabelText = "继续"
+ButtonType = 6
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -116.0
+offset_right = 260.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/HBoxContainer5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6117647)
+theme_override_font_sizes/font_size = 20
+text = "温馨提示：请勤快的将植物移到草地上，以节省花盆占用。"

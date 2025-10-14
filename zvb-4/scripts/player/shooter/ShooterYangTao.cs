@@ -73,7 +73,7 @@ public partial class ShooterYangTao : Node2D, IObj, IShooter
     public string BulletScenePath { get; set; } = string.Empty;
     public void LoadBullet()
     {
-        BulletScenePath = PlansConstants.GetBullet(ObjName);
+        BulletScenePath = BulletConstants.GetBullet(ObjName);
     }
 
     public void DoFireEffect(Vector2 position)
@@ -85,7 +85,7 @@ public partial class ShooterYangTao : Node2D, IObj, IShooter
     public void DoInitEffect(Vector2 position)
     {
         // 播放音效
-        SoundFxController.Instance.PlayFx("Fx/upshooter", "up", 4);
+        SoundPlayerController.Instance.EnqueueSound("Fx/upshooter", "up", 4);
     }
 
     public void DoFireLoadEffect(Vector2 position)

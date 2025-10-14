@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhhb4k8vwuva5"]
+
+[ext_resource type="Script" uid="uid://e0ld51m1ryw6" path="res://scripts/bullet/BulletZero.cs" id="1_ou5vi"]
+[ext_resource type="Texture2D" uid="uid://c33adi01w21ia" path="res://pngs/bullet/Pea.png" id="2_ou5vi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3msd"]
+atlas = ExtResource("2_ou5vi")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5334"]
+atlas = ExtResource("2_ou5vi")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yhkfx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3msd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5334")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ajshl"]
+radius = 30.0
+
+[node name="BulletZeroS" type="Node2D"]
+z_index = 1320
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_ou5vi")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_yhkfx")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_ajshl")

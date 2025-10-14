@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://yogah5vlkx4r"
-path="res://.godot/imported/XiguaBing_load_1.mp3-33e8874415229cd1315910249c9af69f.mp3str"
+path="res://.godot/imported/XiguaBing_load_1.mp3-ec986a275264f6c07aef8c57888ea76b.mp3str"
 
 [deps]
 
-source_file="res://musics/Plans/XiGuaBing/Load/XiguaBing_load_1.mp3"
-dest_files=["res://.godot/imported/XiguaBing_load_1.mp3-33e8874415229cd1315910249c9af69f.mp3str"]
+source_file="res://musics/Plans/XiguaBing/Load/XiguaBing_load_1.mp3"
+dest_files=["res://.godot/imported/XiguaBing_load_1.mp3-ec986a275264f6c07aef8c57888ea76b.mp3str"]
 
 [params]
 

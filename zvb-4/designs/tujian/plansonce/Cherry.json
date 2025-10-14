@@ -1,0 +1,7 @@
+{
+    "name": "Cherry",
+    "nickname": "樱桃小炸弹",
+    "scenepath": "plans/plansonce/cherry.tscn",
+    "info": "攻击力：200，爆炸范围：3x3圆形",
+    "description": ""
+}

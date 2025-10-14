@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://dghfe6wy7e30g" path="res://scripts/ui/main/ChapterItemButton.cs" id="4_0fhv3"]
 
 [node name="ChapterItemButton" type="TextureButton"]
-custom_minimum_size = Vector2(160, 160)
-offset_right = 240.0
-offset_bottom = 240.0
+custom_minimum_size = Vector2(120, 120)
+offset_right = 200.0
+offset_bottom = 200.0
 texture_normal = ExtResource("1_mel4n")
 texture_pressed = ExtResource("2_lthw0")
 texture_hover = ExtResource("3_2o887")
@@ -22,7 +22,7 @@ anchors_preset = -1
 anchor_right = 0.99200004
 anchor_bottom = 1.0
 offset_right = 1.9199829
-theme_override_colors/font_color = Color(0.98951644, 0.96721464, 0.92497605, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.9411765)
 theme_override_font_sizes/font_size = 40
 text = "第一关"
 horizontal_alignment = 1

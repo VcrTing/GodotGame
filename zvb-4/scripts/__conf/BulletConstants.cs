@@ -6,49 +6,54 @@ namespace ZVB4.Conf
     public static class BulletConstants
     {
         public const string BulletPeaName = "BulletPea";
+        public const string BulletPeaDoubleName = "BulletPeaDouble";
+        public const string BulletPeaGoldName = "BulletPeaGold";
         public const string BulletLanMeiName = "BulletLanMei";
         public const string BulletYangTaoName = "BulletYangTao";
         public const string BulletXiguaBingName = "BulletXiguaBing";
 
-        public const float LiveTimeTotal = 8f;
+        // 植物名，bullet
+        public static readonly Dictionary<string, string> BulletDict = new Dictionary<string, string>
+        {
+            { PlansConstants.Pea, FolderConstants.WaveBullet + "bullet_zero.tscn" },
+            { PlansConstants.PeaDouble, FolderConstants.WaveBullet + "bullet_zero_s.tscn" },
+            { PlansConstants.LanMei, FolderConstants.WaveBullet + "bullet_lan_mei.tscn" },
+            { PlansConstants.YangTao, FolderConstants.WaveBullet + "bullet_yang_tao.tscn" },
+            //
+            { PlansConstants.PeaGold, FolderConstants.WaveBullet + "diancang/bullet_pea_gold.tscn" },
+            { PlansConstants.XiguaBing, FolderConstants.WaveBullet + "bullet_xigua_bing.tscn" },
+        };
+        
 
-        public const int DamagePea = 500;
-        public const int DamageGroupPea = 0;
-        public const int DamageExtraPea = 0;
-        //
-        public const int DamageLanMei = 700;
-        public const int DamageGroupLanMei = 200;
-        public const int DamageExtraLanMei = 0;
-        //
-        public const int DamageYangTao = 500;
-        public const int DamageGroupYangTao = 0;
-        public const int DamageExtraYangTao = 0;
-        //
-        public const int DamageXiguaBing = 3000;
-        public const int DamageGroupXiguaBing = 1000;
-        public const int DamageExtraXiguaBing = 1000;
+        public const float LiveTimeTotal = 8f;
+        public const int Base = 10;
+        public const int DamageBasic = Base * 50;
+        public const int Zero = 0;
 
         public static readonly Dictionary<string, int> BulletDamageDict = new Dictionary<string, int>
         {
-            { BulletPeaName, DamagePea },
-            { BulletLanMeiName, DamageLanMei },
-            { BulletYangTaoName, DamageYangTao },
-            { BulletXiguaBingName, DamageXiguaBing },
+            { BulletPeaName, DamageBasic },
+            { BulletPeaDoubleName, DamageBasic },
+            { BulletLanMeiName, Base * 70 },
+            { BulletYangTaoName, Base * 50 },
+            { BulletPeaGoldName, Base * 200 },
+            { BulletXiguaBingName, Base * 300 },
         };
         public static readonly Dictionary<string, int> BulletGroupDamageDict = new Dictionary<string, int>
         {
-            { BulletPeaName, DamageGroupPea },
-            { BulletLanMeiName, DamageGroupLanMei },
-            { BulletYangTaoName, DamageGroupYangTao },
-            { BulletXiguaBingName, DamageGroupXiguaBing },
+            // { BulletPeaName, Zero },
+            { BulletLanMeiName, Base * 20 },
+            // { BulletYangTaoName, Zero },
+            { BulletXiguaBingName, Base * 100 },
         };
 
         public static readonly Dictionary<string, int> BulletExtraDamageDict = new Dictionary<string, int>
         {
-            { BulletPeaName, DamageExtraPea },
-            { BulletLanMeiName, DamageExtraLanMei },
-            { BulletYangTaoName, DamageExtraYangTao },
-            { BulletXiguaBingName, DamageExtraXiguaBing },
+            // { BulletPeaName, Zero },
+            // { BulletLanMeiName, Zero },
+            // { BulletYangTaoName, Zero },
+            { BulletPeaDoubleName, DamageBasic },
+            { BulletXiguaBingName, Base * 100 },
         };
 
 
@@ -72,19 +77,18 @@ namespace ZVB4.Conf
         }
 
         // 子弹初始速度
+        public const float SpeedBasic = 800f;
 
-        public const float SpeedPea = 800f;
-        public const float SpeedLanMei = 600f;
-        public const float SpeedYangTao = 1000f;
-        public const float SpeedXiguaBing = 1120f;
         public static float GetSpeed(string n)
         {
             return n switch
             {
-                BulletPeaName => SpeedPea,
-                BulletLanMeiName => SpeedLanMei,
-                BulletYangTaoName => SpeedYangTao,
-                BulletXiguaBingName => SpeedXiguaBing,
+                BulletPeaGoldName => 2200f,
+                BulletPeaName => 800f,
+                BulletPeaDoubleName => 920f,
+                BulletLanMeiName => 600f,
+                BulletYangTaoName => 1000f,
+                BulletXiguaBingName => 1120f,
                 _ => 700f,
             };
         }
@@ -103,6 +107,15 @@ namespace ZVB4.Conf
             if (plantName == PlansConstants.Cherry) return 10;
             if (plantName == PlansConstants.LaJiao) return 16;
             return 0;
+        }
+
+        
+        // 根据key获取 Bullet 场景路径
+        public static string GetBullet(string key)
+        {
+            if (BulletDict.TryGetValue(key, out var value))
+                return value;
+            return string.Empty;
         }
     }
 

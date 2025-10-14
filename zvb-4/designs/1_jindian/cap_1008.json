@@ -1,0 +1,115 @@
+{
+    "type": "normal",
+    "initsun": 300,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "gamechecktime": 120,
+    
+    "initpeng": 8,
+    "allowmiaolist": [
+        "SunFlower", "IceFlower", "YangTao", "Pea", "JianGuo", "Cherry", "LanMei"
+    ],
+    
+    "initshooter": "Pea",
+    "initmiaolist": [
+        "SunFlower", "SunFlower", "JianGuo", "JianGuo", "JianGuo"
+    ],
+    "enmyspeedattackscale": 1,
+    "enmyspeedmovescale": 1,
+    "enmyviewscale": 1,
+    "enmybehurtscale": 1,
+
+    "enmyswaveflag": {
+        "19": 1
+    },
+    "enmys": {
+        "10": [
+            {
+                "types": [ "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyall": 0,
+                "lazyme": 2,
+                "speedmode": "normal"
+            }
+        ],
+        "30": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyall": 0,
+                "lazyme": 3,
+                "speedmode": "normal"
+            }
+        ],
+        "45": [
+            {
+                "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyall": 0,
+                "lazyme": 3,
+                "speedmode": "normal"
+            }
+        ],
+        "70": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyall": 0,
+                "lazyme": 0,
+                "speedmode": "normal"
+            }
+        ],
+        "90": [
+            {
+                "types": [ "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_ji" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 4,
+                "speedmode": "normal"
+            }
+        ],
+        "92": [
+            {
+                "types": [ "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 4,
+                "speedmode": "normal"
+            }
+        ],
+        "120": [
+            {
+                "types": [ "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyall": 0,
+                "lazyme": 4,
+                "speedmode": "normal"
+            }
+        ]
+    },
+    
+    "suns": {
+        "3": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ]
+    }
+}

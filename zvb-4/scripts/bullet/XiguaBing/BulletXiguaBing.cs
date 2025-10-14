@@ -17,15 +17,14 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         // MMM
         //
         AdjustView();
-        // 
-        _ = AutoDie();
+        // 启动计时器变量，Process里计时
+        _autoDieElapsed = 0f;
+        _autoDieActive = true;
     }
 
-    private async Task AutoDie()
-    {
-        await ToSignal(GetTree().CreateTimer(BulletConstants.LiveTimeTotal), "timeout");
-        DoDie();
-    }
+    // 用于Process计时的自动销毁
+    private float _autoDieElapsed = 0f;
+    private bool _autoDieActive = false;
 
     bool canMove = true;
     public void MoveBullet(Vector2 direction, float speed, double delta)
@@ -40,6 +39,17 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
     float fadeLowest = 0f;
     public override void _Process(double delta)
     {
+        // 自动死亡计时
+        if (_autoDieActive && !isDoDie)
+        {
+            _autoDieElapsed += (float)delta;
+            if (_autoDieElapsed >= BulletConstants.LiveTimeTotal)
+            {
+                _autoDieActive = false;
+                DoDie();
+            }
+        }
+
         Speed = FixSpeedByY();
         MoveBullet(Direction, Speed, delta);
         if (isDoDie)

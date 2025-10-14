@@ -16,6 +16,19 @@ public static class GodotTool
         }
         return null;
     }
+    // 递归查找指定名称的CanvasItem
+    public static CanvasItem FindCanvasItemByName(Node node, string name)
+    {
+        foreach (Node child in node.GetChildren())
+        {
+            if (child is CanvasItem canvasItem && child.Name == name)
+                return canvasItem;
+            var found = FindCanvasItemByName(child, name);
+            if (found != null)
+                return found;
+        }
+        return null;
+    }
 
     // 递归查找指定名称的Node2D
     public static Node2D FindNode2DByName(Node node, string name)

@@ -5,6 +5,9 @@ namespace ZVB4.Conf
         public const string Musics = "res://musics/";
         public const string BGMs = "res://musics/BGMs/";
         public const string Scenes = "res://scenes/";
+        public const string Pages = "res://scenes/pages/";
+
+        public const string Designs = "res://designs/";
 
 
         public const string WaveBullet = "res://wavehouse/bullet/";

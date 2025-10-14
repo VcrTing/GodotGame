@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://boafu0qiye5tv"]
+
+[ext_resource type="Script" uid="uid://xxu88gf37lm7" path="res://scenes/card/TuJianPlansCard.cs" id="1_6wgtp"]
+[ext_resource type="Texture2D" uid="uid://wqju1l810gvj" path="res://pngs/ui/kuang.png" id="2_2wwch"]
+[ext_resource type="Texture2D" uid="uid://cx2t7yvsuhv17" path="res://pngs/ui/kuang_fcs.png" id="3_f1qt4"]
+[ext_resource type="Texture2D" uid="uid://cx87o6cwkkygp" path="res://pngs/ui/kuang_hv.png" id="4_gdxwn"]
+
+[sub_resource type="Theme" id="Theme_3lime"]
+
+[node name="TuJianPlansCard" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 240)
+size_flags_horizontal = 3
+alignment = 1
+script = ExtResource("1_6wgtp")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_2wwch")
+texture_pressed = ExtResource("3_f1qt4")
+texture_hover = ExtResource("4_gdxwn")
+texture_focused = ExtResource("4_gdxwn")
+stretch_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -120.0
+offset_right = 400.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3lime")
+alignment = 1
+
+[node name="TextureLoader" type="MarginContainer" parent="TextureButton/HBoxContainer"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureButton/HBoxContainer"]
+custom_minimum_size = Vector2(480, 240)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="LabelName" type="Label" parent="TextureButton/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "名称"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureButton/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelInfo" type="Label" parent="TextureButton/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.9411765)
+theme_override_font_sizes/font_size = 20
+text = "攻击力：50，子弹个数：1，攻击消耗：10 阳光。"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TextureButton/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+
+[node name="LabelDesc" type="Label" parent="TextureButton/HBoxContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
+theme_override_font_sizes/font_size = 18
+text = "植物简介：来自原始部落的幽秘丛林，性格胆小率真，遇见僵尸都会尽力干掉"
+vertical_alignment = 1
+autowrap_mode = 2

@@ -23,7 +23,7 @@ public partial class ShooterLanMei : Node2D, IObj, IShooter
         init = true;
         return true;
     }
-    float deg = 8f;
+    float deg = 7f;
     public List<Vector2> ComputedAttackDirections(Vector2 startPosition, Vector2 direction)
     {
         List<Vector2> ds = new List<Vector2>();
@@ -75,7 +75,7 @@ public partial class ShooterLanMei : Node2D, IObj, IShooter
     public string BulletScenePath { get; set; } = string.Empty;
     public void LoadBullet()
     {
-        BulletScenePath = PlansConstants.GetBullet(ObjName);
+        BulletScenePath = BulletConstants.GetBullet(ObjName);
     }
 
     public void DoFireEffect(Vector2 position)
@@ -87,7 +87,7 @@ public partial class ShooterLanMei : Node2D, IObj, IShooter
     public void DoInitEffect(Vector2 position)
     {
         // 播放音效
-        SoundFxController.Instance.PlayFx("Fx/upshooter", "up", 4);
+        SoundPlayerController.Instance.EnqueueSound("Fx/upshooter", "up", 4);
     }
 
     public void DoFireLoadEffect(Vector2 position)

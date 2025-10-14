@@ -68,12 +68,25 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         return true;
     }
 
+    float __gt = 0;
+    float __generateTime = 0;
     public async void StartGrow()
     {
         var rand = new Random();
         float generateTime = GenerateTime + (float)(rand.NextDouble() * 2.0f);
-        await ToSignal(GetTree().CreateTimer(generateTime), "timeout");
-        OnGrowFinished();
+        __generateTime = generateTime;
+        __gt += 0.0001f;
+    }
+
+    public override void _Process(double delta)
+    {
+        if (__gt > 0) {
+            __gt += (float)delta;
+            if (__gt >= __generateTime) {
+                __gt = 0;
+                OnGrowFinished();
+            }
+        }
     }
 
     bool _isInAttackArea = false;
@@ -145,7 +158,7 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
             BackToPosition();
         }
         // 延迟 0.1f
-        await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
+        // await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
     }
     public override void _Input(InputEvent @event)
     {

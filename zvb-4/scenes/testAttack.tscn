@@ -1,21 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://hawbvochwphb"]
+[gd_scene load_steps=8 format=3 uid="uid://hawbvochwphb"]
 
 [ext_resource type="PackedScene" uid="uid://tyfyw8v7besx" path="res://wavehouse/bullet/bullet_zero.tscn" id="1_fmfhj"]
 [ext_resource type="PackedScene" uid="uid://crbw8wgirbf30" path="res://wavehouse/sounds/sound_game_obj_controller.tscn" id="1_rf7gy"]
 [ext_resource type="PackedScene" uid="uid://dw2furgw83cid" path="res://wavehouse/bullet/bullet_xigua_bing.tscn" id="2_sgq3c"]
-[ext_resource type="PackedScene" uid="uid://dhd1gc6olt83b" path="res://wavehouse/bullet/bullet_lan_mei.tscn" id="3_ad81k"]
-[ext_resource type="PackedScene" uid="uid://yx8luud0cbs" path="res://wavehouse/plans/plansshooter/xigua_bing.tscn" id="5_56n5j"]
-[ext_resource type="PackedScene" uid="uid://ccua2rgtjtcfd" path="res://wavehouse/zombi/wrapper/zombi_s_wrapper.tscn" id="6_ad81k"]
-[ext_resource type="PackedScene" uid="uid://clwspk15crvci" path="res://wavehouse/plans/plansshooter/pea.tscn" id="6_sgq3c"]
-[ext_resource type="PackedScene" uid="uid://ba62rq6huwgxv" path="res://wavehouse/plans/plansshooter/yang_tao.tscn" id="8_yihhn"]
-[ext_resource type="PackedScene" uid="uid://iwg747nyyy4g" path="res://wavehouse/plans/planszhongzhi/jian_guo.tscn" id="9_tlc07"]
-[ext_resource type="PackedScene" uid="uid://cd848ibmilgja" path="res://wavehouse/plans/plansfuzhu/sun_flower.tscn" id="10_rf7gy"]
-[ext_resource type="PackedScene" uid="uid://ceb0ton6gj7p5" path="res://wavehouse/plans/plansshooter/lan_mei.tscn" id="10_xiptw"]
+[ext_resource type="PackedScene" uid="uid://dhd1gc6olt83b" path="res://wavehouse/bullet/diancang/bullet_pea_gold.tscn" id="5_66j71"]
 [ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="11_yihhn"]
-[ext_resource type="PackedScene" uid="uid://c4314c54wcerx" path="res://wavehouse/plans/plansonce/cherry.tscn" id="12_yihhn"]
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="13_tlc07"]
 [ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="13_xiptw"]
-[ext_resource type="PackedScene" uid="uid://cxp8h1au7mu3g" path="res://wavehouse/plans/plansonce/la_jiao.tscn" id="16_ad81k"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -44,44 +35,12 @@ position = Vector2(0, 1800)
 [node name="BulletZero6" parent="Bullets" instance=ExtResource("1_fmfhj")]
 position = Vector2(0, 1900)
 
-[node name="BulletLanMei" parent="Bullets" instance=ExtResource("3_ad81k")]
+[node name="BulletLanMei" parent="Bullets" instance=ExtResource("5_66j71")]
 
 [node name="Zombis" type="Node2D" parent="."]
-visible = false
-position = Vector2(900, -550)
-
-[node name="ZombiSWrapper" parent="Zombis" instance=ExtResource("6_ad81k")]
-position = Vector2(0, 300)
-objName = "zombi_s"
-
-[node name="ZombiSWrapper2" parent="Zombis" instance=ExtResource("6_ad81k")]
-position = Vector2(0, 310)
-objName = "zombi_m"
+position = Vector2(0, -550)
 
 [node name="Plans" type="Node2D" parent="."]
-visible = false
-position = Vector2(0, 900)
-
-[node name="SunFlower" parent="Plans" instance=ExtResource("10_rf7gy")]
-position = Vector2(0, -480)
-
-[node name="XiguaBing" parent="Plans" instance=ExtResource("5_56n5j")]
-position = Vector2(200, 200)
-
-[node name="Pea" parent="Plans" instance=ExtResource("6_sgq3c")]
-position = Vector2(-300, 0)
-
-[node name="Cherry" parent="Plans" instance=ExtResource("12_yihhn")]
-position = Vector2(-300, -400)
-
-[node name="YangTao" parent="Plans" instance=ExtResource("8_yihhn")]
-position = Vector2(400, 0)
-
-[node name="JianGuo" parent="Plans" instance=ExtResource("9_tlc07")]
-position = Vector2(0, -400)
-
-[node name="LanMei" parent="Plans" instance=ExtResource("10_xiptw")]
-position = Vector2(-600, 300)
 
 [node name="Other" type="Node2D" parent="."]
 
@@ -123,5 +82,3 @@ expand_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "0"
-
-[node name="LaJiao" parent="." instance=ExtResource("16_ad81k")]

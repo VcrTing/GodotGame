@@ -1,0 +1,7 @@
+{
+    "name": "PeaGold",
+    "nickname": "海洋金枪",
+    "scenepath": "plans/plansdiancang/pea_gold.tscn",
+    "info": "子弹攻击力：300，子弹个数：1，攻击消耗：50 阳光。射速奇高，攻击具有穿透力。",
+    "description": "我来自大海，我的目标是摘下夜空中的星辰，任何阻挡我的僵尸都将被我击败，没有事物能阻拦我冲上夜空！"
+}

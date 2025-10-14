@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="ZVB4"
-run/main_scene="uid://c27m86rjt4p1"
+run/main_scene="uid://cdrdpdmg6kgbx"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=1600
+window/size/viewport_width=1620
+window/size/viewport_height=1620
 
 [dotnet]
 

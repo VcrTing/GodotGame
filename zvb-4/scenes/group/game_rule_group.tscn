@@ -1,0 +1,245 @@
+[gd_scene load_steps=10 format=3 uid="uid://cubj4aw3f1375"]
+
+[ext_resource type="Texture2D" uid="uid://cbfbh72gjaqnj" path="res://pngs/ui/PopPaper.png" id="1_0ko1w"]
+[ext_resource type="Script" uid="uid://dvgmgch76hvip" path="res://scripts/ui/pop/GameRuleDetailPopup.cs" id="2_i5bao"]
+[ext_resource type="Texture2D" uid="uid://drn3gvybyk55r" path="res://pngs/ui/button2.png" id="3_yv6or"]
+[ext_resource type="Texture2D" uid="uid://b6lr1fxfw0yr7" path="res://pngs/ui/button_1.png" id="4_hgp3c"]
+[ext_resource type="Script" uid="uid://bpgnj5ktw5xtk" path="res://scripts/ui/SinglePopWorkButton.cs" id="5_1bdll"]
+[ext_resource type="Texture2D" uid="uid://d207ca25lpn4v" path="res://pngs/ui/squa_fcs.png" id="6_7jxpb"]
+[ext_resource type="Texture2D" uid="uid://c5d45b6fxh20s" path="res://pngs/ui/squa_hv.png" id="7_sm167"]
+[ext_resource type="Texture2D" uid="uid://dwxcr2qfg41s5" path="res://pngs/ui/Ask.png" id="8_tt78j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np4c1"]
+texture = ExtResource("1_0ko1w")
+
+[node name="GameRuleGroup" type="Node"]
+
+[node name="GameRuleDetailPopup" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(800, 900)
+content_scale_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_np4c1")
+script = ExtResource("2_i5bao")
+
+[node name="ControlDesc" type="Control" parent="GameRuleDetailPopup"]
+custom_minimum_size = Vector2(0, 480)
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 800.0
+offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainerDesc" type="HBoxContainer" parent="GameRuleDetailPopup/ControlDesc"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 199.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameRuleDetailPopup/ControlDesc/HBoxContainerDesc"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.557722, 0.47653884, 0.32355118, 1)
+theme_override_font_sizes/font_size = 72
+text = "游戏规则"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="GameRuleDetailPopup/ControlDesc/HBoxContainerDesc"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 72
+text = "游戏规则"
+flat = true
+color = Color(0.78431374, 0.78431374, 0.78431374, 0.1882353)
+
+[node name="HBoxContainerDesc2" type="HBoxContainer" parent="GameRuleDetailPopup/ControlDesc"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -206.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameRuleDetailPopup/ControlDesc/HBoxContainerDesc2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.32921574, 0.26790696, 0.16036344, 1)
+theme_override_font_sizes/font_size = 24
+text = "1. 将豌豆、西瓜拖拽到射手台，点击草地发射子弹。"
+
+[node name="HBoxContainerDesc3" type="HBoxContainer" parent="GameRuleDetailPopup/ControlDesc"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -146.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameRuleDetailPopup/ControlDesc/HBoxContainerDesc3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.32941177, 0.26666668, 0.16078432, 1)
+theme_override_font_sizes/font_size = 24
+text = "2. 子弹攻击僵尸，防止僵尸走来，吃掉脑子。"
+
+[node name="HBoxContainerDesc4" type="HBoxContainer" parent="GameRuleDetailPopup/ControlDesc"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -86.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameRuleDetailPopup/ControlDesc/HBoxContainerDesc4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.32941177, 0.26666668, 0.16078432, 1)
+theme_override_font_sizes/font_size = 24
+text = "3. 豌豆和西瓜是射手，发子弹需要消耗阳光，而向日葵产阳光。"
+
+[node name="HBoxContainerDesc5" type="HBoxContainer" parent="GameRuleDetailPopup/ControlDesc"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -26.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameRuleDetailPopup/ControlDesc/HBoxContainerDesc5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.32941177, 0.26666668, 0.16078432, 1)
+theme_override_font_sizes/font_size = 24
+text = "4. 向日葵、坚果、樱桃炸弹等非射手植物，可种在草地上。"
+
+[node name="HBoxContainerDesc6" type="HBoxContainer" parent="GameRuleDetailPopup/ControlDesc"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 34.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameRuleDetailPopup/ControlDesc/HBoxContainerDesc6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.32941177, 0.26666668, 0.16078432, 1)
+theme_override_font_sizes/font_size = 24
+text = "5. 祝你好运！！！"
+
+[node name="HBoxContainerDesc7" type="HBoxContainer" parent="GameRuleDetailPopup/ControlDesc"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="GameRuleDetailPopup/ControlDesc/HBoxContainerDesc7"]
+layout_mode = 2
+texture_pressed = ExtResource("3_yv6or")
+texture_hover = ExtResource("4_hgp3c")
+texture_focused = ExtResource("3_yv6or")
+stretch_mode = 0
+flip_h = true
+flip_v = true
+script = ExtResource("5_1bdll")
+Key = "game_rule_detail"
+IsOpen = false
+
+[node name="Label" type="Label" parent="GameRuleDetailPopup/ControlDesc/HBoxContainerDesc7/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.30288798, 0.4206771, 0.23336726, 1)
+theme_override_font_sizes/font_size = 36
+text = "关闭"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlGameRuleDetail" type="Control" parent="."]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -150.0
+offset_bottom = -60.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlGameRuleDetail"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -90.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="SinglePopOpenButton" type="TextureButton" parent="ControlGameRuleDetail/HBoxContainer"]
+layout_mode = 2
+texture_pressed = ExtResource("6_7jxpb")
+texture_hover = ExtResource("7_sm167")
+texture_focused = ExtResource("7_sm167")
+script = ExtResource("5_1bdll")
+Key = "game_rule_detail"
+
+[node name="TextureRect" type="TextureRect" parent="ControlGameRuleDetail/HBoxContainer/SinglePopOpenButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_tt78j")
+
+[node name="Label" type="Label" parent="ControlGameRuleDetail/HBoxContainer/SinglePopOpenButton/TextureRect"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 0
+offset_top = 90.0
+offset_right = 90.0
+offset_bottom = 113.0
+text = "游戏规则"
+horizontal_alignment = 1

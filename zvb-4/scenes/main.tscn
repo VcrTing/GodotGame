@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdrdpdmg6kgbx"]
+[gd_scene load_steps=7 format=3 uid="uid://cdrdpdmg6kgbx"]
 
-[ext_resource type="PackedScene" path="res://scenes/main/system_for_main.tscn" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://scenes/main/system_for_main.tscn" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://b3067rcwroi85" path="res://pngs/ui/logo.png" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://xguhn7vnih0e" path="res://scenes/ui/single_options_button.tscn" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://nj1o4abovt5f" path="res://pngs/bg/post/mainbg.png" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://ds8nnj6ehnv3s" path="res://pngs/ui/main/Book.png" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://dtxmhhsjv7mos" path="res://scripts/ui/button/SingleOptionsButton.cs" id="5_tefeu"]
 
 [node name="System" type="Node2D"]
 
@@ -13,14 +15,14 @@
 
 [node name="ControlLogo" type="Control" parent="CanvasLayer"]
 clip_contents = true
-custom_minimum_size = Vector2(720, 360)
+custom_minimum_size = Vector2(720, 580)
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -360.0
+offset_left = -540.0
 offset_top = 240.0
-offset_right = 360.0
+offset_right = 540.0
 offset_bottom = 600.0
 grow_horizontal = 2
 pivot_offset = Vector2(360, 180)
@@ -28,20 +30,17 @@ pivot_offset = Vector2(360, 180)
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlLogo"]
 custom_minimum_size = Vector2(720, 0)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -180.0
-offset_right = 360.0
-offset_bottom = 180.0
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 360.0
 grow_horizontal = 2
-grow_vertical = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ControlLogo/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_tbgi4")
 
@@ -50,32 +49,199 @@ visible = false
 layout_mode = 2
 texture_normal = ExtResource("2_tbgi4")
 
+[node name="Label" type="Label" parent="CanvasLayer/ControlLogo/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 140
+text = "植物大战僵尸"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/ControlLogo"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_top = 240.0
+offset_right = 540.0
+offset_bottom = 600.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/ControlLogo/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.9411765)
+theme_override_font_sizes/font_size = 140
+text = "4"
+
 [node name="ControlButton" type="Control" parent="CanvasLayer"]
 clip_contents = true
-custom_minimum_size = Vector2(720, 360)
+custom_minimum_size = Vector2(720, 600)
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -760.0
+offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(360, 180)
 
-[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton" instance=ExtResource("3_jyhfs")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlButton"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton/HBoxContainer" instance=ExtResource("3_jyhfs")]
+layout_mode = 2
+NextSceneName = "main_jingdian.tscn"
+LabelText = "经典模式"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/ControlButton"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 120.0
+offset_bottom = 240.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton/HBoxContainer2" instance=ExtResource("3_jyhfs")]
+layout_mode = 2
+NextSceneName = "main_endless.tscn"
+LabelText = "无尽模式"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/ControlButton"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 240.0
+offset_bottom = 360.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton/HBoxContainer3" instance=ExtResource("3_jyhfs")]
+layout_mode = 2
+NextSceneName = "main_mini.tscn"
+LabelText = "迷你游戏"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/ControlButton"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 400.0
+offset_bottom = 520.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton/HBoxContainer4" instance=ExtResource("3_jyhfs")]
+layout_mode = 2
+NextSceneName = "main_mini.tscn"
+LabelText = "退出"
+ButtonType = 0
+
+[node name="MainBottomBar" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(480, 180)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainBottomBar"]
+custom_minimum_size = Vector2(480, 120)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="TextureRectShop" type="TextureRect" parent="CanvasLayer/MainBottomBar/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="SingleQubeButton" type="TextureButton" parent="CanvasLayer/MainBottomBar/HBoxContainer/TextureRectShop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_tefeu")
+NextSceneName = "main_shop.tscn"
+LabelText = "商城"
+
+[node name="Label" type="Label" parent="CanvasLayer/MainBottomBar/HBoxContainer/TextureRectShop/SingleQubeButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -60.0
-offset_right = 180.0
-offset_bottom = 60.0
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-LabelText = "START"
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRectBook" type="TextureRect" parent="CanvasLayer/MainBottomBar/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("4_tbgi4")
+
+[node name="SingleQubeButton" type="TextureButton" parent="CanvasLayer/MainBottomBar/HBoxContainer/TextureRectBook"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_tefeu")
+NextSceneName = "main_tujian.tscn"
+LabelText = "图鉴"
+
+[node name="Label" type="Label" parent="CanvasLayer/MainBottomBar/HBoxContainer/TextureRectBook/SingleQubeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyCenter" type="Node2D" parent="CanvasLayer"]
 
 [node name="MainEnv" type="Node2D" parent="."]
 

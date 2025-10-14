@@ -20,7 +20,7 @@
 
     "initshooter": "Pea",
     "initmiaolist": [
-        "SunFlower", "LaJiao"
+        "SunFlower"
     ],
 
     "enmyspeedattackscale": 1.0,

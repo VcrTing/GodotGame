@@ -163,7 +163,6 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
         iceFreezeTime += time;
         __freezeTime += 0.01f;
         __coldTime = 0f;
-        // GD.Print("1. 冰冻 =" + iceFreezeTime);
         //
         moveSpeedScale = 0f;
         attackSpeedScale = 0f;
@@ -173,7 +172,6 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
     }
     public bool ReleaseFreeze()
     {
-        // GD.Print("2. 解开冰冻");
         iceFreezeTime = 0f;
         iceColdTime = 0f;
         (bodyNode as IStatus).ReleaseFreeze();
@@ -189,7 +187,6 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
             iceColdTime = time;
         }
         __coldTime += 0.01f;
-        // GD.Print("3. 减速 =" + iceColdTime);
         //
         moveSpeedScale = GameContants.ColdScale;
         attackSpeedScale = GameContants.ColdScale;
@@ -204,7 +201,6 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
         __freezeTime = 0f;
         iceColdTime = 0f;
         iceFreezeTime = 0f;
-        // GD.Print("4. 重置减速");
         //
         moveSpeedScale = 1f;
         attackSpeedScale = 1f;

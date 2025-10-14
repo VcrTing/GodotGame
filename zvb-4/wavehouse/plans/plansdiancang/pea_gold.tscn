@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgu50v2pfi513"]
+
+[ext_resource type="Script" uid="uid://cv2we08rs2gcv" path="res://scripts/plans/plansdiancang/PeaGold.cs" id="1_tixpr"]
+[ext_resource type="Texture2D" uid="uid://bj2njq5iaa45t" path="res://pngs/planscard/diancang/PeaGold.png" id="2_tixpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmcx8"]
+atlas = ExtResource("2_tixpr")
+region = Rect2(0, 0, 140, 140)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxqg0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmcx8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PeaGold" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_tixpr")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+z_index = 220
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_qxqg0")
+autoplay = "default"

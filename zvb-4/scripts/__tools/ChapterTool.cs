@@ -72,9 +72,14 @@ public static class ChapterTool
         else if (chapter == (int)EnumChapter.One6) return (int)EnumChapter.One7;
         else if (chapter == (int)EnumChapter.One7) return (int)EnumChapter.One8;
 
+        if (chapter == (int)EnumChapter.One8) return (int)EnumChapter.One9;
+        else if (chapter == (int)EnumChapter.One9) return (int)EnumChapter.One10;
+        else if (chapter == (int)EnumChapter.One10) return (int)EnumChapter.One11;
+        else if (chapter == (int)EnumChapter.One11) return (int)EnumChapter.One12;
+        else if (chapter == (int)EnumChapter.One12) return (int)EnumChapter.One13;
 
         // END
-        if (chapter == (int)EnumChapter.One8) return (int)EnumChapter.None;
+        if (chapter == (int)EnumChapter.One13) return (int)EnumChapter.None;
         return (int)EnumChapter.None;
     }
 }

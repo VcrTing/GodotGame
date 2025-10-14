@@ -29,15 +29,14 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
         {
             _area2D.AreaEntered += OnArea2DAreaEntered;
         }
-        // 
-        _ = AutoDie();
+        // 启动计时器变量，Process里计时
+        _autoDieElapsed = 0f;
+        _autoDieActive = true;
     }
 
-    private async Task AutoDie()
-    {
-        await ToSignal(GetTree().CreateTimer(BulletConstants.LiveTimeTotal), "timeout");
-        DoDie();
-    }
+    // 用于Process计时的自动销毁
+    private float _autoDieElapsed = 0f;
+    private bool _autoDieActive = false;
 
     private bool _hasHit = false;
     private void OnArea2DAreaEntered(Area2D area)
@@ -61,6 +60,17 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
     float fadeLowest = 0f;
     public override void _Process(double delta)
     {
+        // 自动死亡计时
+        if (_autoDieActive && !isDoDie)
+        {
+            _autoDieElapsed += (float)delta;
+            if (_autoDieElapsed >= BulletConstants.LiveTimeTotal)
+            {
+                _autoDieActive = false;
+                DoDie();
+            }
+        }
+
         Speed = FixSpeedByY();
         MoveBullet(Direction, Speed, delta);
         if (isDoDie)
@@ -121,8 +131,8 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
         }
         return isWorking;
     }
-    public float Speed { get; set; } = BulletConstants.SpeedPea; // 默认速度
-    float SpeedInit = BulletConstants.SpeedPea; // 初始速度
+    public float Speed { get; set; } = BulletConstants.SpeedBasic; // 默认速度
+    float SpeedInit = BulletConstants.SpeedBasic; // 初始速度
     [Export]
     public EnumHurts hurtType { get; set; } = EnumHurts.Pea;
     public EnumHurts GetHurtType() => hurtType;
@@ -186,7 +196,7 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
         return true;
     }
 
-    private int Damage = BulletConstants.DamagePea;
+    private int Damage = BulletConstants.DamageBasic;
     public int GetDamage() => Damage;
     public int GetDamageExtra() => 0;
 

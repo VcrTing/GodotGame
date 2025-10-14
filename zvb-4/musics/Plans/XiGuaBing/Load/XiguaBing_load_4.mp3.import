@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cn41xeg1i4fjk"
-path="res://.godot/imported/XiguaBing_load_4.mp3-0ee4ad8f6b93752ea711661e795e9880.mp3str"
+path="res://.godot/imported/XiguaBing_load_4.mp3-a891f278dc20eb3fe286c4a708eafbe5.mp3str"
 
 [deps]
 
-source_file="res://musics/Plans/XiGuaBing/Load/XiguaBing_load_4.mp3"
-dest_files=["res://.godot/imported/XiguaBing_load_4.mp3-0ee4ad8f6b93752ea711661e795e9880.mp3str"]
+source_file="res://musics/Plans/XiguaBing/Load/XiguaBing_load_4.mp3"
+dest_files=["res://.godot/imported/XiguaBing_load_4.mp3-a891f278dc20eb3fe286c4a708eafbe5.mp3str"]
 
 [params]
 

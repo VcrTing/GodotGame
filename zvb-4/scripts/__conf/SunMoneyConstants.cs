@@ -19,16 +19,20 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> AttackCostDict = new Dictionary<string, int>
         {
             { PlansConstants.Pea, 10 },
+            { PlansConstants.PeaDouble, 20 },
             { PlansConstants.LanMei, 20 },
             { PlansConstants.YangTao, 30 },
-            { PlansConstants.XiguaBing, 50 }
+            { PlansConstants.XiguaBing, 50 },
+            { PlansConstants.PeaGold, 50 }
         };
         public static readonly Dictionary<string, int> DieSunDict = new Dictionary<string, int>
         {
             { PlansConstants.Pea, 50 },
+            { PlansConstants.PeaDouble, 75 },
             { PlansConstants.LanMei, 50 },
             { PlansConstants.YangTao, 100 },
-            { PlansConstants.XiguaBing, 200 }
+            { PlansConstants.XiguaBing, 200 },
+            { PlansConstants.PeaGold, 200 }
         };
         public static int GetPlansSunCost(string plansName)
         {

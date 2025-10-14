@@ -44,11 +44,10 @@ public partial class ChapterItemButton : TextureButton
     {
         int i = (int)Chapter;
         string _cap = i.ToString();
-        GD.Print("_cap: " + _cap);
-        string displayNum = _cap.Substring(1, _cap.Length - 1);
+        // string displayNum = _cap.Substring(1, _cap.Length - 1);
         if (_label != null)
         {
-            _label.Text = $"{displayNum}";
+            _label.Text = $"{_cap}";
         }
     }
 

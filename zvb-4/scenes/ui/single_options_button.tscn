@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://drn3gvybyk55r" path="res://pngs/ui/button2.png" id="1_jr8bg"]
 [ext_resource type="Texture2D" uid="uid://b6lr1fxfw0yr7" path="res://pngs/ui/button_1.png" id="2_u230w"]
-[ext_resource type="Script" uid="uid://d064thwk1uxjt" path="res://scripts/ui/ingame/SingleOptionsButton.cs" id="3_l1x6q"]
+[ext_resource type="Script" uid="uid://dtxmhhsjv7mos" path="res://scripts/ui/button/SingleOptionsButton.cs" id="3_w2v5h"]
 
 [node name="SingleOptionsButton" type="TextureButton"]
 texture_pressed = ExtResource("1_jr8bg")
 texture_hover = ExtResource("2_u230w")
 texture_focused = ExtResource("2_u230w")
 stretch_mode = 0
-script = ExtResource("3_l1x6q")
+script = ExtResource("3_w2v5h")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

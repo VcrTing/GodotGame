@@ -1,0 +1,166 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh3yt200of40s"]
+
+[ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://scenes/ui/control_back_button.tscn" id="1_4qkyl"]
+[ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://scenes/main/system_for_main.tscn" id="1_yjp08"]
+[ext_resource type="PackedScene" uid="uid://cubj4aw3f1375" path="res://scenes/group/game_rule_group.tscn" id="2_k2ah5"]
+[ext_resource type="PackedScene" uid="uid://jc70r5c6v35f" path="res://scenes/ui/chapter_item_button.tscn" id="3_yjp08"]
+[ext_resource type="PackedScene" uid="uid://xguhn7vnih0e" path="res://scenes/ui/single_options_button.tscn" id="4_3dnfa"]
+[ext_resource type="Texture2D" uid="uid://nj1o4abovt5f" path="res://pngs/bg/post/mainbg.png" id="4_yjp08"]
+
+[node name="System" type="Node2D"]
+
+[node name="SystemForMain" parent="." instance=ExtResource("1_yjp08")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameRuleGroup" parent="CanvasLayer" instance=ExtResource("2_k2ah5")]
+
+[node name="ControlBack" parent="CanvasLayer" instance=ExtResource("1_4qkyl")]
+offset_top = 60.0
+offset_right = 90.0
+offset_bottom = 150.0
+
+[node name="ControlCaps" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 900)
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ChapterItemButton" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+
+[node name="ChapterItemButton2" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1002
+
+[node name="ChapterItemButton3" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1003
+
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1004
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ChapterItemButton2" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1005
+
+[node name="ChapterItemButton3" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 7001
+
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1006
+
+[node name="ChapterItemButton5" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1007
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ChapterItemButton2" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1008
+
+[node name="ChapterItemButton3" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1009
+
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1010
+
+[node name="ChapterItemButton5" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 1011
+
+[node name="ControlBottomBar" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -180.0
+offset_right = 240.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlBottomBar"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlBottomBar/HBoxContainer" instance=ExtResource("4_3dnfa")]
+layout_mode = 2
+LabelText = "返回主菜单"
+ButtonType = 110
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/ControlBottomBar"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 160.0
+offset_bottom = 280.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlBottomBar/HBoxContainer2" instance=ExtResource("4_3dnfa")]
+layout_mode = 2
+LabelText = "开始下一关"
+ButtonType = 1
+
+[node name="MainEnv" type="Node2D" parent="."]
+
+[node name="Mainbg" type="Sprite2D" parent="MainEnv"]
+z_index = -99
+y_sort_enabled = true
+position = Vector2(6, 12)
+texture = ExtResource("4_yjp08")

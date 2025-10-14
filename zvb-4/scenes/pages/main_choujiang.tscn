@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvid4tej46a33"]
+
+[ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://scenes/main/system_for_main.tscn" id="1_0xy7u"]
+
+[node name="ChouJiang" type="Node2D"]
+
+[node name="SystemForMain" parent="." instance=ExtResource("1_0xy7u")]

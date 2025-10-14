@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ba62rq6huwgxv"]
 
-[ext_resource type="Script" uid="uid://cj8rgxcdhbkct" path="res://scenes/PlansYangTao.cs" id="1_n1d3v"]
+[ext_resource type="Script" uid="uid://sw3yhgidhaxf" path="res://scripts/plans/plansshooter/PlansYangTao.cs" id="1_n1d3v"]
 [ext_resource type="Texture2D" uid="uid://3jutnbi32er8" path="res://pngs/plans/YangTao.png" id="2_ccn1j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlc07"]
