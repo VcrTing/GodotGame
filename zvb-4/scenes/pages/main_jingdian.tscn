@@ -109,11 +109,11 @@ Chapter = 1009
 
 [node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 1010
+Chapter = 8001
 
 [node name="ChapterItemButton5" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 1011
+Chapter = 1010
 
 [node name="ControlBottomBar" type="Control" parent="CanvasLayer"]
 custom_minimum_size = Vector2(0, 300)

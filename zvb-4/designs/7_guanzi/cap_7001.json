@@ -15,7 +15,7 @@
     "initmiaolist": [ ],
     "enmyspeedattackscale": 1.0,
     "enmyspeedmovescale": 1,
-    "enmyviewscale": 0.1,
+    "enmyviewscale": 1,
     "enmybehurtscale": 1.0,
 
     "enmyswaveflag": {

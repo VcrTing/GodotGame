@@ -28,9 +28,9 @@ public static class ChapterTool
         {
             folder = "7_guanzi";
         }
-        else
+        else if (IsLine(chapter))
         {
-            
+            folder = "8_line";
         }
         string jsonPath = $"res://designs/{folder}/cap_{chapter}.json";
         return jsonPath;
@@ -46,34 +46,35 @@ public static class ChapterTool
         string _i = i.ToString();
         return _i.StartsWith("7");
     }
+    public static bool IsLine(int i)
+    {
+        string _i = i.ToString();
+        return _i.StartsWith("8");
+    }
 
     public static string GetChapterSceneName(int chapter)
     {
-        if (IsJinDian(chapter))
-        {
-            return "chapter_1xx.tscn";
-        }
-        if (IsGuanZi(chapter))
-        {
-            return "chapter_7gz.tscn";
-        }
+        if (IsGuanZi(chapter)) { return "chapter_7gz.tscn"; }
+        if (IsLine(chapter)) { return "chapter_8line.tscn"; }
         return "chapter_1xx.tscn";
     }
 
     public static int GetNextChapterNum(int chapter)
     {
-        // 第一章
+        // 第一段落
         if (chapter == (int)EnumChapter.One1) return (int)EnumChapter.One2;
         else if (chapter == (int)EnumChapter.One2) return (int)EnumChapter.One3;
         else if (chapter == (int)EnumChapter.One3) return (int)EnumChapter.One4;
         else if (chapter == (int)EnumChapter.One4) return (int)EnumChapter.One5;
         else if (chapter == (int)EnumChapter.One5) return (int)EnumChapter.Seven1;
-        else if (chapter == (int)EnumChapter.Seven1) return (int)EnumChapter.One6;
+        // 第二段落
+        if (chapter == (int)EnumChapter.Seven1) return (int)EnumChapter.One6;
         else if (chapter == (int)EnumChapter.One6) return (int)EnumChapter.One7;
         else if (chapter == (int)EnumChapter.One7) return (int)EnumChapter.One8;
-
-        if (chapter == (int)EnumChapter.One8) return (int)EnumChapter.One9;
-        else if (chapter == (int)EnumChapter.One9) return (int)EnumChapter.One10;
+        else if (chapter == (int)EnumChapter.One8) return (int)EnumChapter.One9;
+        else if (chapter == (int)EnumChapter.One9) return (int)EnumChapter.Eight1;
+        // 第三段落
+        if (chapter == (int)EnumChapter.Eight1) return (int)EnumChapter.One10;
         else if (chapter == (int)EnumChapter.One10) return (int)EnumChapter.One11;
         else if (chapter == (int)EnumChapter.One11) return (int)EnumChapter.One12;
         else if (chapter == (int)EnumChapter.One12) return (int)EnumChapter.One13;

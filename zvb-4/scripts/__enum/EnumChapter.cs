@@ -14,6 +14,9 @@ namespace ZVB4.Conf
         One7 = 1007,
         One8 = 1008,
         One9 = 1009,
+
+        Eight1 = 8001,
+
         One10 = 1010,
         One11 = 1011,
         One12 = 1012,

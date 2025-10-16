@@ -1,27 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs7cg40u3kkix"]
+[gd_scene load_steps=3 format=3 uid="uid://bs7cg40u3kkix"]
 
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="1_qh060"]
 [ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="2_s51ln"]
-[ext_resource type="Script" uid="uid://c41kirxpy85px" path="res://scripts/player/work/WorkTableSliderLine.cs" id="6_kntoi"]
-[ext_resource type="Texture2D" uid="uid://dkp32atjlrfko" path="res://pngs/ui/btn_things_bg.png" id="6_ohhcm"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kntoi"]
-atlas = ExtResource("6_ohhcm")
-region = Rect2(0, 0, 280, 120)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dic0r"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kntoi")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohhcm"]
-size = Vector2(1080, 120)
 
 [node name="Player" type="Node2D"]
 
@@ -30,16 +10,3 @@ position = Vector2(0, -600)
 
 [node name="PlayerAttackController" parent="." instance=ExtResource("2_s51ln")]
 position = Vector2(0, 560)
-
-[node name="WorkTableSliderLine" type="Node2D" parent="."]
-position = Vector2(0, 590)
-script = ExtResource("6_kntoi")
-
-[node name="View" type="AnimatedSprite2D" parent="WorkTableSliderLine"]
-scale = Vector2(4, 1)
-sprite_frames = SubResource("SpriteFrames_dic0r")
-
-[node name="UxArea" type="Area2D" parent="WorkTableSliderLine"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorkTableSliderLine/UxArea"]
-shape = SubResource("RectangleShape2D_ohhcm")

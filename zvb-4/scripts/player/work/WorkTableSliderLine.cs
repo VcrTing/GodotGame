@@ -16,8 +16,8 @@ public partial class WorkTableSliderLine : Node2D
 		}
 	}
 
-    public void OnUxAreaInputEvent(Node viewport, InputEvent @event, int shapeIdx)
-	{
+    private void OnUxAreaInputEvent(Node viewport, InputEvent @event, long shapeIdx)
+    {
 		// 鼠标/触屏点击
 		if (@event is InputEventMouseButton mouseBtn && mouseBtn.Pressed && mouseBtn.ButtonIndex == MouseButton.Left)
 		{
@@ -47,7 +47,8 @@ public partial class WorkTableSliderLine : Node2D
 		{
 			_isDragging = false;
 		}
-	}
+    }
+
 
 	// 点击事件处理
 	private void OnUxAreaClick(Vector2 pos)
