@@ -135,6 +135,7 @@ public partial class EnmyGenerator : Node2D
         float randX = (float)GD.RandRange(left, right);
         return randX;
     }
+
     /// <summary>
     /// 根据敌人代号名称和格子编号生成敌人实例，x坐标在格子区间内随机
     /// </summary>
@@ -143,7 +144,7 @@ public partial class EnmyGenerator : Node2D
     /// <returns>生成的敌人节点（Node2D），失败返回null</returns>
     public Node2D GenerateEnemyByCode(string name, int tileIndex, int randomXRate)
     {
-        string path = FolderConstants.WaveEnemy + "wrapper/zombi_s_wrapper.tscn";
+        string path = EnmyTypeConstans.GetZombiWrapperScenePath(name);
         var packed = GD.Load<PackedScene>(path);
         if (packed == null)
         {
@@ -170,7 +171,7 @@ public partial class EnmyGenerator : Node2D
     float genY = GameContants.HorizonYEnmyGen;
     public Node2D GenerateEnemyOfPos(Vector2 pos, string name)
     {
-        string path = FolderConstants.WaveEnemy + "wrapper/zombi_s_wrapper.tscn";
+        string path = EnmyTypeConstans.GetZombiWrapperScenePath(name);
         var packed = GD.Load<PackedScene>(path);
         if (packed == null) return null;
         return Doing(packed.Instantiate<Node2D>(), pos, name);
@@ -185,6 +186,9 @@ public partial class EnmyGenerator : Node2D
         {
             enmy.SetObjName(name);
             enmy.SetInitScale(InitMoveSpeedScale, InitBeHurtScale, InitViewScale, InitAttackSpeedScale);
+        }
+        if (instance is IInit init) {
+            init.Init(name);
         }
         //
         AddChild(instance);

@@ -12,6 +12,8 @@ namespace ZVB4.Conf
         public const string View = "View";
         public const string ViewExtra = "ViewExtra";
         public const string ViewDoing = "ViewDoing";
+        public const string ViewChanged = "ViewChanged";
+
         public const string Alive = "Alive";
         public const string AliveHalf = "AliveHalf";
         public const string AniView = "AniView";
@@ -26,6 +28,7 @@ namespace ZVB4.Conf
         public const string AttackExtraArea = "AttackExtraArea";
         public const string PlayerAttackArea = "PlayerAttackArea";
         public const string AttackBody = "AttackBody";
+        public const string EyeArea = "EyeArea";
 
         //
         public const string BodyMove = "BodyMove";
@@ -41,7 +44,7 @@ namespace ZVB4.Conf
         public const string AudioStreamPlayer2D = "AudioStreamPlayer2D";
 
         //
-        public const string SunShowLabel = "SunShowLabel";
+        public const string CountShowLabel = "CountShowLabel";
 
 
         public const string MiaoArea = "MiaoArea";

@@ -338,8 +338,10 @@ animations = [{
 
 [node name="Body" type="Node2D"]
 script = ExtResource("1_wmr5c")
-ObjName = "zombi_mu_tong"
-ExtraObj = 11
+ObjName = "zombi_glq"
+ExtraObj = 13
+IntroAniTime = 0.001
+WhenChangingType = 0
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1, 0.8)

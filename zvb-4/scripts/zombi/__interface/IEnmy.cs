@@ -12,5 +12,7 @@ namespace ZVB4.Interface
         void SwitchStatus(EnumEnmyStatus status);
 
         EnumMoveType GetEnumMoveType();
+
+        void SeeTarget(IObj obj);
     }
 }

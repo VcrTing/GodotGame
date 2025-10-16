@@ -7,12 +7,12 @@
     
     "initpeng": 8,
     "allowmiaolist": [
-        "SunFlower", "IceFlower", "YangTao", "Pea", "JianGuo", "Cherry", "LanMei"
+        "SunFlower", "JianGuo", "Cherry", "Pea", "PeaCold", "PeaDouble"
     ],
     
-    "initshooter": "LanMei",
+    "initshooter": "PeaCold",
     "initmiaolist": [
-        "SunFlower", "SunFlower", "LanMei", "LanMei"
+        "SunFlower", "SunFlower", "PeaCold", "PeaCold"
     ],
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,
@@ -63,7 +63,7 @@
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
                 "lazyall": 0,
-                "lazyme": 1.5,
+                "lazyme": 2,
                 "speedmode": "normal"
             }
         ],

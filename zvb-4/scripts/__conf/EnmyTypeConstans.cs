@@ -9,6 +9,7 @@ namespace ZVB4.Conf
         public const string ZombiS = "zombi_s";
         public const string ZombiJi = "zombi_ji";
         public const string ZombiGlq = "zombi_glq";
+        public const string ZombiCgt = "zombi_cgt";
         public const string ZombiMuTong = "zombi_mu_tong";
         public const string ZombiTieTong = "zombi_tie_tong";
 
@@ -35,9 +36,10 @@ namespace ZVB4.Conf
         // 储存速度的字典
         public static readonly Dictionary<string, float> SpeedDict = new Dictionary<string, float>()
         {
-            { ZombiJi, 200f },
-            { ZombiM, 50f },
-            { ZombiGlq, 40f },
+            { ZombiJi, 70f },
+            { ZombiM, 20f },
+            { ZombiGlq, 20f },
+            { ZombiCgt, 20f },
             { ZombiS, 20f },
             { ZombiMuTong, 15f },
             { ZombiTieTong, 10f }
@@ -47,31 +49,26 @@ namespace ZVB4.Conf
         // 储存伤害的字典
         public static readonly Dictionary<string, int> DamageDict = new Dictionary<string, int>()
         {
-            { ZombiM, BaseDamage },
-            { ZombiS, BaseDamage },
-            { ZombiMuTong, BaseDamage  },
-            { ZombiTieTong, BaseDamage  }
+            
         };
         public static float BaseBaitSpeed = 0.5f;
         public static float BaseBaitLazyStart = 0.5f;
         public static readonly Dictionary<string, float> BaitSpeedDict = new Dictionary<string, float>()
         {
             { ZombiM, BaseBaitSpeed * 2 },
-            { ZombiS, BaseBaitSpeed },
-            { ZombiMuTong, BaseBaitSpeed  },
-            { ZombiTieTong, BaseBaitSpeed  }
+            { ZombiJi, BaseBaitSpeed * 2 },
         };
         public static int GetZombieDamage(string key)
         {
             if (DamageDict.TryGetValue(key, out int value))
                 return value;
-            return 0;
+            return BaseDamage;
         }
         public static float GetBaitSpeed(string key)
         {
             if (BaitSpeedDict.TryGetValue(key, out float value))
                 return value;
-            return 0f;
+            return BaseBaitSpeed;
         }
         public static float GetSpeed(string key)
         {
@@ -97,12 +94,21 @@ namespace ZVB4.Conf
         }
 
         // 
+        public static string GetZombiWrapperScenePath(string enmyName)
+        {
+            return FolderConstants.WaveEnemy + "wrapper/zombi_c_wrapper.tscn";
+        }
         public static bool GenerateZombiTexture(Node2D father, string key)
         {
-            var textureScene = GD.Load<PackedScene>(FolderConstants.WaveEnemy + "texture/" + key + "_texture.tscn");
+            string folder = "texture/";
+            if (key.Contains("_cgt")) {
+                folder = "texture_cc/";
+            }
+            var textureScene = GD.Load<PackedScene>(FolderConstants.WaveEnemy + folder + key + "_texture.tscn");
             if (textureScene != null)
             {
                 var textureInstance = textureScene.Instantiate<Node2D>();
+                textureInstance.Name = NameConstants.Body;
                 father.AddChild(textureInstance);
                 return true;
             }

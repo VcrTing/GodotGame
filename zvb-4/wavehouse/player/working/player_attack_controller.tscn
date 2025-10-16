@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://setfxhg3cb8e"]
+
+[ext_resource type="Script" uid="uid://gmsjbkn1xbya" path="res://scripts/player/PlayerController.cs" id="1_hh42k"]
+[ext_resource type="Script" uid="uid://bikplbsxucboc" path="res://scripts/player/PlayerAttackArea.cs" id="2_0xwnv"]
+[ext_resource type="PackedScene" uid="uid://br3fnkwdn12o7" path="res://wavehouse/player/shooter_work_table.tscn" id="3_t8vsg"]
+[ext_resource type="Script" uid="uid://dbjditv1jl2b8" path="res://scripts/player/PlayerBuffController.cs" id="4_die04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7bvy"]
+size = Vector2(1400, 1080)
+
+[node name="PlayerAttackController" type="Node2D"]
+z_index = 100
+script = ExtResource("1_hh42k")
+
+[node name="PlayerAttackArea" type="Area2D" parent="."]
+position = Vector2(0, -770)
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("2_0xwnv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAttackArea"]
+position = Vector2(0, 154)
+shape = SubResource("RectangleShape2D_j7bvy")
+
+[node name="ShooterWorkTable" parent="." instance=ExtResource("3_t8vsg")]
+
+[node name="PlayerBuffController" type="Node2D" parent="."]
+script = ExtResource("4_die04")

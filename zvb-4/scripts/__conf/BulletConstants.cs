@@ -6,7 +6,9 @@ namespace ZVB4.Conf
     public static class BulletConstants
     {
         public const string BulletPeaName = "BulletPea";
+        public const string BulletPeaColdName = "BulletPeaCold";
         public const string BulletPeaDoubleName = "BulletPeaDouble";
+        public const string BulletShiLiuName = "BulletShiLiu";
         public const string BulletPeaGoldName = "BulletPeaGold";
         public const string BulletLanMeiName = "BulletLanMei";
         public const string BulletYangTaoName = "BulletYangTao";
@@ -16,24 +18,31 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, string> BulletDict = new Dictionary<string, string>
         {
             { PlansConstants.Pea, FolderConstants.WaveBullet + "bullet_zero.tscn" },
+            { PlansConstants.PeaCold, FolderConstants.WaveBullet + "bullet_zero_cold.tscn" },
             { PlansConstants.PeaDouble, FolderConstants.WaveBullet + "bullet_zero_s.tscn" },
+
             { PlansConstants.LanMei, FolderConstants.WaveBullet + "bullet_lan_mei.tscn" },
             { PlansConstants.YangTao, FolderConstants.WaveBullet + "bullet_yang_tao.tscn" },
+            { PlansConstants.ShiLiu, FolderConstants.WaveBullet + "bullet_shi_liu.tscn" },
             //
             { PlansConstants.PeaGold, FolderConstants.WaveBullet + "diancang/bullet_pea_gold.tscn" },
-            { PlansConstants.XiguaBing, FolderConstants.WaveBullet + "bullet_xigua_bing.tscn" },
+            { PlansConstants.XiguaBing, FolderConstants.WaveBullet + "diancang/bullet_xigua_bing.tscn" },
         };
         
 
         public const float LiveTimeTotal = 8f;
         public const int Base = 10;
         public const int DamageBasic = Base * 50;
+        public const int DamageOne = Base * 10;
         public const int Zero = 0;
 
         public static readonly Dictionary<string, int> BulletDamageDict = new Dictionary<string, int>
         {
             { BulletPeaName, DamageBasic },
+            { BulletPeaColdName, Base * 60 },
             { BulletPeaDoubleName, DamageBasic },
+            { BulletShiLiuName, Base * 20 },
+
             { BulletLanMeiName, Base * 70 },
             { BulletYangTaoName, Base * 50 },
             { BulletPeaGoldName, Base * 200 },
@@ -83,9 +92,12 @@ namespace ZVB4.Conf
         {
             return n switch
             {
-                BulletPeaGoldName => 2200f,
+                BulletPeaGoldName => 2500f,
                 BulletPeaName => 800f,
+                BulletPeaColdName => 700f,
                 BulletPeaDoubleName => 920f,
+
+                BulletShiLiuName => 1700f,
                 BulletLanMeiName => 600f,
                 BulletYangTaoName => 1000f,
                 BulletXiguaBingName => 1120f,

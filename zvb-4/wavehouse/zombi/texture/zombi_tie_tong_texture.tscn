@@ -161,7 +161,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"outro",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -355,10 +355,15 @@ animations = [{
 script = ExtResource("1_wmr5c")
 ObjName = "zombi_tie_tong"
 ExtraObj = 12
+MoveChangeBefore = 1
+MoveChanging = 1
+IntroAniTime = 0.001
+WhenChangingType = 0
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1, 0.8)
 sprite_frames = SubResource("SpriteFrames_ityjn")
+animation = &"outro"
 autoplay = "default"
 
 [node name="IceFreeze" type="AnimatedSprite2D" parent="."]

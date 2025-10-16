@@ -11,6 +11,8 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
 
     [Export]
     public bool isRotate = false;
+    [Export]
+    public bool isPlayFlySound = true;
 
     public override void _Ready()
     {
@@ -32,6 +34,17 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
         // 启动计时器变量，Process里计时
         _autoDieElapsed = 0f;
         _autoDieActive = true;
+
+        if (isPlayFlySound)
+        {
+            if (hurtType == EnumHurts.Cold)
+            {
+                SoundFxController.Instance?.PlayFx("Fx/icefly", "icefly", 5);
+            }
+        }
+        
+        //
+        Damage = BulletConstants.GetDamage(objName);
     }
 
     // 用于Process计时的自动销毁
@@ -70,20 +83,17 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
                 DoDie();
             }
         }
-
         Speed = FixSpeedByY();
         MoveBullet(Direction, Speed, delta);
         if (isDoDie)
         {
             AdjustHorizion();
-            // 死亡效果
             RunningDieFx(delta);
         }
         else
         {
             AdjustView();
         }
-
         if (isRotate)
         {
             // GGG: 自身慢速旋转
@@ -97,11 +107,7 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
     bool isDoDie = false;
     void DoDie()
     {
-        if (!isDoDie)
-        {
-            isDoDie = true;
-            DieOfFade();
-        }
+        if (!isDoDie) { isDoDie = true; DieOfFade(); }
     }
     float maxY = GameContants.HorizonBulletY; // 子弹出界的y值
     float FixSpeedByY()
@@ -114,29 +120,13 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
         return cs;
     }
 
-    public bool DoTakeDamage(Area2D area)
-    {
-        bool isWorking = false;
-        if (area is IHurtBase hurtArea)
-        {
-            isWorking = hurtArea.TakeDamage(objType, Damage, hurtType);
-        }
-        else
-        {
-            var parent = area.GetParent();
-            if (parent is IHurtBase hurt)
-            {
-                isWorking = hurt.TakeDamage(objType, Damage, hurtType);
-            }
-        }
-        return isWorking;
-    }
+    public bool DoTakeDamage(Area2D area) => ObjTool.TakeDamage(area, objType, Damage, hurtType);
     public float Speed { get; set; } = BulletConstants.SpeedBasic; // 默认速度
     float SpeedInit = BulletConstants.SpeedBasic; // 初始速度
     [Export]
     public EnumHurts hurtType { get; set; } = EnumHurts.Pea;
     public EnumHurts GetHurtType() => hurtType;
-    public Vector2 Direction { get; set; } = Vector2.Up; // 默认向上
+    public Vector2 Direction { get; set; } = Vector2.Up;
 
     public void SetDirection(Vector2 direction) => Direction = direction;
     public void FlipXDirection() => Direction = new Vector2(-Direction.X, Direction.Y);
@@ -147,13 +137,7 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
         await ToSignal(GetTree().CreateTimer(fadeDuration), "timeout");
         QueueFree();
     }
-    void CloseArea() {
-        try
-        {
-            if (_area2D != null) _area2D.QueueFree();
-        }
-        catch (Exception e) { }
-    }
+    void CloseArea() { try { if (_area2D != null) _area2D.QueueFree(); } catch (Exception e) { } }
     void DieWhenHit()
     {
         CloseArea();
@@ -170,18 +154,13 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
     EnumObjType objType = EnumObjType.Plans;
     public EnumObjType GetEnumObjType() => objType;
 
-    string objName = BulletConstants.BulletPeaName;
+    [Export]
+    public string objName = BulletConstants.BulletPeaName;
     public string GetObjName() => objName;
 
-    public bool Init(string name = null)
-    {
-        return true;
-    }
+    public bool Init(string name = null) => true;
 
-    public bool Die()
-    {
-        throw new NotImplementedException();
-    }
+    public bool Die() => true;
 
     float minScale = GameContants.MinScale;
     float maxScale = GameContants.MaxScale;
@@ -202,8 +181,5 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
 
     public Vector2 GetDirection() => Direction;
 
-    public bool CanAttack()
-    {
-        throw new NotImplementedException();
-    }
+    public bool CanAttack() => true;
 }

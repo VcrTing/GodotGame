@@ -1,31 +1,31 @@
 [gd_scene load_steps=7 format=3 uid="uid://hds505uxa6wr"]
 
-[ext_resource type="Script" uid="uid://bpy4a8b47ro0w" path="res://scripts/plans/plansshooter/PlansPea.cs" id="1_t4a6u"]
-[ext_resource type="Texture2D" uid="uid://dre0naotexxkr" path="res://pngs/planscard/Pea2.png" id="2_t4a6u"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fltuw"]
-atlas = ExtResource("2_t4a6u")
-region = Rect2(0, 0, 60, 60)
+[ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_fltuw"]
+[ext_resource type="Texture2D" uid="uid://dm7sg6v2mpdnx" path="res://pngs/planscard/PeaDouble.png" id="2_fltuw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3sdl6"]
-atlas = ExtResource("2_t4a6u")
-region = Rect2(60, 0, 60, 60)
+atlas = ExtResource("2_fltuw")
+region = Rect2(0, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8i6tn"]
-atlas = ExtResource("2_t4a6u")
-region = Rect2(120, 0, 60, 60)
+atlas = ExtResource("2_fltuw")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcr3y"]
+atlas = ExtResource("2_fltuw")
+region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tcr3y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fltuw")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_3sdl6")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8i6tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcr3y")
 }],
 "loop": true,
 "name": &"default",
@@ -34,12 +34,13 @@ animations = [{
 
 [node name="PeaDouble" type="Node2D"]
 scale = Vector2(4, 4)
-script = ExtResource("1_t4a6u")
+script = ExtResource("1_fltuw")
+objName = "PeaDouble"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 z_index = 220
-position = Vector2(-1, -2)
+position = Vector2(-3, -4)
+scale = Vector2(0.46, 0.46)
 sprite_frames = SubResource("SpriteFrames_tcr3y")
 autoplay = "default"
-frame = 2
-frame_progress = 0.6155987
+frame_progress = 0.32806823

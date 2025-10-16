@@ -1,0 +1,49 @@
+{
+    "type": "normal",
+    "initsun": 2200,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "gamechecktime": 120,
+    
+    "initpeng": 8,
+    "allowmiaolist": [
+        "SunFlower", "IceFlower", "YangTao", "Pea", "PeaDouble", "JianGuo", "Cherry", "LanMei"
+    ],
+    
+    "initshooter": "ShiLiu",
+    "initmiaolist": [
+        "SunFlower", "SunFlower", "JianGuo", "JianGuo", "PeaGold", "PeaDouble"
+    ],
+    "enmyspeedattackscale": 1,
+    "enmyspeedmovescale": 1,
+    "enmyviewscale": 1,
+    "enmybehurtscale": 1,
+
+    "enmyswaveflag": {
+        "19": 1
+    },
+    "enmys": {
+        "5": [
+            {
+                "types": [ "zombi_cgt", "zombi_cgt", "zombi_s", "zombi_mu_tong", "zombi_glq" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyall": 0,
+                "lazyme": 2,
+                "speedmode": "normal"
+            }
+        ]
+    },
+    
+    "suns": {
+        "3": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ]
+    }
+}

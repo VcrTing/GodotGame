@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Threading.Tasks;
 using ZVB4.Conf;
 using ZVB4.Interface;
 using ZVB4.Tool;
@@ -115,23 +114,8 @@ public partial class BulletYangTao : Node2D, IBulletBase, IObj, IAttack
         return cs;
     }
 
-    public bool DoTakeDamage(Area2D area)
-    {
-        bool isWorking = false;
-        if (area is IHurtBase hurtArea)
-        {
-            isWorking = hurtArea.TakeDamage(objType, Damage, hurtType);
-        }
-        else
-        {
-            var parent = area.GetParent();
-            if (parent is IHurtBase hurt)
-            {
-                isWorking = hurt.TakeDamage(objType, Damage, hurtType);
-            }
-        }
-        return isWorking;
-    }
+    public bool DoTakeDamage(Area2D area) => ObjTool.TakeDamage(area, objType, Damage, hurtType);
+
     public float Speed { get; set; } = BulletConstants.SpeedBasic; // 默认速度
     float SpeedInit = BulletConstants.SpeedBasic; // 初始速度
     [Export]

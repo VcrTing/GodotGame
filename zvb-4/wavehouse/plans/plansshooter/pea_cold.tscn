@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://df86w0dr3t426"]
+
+[ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_1ycxs"]
+[ext_resource type="Texture2D" uid="uid://bbeudtx7dtfm2" path="res://pngs/planscard/PeaCold.png" id="2_1ycxs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj5bp"]
+atlas = ExtResource("2_1ycxs")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wj2s"]
+atlas = ExtResource("2_1ycxs")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6hra"]
+atlas = ExtResource("2_1ycxs")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8agan"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj5bp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wj2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6hra")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Pea" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_1ycxs")
+objName = "PeaCold"
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+z_index = 220
+position = Vector2(-1, -2)
+sprite_frames = SubResource("SpriteFrames_8agan")
+autoplay = "default"

@@ -88,4 +88,11 @@ public static class GameTool
         }
         return false;
     }
+
+    public static Vector2 RotateVector2(Vector2 d, float degrees)
+    {
+        float rad = Mathf.DegToRad(degrees);
+        Vector2 dir = d.Rotated(rad).Normalized();
+        return dir;
+    }
 }

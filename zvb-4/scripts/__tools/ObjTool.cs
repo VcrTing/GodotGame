@@ -121,18 +121,19 @@ namespace ZVB4.Tool
             }
             return died;
         }
-        
+
         public static bool RunningDie(Node2D node, EnumObjType objType, int damage, EnumHurts enumHurts)
         {
-            try {
+            try
+            {
                 // 立刻销毁Working
                 var workingNode = node.GetNodeOrNull<Node>(NameConstants.Working);
-                if (workingNode != null)    
+                if (workingNode != null)
                 {
                     workingNode.QueueFree();
                 }
                 // 立刻销毁AttackArea
-                    var attackArea = node.GetNodeOrNull<Node>(NameConstants.AttackArea);
+                var attackArea = node.GetNodeOrNull<Node>(NameConstants.AttackArea);
                 if (attackArea != null)
                 {
                     attackArea.QueueFree();
@@ -162,6 +163,25 @@ namespace ZVB4.Tool
             }
             // 0.5f 后，销毁自己
             return true;
+        }
+
+        public static bool TakeDamage(Area2D area, EnumObjType objType, int Damage, EnumHurts hurtType)
+        {
+            
+            bool isWorking = false;
+            if (area is IHurtBase hurtArea)
+            {
+                isWorking = hurtArea.TakeDamage(objType, Damage, hurtType);
+            }
+            else
+            {
+                var parent = area.GetParent();
+                if (parent is IHurtBase hurt)
+                {
+                    isWorking = hurt.TakeDamage(objType, Damage, hurtType);
+                }
+            }
+            return isWorking;
         }
     }
 }

@@ -12,13 +12,13 @@ public partial class ShooterPeaDouble : Node2D, IObj, IShooter
     public EnumObjType GetEnumObjType() => ObjType;
 
     [Export]
-    public string ObjName { get; set; } = PlansConstants.LanMei;
+    public string ObjName { get; set; } = PlansConstants.PeaDouble;
     public string GetObjName() => ObjName;
 
     bool init = false;
     public bool Init(string name = null)
     {
-        ObjName = name ?? PlansConstants.LanMei;
+        ObjName = name ?? PlansConstants.PeaDouble;
         LoadBullet();
         DoInitEffect(GlobalPosition);
         init = true;

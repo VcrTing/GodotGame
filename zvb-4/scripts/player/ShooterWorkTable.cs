@@ -70,8 +70,7 @@ public partial class ShooterWorkTable : Node2D
         if (pc == null) return false;
         pc.UnLockAttack();
         //
-        string shooterScene = FolderConstants.WavePlayer + "shooter_wrapper.tscn";
-        // GD.Print("切换射手:" + shooterScene);
+        string shooterScene = PlansConstants.GetShooterWrapperScenePath(plansName);
         if (!string.IsNullOrEmpty(shooterScene))
         {
             var scene = GD.Load<PackedScene>(shooterScene);

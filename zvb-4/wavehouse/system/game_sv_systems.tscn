@@ -1,19 +1,21 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0ouqeell2x2u"]
+[gd_scene load_steps=18 format=3 uid="uid://b0ouqeell2x2u"]
 
 [ext_resource type="Script" uid="uid://kqenuqg01tbv" path="res://scripts/system/SystemController.cs" id="1_qmaax"]
 [ext_resource type="Texture2D" uid="uid://80g2un26x6vh" path="res://pngs/ui/Stop.png" id="3_t3bwm"]
 [ext_resource type="Texture2D" uid="uid://b1syu5inaurkx" path="res://pngs/ui/Stop_fcs.png" id="4_oke30"]
 [ext_resource type="Texture2D" uid="uid://guv06p3w7fot" path="res://pngs/ui/Stop_hv.png" id="5_o21ck"]
 [ext_resource type="Script" uid="uid://bpgnj5ktw5xtk" path="res://scripts/ui/SinglePopWorkButton.cs" id="5_qmaax"]
-[ext_resource type="Script" uid="uid://dx07d6odlbs4e" path="res://scripts/ux/SunCenterSystem.cs" id="7_754vr"]
+[ext_resource type="Script" uid="uid://cjymbyjjtrsnm" path="res://scripts/ux/rewords/SunCenterSystem.cs" id="6_fnkl6"]
 [ext_resource type="Texture2D" uid="uid://dkp32atjlrfko" path="res://pngs/ui/btn_things_bg.png" id="8_hx4eg"]
 [ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="9_hjp3a"]
 [ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://scenes/ui/control_back_button.tscn" id="10_7dr2n"]
 [ext_resource type="PackedScene" uid="uid://bqwpvqnfkp735" path="res://scenes/ui/capter_die_popup.tscn" id="11_crkn6"]
 [ext_resource type="PackedScene" uid="uid://j1afhac3mr6i" path="res://scenes/ui/capter_win_popup.tscn" id="12_dwo5b"]
 [ext_resource type="PackedScene" uid="uid://ctlm8ased0fhf" path="res://scenes/ui/game_stop_popup.tscn" id="12_qmaax"]
+[ext_resource type="Script" uid="uid://d0n8cohhby5iv" path="res://scripts/ux/rewords/MoneyCenterSystem.cs" id="13_5vk2o"]
 [ext_resource type="Script" uid="uid://bxgen0vqmpkb2" path="res://scripts/caps/GameStatistic.cs" id="13_igog7"]
 [ext_resource type="Script" uid="uid://cxkn12vympk8" path="res://scripts/jingdian/GameWinnerChecker.cs" id="14_bswc7"]
+[ext_resource type="Texture2D" uid="uid://co80kput3ccrn" path="res://pngs/ui/money.png" id="14_fnkl6"]
 [ext_resource type="PackedScene" uid="uid://c20gy31whur46" path="res://wavehouse/system/data_mangers.tscn" id="17_5n8d8"]
 
 [node name="GameSVSystems" type="Node2D"]
@@ -55,7 +57,7 @@ anchors_preset = 0
 offset_top = 120.0
 offset_right = 240.0
 offset_bottom = 190.0
-script = ExtResource("7_754vr")
+script = ExtResource("6_fnkl6")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ControlSun"]
 z_index = -1
@@ -83,7 +85,7 @@ layout_mode = 2
 texture = ExtResource("9_hjp3a")
 expand_mode = 2
 
-[node name="SunShowLabel" type="Label" parent="CanvasLayer/ControlSun/HBoxContainer"]
+[node name="CountShowLabel" type="Label" parent="CanvasLayer/ControlSun/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "0"
@@ -98,6 +100,59 @@ visible = false
 visible = false
 
 [node name="GameStopPopup" parent="CanvasLayer" instance=ExtResource("12_qmaax")]
+visible = false
+
+[node name="ControlMoney" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(160, 70)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("13_5vk2o")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ControlMoney"]
+z_index = -1
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -140.0
+offset_bottom = 50.0
+grow_horizontal = 0
+texture = ExtResource("8_hx4eg")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlMoney"]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -35.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="CountShowLabel" type="Label" parent="CanvasLayer/ControlMoney/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ControlMoney/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("14_fnkl6")
+expand_mode = 2
 
 [node name="DataMangers" parent="." instance=ExtResource("17_5n8d8")]
 

@@ -61,32 +61,31 @@ public partial class ZeroZombiMove : Node2D
 
 
     // 根据移动时机，曲线加速
-    float QuXianJiaSu(float speed)
+    float QuXianJiaSu(float speed, float ratio)
     {
+        // X 速度倍率
+        speed = speed * ratio;
+        // 计算速度
         float t = Mathf.Clamp(_moveTime / _addSpeedTime, 0f, 1f);
         float speedBase = Mathf.Lerp(speed * _minSpeedScale, speed, t);
-        return speedBase;
+        // 加速1~4f随机数
+        speedBase += (float)GD.RandRange(1f, 4f * ratio);
+        // 加入速度缩放
+        float scale = _parentStatus.GetMoveSpeedScale();
+        return speedBase * scale;
     }
 
     public Vector2 LineWalk(Vector2 pos, double delta)
     {
-        float sp = QuXianJiaSu(ParentMoveSpeed);
-        // 加速1~4f随机数
-        sp += (float)GD.RandRange(1f, 4f);
-        // 加入速度缩放
-        float scale = _parentStatus.GetMoveSpeedScale();
-        pos += MoveDirection.Normalized() * sp * (float)delta * scale;
+        float sp = QuXianJiaSu(ParentMoveSpeed, 1f);
+        pos += MoveDirection.Normalized() * sp * (float)delta;
         return pos;
     }
     
     public Vector2 LineRun(Vector2 pos, double delta)
     {
-        float sp = QuXianJiaSu(ParentMoveSpeed * 2);
-        // 加速1~8f随机数
-        sp += (float)GD.RandRange(1f, 8f);
-        // 加入速度缩放
-        float scale = _parentStatus.GetMoveSpeedScale();
-        pos += MoveDirection.Normalized() * sp * (float)delta * scale;
+        float sp = QuXianJiaSu(ParentMoveSpeed, 2.5f);
+        pos += MoveDirection.Normalized() * sp * (float)delta;
         return pos;
     }
 }

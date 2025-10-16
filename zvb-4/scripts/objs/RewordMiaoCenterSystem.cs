@@ -47,22 +47,37 @@ public partial class RewordMiaoCenterSystem : Node2D
         return n;
     }
     bool usePower = false;
+    // 大于多少，开始加权。
     public static readonly Dictionary<string, int> PlansStarPowerDict = new Dictionary<string, int>
     {
         { PlansConstants.Pea, 0 },
         { PlansConstants.XiguaBing, 0 },
         { PlansConstants.SunFlower, 3 },
-        { PlansConstants.Cherry, 3 },
+        { PlansConstants.Cherry, 5 },
     };
+    // 小于加权，才能生成
     public static readonly Dictionary<string, int> PlansPowerDict = new Dictionary<string, int>
     {
         { PlansConstants.Pea, 0 },
         { PlansConstants.XiguaBing, 0 },
         { PlansConstants.SunFlower, 30 },
-        { PlansConstants.Cherry, 50 },
+        { PlansConstants.Cherry, 70 },
     };
     bool RandomPlansForPower(string name)
     {
+        // 先找花盆数量
+        var ps = FlowerPengSystem.Instance?.GetUseFullFlowerPeng().Count ?? 0;
+        var psall = FlowerPengSystem.Instance?.GetNowFlowerPengNum() ?? 0;
+        if (ps >= (GameContants.FlowerPengNum)) return true;
+        // 现在4个花盆以上，而且可用花盆只有2个了
+        if (psall >= 4) {
+            int n = GD.RandRange(0, 100);
+            // GD.Print("当前占用花盆数量: " + ps + "，触发概率限制，随机值: " + n);
+            if (ps <= 2) { if (n < 30) return false; }
+            if (ps <= 0) { if (n < 50) return false; }
+        }
+
+        //
         int i = GD.RandRange(0, 100);
         int power = 0;
         int younum = GameStatistic.Instance?.GetPlansCount(name) ?? 0;
@@ -105,20 +120,6 @@ public partial class RewordMiaoCenterSystem : Node2D
 
     */
     float w = GameContants.ScreenHalfW - 90;
-    // 随机地点出生苗
-    public void DumpPlansMiaoRandomPosition(string name, bool playSound = true)
-    {
-        Vector2 pos = this.GlobalPosition;
-        float x = pos.X;
-        float y = pos.Y;
-        //
-        int v = (int)GD.RandRange(1, w);
-        int v2 = (int)GD.RandRange(1, w);
-        //
-        x += v;
-        y += v2;
-        DumpPlansMiao(new Vector2(x, y), name, playSound);
-    }
     int count = 0;
     public void DumpPlansMiao(Vector2 pos, string name, bool playSound = true)
     {
@@ -135,6 +136,11 @@ public partial class RewordMiaoCenterSystem : Node2D
             string n = "Miao" + count;
             instance.Name = n;
             AddChild(instance);
+            
+            // 加一计数
+            var gs = GameStatistic.Instance;
+            if (gs != null) { gs.AddPlansCount(name, 1); }
+
         }
         catch (Exception e)
         {
@@ -142,12 +148,26 @@ public partial class RewordMiaoCenterSystem : Node2D
             return;
         }
     }
+    // 随机地点出生苗
+    public void DumpPlansMiaoRandomPosition(string name, bool playSound = true)
+    {
+        Vector2 pos = this.GlobalPosition;
+        float x = pos.X;
+        float y = pos.Y;
+        //
+        int v = (int)GD.RandRange(1, w);
+        int v2 = (int)GD.RandRange(1, w);
+        //
+        x += v;
+        y += v2;
+        DumpPlansMiao(new Vector2(x, y), name, playSound);
+    }
     public void DumpInitPlansMiao(string initmiaomode, string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
     {
         switch (initmiaomode)
         {
             case "random":
-                DumpRandomPlansMiao(initmiaorandomnummode, initmiaolist);
+                DumpListRandomPlansMiao(initmiaorandomnummode, initmiaolist);
                 break;
             case "all":
                 DumpAllPlansMiao(initmiaolist);
@@ -157,27 +177,19 @@ public partial class RewordMiaoCenterSystem : Node2D
                 break;
         }
     }
-    void DumpRandomPlansMiao(string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
+    void DumpListRandomPlansMiao(string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
     {
         int num = 0;
-        // int penNum = FlowerPengSystem.Instance?.GetUseFullFlowerPeng().Count ?? 0;
         switch (initmiaorandomnummode)
         {
             case "FlowerPeng":
-                num = 6; // FlowerPengSystem.Instance?.GetUseFullFlowerPeng().Count ?? 0;
+                num = FlowerPengSystem.Instance?.GetNowFlowerPengNum() ?? 6;
                 break;
             default:
                 num = 3;
                 break;
         }
-        for (int i = 0; i < num; i++)
-        {
-            string name = GetRandomPlansNameWithPowerWeight();
-            if (name != null && name != "")
-            {
-                DumpPlansMiaoRandomPosition(name, false);
-            }
-        }
+        DumpAllPlansMiao(initmiaolist);
     }
     public void DumpAllPlansMiao(Godot.Collections.Array initmiaolist)
     {

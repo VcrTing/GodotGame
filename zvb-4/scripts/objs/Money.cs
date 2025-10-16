@@ -29,7 +29,7 @@ public partial class Money : RigidBody2D, IWorking, IReword
             // 默认目标为左上角世界坐标
             try
             {
-                targetWorldPos = SunCenterSystem.Instance.GetLabelPosition();
+                targetWorldPos = MoneyCenterSystem.Instance.GetLabelPosition();
                 // GD.Print("Sun Target Pos: " + targetWorldPos);
             }
             catch

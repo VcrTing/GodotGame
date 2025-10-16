@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3i4xs4sei1bo"]
+[gd_scene load_steps=6 format=3 uid="uid://c3i4xs4sei1bo"]
 
 [ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
-[ext_resource type="PackedScene" uid="uid://bs7cg40u3kkix" path="res://wavehouse/player/player.tscn" id="2_ih5oj"]
+[ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="4_n5k7p"]
+[ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="5_130aw"]
 [ext_resource type="Script" uid="uid://blws27e75l035" path="res://scripts/system/GameModeSwitchCenter.cs" id="15_lpa67"]
 [ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
 
@@ -9,9 +10,15 @@
 
 [node name="GameEnvBuiler" parent="." instance=ExtResource("1_5wvqh")]
 
-[node name="Player" parent="." instance=ExtResource("2_ih5oj")]
-
 [node name="GameSVSystems" parent="." instance=ExtResource("19_pniwq")]
 
 [node name="GameModeSwitchCenter" type="Node2D" parent="."]
 script = ExtResource("15_lpa67")
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="SoundPlayerController" parent="Player" instance=ExtResource("4_n5k7p")]
+position = Vector2(0, -600)
+
+[node name="PlayerAttackController" parent="Player" instance=ExtResource("5_130aw")]
+position = Vector2(0, 560)

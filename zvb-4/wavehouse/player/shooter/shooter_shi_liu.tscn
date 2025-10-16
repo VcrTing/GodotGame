@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy344u1w0vpkv"]
+
+[ext_resource type="Script" uid="uid://qoie63whlgm5" path="res://scripts/player/shooter/ShooterShiLiu.cs" id="1_gxosm"]
+[ext_resource type="Texture2D" uid="uid://dfnfsrmdccdqc" path="res://pngs/plans/ShooterShiLiu.png" id="2_gxosm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etmjr"]
+atlas = ExtResource("2_gxosm")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfayn"]
+atlas = ExtResource("2_gxosm")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx0pe"]
+atlas = ExtResource("2_gxosm")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p3p2g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etmjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfayn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx0pe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ShooterShiLiu" type="Node2D"]
+script = ExtResource("1_gxosm")
+ObjName = "ShiLiu"
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -15)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_p3p2g")
+autoplay = "default"
+frame = 2
+frame_progress = 0.9154628

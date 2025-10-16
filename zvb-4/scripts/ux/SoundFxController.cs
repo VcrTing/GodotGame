@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public partial class SoundFxController : Node2D
 {
 
-    private const int MaxQueueSize = 21;
+    private const int MaxQueueSize = 7;
     private const int MaxConcurrent = 7;
 
     private Queue<SoundEffectRequest> _soundQueue = new Queue<SoundEffectRequest>(MaxQueueSize);
@@ -44,6 +44,10 @@ public partial class SoundFxController : Node2D
             if (!player.Playing && _soundQueue.Count > 0)
             {
                 var req = _soundQueue.Dequeue();
+                // 检查文件是否存在
+                if (!FileAccess.FileExists(req.Path)) {
+                    continue;
+                }
                 var stream = GD.Load<AudioStream>(req.Path);
                 if (stream != null)
                 {

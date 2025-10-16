@@ -116,6 +116,10 @@ public partial class FlowerPengSystem : Node2D
 
 
     // 获取所有可用花盆
+    public int GetNowFlowerPengNum()
+    {
+        return flowerPengList.Count;
+    }
     public List<FlowerPeng> GetUseFullFlowerPeng()
     {
         List<FlowerPeng> result = new List<FlowerPeng>();

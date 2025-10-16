@@ -91,20 +91,7 @@ public partial class BulletSingleAttackArea : Area2D, IInit
     }
     
     // 伤害处理方法
-    void DoTakeDamage(Area2D area, int damage)
-    {
-        if (area is IHurtBase hurt)
-        {
-            hurt.TakeDamage(myType, damage, enumHurts);
-        }
-        else
-        {
-            var parent = area.GetParent();
-            if (parent is IHurtBase hurtParent)
-            {
-                hurtParent.TakeDamage(myType, damage, enumHurts);
-            }
-        }
-    }
+
+    public bool DoTakeDamage(Area2D area, int damage) => ObjTool.TakeDamage(area, myObj.GetEnumObjType(), damage, enumHurts);
 
 }

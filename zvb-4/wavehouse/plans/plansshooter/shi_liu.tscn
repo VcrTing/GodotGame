@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4pjfc32ab441"]
+
+[ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_d47dl"]
+[ext_resource type="Texture2D" uid="uid://w0ibxeoj1th3" path="res://pngs/planscard/ShiLiu.png" id="2_d47dl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa8cj"]
+atlas = ExtResource("2_d47dl")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppn6k"]
+atlas = ExtResource("2_d47dl")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gvir"]
+atlas = ExtResource("2_d47dl")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pofd6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa8cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppn6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gvir")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="ShiLiu" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_d47dl")
+objName = "ShiLiu"
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+z_index = 220
+position = Vector2(-3, 2)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_pofd6")
+autoplay = "default"
+frame = 1
+frame_progress = 0.17710102

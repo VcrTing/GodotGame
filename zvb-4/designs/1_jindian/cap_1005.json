@@ -7,16 +7,16 @@
     
     "initpeng": 8,
     "allowmiaolist": [
-        "SunFlower", "IceFlower", "Pea", "JianGuo", "Cherry", "PeaDouble"
+        "SunFlower", "JianGuo", "Cherry", "Pea", "PeaDouble"
     ],
     
     "initshooter": "PeaDouble",
     "initmiaolist": [
-        "SunFlower", "IceFlower", "IceFlower", "IceFlower", "PeaDouble", "PeaDouble"
+        "SunFlower", "Cherry", "JianGuo"
     ],
     "enmyspeedattackscale": 2.0,
-    "enmyspeedmovescale": 1,
-    "enmyviewscale": 0.1,
+    "enmyspeedmovescale": 1.2,
+    "enmyviewscale": 0.68,
     "enmybehurtscale": 4.0,
 
     "enmyswaveflag": {

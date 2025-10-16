@@ -36,9 +36,7 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
     {
         scaleMax = Scale.X;
         scaleMin = ViewTool.GetYouMinScale(scaleMax);
-        //
         isMoving = false;
-        //
         Init(objName);
     }
 
@@ -128,13 +126,13 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
         actionExtra = GetNodeOrNull<IActionExtra>(NameConstants.Body);
         if (actionExtra != null)
         {
+            bodyNode = actionExtra as Node2D; // GetNodeOrNull<IStatus>(NameConstants.Body);
+            IInit ci = bodyNode as IInit;
+            if (ci != null)
+            {
+                ci.Init(objName);
+            }
             DoIntro();
-        }
-        bodyNode = actionExtra as Node2D; // GetNodeOrNull<IStatus>(NameConstants.Body);
-        IInit ci = bodyNode as IInit;
-        if (ci != null)
-        {
-            ci.Init(objName);
         }
         return true;
     }
@@ -230,66 +228,30 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
     public bool BeHurt(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
         if (!isWorking) return false;
-        // 伤害缩放
-        damage = (int)(damage * InitBeHurtScale);
         // 处理冰冻
         if (enumHurts == EnumHurts.IceFreeze)
         {
             DoFreeze(iceFreezeTimeInit);
         }
-        // 其他攻击
         else
         {
+            // 伤害缩放
+            damage = (int)(damage * InitBeHurtScale);
             // 处理伤害
-            bool isAlive = true;
             IBeHurt beHurt = bodyNode as IBeHurt;
             if (beHurt != null)
             {
-                isAlive = beHurt.BeHurt(objType, damage, enumHurts);
+                if (!beHurt.BeHurt(objType, damage, enumHurts)) { Die(objType, damage, enumHurts); }
             }
-            if (isAlive == false)
-            {
-                Die(objType, damage, enumHurts);
-            }
-            
-            // 处理 可减速攻击
-            if (enumHurts == EnumHurts.Cold)
-            {
-                DoCold(iceColdTimeInit);
-            }
+            if (enumHurts == EnumHurts.Cold) { DoCold(iceColdTimeInit); }
         }
         return true;
     }
     public async Task<bool> Die(EnumObjType enumAttack, int damage, EnumHurts enumHurts)
     {
-        //
-        GameStatistic.Instance?.AddZombieDead();
-        //
-        IEnmy e = bodyNode as IEnmy;
-        if (e != null)
-        {
-            e.SwitchStatus(EnumEnmyStatus.Die);
-        }
-        // 关闭碰撞
-            Node2D beHurtArea = GetNodeOrNull<Node2D>(NameConstants.BeHurtArea);
-        if (beHurtArea != null)
-        {
-            beHurtArea.QueueFree();
-        }
-        // 删掉移动
-        Node2D m = GetNodeOrNull<Node2D>(NameConstants.Move);
-        if (m != null)
-        {
-            m.QueueFree();
-        }
+        ZombiTool.RunningWhenDie(this, bodyNode);
         // 停止移动。播放死亡动画。
         float dieTime = DoOutro();
-        // 掉落奖励
-        IWhenDie wdr = GetNodeOrNull<IWhenDie>(NameConstants.WorkingDumpReword);
-        if (wdr != null)
-        {
-            wdr.WorkingWhenDie(objName);
-        }
         await ToSignal(GetTree().CreateTimer(dieTime), "timeout");
         QueueFree();
         return true;
@@ -315,18 +277,7 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
 
     public void SwitchStatus(EnumEnmyStatus status)
     {
-        if ((bodyNode as IEnmy) != null)
-        {
-            if (status == EnumEnmyStatus.Move)
-            {
-                StartMove();
-            }
-            else
-            {
-                PauseMove();
-            }
-            (bodyNode as IEnmy).SwitchStatus(status);
-        }
+        if ((bodyNode as IEnmy) != null) (bodyNode as IEnmy).SwitchStatus(status);
     }
 
     public EnumMoveType GetEnumMoveType()
@@ -340,4 +291,10 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
     {
         return isWorking && __freezeTime <= 0f;
     }
+
+    public void SeeTarget(IObj obj)
+    {
+        throw new NotImplementedException();
+    }
+
 }

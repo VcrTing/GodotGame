@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://4bmw125oqyrh"]
+[gd_scene load_steps=7 format=3 uid="uid://4bmw125oqyrh"]
 
 [ext_resource type="Script" uid="uid://40xvdftr31to" path="res://scripts/player/shooter/ShooterPeaDouble.cs" id="1_luxpm"]
-[ext_resource type="Texture2D" uid="uid://c7uutbegbhv5o" path="res://pngs/plans/w2.png" id="2_luxpm"]
+[ext_resource type="Texture2D" uid="uid://bxdv5i2w3l8sv" path="res://pngs/plans/PeaDouble.png" id="2_luxpm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4pb1"]
 atlas = ExtResource("2_luxpm")
-region = Rect2(0, 0, 60, 60)
+region = Rect2(0, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yiy1c"]
 atlas = ExtResource("2_luxpm")
-region = Rect2(60, 0, 60, 60)
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pam3h"]
+atlas = ExtResource("2_luxpm")
+region = Rect2(240, 0, 120, 120)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pam3h"]
 animations = [{
@@ -19,6 +23,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yiy1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pam3h")
 }],
 "loop": true,
 "name": &"default",
@@ -29,6 +36,8 @@ animations = [{
 script = ExtResource("1_luxpm")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
+position = Vector2(0.6, 8)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_pam3h")
 autoplay = "default"
+frame_progress = 0.83609366

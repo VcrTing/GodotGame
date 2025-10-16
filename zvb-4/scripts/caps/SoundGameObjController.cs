@@ -7,8 +7,8 @@ using System.Collections.Generic;
 
 public partial class SoundGameObjController : Node2D
 {
-    private const int MaxQueueSize = 21;
-    private const int MaxConcurrent = 7;
+    private const int MaxQueueSize = 5;
+    private const int MaxConcurrent = 3;
 
     private Queue<SoundEffectRequest> _soundQueue = new Queue<SoundEffectRequest>(MaxQueueSize);
     private List<AudioStreamPlayer2D> _players = new List<AudioStreamPlayer2D>();
@@ -29,11 +29,11 @@ public partial class SoundGameObjController : Node2D
         }
     }
 
-    public void EnqueueSound(string path, float volume = 1f, float pan = 0f, Vector2? pos = null)
+    public void EnqueueSound(string path, float volume, float pan, Vector2 pos)
     {
         if (_soundQueue.Count >= MaxQueueSize)
             return;
-        _soundQueue.Enqueue(new SoundEffectRequest(path, volume, pan, pos ?? Vector2.Zero));
+        _soundQueue.Enqueue(new SoundEffectRequest(path, volume, pan, pos));
         TryPlayNext();
     }
 
@@ -41,7 +41,7 @@ public partial class SoundGameObjController : Node2D
     {
         string path = SoundTool.GetRandomSoundPath(folderPath, soundName, c);
         float volume = 1f;
-        float pan = SoundTool.CalcPanByX(pos.X);
+        float pan = SoundTool.CalcPanByPos(pos);
         EnqueueSound(path, volume, pan, pos);
     }
     
@@ -51,7 +51,7 @@ public partial class SoundGameObjController : Node2D
         float randX = (float)GD.RandRange(-w, w);
         Vector2 pos = new Vector2(randX, 0f);
         string path = SoundTool.GetRandomSoundPath(folderPath, soundName, c);
-        float pan = SoundTool.CalcPanByX(pos.X);
+        float pan = SoundTool.CalcPanByPos(pos);
         EnqueueSound(path, 1f, pan, pos);
     }
 

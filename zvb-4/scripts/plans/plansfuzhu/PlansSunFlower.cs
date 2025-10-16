@@ -33,12 +33,6 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
         _flowerWorking = GetNodeOrNull<FlowerWorkingReword>(NameConstants.Working);
         //
         
-        //
-        var gs = GameStatistic.Instance;
-        if (gs != null)
-        {
-            gs.AddPlansCount(objName, 1);
-        }
     }
     // 点击回调，销毁自身
     private void Input(InputEvent @event)

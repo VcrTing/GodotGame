@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://tyfyw8v7besx"]
 
-[ext_resource type="Script" uid="uid://e0ld51m1ryw6" path="res://scripts/bullet/BulletZero.cs" id="1_ou5vi"]
+[ext_resource type="Script" uid="uid://d1ekdbelko8hi" path="res://scripts/bullet/BulletSingle.cs" id="1_ou5vi"]
 [ext_resource type="Texture2D" uid="uid://c33adi01w21ia" path="res://pngs/bullet/Pea.png" id="2_ou5vi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3msd"]

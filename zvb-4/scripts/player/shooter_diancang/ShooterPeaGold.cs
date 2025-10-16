@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using ZVB4.Conf;
 using ZVB4.Interface;
 
-public partial class ShooterPeaGold : Node2D, IObj, IShooter
+public partial class ShooterPeaGold : Node2D, IObj, IPao
 {
     [Export]
     public EnumObjType ObjType { get; set; } = EnumObjType.Plans;
     public EnumObjType GetEnumObjType() => ObjType;
     [Export]
-    public string ObjName { get; set; } = PlansConstants.LanMei;
+    public string ObjName { get; set; } = PlansConstants.PeaGold;
     public string GetObjName() => ObjName;
     bool init = false;
     public bool Init(string name = null)
     {
-        ObjName = name ?? PlansConstants.LanMei;
+        ObjName = name ?? PlansConstants.PeaGold;
         LoadBullet();
         DoInitEffect(GlobalPosition);
         init = true;
@@ -70,15 +70,20 @@ public partial class ShooterPeaGold : Node2D, IObj, IShooter
     public void DoInitEffect(Vector2 position)
     {
         // 播放音效
-        SoundPlayerController.Instance.EnqueueSound("Plans/" + ObjName + "/Load", ObjName + "_load", 4);
+        SoundPlayerController.Instance.EnqueueSound("Bullets/" + ObjName + "/Load", ObjName + "_load", 4);
     }
     public void DoFireLoadEffect(Vector2 position)
     {
-        
+        SoundFxController.Instance.PlayFx("Bullets/" + ObjName + "/Load", ObjName + "_load", 4, position);
     }
     public bool Die()
     {
         QueueFree();
         return true;
+    }
+
+    public void DoRotingEffect(Vector2 direction)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -43,6 +43,12 @@ public partial class SoundPlayerController : Node2D
         if (_isCooldown || _soundQueue.Count == 0)
             return;
         string path = _soundQueue.Dequeue();
+        // 检查文件是否存在
+        if (!FileAccess.FileExists(path))
+        {
+            TryPlayNext();
+            return;
+        }
         var stream = GD.Load<AudioStream>(path);
         if (stream != null)
         {

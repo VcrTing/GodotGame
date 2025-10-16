@@ -24,7 +24,7 @@ public partial class PeaGold : Node2D, IObj
     {
         return objType;
     }
-    string objName = PlansConstants.Pea;
+    string objName = PlansConstants.PeaGold;
     public string GetObjName()
     {
         return objName;

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cibpmmee5t74"]
 
-[ext_resource type="Script" uid="uid://dv0fdx5ka4i5m" path="res://scripts/zombi/zero/ZeroZombiWrapper.cs" id="1_1tnw4"]
+[ext_resource type="Script" uid="uid://b0b38t77cekyb" path="res://scripts/zombi/cc/ZombiCWrapper.cs" id="1_uk5mj"]
 [ext_resource type="Script" uid="uid://dqidtwjn77l8e" path="res://scripts/zombi/zero/ZeroZombiBeHurtArea.cs" id="2_0xvde"]
 [ext_resource type="Script" uid="uid://ein6xdvcn2nh" path="res://scripts/zombi/zero/ZeroZombiAttackArea.cs" id="3_2gvbj"]
 [ext_resource type="Script" uid="uid://5swr1eeo7l6n" path="res://scripts/zombi/zero/ZeroZombiMove.cs" id="4_rfo0y"]
@@ -15,11 +15,12 @@ height = 38.0
 size = Vector2(30, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3oncc"]
-size = Vector2(30, 120)
+size = Vector2(30, 90)
 
-[node name="ZombiSWrapper" type="Node2D"]
+[node name="ZombiCWrapper" type="Node2D"]
 scale = Vector2(1.8, 1.8)
-script = ExtResource("1_1tnw4")
+script = ExtResource("1_uk5mj")
+objName = "zombi_cgt"
 
 [node name="BeHurtArea" type="Area2D" parent="."]
 position = Vector2(0, 5)
@@ -52,5 +53,5 @@ collision_mask = 512
 script = ExtResource("6_wmeda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EyeArea"]
-position = Vector2(0, 30)
+position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_3oncc")

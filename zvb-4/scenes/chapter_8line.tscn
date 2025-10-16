@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://bamerhef74xy"]
+
+[ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
+[ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="4_m5n2e"]
+[ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="5_pk1eg"]
+[ext_resource type="Script" uid="uid://c41kirxpy85px" path="res://scripts/player/work/WorkTableSliderLine.cs" id="6_1lnqm"]
+[ext_resource type="Texture2D" uid="uid://dkp32atjlrfko" path="res://pngs/ui/btn_things_bg.png" id="7_e7so0"]
+[ext_resource type="Script" uid="uid://blws27e75l035" path="res://scripts/system/GameModeSwitchCenter.cs" id="15_lpa67"]
+[ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kntoi"]
+atlas = ExtResource("7_e7so0")
+region = Rect2(0, 0, 280, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grrdn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kntoi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b82g5"]
+size = Vector2(1080, 120)
+
+[node name="System" type="Node2D"]
+
+[node name="GameEnvBuiler" parent="." instance=ExtResource("1_5wvqh")]
+
+[node name="GameSVSystems" parent="." instance=ExtResource("19_pniwq")]
+
+[node name="GameModeSwitchCenter" type="Node2D" parent="."]
+script = ExtResource("15_lpa67")
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="SoundPlayerController" parent="Player" instance=ExtResource("4_m5n2e")]
+position = Vector2(0, -600)
+
+[node name="PlayerAttackController" parent="Player" instance=ExtResource("5_pk1eg")]
+position = Vector2(0, 560)
+
+[node name="WorkTableSliderLine" type="Node2D" parent="Player"]
+position = Vector2(0, 590)
+script = ExtResource("6_1lnqm")
+
+[node name="View" type="AnimatedSprite2D" parent="Player/WorkTableSliderLine"]
+scale = Vector2(4, 1)
+sprite_frames = SubResource("SpriteFrames_grrdn")
+
+[node name="UxArea" type="Area2D" parent="Player/WorkTableSliderLine"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/WorkTableSliderLine/UxArea"]
+shape = SubResource("RectangleShape2D_b82g5")

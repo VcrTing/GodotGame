@@ -56,11 +56,7 @@ public partial class BulletPeaGold : Node2D, IBulletBase, IObj, IAttack
 
     private void UpdateRotationByDirection()
     {
-        // 默认方向为Vector2.Up (0, -1)
-        if (Direction.LengthSquared() > 0.0001f)
-        {
-            // Rotation = Vector2.Up.AngleTo(Direction);
-        }
+        
     }
     public bool CanAttack() => true;
     private int Damage = BulletConstants.DamageBasic;
@@ -193,26 +189,11 @@ public partial class BulletPeaGold : Node2D, IBulletBase, IObj, IAttack
 		}
 	}
     // 伤害处理方法
-    void DoTakeDamage(Area2D area, float damage)
-    {
-        if (area is IHurtBase hurt)
-        {
-            hurt.TakeDamage(objType, (int)damage, enumHurts);
-        }
-        else
-        {
-            var parent = area.GetParent();
-            if (parent is IHurtBase hurtParent)
-            {
-                hurtParent.TakeDamage(objType, (int)damage, enumHurts);
-            }
-        }
-    }
+    public bool DoTakeDamage(Area2D area, float damage) => ObjTool.TakeDamage(area, GetEnumObjType(), (int)damage, enumHurts);
     
 	private void OnAttackAreaEnteredExtra(Area2D area) {
         if (_isDead) return;
         float _d = _damage / 3;
-        GD.Print($"BulletPeaGold OnAttackAreaEnteredExtra _hitCount={_hitCount}, _damage={_damage}, _d={_d}");
         DoTakeDamage(area, _d);
     }
 }

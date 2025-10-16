@@ -1,19 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://df6x44ifkevql"]
+[gd_scene load_steps=8 format=3 uid="uid://df6x44ifkevql"]
 
 [ext_resource type="Script" uid="uid://m1cueyldwl4h" path="res://scripts/player/shooter_diancang/ShooterPeaGold.cs" id="1_7wbqg"]
 [ext_resource type="Texture2D" uid="uid://edxuomv23skn" path="res://pngs/plans/diancang/PeaGold.png" id="2_5da5r"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wbqg"]
+atlas = ExtResource("2_5da5r")
+region = Rect2(0, 0, 190, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5da5r"]
+atlas = ExtResource("2_5da5r")
+region = Rect2(190, 0, 190, 190)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xskhp"]
 atlas = ExtResource("2_5da5r")
-region = Rect2(0, 0, 80, 80)
+region = Rect2(380, 0, 190, 190)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpqjj"]
 atlas = ExtResource("2_5da5r")
-region = Rect2(80, 0, 80, 80)
+region = Rect2(570, 0, 190, 190)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_at5dv"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wbqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5da5r")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xskhp")
 }, {
@@ -29,6 +43,8 @@ animations = [{
 script = ExtResource("1_7wbqg")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(0.47, 0.47)
 sprite_frames = SubResource("SpriteFrames_at5dv")
 autoplay = "default"
-frame_progress = 0.01379809
+frame_progress = 0.6060555

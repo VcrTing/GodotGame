@@ -1,29 +1,53 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhd1gc6olt83b"]
+[gd_scene load_steps=12 format=3 uid="uid://dhd1gc6olt83b"]
 
 [ext_resource type="Script" uid="uid://b23l4wphenton" path="res://scripts/bullet/PeaGold/BulletPeaGold.cs" id="1_xkka6"]
+[ext_resource type="Texture2D" uid="uid://b1pvpfinakesl" path="res://pngs/fx/qipao.png" id="2_et32i"]
 [ext_resource type="Texture2D" uid="uid://co80kput3ccrn" path="res://pngs/ui/money.png" id="3_ll26u"]
 [ext_resource type="Texture2D" uid="uid://bev2igpe4ihxg" path="res://pngs/bullet/BulletPeaGold.png" id="5_ulrwt"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oj0mq"]
-atlas = ExtResource("5_ulrwt")
-region = Rect2(0, 0, 60, 60)
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ulrwt"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -0.005, 0)
+emission_shape = 3
+emission_box_extents = Vector3(40, 60, 1)
+gravity = Vector3(0, 98, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 2.9999976
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 16.669998
+scale_min = 0.5
+scale_max = 1.5
+scale_over_velocity_max = 1.0
+color = Color(1, 1, 1, 0.7372549)
+anim_speed_max = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tgfjm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll26u"]
 atlas = ExtResource("5_ulrwt")
-region = Rect2(60, 0, 60, 60)
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et32i"]
+atlas = ExtResource("5_ulrwt")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulrwt"]
+atlas = ExtResource("5_ulrwt")
+region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_555ge"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oj0mq")
+"texture": SubResource("AtlasTexture_ll26u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tgfjm")
+"texture": SubResource("AtlasTexture_et32i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulrwt")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ll26u"]
@@ -38,12 +62,20 @@ height = 540.0
 z_index = 1320
 script = ExtResource("1_xkka6")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("2_et32i")
+process_material = SubResource("ParticleProcessMaterial_ulrwt")
+
 [node name="View" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
-scale = Vector2(4, 4)
+rotation = 0.20943952
+scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_555ge")
 autoplay = "default"
-frame_progress = 0.025828445
+frame = 1
+frame_progress = 0.87264884
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 256

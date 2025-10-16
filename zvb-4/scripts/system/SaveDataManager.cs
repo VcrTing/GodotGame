@@ -118,6 +118,31 @@ public partial class SaveDataManager : Node
             SavePlayerData();
         }
     }
+    public void AddMoneyAndSave(int value)
+    {
+        if (_playerData == null)
+        {
+            LoadPlayerData();
+        }
+        if (_playerData != null)
+        {
+            _playerData.Money += value;
+            GD.Print("AddMoneyAndSave: " + value + " total: " + _playerData.Money);
+            SavePlayerData();
+        }
+    }
+    public int GetMoney()
+    {
+        if (_playerData == null)
+        {
+            LoadPlayerData();
+        }
+        if (_playerData != null)
+        {
+            return _playerData.Money;
+        }
+        return 0;
+    }
 
     // 是否有此射手
     public bool HasThisShooter(string n)

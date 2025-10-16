@@ -1,13 +1,14 @@
 using Godot;
 using ZVB4.Conf;
 using ZVB4.Entity;
+using ZVB4.Interface;
 
 
 public partial class PlayerController : Node2D
 {
     public static PlayerController Instance { get; private set; }
     public Vector2 _lastClickPosition;
-    private ShooterWrapper _shooter;
+    private IShooterWrapper _shooter;
     public Vector2 _shooterInitPosition;
     public override void _Ready()
     {
@@ -32,8 +33,8 @@ public partial class PlayerController : Node2D
         {
             Node2D nd = GodotTool.FindNode2DByName(this, NameConstants.ShooterWrapper);
             if (nd == null) return;
-            if (nd is ShooterWrapper) { _shooter = nd as ShooterWrapper; }
-            if (_shooter != null) { _shooterInitPosition = _shooter.GlobalPosition; }
+            if (nd is IShooterWrapper) { _shooter = nd as IShooterWrapper; }
+            if (_shooter != null) { _shooterInitPosition = nd.GlobalPosition; }
         }
         catch { }
     }

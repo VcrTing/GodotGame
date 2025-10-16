@@ -69,6 +69,7 @@ public partial class SingleOptionsButton : TextureButton
                 GD.PrintErr("SingleOptionsButton: Unknown ButtonType " + ButtonType);
                 break;
         }
+        SystemController.Instance.ResumeGame();
     }
 
     void PrevScene()

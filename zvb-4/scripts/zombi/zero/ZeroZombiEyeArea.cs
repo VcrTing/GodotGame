@@ -23,9 +23,19 @@ public partial class ZeroZombiEyeArea : Area2D
                 _isClosed = true;
 
                 // 切换状态和动画
+                SeePlansFirst(obj);
             }
         }
     }
     
+    void SeePlansFirst(IObj obj)
+    {
+        var parent = GetParent();
+        IEnmy enmy = parent as IEnmy;
+        if (enmy != null)
+        {
+            enmy.SeeTarget(obj);
+        }
+    }
 
 }

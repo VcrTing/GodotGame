@@ -8,5 +8,8 @@ namespace ZVB4.Interface
         void RotateToDirection(Vector2 direction);
 
         void ChangeShooter(string shooterName);
+
+        void Attack(Vector2 attackPos, bool isFirstAttack);
+        void ReleaseAttack(bool mustEmpty = false);
     }
 }

@@ -80,9 +80,13 @@ public partial class EnmyCenter : Node2D
     public void PlayAlonePaoxiao(string name, Vector2 pos)
     {
         count += 1;
-        if (name == EnmyTypeConstans.ZombiM) 
+        if (name == EnmyTypeConstans.ZombiM)
         {
-            SoundGameObjController.Instance?.PlayFx("Zombi/kid", name, 4, pos);
+            SoundGameObjController.Instance?.PlayFx("Zombi/s/kid", name, 4, pos);
+        }
+        else if (name == EnmyTypeConstans.ZombiJi) 
+        {
+            SoundGameObjController.Instance?.PlayFx("Zombi/s/ji", name, 4, pos);
         }
     }
 }

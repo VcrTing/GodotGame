@@ -26,7 +26,6 @@ public partial class ShooterWrapper : Node2D, IShooterWrapper
 
     public void ChangeShooter(string shooterName)
     {
-        // GodotTool.SwitchOneVisible(this, shooterName);
         // 重新加载参数
         _LoadShooterParams(shooterName);
         // 加载射手实力
@@ -310,4 +309,5 @@ public partial class ShooterWrapper : Node2D, IShooterWrapper
             SaveDataManager.Instance?.SetPlayerShooter(shooterName);
         }
     }
+
 }

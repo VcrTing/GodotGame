@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://8428d727ktas"]
+
+[ext_resource type="Script" uid="uid://d1ekdbelko8hi" path="res://scripts/bullet/BulletSingle.cs" id="1_4oa50"]
+[ext_resource type="Texture2D" uid="uid://lo57nsagqf0a" path="res://pngs/bullet/BulletPeaCold.png" id="2_qwbf0"]
+[ext_resource type="Texture2D" uid="uid://cs40gw6kt8ipo" path="res://pngs/fx/iceline.png" id="3_4oa50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oa50"]
+atlas = ExtResource("2_qwbf0")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laihi"]
+atlas = ExtResource("2_qwbf0")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ycfol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oa50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laihi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ajshl"]
+radius = 30.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_laihi"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 20, 1)
+angle_min = 1.0728835e-05
+angle_max = 90.000015
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 89.999985
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_over_velocity_min = 0.19999999
+scale_over_velocity_max = 1.0
+
+[node name="BulletZeroCold" type="Node2D"]
+z_index = 1320
+scale = Vector2(2.7, 2.7)
+script = ExtResource("1_4oa50")
+hurtType = 11
+objName = "BulletPeaCold"
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_ycfol")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_ajshl")
+
+[node name="Fx" type="GPUParticles2D" parent="."]
+position = Vector2(0, 10)
+amount = 4
+texture = ExtResource("3_4oa50")
+process_material = SubResource("ParticleProcessMaterial_laihi")

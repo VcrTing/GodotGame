@@ -29,6 +29,7 @@ animations = [{
 script = ExtResource("1_nocao")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_at5dv")
 autoplay = "default"
 frame_progress = 0.01379809

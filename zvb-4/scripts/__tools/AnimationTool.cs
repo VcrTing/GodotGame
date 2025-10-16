@@ -74,11 +74,14 @@ public static class AnimationTool
     {
         view?.Play("intro");
     }
+    public static void DoAniChanging(AnimatedSprite2D view)
+    {
+        view?.Play("changing");
+    }
     public static void DoAniDieForBoom(AnimatedSprite2D view)
     {
         view?.Play("dieforboom");
     }
-
     public static void DoAniDie(AnimatedSprite2D view)
     {
         view?.Play("die");

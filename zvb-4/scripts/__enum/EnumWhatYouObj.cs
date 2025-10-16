@@ -12,6 +12,7 @@ namespace ZVB4.Conf
         //
         MuTong = 11, // 木桶
         TieTong = 12, // 铁桶
+        GanLanQiu = 13, // 橄榄球
         HuaXiangSan = 21 // 花箱伞
     }
 }

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://clwspk15crvci"]
 
-[ext_resource type="Script" uid="uid://bpy4a8b47ro0w" path="res://scripts/plans/plansshooter/PlansPea.cs" id="1_t4a6u"]
+[ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_t4a6u"]
 [ext_resource type="Texture2D" uid="uid://dre0naotexxkr" path="res://pngs/planscard/Pea2.png" id="2_t4a6u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qq38c"]
