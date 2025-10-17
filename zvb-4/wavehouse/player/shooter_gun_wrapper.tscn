@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djj2owxqbqx8u"]
 
-[ext_resource type="Script" uid="uid://cjdoko7g5exo5" path="res://scripts/player/ShooterWrapper.cs" id="1_ri3mb"]
+[ext_resource type="Script" uid="uid://bauxlmf01qyjh" path="res://scripts/player/ShooterGunWrapper.cs" id="1_ri3mb"]
 
 [node name="ShooterGunWrapper" type="Node2D"]
 z_index = 2200

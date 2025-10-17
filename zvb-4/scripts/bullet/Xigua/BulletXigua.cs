@@ -38,13 +38,16 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
         //
         Damage = BulletConstants.GetDamage(objName);
         DamageExtra = BulletConstants.GetDamageExtra(objName);
-        
+
         // RotationSpeed 随机一下正负
         if (RotationSpeed != 0)
         {
             RotationSpeed += (GD.Randf() * 20f) - 10f;
             if (GD.Randi() % 2 == 0) RotationSpeed = -RotationSpeed;
         }
+        
+        // 默认方向向上，根据子弹旋转调整自己的方向
+        ViewTool.RotationALittleByX(view, GetDirection());
     }
 
     // 用于Process计时的自动销毁
@@ -56,7 +59,6 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
     {
         if (!_hasHit)
         {
-            GD.Print("西瓜子弹命中 " + Damage);
             bool isOk = DoTakeDamage(area, Damage);
             if (isOk)
             {
@@ -69,7 +71,6 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
         {
             if (IsManyDamage)
             {
-                GD.Print("多段伤害 " + DamageExtra);
                 DoTakeDamage(area, DamageExtra);
             }
         }

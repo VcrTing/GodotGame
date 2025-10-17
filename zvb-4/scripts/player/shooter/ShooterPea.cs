@@ -3,7 +3,7 @@ using System;
 using ZVB4.Conf;
 using ZVB4.Interface;
 
-public partial class ShooterPea : Node2D, IPao, IObj
+public partial class ShooterPea : Node2D, IShooter, IObj
 {
 
     [Export]
@@ -28,6 +28,7 @@ public partial class ShooterPea : Node2D, IPao, IObj
     {
         // 正式攻击
         var bulletScene = GD.Load<PackedScene>(BulletScenePath);
+        GD.PrintErr("ShooterPea ShootBullet: " + BulletScenePath);
         if (bulletScene != null)
         {
             var bullet = bulletScene.Instantiate<Node2D>();

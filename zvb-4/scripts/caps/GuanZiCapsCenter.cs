@@ -1,30 +1,17 @@
 using Godot;
 using Godot.Collections;
-using System;
-using System.Collections.Generic;
 using ZVB4.Conf;
 
 public partial class GuanZiCapsCenter : Node2D
 {
-    
-    private bool _gamingPaused = false;
-    private float _gamingTimer = 0f;
-    float _gaming = 0f;
-    [Export]
-    public EnumChapter enumChapter = EnumChapter.One1;
-
     public static GuanZiCapsCenter Instance { get; private set; }
     private  Dictionary _capData;
-    public  Dictionary CapData => _capData;
-
     public override void _Ready()
     {
         Instance = this;
         LoadGame();
     }
-
     public int CapterNumber = (int) EnumChapter.One1;
-
     void LoadGame()
     {
         var ins = SaveGamerRunnerDataManger.Instance;
@@ -36,28 +23,20 @@ public partial class GuanZiCapsCenter : Node2D
         CapterNumber = ins.GetCapterNumber();
         LoadCapData(ChapterTool.GetChapterJsonFilePath(CapterNumber));
     }
-
-    
     void LoadCapData(string jsonPath)
     {
-        GD.Print("LoadCapData => jsonPath: " + jsonPath);
         if (Godot.FileAccess.FileExists(jsonPath))
         {
             using var file = Godot.FileAccess.Open(jsonPath, Godot.FileAccess.ModeFlags.Read);
-            var json = file.GetAsText();
-            var result = Json.ParseString(json);
+            var result = Json.ParseString(file.GetAsText());
             if (result.VariantType == Variant.Type.Dictionary)
             {
                 _capData = (Dictionary)result;
                 LoadVar(_capData);
                 LoadGuanZi(_capData);
-                LoadFlowerPeng(_capData);
             }
-            else
-                GD.PrintErr($"Failed to parse dictionary from {jsonPath}");
         }
     }
-
     void LoadGuanZi(Dictionary _capData)
     {
         if (_capData.ContainsKey("guanzis"))
@@ -82,25 +61,13 @@ public partial class GuanZiCapsCenter : Node2D
             }
         }
     }
-    
-    
-    void LoadFlowerPeng( Dictionary _capData)
-    {
-        int initpeng = _capData["initpeng"].AsInt32();
-        var flowers = FlowerPengSystem.Instance;
-        if (flowers != null)
-        {
-            flowers.Init(initpeng);
-        }
-    }
     void LoadVar( Dictionary varData)
     {
         if (varData.ContainsKey("initsun"))
         {
             // 初始阳光
             int initsun = (int)varData["initsun"];
-            // 设置阳光
-            LoadInitSun(initsun);
+            SunCenterSystem.Instance?.SetValue(initsun);
         }
         if (varData.ContainsKey("gamechecktime"))
         {
@@ -108,15 +75,29 @@ public partial class GuanZiCapsCenter : Node2D
             float gamechecktime = (float)varData["gamechecktime"];
             GameWinnerChecker.Instance?.AddTimePoint(gamechecktime);
         }
-    }
-    void LoadInitSun(int v)
-    {
-        var suns = SunCenterSystem.Instance;
-        if (suns == null)
+        if (varData.ContainsKey("initpeng"))
         {
-            GD.PrintErr("LoadInitSun => SunCenterSystem.Instance is null");
-            return;
+            // 加载花盆
+            int initpeng = _capData["initpeng"].AsInt32();
+            FlowerPengSystem.Instance?.Init(initpeng);
         }
-        suns?.SetValue(v);
+        if (varData.ContainsKey("generatemiaoratio"))
+        {
+            // 生成苗几率
+            float generatemiaoratio = varData["generatemiaoratio"].AsSingle();
+            if (RewordMiaoCenterSystem.Instance != null)
+            {
+                RewordMiaoCenterSystem.Instance?.SetGenerateRatio(generatemiaoratio);
+            }
+        }
+        if (varData.ContainsKey("shootershootratio"))
+        {
+            // 射手射击数量几率
+            float shootershootratio = varData["shootershootratio"].AsSingle();
+            if (PlayerController.Instance != null)
+            {
+                PlayerController.Instance?.SetShootRatio(shootershootratio);
+            }
+        }
     }
 }

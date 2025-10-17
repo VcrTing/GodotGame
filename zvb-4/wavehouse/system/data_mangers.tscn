@@ -8,5 +8,5 @@
 [node name="PlayerDataManger" type="Node2D" parent="."]
 script = ExtResource("1_napvj")
 
-[node name="GameChapterDataManger" type="Node2D" parent="."]
+[node name="SaveGamerRunnerDataManger" type="Node2D" parent="."]
 script = ExtResource("2_kubxa")

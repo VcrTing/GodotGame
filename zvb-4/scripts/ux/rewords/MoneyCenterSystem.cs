@@ -16,10 +16,13 @@ public partial class MoneyCenterSystem : Control
     {
         Instance = this;
         Visible = false;
-
-        int a = SaveDataManager.Instance.GetMoney();
-        v = a;
-        prev = a;
+        if (SaveDataManager.Instance == null)
+        {
+            GetTree().CreateTimer(0.1f).Timeout += () => _Ready();
+            return;
+        }
+        v = SaveDataManager.Instance.GetMoney();
+        prev = SaveDataManager.Instance.GetMoney();
         UpdateMoneyLabel(v);
         AsyncMoneyValue();
         ShowMe();

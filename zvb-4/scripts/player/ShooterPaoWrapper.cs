@@ -95,6 +95,10 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
         {
             allowAttackNum = -1;
         }
+        else
+        {
+            allowAttackNum = PlayerTool.ComputedShooterShootRatio(allowAttackNum);
+        }
     }
 
     bool CostSunForAttack()
@@ -130,7 +134,7 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
     Vector2 workingDirection = Vector2.Zero;
     bool firstAttack = true;
     bool inTouch = false;
-    public void Attack(Vector2 attackPos, bool isFirstAttack)
+    public void Attack(Vector2 attackPos, bool isFirstAttack, Vector2? startPos = null)
     {
         Vector2 pos = this.GlobalPosition;
         Vector2 dir = (attackPos - pos).Normalized();
@@ -291,6 +295,9 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
             }
         }
     }
+
+
+
     private Vector2 _attackDirection = Vector2.Zero;
     public Vector2 AttackDirection
     {

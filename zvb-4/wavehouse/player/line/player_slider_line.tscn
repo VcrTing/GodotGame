@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnmk6b5rls6rq"]
+
+[ext_resource type="Script" uid="uid://c41kirxpy85px" path="res://scripts/player/work/WorkTableSliderLine.cs" id="1_3c85d"]
+[ext_resource type="Texture2D" uid="uid://dkp32atjlrfko" path="res://pngs/ui/btn_things_bg.png" id="2_vst6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kntoi"]
+atlas = ExtResource("2_vst6q")
+region = Rect2(0, 0, 280, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grrdn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kntoi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b82g5"]
+size = Vector2(900, 400)
+
+[node name="PlayerSliderLine" type="Node2D"]
+script = ExtResource("1_3c85d")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.2, 1)
+sprite_frames = SubResource("SpriteFrames_grrdn")
+
+[node name="UxArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UxArea"]
+shape = SubResource("RectangleShape2D_b82g5")

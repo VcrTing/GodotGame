@@ -9,7 +9,7 @@ namespace ZVB4.Interface
 
         void ChangeShooter(string shooterName);
 
-        void Attack(Vector2 attackPos, bool isFirstAttack);
+        void Attack(Vector2 attackPos, bool isFirstAttack, Vector2? startPos = null);
         void ReleaseAttack(bool mustEmpty = false);
     }
 }

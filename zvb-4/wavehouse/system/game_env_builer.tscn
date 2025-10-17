@@ -23,6 +23,7 @@ size = Vector2(1160, 90)
 script = ExtResource("1_iqn62")
 
 [node name="Background" type="Node2D" parent="."]
+visible = false
 
 [node name="Bk" type="Sprite2D" parent="Background"]
 z_index = -1

@@ -6,11 +6,13 @@
     "gamechecktime": 20,
     
     "initpeng": 8,
+    "generatemiaoratio": 1,
     
     "allowmiaolist": [
         "SunFlower", "IceFlower", "YangTao", "Pea", "JianGuo", "Cherry"
     ],
     
+    "shootershootratio": 1,
     "initshooter": "YangTao",
     "initmiaolist": [ ],
     "enmyspeedattackscale": 1.0,

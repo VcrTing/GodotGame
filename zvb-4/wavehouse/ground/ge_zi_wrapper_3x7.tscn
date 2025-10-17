@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm8amegrl1qru"]
+
+[ext_resource type="Script" uid="uid://bylgs2ddnhooy" path="res://scripts/ground/GeZiWrapper.cs" id="1_j4ybd"]
+
+[node name="GeZiWrapper3x7" type="Node2D"]
+script = ExtResource("1_j4ybd")
+XGeziNum = 3

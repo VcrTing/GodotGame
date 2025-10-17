@@ -46,14 +46,6 @@ public partial class ShooterWorkTable : Node2D
 
     public bool HandleCollision(string plansName)
     {
-        /*
-        if (plansNameNow == plansName)
-        {
-            Node2D node2D = GodotTool.FindNode2DByName(this.GetParent(), NameConstants.ShooterWrapper);
-            DieToReword(node2D);
-            return true;
-        }
-        */
         return ChangeShooter(plansName);
     }
 

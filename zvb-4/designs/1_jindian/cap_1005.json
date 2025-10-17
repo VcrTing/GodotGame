@@ -9,10 +9,12 @@
     "allowmiaolist": [
         "SunFlower", "JianGuo", "Cherry", "Pea", "PeaDouble"
     ],
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
     
     "initshooter": "PeaDouble",
     "initmiaolist": [
-        "SunFlower", "Cherry", "Xigua", "PeaCold", "ShiLiu"
+        "SunFlower", "SunFlower", "Xigua", "PeaCold", "SunFlower"
     ],
     "enmyspeedattackscale": 2.0,
     "enmyspeedmovescale": 1.2,

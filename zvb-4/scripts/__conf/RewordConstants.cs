@@ -7,9 +7,8 @@ namespace ZVB4.Conf
     public static class RewordConstants
     {
         public const string Sun = "Sun";
-        public const string Gift = "Gift";
         public const string Money = "Money";
-        public const string Baoshi = "Baoshi";
+        public const string Plans = "Plans";
 
         // 
         public static readonly Dictionary<string, string> RewordSceneDict = new Dictionary<string, string>

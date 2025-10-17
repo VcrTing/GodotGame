@@ -5,6 +5,13 @@ using ZVB4.Conf;
 
 public partial class RewordMiaoCenterSystem : Node2D
 {
+    public float GenerateRatio = 1f;
+    public void SetGenerateRatio(float ratio)
+    {
+        if (ratio < 0f) ratio = 0f;
+        if (ratio > 1f) ratio = 1f;
+        GenerateRatio = ratio;
+    }
     public static RewordMiaoCenterSystem Instance { get; private set; }
     public override void _Ready()
     {
@@ -121,8 +128,7 @@ public partial class RewordMiaoCenterSystem : Node2D
     */
     float w = GameContants.ScreenHalfW - 90;
     int count = 0;
-    public void DumpPlansMiao(Vector2 pos, string name, bool playSound = true)
-    {
+    public void DumpPlansMiaoMust(Vector2 pos, string name, bool playSound = true) {
         try
         {
             var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + "reword_plans_miao.tscn");
@@ -148,8 +154,15 @@ public partial class RewordMiaoCenterSystem : Node2D
             return;
         }
     }
+    public void DumpPlansMiao(Vector2 pos, string name, bool playSound = true)
+    {
+        int i = GD.RandRange(0, 100);
+        // 倍率锁死
+        if (i >= GenerateRatio * 100f) return;
+        DumpPlansMiaoMust(pos, name, playSound);
+    }
     // 随机地点出生苗
-    public void DumpPlansMiaoRandomPosition(string name, bool playSound = true)
+    public void DumpPlansMiaoRandomPosition(string name, bool playSound = true, bool must = false)
     {
         Vector2 pos = this.GlobalPosition;
         float x = pos.X;
@@ -160,10 +173,17 @@ public partial class RewordMiaoCenterSystem : Node2D
         //
         x += v;
         y += v2;
+        if (must) {
+            DumpPlansMiao(new Vector2(x, y), name, playSound);
+            return;
+        }
         DumpPlansMiao(new Vector2(x, y), name, playSound);
     }
     public void DumpInitPlansMiao(string initmiaomode, string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
     {
+
+        DumpAllPlansMiao(initmiaolist);
+        /*
         switch (initmiaomode)
         {
             case "random":
@@ -176,7 +196,9 @@ public partial class RewordMiaoCenterSystem : Node2D
                 GD.Print("不生成苗");
                 break;
         }
+        */
     }
+    /*
     void DumpListRandomPlansMiao(string initmiaorandomnummode, Godot.Collections.Array initmiaolist)
     {
         int num = 0;
@@ -191,14 +213,15 @@ public partial class RewordMiaoCenterSystem : Node2D
         }
         DumpAllPlansMiao(initmiaolist);
     }
-    public void DumpAllPlansMiao(Godot.Collections.Array initmiaolist)
+    */
+    void DumpAllPlansMiao(Godot.Collections.Array initmiaolist)
     {
         foreach (var item in initmiaolist)
         {
             string name = item.AsString();
             if (name != null && name != "")
             {
-                DumpPlansMiaoRandomPosition(name, false);
+                DumpPlansMiaoRandomPosition(name, false, true);
             }
         }
     }

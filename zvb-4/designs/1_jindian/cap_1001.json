@@ -1,15 +1,5 @@
 {
     "type": "normal",
-    "suns": {
-        "3": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
-            }
-        ]
-    },
     "initsun": 50,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
@@ -17,7 +7,8 @@
     "allowmiaolist": [
         "SunFlower", "Pea", "Cherry"
     ],
-
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
     "initshooter": "Pea",
     "initmiaolist": [
         "SunFlower"

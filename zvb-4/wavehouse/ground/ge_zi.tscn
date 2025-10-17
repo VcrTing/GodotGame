@@ -42,5 +42,4 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_sa0h7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("5_na63y")

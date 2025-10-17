@@ -14,6 +14,10 @@ public static class ChapterTool
         {
             return FolderConstants.WaveSystem + "loader/guan_zi_caps_center.tscn";
         }
+        else if (IsLine(chapter))
+        {
+            return FolderConstants.WaveSystem + "loader/line_caps_center.tscn";
+        }
         return FolderConstants.WaveSystem + "loader/jing_dian_caps_center.tscn";
     }
 

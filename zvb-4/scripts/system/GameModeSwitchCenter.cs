@@ -20,7 +20,6 @@ public partial class GameModeSwitchCenter : Node2D
             return;
         }
         int chapterNumber = ins.GetCapterNumber();
-        // GD.Print("加载章节 => CapterNumber: " + CapterNumber);
         string scenePath = ChapterTool.GetChapterSystemLoader(chapterNumber);
         if (scenePath != "")
         {

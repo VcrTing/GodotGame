@@ -1,32 +1,33 @@
 {
     "type": "normal",
-    "initsun": 1000,
+    "initsun": 2000,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 120,
     
     "initpeng": 8,
+    "generatemiaoratio": 0,
     
     "allowmiaolist": [
         "SunFlower", "IceFlower", "YangTao", "Pea", "JianGuo", "Cherry"
     ],
-    
-    "initshooter": "YangTao",
+    "shootershootratio": 1,
+    "initshooter": "Pea",
     "initmiaolist": [ "SunFlower", "SunFlower", "SunFlower", "SunFlower" ],
-    "enmyspeedattackscale": 1.0,
-    "enmyspeedmovescale": 1,
-    "enmyviewscale": 1,
-    "enmybehurtscale": 1.0,
+    "enmyspeedattackscale": 2.0,
+    "enmyspeedmovescale": 2.0,
+    "enmyviewscale": 0.7,
+    "enmybehurtscale": 4.0,
 
     "enmyswaveflag": {
         "19": 1
     },
     "enmys": {
-        "6": [
+        "5": [
             {
-                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
-                "generator": [ 5, 6, 7, 8, 9, 10 ],
-                "typesmode": "next", "generatormode": "next", "lazyme": 0
+                "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "grids": [ 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 10, "loopdelay": 1, "isenmy": 1
             }
         ]
     }

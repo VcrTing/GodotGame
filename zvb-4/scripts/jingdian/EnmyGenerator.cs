@@ -144,28 +144,36 @@ public partial class EnmyGenerator : Node2D
     /// <returns>生成的敌人节点（Node2D），失败返回null</returns>
     public Node2D GenerateEnemyByCode(string name, int tileIndex, int randomXRate)
     {
-        string path = EnmyTypeConstans.GetZombiWrapperScenePath(name);
-        var packed = GD.Load<PackedScene>(path);
-        if (packed == null)
+        try
         {
-            GD.PrintErr($"未找到敌人场景: {path}");
-            return null;
+            string path = EnmyTypeConstans.GetZombiWrapperScenePath(name);
+            var packed = GD.Load<PackedScene>(path);
+            if (packed == null)
+            {
+                GD.PrintErr($"未找到敌人场景: {path}");
+                return null;
+            }
+            //
+            var instance = packed.Instantiate<Node2D>();
+            // 取格子区间
+            if (tileIndex < 1 || tileIndex > tiles.Count)
+            {
+                GD.PrintErr($"格子编号超出范围: {tileIndex}");
+                // AddChild(instance);
+                return instance;
+            }
+            var tilePos = tiles[tileIndex - 1];
+            var pos = instance.Position;
+            pos.X = DoRandomX(tilePos, randomXRate);
+            //
+            pos.Y = pos.Y + genY;
+            return Doing(instance, pos, name);
         }
-        //
-        var instance = packed.Instantiate<Node2D>();
-        // 取格子区间
-        if (tileIndex < 1 || tileIndex > tiles.Count)
+        catch (Exception ex)
         {
-            GD.PrintErr($"格子编号超出范围: {tileIndex}");
-            // AddChild(instance);
-            return instance;
+            GD.PrintErr($"生成敌人异常: {ex}");
         }
-        var tilePos = tiles[tileIndex - 1];
-        var pos = instance.Position;
-        pos.X = DoRandomX(tilePos, randomXRate);
-        //
-        pos.Y = pos.Y + genY;
-        return Doing(instance, pos, name);
+        return null;
     }
 
     float genY = GameContants.HorizonYEnmyGen;

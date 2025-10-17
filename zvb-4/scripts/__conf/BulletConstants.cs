@@ -45,7 +45,7 @@ namespace ZVB4.Conf
             { BulletPeaColdName, Base * 60 },
             { BulletPeaDoubleName, DamageBasic },
             { BulletShiLiuName, Base * 25 },
-            { BulletXiguaName, Base * 150 },
+            { BulletXiguaName, Base * 175 },
 
             { BulletLanMeiName, Base * 70 },
             { BulletYangTaoName, Base * 50 },
@@ -65,7 +65,7 @@ namespace ZVB4.Conf
             // { BulletPeaName, Zero },
             // { BulletLanMeiName, Zero },
             // { BulletYangTaoName, Zero },
-            { BulletXiguaName, Base * 70 },
+            { BulletXiguaName, Base * 75 },
             { BulletPeaDoubleName, DamageBasic },
             { BulletXiguaBingName, Base * 100 },
         };
@@ -104,7 +104,7 @@ namespace ZVB4.Conf
                 BulletShiLiuName => 1700f,
                 BulletLanMeiName => 600f,
                 BulletYangTaoName => 1000f,
-                BulletXiguaName => 1080f,
+                BulletXiguaName => 1480f,
                 //
                 BulletPeaGoldName => 2500f,
                 BulletXiguaBingName => 1120f,

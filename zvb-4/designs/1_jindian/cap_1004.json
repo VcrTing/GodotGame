@@ -9,6 +9,8 @@
     "allowmiaolist": [
         "SunFlower", "Pea", "JianGuo", "Cherry"
     ],
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
     
     "initshooter": "Pea",
     "initmiaolist": [
