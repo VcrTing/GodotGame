@@ -53,6 +53,7 @@ public partial class SoundFxController : Node2D
                 {
                     player.Stream = stream;
                     player.VolumeDb = LinearToDb(req.Volume);
+                    player.PanningStrength = req.Pan;
                     // Simulate pan by adjusting the X position relative to req.Position
                     // var panOffset = Mathf.Clamp(req.Pan, -1f, 1f) * 100f; // 100 pixels left/right
                     // player.GlobalPosition = req.Position + new Vector2(panOffset, 0);

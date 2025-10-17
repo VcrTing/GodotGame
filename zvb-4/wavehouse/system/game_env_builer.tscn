@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b12upl6p1d460"]
+[gd_scene load_steps=15 format=3 uid="uid://b12upl6p1d460"]
 
 [ext_resource type="Script" uid="uid://bdtd1kvhadi8c" path="res://scripts/system/Envs.cs" id="1_iqn62"]
 [ext_resource type="Script" uid="uid://bu22knj6i5gk8" path="res://scripts/ux/DieLineZero.cs" id="3_8fgd1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bctsx0boajko" path="res://scripts/ux/BulletLowDown.cs" id="5_shtsd"]
 [ext_resource type="PackedScene" uid="uid://bfthejwtbkxar" path="res://wavehouse/obj/bullet_wall.tscn" id="6_6veu1"]
 [ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="7_5l6ha"]
+[ext_resource type="PackedScene" uid="uid://copbbr5ipfpne" path="res://wavehouse/sounds/sound_oneshot_controller.tscn" id="8_rh23g"]
 [ext_resource type="PackedScene" uid="uid://c6ds1gjwrriuf" path="res://scenes/ui/sound_ui_controller.tscn" id="8_x3k26"]
 [ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="9_0wjk8"]
 [ext_resource type="PackedScene" uid="uid://crbw8wgirbf30" path="res://wavehouse/sounds/sound_game_obj_controller.tscn" id="10_j7o8c"]
@@ -74,6 +75,8 @@ script = ExtResource("7_5l6ha")
 [node name="Ear" type="Node2D" parent="."]
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Ear"]
+
+[node name="SoundOneshotController" parent="Ear" instance=ExtResource("8_rh23g")]
 
 [node name="SoundUiController" parent="Ear" instance=ExtResource("8_x3k26")]
 

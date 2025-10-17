@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://8428d727ktas"]
+[gd_scene load_steps=11 format=3 uid="uid://8428d727ktas"]
 
-[ext_resource type="Script" uid="uid://d1ekdbelko8hi" path="res://scripts/bullet/BulletSingle.cs" id="1_4oa50"]
+[ext_resource type="Script" uid="uid://b0vw3ymcio0c6" path="res://scripts/bullet/Cold/BulletZeroCold.cs" id="1_laihi"]
 [ext_resource type="Texture2D" uid="uid://lo57nsagqf0a" path="res://pngs/bullet/BulletPeaCold.png" id="2_qwbf0"]
 [ext_resource type="Texture2D" uid="uid://cs40gw6kt8ipo" path="res://pngs/fx/iceline.png" id="3_4oa50"]
+[ext_resource type="Script" uid="uid://b73c22wram71g" path="res://scripts/bullet/LanMei/BulletSingleUxArea.cs" id="4_laihi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4oa50"]
 atlas = ExtResource("2_qwbf0")
@@ -26,8 +27,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ajshl"]
-radius = 30.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_4oa50"]
+radius = 90.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_laihi"]
 particle_flag_disable_z = true
@@ -45,16 +46,18 @@ scale_max = 1.5
 scale_over_velocity_min = 0.19999999
 scale_over_velocity_max = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oa50"]
+size = Vector2(120, 20)
+
 [node name="BulletZeroCold" type="Node2D"]
 z_index = 1320
-scale = Vector2(2.7, 2.7)
-script = ExtResource("1_4oa50")
+script = ExtResource("1_laihi")
+IsManyDamage = true
 hurtType = 11
-objName = "BulletPeaCold"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -4)
-scale = Vector2(1.4, 1.4)
+position = Vector2(0, -7)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ycfol")
 
 [node name="AttackArea" type="Area2D" parent="."]
@@ -62,10 +65,19 @@ collision_layer = 256
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("CircleShape2D_ajshl")
+shape = SubResource("CircleShape2D_4oa50")
 
 [node name="Fx" type="GPUParticles2D" parent="."]
 position = Vector2(0, 10)
 amount = 4
 texture = ExtResource("3_4oa50")
 process_material = SubResource("ParticleProcessMaterial_laihi")
+
+[node name="UxArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+script = ExtResource("4_laihi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UxArea"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_4oa50")

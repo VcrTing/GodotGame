@@ -95,4 +95,15 @@ public static class GameTool
         Vector2 dir = d.Rotated(rad).Normalized();
         return dir;
     }
+    public static Vector2 RotateVector22(Vector2 d, float degrees)
+    {
+        float rad = Mathf.DegToRad(degrees);
+        float leftAngle = d.Angle() + rad;
+        Vector2 leftDirection = new Vector2(Mathf.Cos(leftAngle), Mathf.Sin(leftAngle));
+        return leftDirection;
+    }
+    public static Vector2 OffsetPosition(Vector2 pos, float v)
+    {
+        return new Vector2(pos.X + v, pos.Y);
+    }
 }

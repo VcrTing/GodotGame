@@ -22,30 +22,25 @@ public partial class ShooterShiLiu : Node2D, IObj, IPao
         init = true;
         return true;
     }
-    int deg = 12; // 8 + 4 + 1
+    int deg = 10; // 7 + 3
     // 散射
-    public List<Vector2> ComputedAttackDirectionsExtra(Vector2 startPosition, Vector2 direction)
+    public List<ShootBulletRequest> ComputedAttackDirections(Vector2 startPosition, Vector2 direction)
     {
-        List<Vector2> ds = new List<Vector2>();
-        ds.Add(direction);
-        ds.Add(GameTool.RotateVector2(direction, 2));
-        ds.Add(GameTool.RotateVector2(direction, -2));
-        // LLL: -6到6之间，每0.5度计算一个方向
-        for (float d = -deg; d <= deg; d += 3f)
-        {
-            if (d >= -2 && d <= 2) continue;
-            ds.Add(GameTool.RotateVector2(direction, d));
-        }
+        List<ShootBulletRequest> ds = new List<ShootBulletRequest>();
+        ds.Add(new ShootBulletRequest { startPosition = startPosition, direction = direction });
+        ds.Add(new ShootBulletRequest { startPosition = GameTool.OffsetPosition(startPosition, 4), direction = GameTool.RotateVector2(direction, 4) });
+        ds.Add(new ShootBulletRequest { startPosition = GameTool.OffsetPosition(startPosition, -4), direction = GameTool.RotateVector2(direction, -4) });
         return ds;
     }
     // 自射
-    public List<Vector2> ComputedAttackDirections(Vector2 startPosition, Vector2 direction)
+    public List<ShootBulletRequest> ComputedAttackDirectionsExtra(Vector2 startPosition, Vector2 direction)
     {
-        List<Vector2> ds = new List<Vector2>();
-        ds.Add(direction);
-        for (float d = -2; d <= 2; d += 2f)
+        List<ShootBulletRequest> ds = new List<ShootBulletRequest>();
+        // ds.Add(new ShootBulletRequest { startPosition = startPosition, direction = direction });
+        for (float d = -9; d <= 9; d += 3f)
         {
-            ds.Add(GameTool.RotateVector2(direction, d));
+            Vector2 pos = GameTool.OffsetPosition(startPosition, d * 3);
+            ds.Add(new ShootBulletRequest { startPosition = pos, direction = GameTool.RotateVector2(direction, d) });
         }
         return ds;
     }
@@ -66,19 +61,19 @@ public partial class ShooterShiLiu : Node2D, IObj, IPao
         var bulletScene = GD.Load<PackedScene>(BulletScenePath);
         if (bulletScene != null)
         {
-            List<Vector2> directions = ComputedAttackDirections(startPosition, direction);
+            List<ShootBulletRequest> directions = ComputedAttackDirections(startPosition, direction);
             foreach (var dir in directions)
             {
-                __Shoot(bulletScene, startPosition, dir);
+                __Shoot(bulletScene, dir.startPosition, dir.direction);
             }
             // 播放音效
             DoFireEffect(startPosition);
             //
-            await ToSignal(GetTree().CreateTimer(0.01f), "timeout");
+            await ToSignal(GetTree().CreateTimer(0.04f), "timeout");
             directions = ComputedAttackDirectionsExtra(startPosition, direction);
             foreach (var dir in directions)
             {
-                __Shoot(bulletScene, startPosition, dir);
+                __Shoot(bulletScene, dir.startPosition, dir.direction);
             }
         }
     }

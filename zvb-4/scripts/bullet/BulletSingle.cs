@@ -7,6 +7,8 @@ using ZVB4.Tool;
 public partial class BulletSingle : Node2D, IBulletBase, IObj, IAttack
 {
     
+    [Export]
+    public bool IsManyDamage = false; // 是否多段伤害
     private Area2D _area2D;
 
     public override void _Ready()
@@ -19,6 +21,7 @@ public partial class BulletSingle : Node2D, IBulletBase, IObj, IAttack
         if (_area2D != null)
         {
             _area2D.AreaEntered += OnArea2DAreaEntered;
+            _area2D.Monitoring = true; // 初始不监测碰撞
         }
         _autoDieElapsed = 0f;
         _autoDieActive = true;
@@ -26,7 +29,7 @@ public partial class BulletSingle : Node2D, IBulletBase, IObj, IAttack
         {
             if (hurtType == EnumHurts.Cold)
             {
-                SoundFxController.Instance?.PlayFx("Fx/icefly", "icefly", 5);
+                SoundFxController.Instance?.PlayFx("Fx/icefly", "ice_fly", 4);
             }
         }
         //
@@ -50,7 +53,7 @@ public partial class BulletSingle : Node2D, IBulletBase, IObj, IAttack
     private bool _hasHit = false;
     private void OnArea2DAreaEntered(Area2D area)
     {
-        if (_hasHit) return; // 只处理第一个碰撞体
+        if (!IsManyDamage && _hasHit) return; // 只处理第一个碰撞体
         bool isOk = DoTakeDamage(area);
         if (isOk) { _hasHit = true; __Die(); 
             var view = GetNodeOrNull<CanvasItem>(NameConstants.View);
@@ -122,8 +125,6 @@ public partial class BulletSingle : Node2D, IBulletBase, IObj, IAttack
 
     async void __Die()
     {
-        // var view = GetNodeOrNull<CanvasItem>(NameConstants.View);
-        // view.Visible = false;
         CloseArea();
         await ToSignal(GetTree().CreateTimer(fadeDuration), "timeout");
         QueueFree();
@@ -147,4 +148,5 @@ public partial class BulletSingle : Node2D, IBulletBase, IObj, IAttack
     public int GetDamageExtra() => 0;
     public Vector2 GetDirection() => Direction;
     public bool CanAttack() => true;
+
 }

@@ -60,51 +60,21 @@ public partial class BulletXiguaBingAttackArea : Area2D
     bool firstHit = false;
     private void OnAreaEntered(Area2D area)
     {
+        int d = myAttack.GetDamage();
         isWorking = true;
         if (!firstHit)
         {
-            HandleSingleDamage(area);
             firstHit = true;
         }
         else
         {
-            HandleGroupDamage(area);
+            d = d / 3;
         }
+        ObjTool.TakeDamage(area, myType, d, enumHurts);
     }
 
     IObj myObj = null;
     IAttack myAttack = null;
     EnumHurts enumHurts = EnumHurts.Cold;
     EnumObjType myType = EnumObjType.Plans;
-    
-    // 群体伤害判定方法
-    private void HandleGroupDamage(Area2D area)
-    {
-        if (area == null) return;
-        DoTakeDamage(area, myAttack.GetDamage() / 3);
-    }
-
-    // 单独伤害方法
-    private void HandleSingleDamage(Area2D area)
-    {
-        if (area == null) return;
-        DoTakeDamage(area, myAttack.GetDamage());
-    }
-    
-    // 伤害处理方法
-    void DoTakeDamage(Area2D area, int damage)
-    {
-        if (area is IHurtBase hurt)
-        {
-            hurt.TakeDamage(myType, damage, enumHurts);
-        }
-        else
-        {
-            var parent = area.GetParent();
-            if (parent is IHurtBase hurtParent)
-            {
-                hurtParent.TakeDamage(myType, damage, enumHurts);
-            }
-        }
-    }
 }

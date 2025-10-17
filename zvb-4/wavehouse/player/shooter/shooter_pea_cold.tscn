@@ -1,35 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://l7gwgg0p6x1e"]
+[gd_scene load_steps=5 format=3 uid="uid://l7gwgg0p6x1e"]
 
-[ext_resource type="Script" uid="uid://cgy20xilmj2ir" path="res://scripts/player/shooter/ShooterPea.cs" id="1_nocao"]
-[ext_resource type="Texture2D" uid="uid://ceantjiwhqe1i" path="res://pngs/plans/ShooterPeaCold.png" id="2_mh47f"]
+[ext_resource type="Script" uid="uid://gbpg1j5xsntm" path="res://scripts/player/shooter/ShooterPeaCold.cs" id="1_mh47f"]
+[ext_resource type="Texture2D" uid="uid://bgmh61es3846l" path="res://pngs/plans/ShooterPeaCold2.png" id="2_mh47f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1dxxa"]
 atlas = ExtResource("2_mh47f")
-region = Rect2(0, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ankhm"]
-atlas = ExtResource("2_mh47f")
-region = Rect2(80, 0, 80, 80)
+region = Rect2(0, 0, 190, 190)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4bxlq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1dxxa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ankhm")
 }],
 "loop": true,
 "name": &"default",
 "speed": 3.0
 }]
 
-[node name="ShooterPea" type="Node2D"]
-script = ExtResource("1_nocao")
+[node name="ShooterPeaCold" type="Node2D"]
+script = ExtResource("1_mh47f")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, -9)
+scale = Vector2(0.41, 0.41)
 sprite_frames = SubResource("SpriteFrames_4bxlq")
 autoplay = "default"
 frame_progress = 0.3560257

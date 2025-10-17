@@ -12,7 +12,7 @@
     
     "initshooter": "PeaDouble",
     "initmiaolist": [
-        "SunFlower", "Cherry", "JianGuo"
+        "SunFlower", "Cherry", "Xigua", "PeaCold", "ShiLiu"
     ],
     "enmyspeedattackscale": 2.0,
     "enmyspeedmovescale": 1.2,

@@ -44,24 +44,19 @@ public partial class BulletXiguaBingAttackExtraArea : Area2D
         {
             isWorking = true;
             enteredAreas.Add(area);
+            int d = myAttack.GetDamageExtra();
+            ObjTool.TakeDamage(area, myType, d, enumHurts);
         }
     }
     bool isWorking = false;
     float collectionTime = 0.08f; // 收集时间
     public override void _Process(double delta)
     {
-        // MMM
-        if (isWorking && enteredAreas.Count > 0)
+        if (isWorking)
         {
             timerElapsed += (float)delta;
-            if (!hasAttacked && timerElapsed >= collectionTime)
+            if (timerElapsed >= collectionTime)
             {
-                hasAttacked = true;
-                int d = myAttack.GetDamageExtra();
-                foreach (var area in enteredAreas)
-                {
-                    DoTakeDamage(area, d);
-                }
                 Die();
             }
         }
@@ -83,28 +78,4 @@ public partial class BulletXiguaBingAttackExtraArea : Area2D
         QueueFree();
     }
     
-    // 伤害处理方法
-    void DoTakeDamage(Area2D area, int damage)
-    {
-        try
-        {
-            // GD.Print($"溅射伤害 DoTakeDamage: {area.Name}, Damage: {damage}");
-            if (area is IHurtBase hurt)
-            {
-                hurt.TakeDamage(myType, damage, enumHurts);
-            }
-            else
-            {
-                var parent = area.GetParent();
-                if (parent is IHurtBase hurtParent)
-                {
-                    hurtParent.TakeDamage(myType, damage, enumHurts);
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            GD.PrintErr($"溅射伤害 DoTakeDamage 异常: {ex.Message}");
-        }
-    }
 }

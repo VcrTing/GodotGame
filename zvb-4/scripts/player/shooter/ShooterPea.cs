@@ -3,7 +3,7 @@ using System;
 using ZVB4.Conf;
 using ZVB4.Interface;
 
-public partial class ShooterPea : Node2D, IShooter, IObj
+public partial class ShooterPea : Node2D, IPao, IObj
 {
 
     [Export]
@@ -72,4 +72,10 @@ public partial class ShooterPea : Node2D, IShooter, IObj
         QueueFree();
         return true;
     }
+
+    public void DoRotingEffect(Vector2 direction)
+    {
+        throw new NotImplementedException();
+    }
+
 }

@@ -5,6 +5,9 @@ namespace ZVB4.Tool
 {
     public static class SoundTool
     {
+
+        public const string SoundBusUx = "Ux";
+        
         /// <summary>
         /// 生成带随机index的音效路径
         /// </summary>
@@ -22,20 +25,20 @@ namespace ZVB4.Tool
         public static float CalcPanByPos(Vector2 pos)
         {
             float x = pos.X;
-            if (x > -10f && x < 10f)
-            {
-                float i = (float)GD.RandRange(10f, GameContants.ScreenHalfW);
-                x = x < 0 ? -i : i;
-            }
-            if (x <= -GameContants.ScreenHalfW) return -1f;
-            if (x >= GameContants.ScreenHalfW) return 1f;
-            return x / GameContants.ScreenHalfW;
+            return CalcPanByX(x);
         }
         public static float CalcPanByX(float x)
         {
             if (x <= -GameContants.ScreenHalfW) return -1f;
             if (x >= GameContants.ScreenHalfW) return 1f;
-            return x / GameContants.ScreenHalfW;
+            // KKK
+            float v = x / (GameContants.ScreenHalfW - 30f);
+            if (v > -0.1f && v < 0.1f)
+            {
+                if (v < 0) v = -0.1f;
+                else v = 0.1f;
+            }
+            return v;
         }
     }
 }

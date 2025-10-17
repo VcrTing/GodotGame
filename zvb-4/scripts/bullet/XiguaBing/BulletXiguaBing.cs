@@ -15,8 +15,8 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         Init();
         view = GodotTool.FindNode2DByName(this, NameConstants.View);        
         // MMM
+        ViewTool.View3In1(this, minScale, maxScale);
         //
-        AdjustView();
         // 启动计时器变量，Process里计时
         _autoDieElapsed = 0f;
         _autoDieActive = true;
@@ -49,23 +49,18 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
                 DoDie();
             }
         }
-
         Speed = FixSpeedByY();
         MoveBullet(Direction, Speed, delta);
         if (isDoDie)
         {
-            AdjustHorizion();
+            ViewTool.ViewZiFace(this);
             // 死亡效果
-            RunningDieFx(delta);
+            GameTool.RunnerBulletZeroWhenDieFx(this, delta, ref fadeElapsed, fadeDuration, fadeLowest);
         }
         else
         {
-            AdjustView();
+            ViewTool.View3In1(this, minScale, maxScale);
         }
-    }
-    void RunningDieFx(double delta)
-    {
-        GameTool.RunnerBulletZeroWhenDieFx(this, delta, ref fadeElapsed, fadeDuration, fadeLowest);
     }
     bool isDoDie = false;
     void DoDie()
@@ -73,7 +68,7 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         if (!isDoDie)
         {
             isDoDie = true;
-            DieOfFade();
+            __Die();
         }
     }
     float maxY = GameContants.HorizonBulletY; // 子弹出界的y值
@@ -100,15 +95,6 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         await ToSignal(GetTree().CreateTimer(fadeDuration), "timeout");
         QueueFree();
     }
-    void DieWhenHit()
-    {
-        __Die();
-    }
-    private void DieOfFade()
-    {
-        __Die();
-    }
-
     [Export]
     EnumObjType objType = EnumObjType.Plans;
     public EnumObjType GetEnumObjType() => objType;
@@ -127,16 +113,6 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
 
     float minScale = GameContants.MinScale;
     float maxScale = GameContants.MaxScale;
-    public bool AdjustHorizion()
-    {
-        ViewTool.ViewZiFace(this);
-        return true;
-    }
-    public bool AdjustView()
-    {
-        ViewTool.View3In1(this, minScale, maxScale);
-        return true;
-    }
 
     private int Damage = 0;
     private int DamageExtra = 0;
@@ -147,8 +123,6 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
     {
         Damage = BulletConstants.GetDamage(objName);
         DamageExtra = BulletConstants.GetDamageExtra(objName);
-        // GD.Print($"BulletXiguaBing Init: {objName}, Damage: {Damage}, DamageExtra: {DamageExtra}");
-        //
         SpeedInit = GameTool.GetBulletInitialSpeed(objName);
         Speed = SpeedInit;
         return true;
@@ -180,7 +154,7 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         if (working)
         {
             StartAttack();
-            DieOfFade();
+            __Die();
             canMove = false;
         }
     }

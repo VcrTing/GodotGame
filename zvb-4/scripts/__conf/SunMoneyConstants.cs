@@ -24,17 +24,19 @@ namespace ZVB4.Conf
             { PlansConstants.LanMei, 20 },
             { PlansConstants.YangTao, 30 },
             { PlansConstants.ShiLiu, 25 },
+            { PlansConstants.Xigua, 40 },
             { PlansConstants.XiguaBing, 50 },
             { PlansConstants.PeaGold, 50 }
         };
         public static readonly Dictionary<string, int> DieSunDict = new Dictionary<string, int>
         {
             { PlansConstants.Pea, 50 },
-            { PlansConstants.PeaCold, 60 },
+            { PlansConstants.PeaCold, 65 },
             { PlansConstants.PeaDouble, 75 },
-            { PlansConstants.LanMei, 50 },
+            { PlansConstants.LanMei, 75 },
             { PlansConstants.YangTao, 100 },
-            { PlansConstants.ShiLiu, 75 },
+            { PlansConstants.ShiLiu, 80 },
+            { PlansConstants.Xigua, 100 },
             { PlansConstants.XiguaBing, 200 },
             { PlansConstants.PeaGold, 200 }
         };

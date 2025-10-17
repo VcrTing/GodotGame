@@ -9,9 +9,11 @@ namespace ZVB4.Conf
         public const string BulletPeaColdName = "BulletPeaCold";
         public const string BulletPeaDoubleName = "BulletPeaDouble";
         public const string BulletShiLiuName = "BulletShiLiu";
-        public const string BulletPeaGoldName = "BulletPeaGold";
         public const string BulletLanMeiName = "BulletLanMei";
         public const string BulletYangTaoName = "BulletYangTao";
+        public const string BulletXiguaName = "BulletXigua";
+        //
+        public const string BulletPeaGoldName = "BulletPeaGold";
         public const string BulletXiguaBingName = "BulletXiguaBing";
 
         // 植物名，bullet
@@ -24,6 +26,7 @@ namespace ZVB4.Conf
             { PlansConstants.LanMei, FolderConstants.WaveBullet + "bullet_lan_mei.tscn" },
             { PlansConstants.YangTao, FolderConstants.WaveBullet + "bullet_yang_tao.tscn" },
             { PlansConstants.ShiLiu, FolderConstants.WaveBullet + "bullet_shi_liu.tscn" },
+            { PlansConstants.Xigua, FolderConstants.WaveBullet + "bullet_xigua.tscn" },
             //
             { PlansConstants.PeaGold, FolderConstants.WaveBullet + "diancang/bullet_pea_gold.tscn" },
             { PlansConstants.XiguaBing, FolderConstants.WaveBullet + "diancang/bullet_xigua_bing.tscn" },
@@ -41,7 +44,8 @@ namespace ZVB4.Conf
             { BulletPeaName, DamageBasic },
             { BulletPeaColdName, Base * 60 },
             { BulletPeaDoubleName, DamageBasic },
-            { BulletShiLiuName, Base * 20 },
+            { BulletShiLiuName, Base * 25 },
+            { BulletXiguaName, Base * 150 },
 
             { BulletLanMeiName, Base * 70 },
             { BulletYangTaoName, Base * 50 },
@@ -61,6 +65,7 @@ namespace ZVB4.Conf
             // { BulletPeaName, Zero },
             // { BulletLanMeiName, Zero },
             // { BulletYangTaoName, Zero },
+            { BulletXiguaName, Base * 70 },
             { BulletPeaDoubleName, DamageBasic },
             { BulletXiguaBingName, Base * 100 },
         };
@@ -92,7 +97,6 @@ namespace ZVB4.Conf
         {
             return n switch
             {
-                BulletPeaGoldName => 2500f,
                 BulletPeaName => 800f,
                 BulletPeaColdName => 700f,
                 BulletPeaDoubleName => 920f,
@@ -100,6 +104,9 @@ namespace ZVB4.Conf
                 BulletShiLiuName => 1700f,
                 BulletLanMeiName => 600f,
                 BulletYangTaoName => 1000f,
+                BulletXiguaName => 1080f,
+                //
+                BulletPeaGoldName => 2500f,
                 BulletXiguaBingName => 1120f,
                 _ => 700f,
             };

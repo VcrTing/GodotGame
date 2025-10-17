@@ -17,10 +17,11 @@ namespace ZVB4.Conf
         public const string YangTao = "YangTao";
         public const string LanMei = "LanMei";
         public const string ShiLiu = "ShiLiu";
-        //
+        public const string Xigua = "Xigua";
+        // 种植
         public const string SunFlower = "SunFlower";
         public const string JianGuo = "JianGuo";
-        // 冰炸弹
+        // 炸弹
         public const string IceFlower = "IceFlower";
         public const string Cherry = "Cherry";
         public const string LaJiao = "LaJiao";
@@ -37,6 +38,7 @@ namespace ZVB4.Conf
             { LanMei, FolderConstants.WavePlans + "plansshooter/lan_mei.tscn" },
             { YangTao, FolderConstants.WavePlans + "plansshooter/yang_tao.tscn" },
             { ShiLiu, FolderConstants.WavePlans + "plansshooter/shi_liu.tscn" },
+            { Xigua, FolderConstants.WavePlans + "plansshooter/xigua.tscn" },
 
             { SunFlower, FolderConstants.WavePlans + "plansfuzhu/sun_flower.tscn" },
             { JianGuo,  FolderConstants.WavePlans + "planszhongzhi/jian_guo.tscn" },
@@ -58,6 +60,7 @@ namespace ZVB4.Conf
             { LanMei, FolderConstants.WavePlayer + "shooter/shooter_lan_mei.tscn" },
             { YangTao, FolderConstants.WavePlayer + "shooter/shooter_yang_tao.tscn" },
             { ShiLiu, FolderConstants.WavePlayer + "shooter/shooter_shi_liu.tscn" },
+            { Xigua, FolderConstants.WavePlayer + "shooter/shooter_xigua.tscn" },
             //
             { PeaGold, FolderConstants.WavePlayer + "shooter_diancang/shooter_pea_gold.tscn" },
             { XiguaBing, FolderConstants.WavePlayer + "shooter_diancang/shooter_xigua_bing.tscn" },
@@ -72,12 +75,13 @@ namespace ZVB4.Conf
             { LanMei, 3f },
             { YangTao, 5f },
             { ShiLiu, 1f },
+            { Xigua, 4f },
 
             { SunFlower, 1f },
             { Cherry, 5f },
-            { JianGuo, 1f },
+            { JianGuo, 2f },
             { IceFlower, 10f },
-            { LaJiao, 1f },
+            { LaJiao, 3f },
             //
             { XiguaBing, 8f },
             { PeaGold, 8f },
@@ -102,11 +106,12 @@ namespace ZVB4.Conf
         public static readonly  Dictionary<string, int> ShooterAttackLimitDict = new  Dictionary<string, int>
         {
             { Pea, 0 },
-            { PeaCold, 20 },
+            { PeaCold, 24 },
             { PeaDouble, 20 },
+            { Xigua, 12 },
             { LanMei, 14 },
             { YangTao, 14 },
-            { ShiLiu, 24 },
+            { ShiLiu, 16 },
             { XiguaBing, 8 },
             { PeaGold, 10 },
         };
@@ -125,6 +130,7 @@ namespace ZVB4.Conf
             else if (key == LanMei) return 0.5f;
             else if (key == YangTao) return 0.36f;
             else if (key == ShiLiu) return 0.8f;
+            else if (key == Xigua) return 1f;
             //
             if (key == PeaGold) return 2f;
             else if (key == XiguaBing) return 1f;
@@ -138,6 +144,7 @@ namespace ZVB4.Conf
             else if (key == LanMei) return 0.06f;
             else if (key == YangTao) return 0.05f;
             else if (key == ShiLiu) return 0.8f;
+            else if (key == Xigua) return 0.8f;
             //
             if (key == PeaGold) return 0.08f;
             else if (key == XiguaBing) return 0.1f;
@@ -151,6 +158,7 @@ namespace ZVB4.Conf
             else if (key == LanMei) return 0.2f;
             else if (key == YangTao) return 0.2f;
             else if (key == ShiLiu) return 0.4f;
+            else if (key == Xigua) return 0.5f;
             // 
             if (key == PeaGold) return 0.25f;
             else if (key == XiguaBing) return 0.2f;
@@ -164,6 +172,7 @@ namespace ZVB4.Conf
             else if (key == LanMei) return 0.012f;
             else if (key == YangTao) return 0.012f;
             else if (key == ShiLiu) return 0.12f;
+            else if (key == Xigua) return 0.01f;
             // 
             if (key == PeaGold) return 0.01f;
             if (key == XiguaBing) return 0.01f;
@@ -174,7 +183,8 @@ namespace ZVB4.Conf
         public static float GetRationSpeed(string key)
         {
             if (key == PeaGold) return 150f;
-            if (key == ShiLiu) return 280f;
+            if (key == ShiLiu) return 320f;
+            if (key == Xigua) return 240f;
             return 0f;
         } 
         // 坚果倍数
@@ -210,18 +220,9 @@ namespace ZVB4.Conf
         }
         public static bool IsShooter(string planName)
         {
-            if (planName == Pea || planName == PeaCold || planName == PeaDouble)
-            {
+            string v = GetShooterScene(planName);
+            if (!string.IsNullOrEmpty(v))
                 return true;
-            }
-            if (planName == ShiLiu || planName == YangTao || planName == LanMei)
-            {
-                return true;
-            }
-            if (planName == PeaGold || planName == XiguaBing)
-            {
-                return true;
-            }
             return false;
         }
         public static Node2D GeneratePlans(Node2D father, string PlanName) {
@@ -283,7 +284,7 @@ namespace ZVB4.Conf
 
         public static string GetShooterWrapperScenePath(string plansName)
         {
-            if (plansName == PeaGold || plansName == ShiLiu) {
+            if (plansName == PeaGold || plansName == ShiLiu || plansName == Xigua) {
                 return FolderConstants.WavePlayer + "shooter_pao_wrapper.tscn";
             }
             return FolderConstants.WavePlayer + "shooter_gun_wrapper.tscn";

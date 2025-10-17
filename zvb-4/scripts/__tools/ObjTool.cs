@@ -167,19 +167,25 @@ namespace ZVB4.Tool
 
         public static bool TakeDamage(Area2D area, EnumObjType objType, int Damage, EnumHurts hurtType)
         {
-            
             bool isWorking = false;
-            if (area is IHurtBase hurtArea)
+            try
             {
-                isWorking = hurtArea.TakeDamage(objType, Damage, hurtType);
-            }
-            else
-            {
-                var parent = area.GetParent();
-                if (parent is IHurtBase hurt)
+                if (area is IHurtBase hurtArea)
                 {
-                    isWorking = hurt.TakeDamage(objType, Damage, hurtType);
+                    isWorking = hurtArea.TakeDamage(objType, Damage, hurtType);
                 }
+                else
+                {
+                    var parent = area.GetParent();
+                    if (parent is IHurtBase hurt)
+                    {
+                        isWorking = hurt.TakeDamage(objType, Damage, hurtType);
+                    }
+                }
+            }   
+            catch (Exception ex)
+            {
+                GD.PrintErr($"ObjTool.TakeDamage 出错: {ex.Message} ");
             }
             return isWorking;
         }

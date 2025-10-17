@@ -7,6 +7,13 @@ using ZVB4.Tool;
 
 public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHurt, IStatus, IEnmy, IAttack
 {
+    bool _isPlayColdSound = false;
+    public void PlayColdingSound()
+    {
+        if (_isPlayColdSound) return;
+        _isPlayColdSound = true;
+        SoundOneshotController.Instance?.PlayFx("Fx/coldstart", "BeCold", 4, 1f, GlobalPosition, 5f);
+    }
     //
     public bool BeHurt(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
@@ -26,7 +33,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
             {
                 if (!beHurt.BeHurt(objType, damage, enumHurts)) { Die(objType, damage, enumHurts); }
             }
-            if (enumHurts == EnumHurts.Cold) { DoCold(iceColdTimeInit); }
+            if (enumHurts == EnumHurts.Cold) { DoCold(iceColdTimeInit); PlayColdingSound(); }
         }
         return true;
     }

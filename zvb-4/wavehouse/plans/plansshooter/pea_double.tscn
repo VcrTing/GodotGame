@@ -39,7 +39,7 @@ objName = "PeaDouble"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 z_index = 220
-position = Vector2(-3, -4)
+position = Vector2(0, -4)
 scale = Vector2(0.46, 0.46)
 sprite_frames = SubResource("SpriteFrames_tcr3y")
 autoplay = "default"
