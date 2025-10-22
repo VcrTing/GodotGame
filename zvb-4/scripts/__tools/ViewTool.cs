@@ -23,7 +23,7 @@ namespace ZVB4.Tool
         {
             ZIndex = (int)(GameContants.ScreenHalfH - Position.Y);
             if (ZIndex < 0) ZIndex = 0;
-            return ZIndex;
+            return 0; // ZIndex;
         }
 
         public static Vector2 ScaleForYFar(float y, float minScale, float maxScale)

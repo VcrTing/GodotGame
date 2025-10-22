@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqu3qdep78l1d"]
+[gd_scene load_steps=4 format=3 uid="uid://crgr4rk8ttea7"]
 
 [ext_resource type="Script" uid="uid://ckmaqispldih0" path="res://scripts/ux/FlowerPeng.cs" id="1_jovpr"]
 [ext_resource type="Texture2D" uid="uid://cp0otl76hd0cp" path="res://pngs/ux/peng.png" id="2_v4i43"]
@@ -7,13 +7,16 @@
 size = Vector2(100, 60)
 
 [node name="FlowerPeng" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_jovpr")
 
 [node name="Peng" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, 42)
 
 [node name="View" type="Sprite2D" parent="Peng"]
 z_index = 180
+y_sort_enabled = true
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_v4i43")
 

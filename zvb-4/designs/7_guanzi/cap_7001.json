@@ -1,18 +1,19 @@
 {
-    "type": "normal",
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
+    "shooterlowestattackspeedratio": 1,
+
     "initsun": 350,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 20,
     
     "initpeng": 8,
-    "generatemiaoratio": 1,
     
     "allowmiaolist": [
         "SunFlower", "IceFlower", "YangTao", "Pea", "JianGuo", "Cherry"
     ],
     
-    "shootershootratio": 1,
     "initshooter": "YangTao",
     "initmiaolist": [ ],
     "enmyspeedattackscale": 1.0,
@@ -20,9 +21,6 @@
     "enmyviewscale": 1,
     "enmybehurtscale": 1.0,
 
-    "enmyswaveflag": {
-        "19": 1
-    },
     "guanzis": [
         {
             "gezi": 1, "view": 1, "mustenmyratio": 1, 

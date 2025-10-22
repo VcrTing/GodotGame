@@ -69,7 +69,7 @@ public partial class ShooterShiLiu : Node2D, IObj, IPao
             // 播放音效
             DoFireEffect(startPosition);
             //
-            await ToSignal(GetTree().CreateTimer(0.04f), "timeout");
+            await ToSignal(GetTree().CreateTimer(0.07f), "timeout");
             directions = ComputedAttackDirectionsExtra(startPosition, direction);
             foreach (var dir in directions)
             {
@@ -104,8 +104,16 @@ public partial class ShooterShiLiu : Node2D, IObj, IPao
         return true;
     }
 
-    public void DoRotingEffect(Vector2 direction)
+
+    public void OnRotingStart(Vector2 dirTarget)
     {
-        throw new NotImplementedException();
+    }
+
+    public void OnRotingEnd(Vector2 dirNow)
+    {
+    }
+
+    public void OnFireStart(Vector2 direction)
+    {
     }
 }

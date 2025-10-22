@@ -40,11 +40,13 @@ animations = [{
 }]
 
 [node name="YangTao" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_n1d3v")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-z_index = 220
+y_sort_enabled = true
 position = Vector2(3, 6)
 sprite_frames = SubResource("SpriteFrames_sgq3c")
 autoplay = "default"

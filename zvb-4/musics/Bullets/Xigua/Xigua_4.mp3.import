@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cqqy6i3thfc47"
-path="res://.godot/imported/Xigua_4.mp3-c8eaceb9d97487a2045a374ee0ac271f.mp3str"
+path="res://.godot/imported/XIgua_4.mp3-08a1a4a9587b0c4bc1595b3dfad116af.mp3str"
 
 [deps]
 
-source_file="res://musics/Bullets/Xigua/Xigua_4.mp3"
-dest_files=["res://.godot/imported/Xigua_4.mp3-c8eaceb9d97487a2045a374ee0ac271f.mp3str"]
+source_file="res://musics/Bullets/Xigua/XIgua_4.mp3"
+dest_files=["res://.godot/imported/XIgua_4.mp3-08a1a4a9587b0c4bc1595b3dfad116af.mp3str"]
 
 [params]
 

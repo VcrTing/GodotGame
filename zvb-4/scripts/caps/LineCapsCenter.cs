@@ -159,6 +159,8 @@ public partial class LineCapsCenter : Node2D
                 LoadVar(_capData);
                 LoadMiao(_capData);
                 LoadZombis(_capData);
+                LoadInitShooter(_capData);
+                LoadFreezeCard(_capData);
             }
         }
     }
@@ -179,18 +181,28 @@ public partial class LineCapsCenter : Node2D
             miaoCenter?.SetAllowMiaoList(allowmiaolist);
         }
         //
-        string initshooter = _capData["initshooter"].AsString();
-        LoadInitShooter(initshooter);
     }
-    async void LoadInitShooter(string shooterName)
+    async void LoadInitShooter(Dictionary varData)
     {
-        if (shooterName == null || shooterName == "") return;
+        string initshooter = _capData["initshooter"].AsString();
+        if (initshooter == null || initshooter == "") return;
         if (PlayerController.Instance == null)
         {
-            GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(shooterName);
+            GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(_capData);
             return;
         }
-        PlayerController.Instance?.LoadInitShooter(shooterName);
+        // 玩家初始化参数
+        if (varData.ContainsKey("shooterlowestattackspeedratio"))
+        {
+            float lowestSpeedRatio = varData["shooterlowestattackspeedratio"].AsSingle();
+            PlayerController.Instance?.SetLowestAttackSpeedRatio(lowestSpeedRatio);
+        }
+        if (varData.ContainsKey("shootershootratio"))
+        {
+            float shootRatio = varData["shootershootratio"].AsSingle();
+            PlayerController.Instance?.SetShootRatio(shootRatio);
+        }
+        PlayerController.Instance?.LoadInitShooter(initshooter);
     }
     void LoadZombis(Dictionary _capData)
     {
@@ -211,7 +223,7 @@ public partial class LineCapsCenter : Node2D
             }
         }
     }
-    void LoadVar( Dictionary varData)
+    void LoadVar(Dictionary varData)
     {
         if (varData.ContainsKey("initsun"))
         {
@@ -239,6 +251,18 @@ public partial class LineCapsCenter : Node2D
             {
                 RewordMiaoCenterSystem.Instance?.SetGenerateRatio(generatemiaoratio);
             }
+        }
+    }
+    
+    // 生成 card 
+    void LoadFreezeCard(Dictionary varData)
+    {
+        Godot.Collections.Array buffs = varData["cards"].AsGodotArray();
+        if (buffs == null || buffs.Count <= 0) return;
+        foreach (var v in buffs)
+        {
+            var buffInfo = v.AsGodotDictionary();
+            LineFreezeCardSystem.Instance?.CreateFreezeCard(buffInfo);
         }
     }
 }

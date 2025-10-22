@@ -1,19 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1ly1yarrl6rc"]
+[gd_scene load_steps=9 format=3 uid="uid://d1ly1yarrl6rc"]
 
-[ext_resource type="Script" uid="uid://cgy20xilmj2ir" path="res://scripts/player/shooter/ShooterPea.cs" id="1_nocao"]
+[ext_resource type="Script" uid="uid://dsymxpx2sxy" path="res://scripts/player/shooter/ShooterXigua.cs" id="1_bbetf"]
 [ext_resource type="Texture2D" uid="uid://cr2kk60bso3uu" path="res://pngs/plans/ShooterXiGua.png" id="2_bbetf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbetf"]
+atlas = ExtResource("2_bbetf")
+region = Rect2(0, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnq5t"]
 atlas = ExtResource("2_bbetf")
-region = Rect2(0, 0, 150, 150)
+region = Rect2(200, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bpv7w"]
 atlas = ExtResource("2_bbetf")
-region = Rect2(150, 0, 150, 150)
+region = Rect2(400, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fjaub"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbetf")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dnq5t")
 }, {
@@ -25,12 +32,30 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_bbetf"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dnq5t"]
+gradient = SubResource("Gradient_bbetf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.815534, 0.2936893)
+
 [node name="ShooterXigua" type="Node2D"]
-script = ExtResource("1_nocao")
-ObjName = "Xigua"
+script = ExtResource("1_bbetf")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, -2)
-scale = Vector2(0.68, 0.68)
+position = Vector2(-5, -7)
+scale = Vector2(0.52, 0.52)
 sprite_frames = SubResource("SpriteFrames_fjaub")
 autoplay = "default"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.3
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2000
+range_layer_max = 4096
+texture = SubResource("GradientTexture2D_dnq5t")
+texture_scale = 1.5
+height = 200.0

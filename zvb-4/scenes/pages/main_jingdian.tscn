@@ -87,11 +87,11 @@ Chapter = 7001
 
 [node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 1006
+Chapter = 7002
 
 [node name="ChapterItemButton5" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 1007
+Chapter = 1006
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(720, 120)
@@ -101,19 +101,41 @@ alignment = 1
 
 [node name="ChapterItemButton2" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 1008
+Chapter = 1007
 
 [node name="ChapterItemButton3" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 1009
+Chapter = 1008
 
 [node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 8001
+Chapter = 1009
 
 [node name="ChapterItemButton5" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 1010
+Chapter = 8001
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ChapterItemButton2" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 8002
+
+[node name="ChapterItemButton3" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 2001
+
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 2002
+
+[node name="ChapterItemButton5" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 2003
 
 [node name="ControlBottomBar" type="Control" parent="CanvasLayer"]
 custom_minimum_size = Vector2(0, 300)

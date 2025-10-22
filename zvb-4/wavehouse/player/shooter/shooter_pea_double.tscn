@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4bmw125oqyrh"]
+[gd_scene load_steps=9 format=3 uid="uid://4bmw125oqyrh"]
 
 [ext_resource type="Script" uid="uid://40xvdftr31to" path="res://scripts/player/shooter/ShooterPeaDouble.cs" id="1_luxpm"]
 [ext_resource type="Texture2D" uid="uid://bxdv5i2w3l8sv" path="res://pngs/plans/PeaDouble.png" id="2_luxpm"]
@@ -32,6 +32,15 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_luxpm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u4pb1"]
+gradient = SubResource("Gradient_luxpm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.815534, 0.2936893)
+
 [node name="ShooterPeaDouble" type="Node2D"]
 script = ExtResource("1_luxpm")
 
@@ -41,3 +50,13 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_pam3h")
 autoplay = "default"
 frame_progress = 0.83609366
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.3
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2000
+range_layer_max = 4096
+texture = SubResource("GradientTexture2D_u4pb1")
+texture_scale = 1.5
+height = 200.0

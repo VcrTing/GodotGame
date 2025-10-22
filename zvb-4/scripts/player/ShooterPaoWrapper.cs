@@ -33,7 +33,6 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
         // 获取攻击速度
         LoadAttackSpeed(shooterName);
     }
-
     public IPao pao;
     void _LoadShooterInstance(string shooterName)
     {
@@ -56,12 +55,10 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
             SaveDataManager.Instance?.SetPlayerShooter(shooterName);
         }
     }
-    
     EntityPlayerData playerData = null;
     string shooterNowName;
     int shooterCostSun;
     Vector2 InitPosition;
-
     int allowAttackNum = 0;
 
     public override void _Ready()
@@ -70,7 +67,6 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
         Init();
         LoadData();
     }
-
     void Init()
     {
         AttackDirection = Vector2.Up;
@@ -78,9 +74,9 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
         Position = InitPosition;
         ResetAttackSpeed();
     }
-
     public void ChangeShooter(string shooterName)
     {
+        shooterNowName = shooterName;
         // 重新加载参数
         _LoadShooterParams(shooterName);
         // 加载射手实力
@@ -88,9 +84,9 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
         // 切换了射手，保存数据
         SaveDataManager.Instance?.SetPlayerShooter(shooterName);
         // 检查是否解锁该射手
-        allowAttackNum = PlansConstants.GetShooterAttackLimit(shooterNowName);
+        allowAttackNum = PlansConstants.GetShooterAttackLimit(shooterName);
         if (SaveDataManager.Instance == null) return;
-        bool hasShooter = (bool)(SaveDataManager.Instance?.HasThisShooter(shooterNowName));
+        bool hasShooter = (bool)(SaveDataManager.Instance?.HasThisShooter(shooterName));
         if (hasShooter)
         {
             allowAttackNum = -1;
@@ -199,11 +195,15 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
         switch (status)
         {
             case EnumShooterStatus.Idle:
+                pao.OnRotingEnd(workingDirection);
                 break;
             case EnumShooterStatus.Rotating:
+                pao.OnRotingStart(workingDirection);
                 break;
             case EnumShooterStatus.Attack:
                 __attackingTime = 0.000001f;
+                pao.OnRotingEnd(workingDirection);
+                pao.OnFireStart(workingDirection);
                 TryPlayFireLoadEffect(workingDirection);
                 break;
         }
@@ -296,6 +296,12 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
         }
     }
 
+    public void RebuildForBuffs()
+    {
+        // 攻速调节
+        speedEnd = PlansConstants.GetPlansAttackSpeedEnd(shooterNowName);
+        speedEnd = PlayerTool.ComputedLowestAttackSpeedRatio(speedEnd);
+    }
 
 
     private Vector2 _attackDirection = Vector2.Zero;

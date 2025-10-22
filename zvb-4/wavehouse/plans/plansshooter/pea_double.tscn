@@ -33,14 +33,16 @@ animations = [{
 }]
 
 [node name="PeaDouble" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
 scale = Vector2(4, 4)
 script = ExtResource("1_fltuw")
 objName = "PeaDouble"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-z_index = 220
-position = Vector2(0, -4)
-scale = Vector2(0.46, 0.46)
+y_sort_enabled = true
+position = Vector2(0, -1)
+scale = Vector2(0.41, 0.41)
 sprite_frames = SubResource("SpriteFrames_tcr3y")
 autoplay = "default"
 frame_progress = 0.32806823

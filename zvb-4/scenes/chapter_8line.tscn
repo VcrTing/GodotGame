@@ -1,51 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://bamerhef74xy"]
+[gd_scene load_steps=8 format=3 uid="uid://bamerhef74xy"]
 
 [ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
 [ext_resource type="PackedScene" uid="uid://bnmk6b5rls6rq" path="res://wavehouse/player/line/player_slider_line.tscn" id="5_eb2c2"]
 [ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="5_pk1eg"]
 [ext_resource type="Texture2D" uid="uid://ek24ur1d3gfc" path="res://pngs/bg/Bk8.png" id="7_grrdn"]
-[ext_resource type="Texture2D" uid="uid://cic44sv3qc2y6" path="res://pngs/bg/Bk.jpg" id="8_b82g5"]
-[ext_resource type="Script" uid="uid://c3mf7p3bhsgk4" path="res://scripts/ux/lines/LineFreezeCard.cs" id="9_844oh"]
-[ext_resource type="Texture2D" uid="uid://6kmwfd6bdvfe" path="res://pngs/ux/jkuang.png" id="9_grrdn"]
-[ext_resource type="Texture2D" uid="uid://byw46cud53glh" path="res://pngs/ux/zzc.png" id="10_b82g5"]
-[ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="13_1siid"]
-[ext_resource type="Script" uid="uid://lnsul0jch8w1" path="res://scripts/ux/lines/UxBeHurtArea.cs" id="13_eb2c2"]
-[ext_resource type="Texture2D" uid="uid://co80kput3ccrn" path="res://pngs/ui/money.png" id="14_hxhjx"]
+[ext_resource type="PackedScene" uid="uid://bghk0wtumd18d" path="res://wavehouse/ground/bullet_fixer_jing_dian.tscn" id="8_e7so0"]
 [ext_resource type="Script" uid="uid://blws27e75l035" path="res://scripts/system/GameModeSwitchCenter.cs" id="15_lpa67"]
 [ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxhjx"]
-atlas = ExtResource("13_1siid")
-region = Rect2(0, 0, 60, 60)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_771es"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hxhjx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_771es"]
-atlas = ExtResource("14_hxhjx")
-region = Rect2(0, 0, 60, 60)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pjxg5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_771es")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d26e3"]
-size = Vector2(300, 300)
 
 [node name="System" type="Node2D"]
 
@@ -73,68 +34,4 @@ z_index = -99
 scale = Vector2(0.94, 0.94)
 texture = ExtResource("7_grrdn")
 
-[node name="Bk" type="Sprite2D" parent="Env"]
-visible = false
-z_index = -99
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("8_b82g5")
-
-[node name="Dev" type="Node2D" parent="."]
-position = Vector2(-300, 0)
-
-[node name="LineFreezeCard" type="Node2D" parent="Dev"]
-script = ExtResource("9_844oh")
-rewordType = 30
-rewordAmount = 500
-rewordViewScale = 3
-rewordPlanName = "PeaCold"
-
-[node name="Kuang" type="Sprite2D" parent="Dev/LineFreezeCard"]
-position = Vector2(-1, -3)
-scale = Vector2(1.08, 1.08)
-texture = ExtResource("9_grrdn")
-
-[node name="ViewExtra" type="Sprite2D" parent="Dev/LineFreezeCard"]
-modulate = Color(1, 1, 1, 0.6392157)
-texture = ExtResource("10_b82g5")
-
-[node name="Sun" type="AnimatedSprite2D" parent="Dev/LineFreezeCard"]
-position = Vector2(0, 30)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_771es")
-
-[node name="Money" type="AnimatedSprite2D" parent="Dev/LineFreezeCard"]
-position = Vector2(0, 30)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_pjxg5")
-
-[node name="Plans" type="Node2D" parent="Dev/LineFreezeCard"]
-position = Vector2(0, 30)
-
-[node name="Ui" type="Node2D" parent="Dev/LineFreezeCard"]
-position = Vector2(0, -110)
-
-[node name="Label" type="Label" parent="Dev/LineFreezeCard/Ui"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -51.5
-offset_top = -25.0
-offset_right = 51.5
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 36
-text = "x10000"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BeHurtArea" type="Area2D" parent="Dev/LineFreezeCard"]
-collision_layer = 512
-collision_mask = 2304
-script = ExtResource("13_eb2c2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dev/LineFreezeCard/BeHurtArea"]
-shape = SubResource("RectangleShape2D_d26e3")
+[node name="BulletFixerJingDian" parent="Env" instance=ExtResource("8_e7so0")]

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 using ZVB4.Conf;
 using ZVB4.Entity;
@@ -11,6 +12,7 @@ public partial class PlayerController : Node2D
     [Export]
     public EnumPlayerShooterMode ShooterMode = EnumPlayerShooterMode.TouchShooter;
 
+    // 射击限制
     float ShooterShootRatio = 1;
     public void SetShootRatio(float ratio) => ShooterShootRatio = ratio;
     public float GetShootRatio() => ShooterShootRatio;
@@ -41,6 +43,7 @@ public partial class PlayerController : Node2D
         ShooterWorkTable wt = workTable as ShooterWorkTable;
         wt.HandleCollision(shooterName);
         AfterGetShooter();
+        RebuildBuffs();
     }
     
     public void TrashOldShooter()
@@ -128,40 +131,100 @@ public partial class PlayerController : Node2D
     public float touchShortPressTime = 0.02f; // 长按时间，秒
     float __attackTime = 0;
     bool firstAttack = false;
+    // 
     public override void _Process(double delta)
     {
 
         Position = new Vector2(lastPos.X, Position.Y);
         if (ShooterMode == EnumPlayerShooterMode.TouchShooter)
         {
-            if (__startAttack)
-            {
-                __attackTime += (float)delta;
-
-                if (firstAttack)
-                {
-                    __attackTime = 0;
-                    Attack(__lastClickPos, false);
-                }
-                else
-                {
-                    if (__attackTime >= touchShortPressTime)
-                    {
-                        firstAttack = true;
-                        __attackTime = 0;
-                        Attack(__lastClickPos, true);
-                    }
-                }
-            }
+            RunningTouchShooter(delta);
         }
-        else {
+        else
+        {
+            RunningLineShooter(delta);
+        }
+
+    }
+
+    // 玩家攻速调节
+    float __lowestAttackSpeedRatio = 1f;
+    float InitialLowestAttackSpeedRatio = 1f;
+    public float GetLowestAttackSpeedRatio() => __lowestAttackSpeedRatio;
+    public void SetLowestAttackSpeedRatio(float ratio) {
+        InitialLowestAttackSpeedRatio = ratio;
+        __lowestAttackSpeedRatio = ratio;
+    }
+    // 玩家伤害调节
+    float __attackDamageRatio = 1f;
+    float InitialAttackDamageRatio = 1f;
+    public float GetAttackDamageRatio() => __attackDamageRatio;
+    public void SetAttackDamageRatio(float ratio)
+    {
+        InitialAttackDamageRatio = ratio;
+        __attackDamageRatio = ratio;
+    }
+    // 重置调节
+    public void ResetAttackAdjust()
+    {
+        __lowestAttackSpeedRatio = InitialLowestAttackSpeedRatio;
+        __attackDamageRatio = InitialAttackDamageRatio;
+        _shooter?.RebuildForBuffs();
+    }
+    List<ShootBuff> buffList = new List<ShootBuff>();
+    // Buff 重建
+    void RebuildBuffs()
+    {
+        // 攻速 Buff
+        __lowestAttackSpeedRatio = InitialLowestAttackSpeedRatio;
+        // 伤害 Buff
+        __attackDamageRatio = InitialAttackDamageRatio;
+        foreach (var buff in buffList)
+        {
+            __lowestAttackSpeedRatio = PlayerTool.ComputedSpeedBuffV(__lowestAttackSpeedRatio, buff.attackSpeedRatio);
+            
+            //
+            __attackDamageRatio *= buff.attackDamageRatio;
+        }
+        // 调整射手属性
+        _shooter?.RebuildForBuffs();
+    }
+    public void AddShootBuff(ShootBuff buff)
+    {
+        buffList.Add(buff);
+        RebuildBuffs();
+    }
+    public void RemoveShootBuff(ShootBuff buff)
+    {
+        buffList.Remove(buff);
+        RebuildBuffs();
+    }
+
+    void RunningLineShooter(double delta)
+    {
+        Attack(Vector2.Up, false, Position);
+    }
+    
+    void RunningTouchShooter(double delta)
+    {
+        if (__startAttack)
+        {
             __attackTime += (float)delta;
-            if (__attackTime >= 0.1f)
+
+            if (firstAttack)
             {
                 __attackTime = 0;
-                Attack(Vector2.Up, false, Position);
+                Attack(__lastClickPos, false);
+            }
+            else
+            {
+                if (__attackTime >= touchShortPressTime)
+                {
+                    firstAttack = true;
+                    __attackTime = 0;
+                    Attack(__lastClickPos, true);
+                }
             }
         }
-        
     }
 }

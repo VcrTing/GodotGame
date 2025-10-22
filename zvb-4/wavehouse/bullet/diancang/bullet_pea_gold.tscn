@@ -60,6 +60,7 @@ height = 540.0
 
 [node name="BulletPeaGold" type="Node2D"]
 z_index = 1320
+y_sort_enabled = true
 script = ExtResource("1_xkka6")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -69,6 +70,7 @@ texture = ExtResource("2_et32i")
 process_material = SubResource("ParticleProcessMaterial_ulrwt")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -12)
 rotation = 0.20943952
 scale = Vector2(1.6, 1.6)

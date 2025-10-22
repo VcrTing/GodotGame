@@ -22,11 +22,14 @@ animations = [{
 radius = 18.0
 
 [node name="BulletYangTao" type="Node2D"]
+z_index = 1320
+y_sort_enabled = true
 script = ExtResource("1_wt5bd")
 RotationSpeed = 480.0
 objName = "BulletYangTao"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-4, 1)
 scale = Vector2(2.4, 2.4)
 sprite_frames = SubResource("SpriteFrames_w1xix")

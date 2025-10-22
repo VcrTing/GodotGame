@@ -1,0 +1,7 @@
+{
+    "name": "ShiLiu",
+    "nickname": "石榴姐姐",
+    "scenepath": "plans/plansshooter/shi_liu.tscn",
+    "info": "子弹攻击力：40，子弹个数：10，攻击消耗：25 阳光。发射散射的石榴籽，攻击伤害会随时间衰减。",
+    "description": "Boy，请不要感到害怕，勇敢做自己认为对的事情。嗯？僵尸来了？站我后面，我保护你！"
+}

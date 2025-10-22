@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://cnf2oqk6j33sr"]
+
+[ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
+[ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="5_34y4i"]
+[ext_resource type="PackedScene" uid="uid://c2di18boq3fwi" path="res://wavehouse/player/working/player_attack_area.tscn" id="5_roak6"]
+[ext_resource type="Texture2D" uid="uid://cic44sv3qc2y6" path="res://pngs/bg/Bk.jpg" id="6_34y4i"]
+[ext_resource type="PackedScene" uid="uid://bghk0wtumd18d" path="res://wavehouse/ground/bullet_fixer_jing_dian.tscn" id="7_mp7g3"]
+[ext_resource type="Texture2D" uid="uid://bqtkg5ava7kc" path="res://pngs/bg/BKnight.jpeg" id="8_47rb1"]
+[ext_resource type="PackedScene" uid="uid://nsdghf5jew50" path="res://wavehouse/plans/plansshooter/xigua.tscn" id="9_7gr4w"]
+[ext_resource type="PackedScene" uid="uid://cqejrks13ob6u" path="res://wavehouse/zombi/texture/zombi_s_texture.tscn" id="9_g74xn"]
+[ext_resource type="PackedScene" uid="uid://df86w0dr3t426" path="res://wavehouse/plans/plansshooter/pea_cold.tscn" id="9_iwmpd"]
+[ext_resource type="PackedScene" uid="uid://cxp8h1au7mu3g" path="res://wavehouse/plans/plansonce/la_jiao.tscn" id="10_3ydkh"]
+[ext_resource type="PackedScene" uid="uid://8428d727ktas" path="res://wavehouse/bullet/bullet_zero_cold.tscn" id="14_h24fl"]
+[ext_resource type="Script" uid="uid://blws27e75l035" path="res://scripts/system/GameModeSwitchCenter.cs" id="15_lpa67"]
+[ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
+
+[sub_resource type="Gradient" id="Gradient_weca1"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gy54e"]
+gradient = SubResource("Gradient_weca1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.815534, 0.2936893)
+
+[node name="System" type="Node2D"]
+
+[node name="GameEnvBuiler" parent="." instance=ExtResource("1_5wvqh")]
+
+[node name="GameSVSystems" parent="." instance=ExtResource("19_pniwq")]
+
+[node name="GameModeSwitchCenter" type="Node2D" parent="."]
+script = ExtResource("15_lpa67")
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="PlayerAttackController" parent="Player" instance=ExtResource("5_34y4i")]
+position = Vector2(0, 560)
+
+[node name="PlayerAttackArea" parent="Player" instance=ExtResource("5_roak6")]
+position = Vector2(0, -210)
+
+[node name="Env" type="Node2D" parent="."]
+
+[node name="Bk" type="Sprite2D" parent="Env"]
+visible = false
+z_index = -99
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("6_34y4i")
+
+[node name="BulletFixerJingDian" parent="Env" instance=ExtResource("7_mp7g3")]
+
+[node name="BKnight" type="Sprite2D" parent="Env"]
+z_index = -100
+scale = Vector2(0.49, 0.49)
+texture = ExtResource("8_47rb1")
+
+[node name="Lights" type="Node2D" parent="Env"]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Env/Lights"]
+color = Color(1, 1, 1, 0.039215688)
+energy = 4.0
+blend_mode = 1
+range_layer_min = -222
+range_layer_max = 222
+range_item_cull_mask = 3
+
+[node name="LaZhus" type="Node2D" parent="Env/Lights"]
+
+[node name="LaZhuLFz" type="Node2D" parent="Env/Lights/LaZhus"]
+position = Vector2(-310, -365)
+
+[node name="PointLight2D" type="PointLight2D" parent="Env/Lights/LaZhus/LaZhuLFz"]
+color = Color(0.9999998, 0.82581335, 0.6401971, 1)
+texture = SubResource("GradientTexture2D_gy54e")
+texture_scale = 12.0
+
+[node name="LaZhuForPlayer" type="Node2D" parent="Env/Lights/LaZhus"]
+position = Vector2(0, 580)
+
+[node name="PointLight2D" type="PointLight2D" parent="Env/Lights/LaZhus/LaZhuForPlayer"]
+energy = 0.3
+texture = SubResource("GradientTexture2D_gy54e")
+texture_scale = 40.0
+height = 2000.0
+
+[node name="LaZhuRFz" type="Node2D" parent="Env/Lights/LaZhus"]
+position = Vector2(900, -365)
+
+[node name="PointLight2D" type="PointLight2D" parent="Env/Lights/LaZhus/LaZhuRFz"]
+color = Color(1, 0.6392157, 0.35686275, 1)
+texture = SubResource("GradientTexture2D_gy54e")
+texture_scale = 20.0
+
+[node name="TestObj" type="Node2D" parent="Env"]
+visible = false
+y_sort_enabled = true
+position = Vector2(0, 200)
+
+[node name="Body" parent="Env/TestObj" instance=ExtResource("9_g74xn")]
+position = Vector2(0, -400)
+scale = Vector2(3, 3)
+
+[node name="Body2" parent="Env/TestObj" instance=ExtResource("9_g74xn")]
+position = Vector2(0, -500)
+scale = Vector2(3, 3)
+
+[node name="Xigua" parent="Env/TestObj" instance=ExtResource("9_7gr4w")]
+
+[node name="Pea" parent="Env/TestObj" instance=ExtResource("9_iwmpd")]
+position = Vector2(-300, 0)
+
+[node name="LaJiao" parent="Env/TestObj" instance=ExtResource("10_3ydkh")]
+position = Vector2(300, 0)
+
+[node name="BulletZeroCold" parent="Env/TestObj" instance=ExtResource("14_h24fl")]
+position = Vector2(-200, 582)

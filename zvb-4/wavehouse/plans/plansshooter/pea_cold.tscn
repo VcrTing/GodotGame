@@ -1,7 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://df86w0dr3t426"]
+[gd_scene load_steps=13 format=3 uid="uid://df86w0dr3t426"]
 
 [ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_1ycxs"]
 [ext_resource type="Texture2D" uid="uid://bbeudtx7dtfm2" path="res://pngs/planscard/PeaCold.png" id="2_1ycxs"]
+[ext_resource type="Texture2D" uid="uid://0nvu4va7k81l" path="res://pngs/planscard/PeaCold2.png" id="2_kj5bp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8agan"]
+atlas = ExtResource("2_kj5bp")
+region = Rect2(0, 0, 180, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rwdm"]
+atlas = ExtResource("2_kj5bp")
+region = Rect2(180, 0, 180, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8xp8"]
+atlas = ExtResource("2_kj5bp")
+region = Rect2(360, 0, 180, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kj5bp"]
 atlas = ExtResource("2_1ycxs")
@@ -19,6 +32,20 @@ region = Rect2(120, 0, 60, 60)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8agan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rwdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8xp8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_kj5bp")
 }, {
 "duration": 1.0,
@@ -28,17 +55,40 @@ animations = [{
 "texture": SubResource("AtlasTexture_g6hra")
 }],
 "loop": true,
-"name": &"default",
+"name": &"default_1",
 "speed": 3.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_kj5bp"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kj5bp"]
+gradient = SubResource("Gradient_kj5bp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.815534, 0.2936893)
+
 [node name="Pea" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
 scale = Vector2(4, 4)
 script = ExtResource("1_1ycxs")
 objName = "PeaCold"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-z_index = 220
-position = Vector2(-1, -2)
+y_sort_enabled = true
+position = Vector2(-2, -6)
+scale = Vector2(0.34, 0.34)
 sprite_frames = SubResource("SpriteFrames_8agan")
 autoplay = "default"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+energy = 0.3
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2000
+range_layer_max = 4096
+texture = SubResource("GradientTexture2D_kj5bp")
+texture_scale = 1.5
+height = 200.0

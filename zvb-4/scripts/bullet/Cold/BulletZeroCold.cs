@@ -153,6 +153,7 @@ public partial class BulletZeroCold : Node2D, IBulletBase, IObj, IAttack, IWorki
         if (working)
         {
             _area2D.Monitoring = true; // 监测碰撞
+            // Speed = 0; SpeedInit = 0; // 冷冻子弹命中后速度归零
         }
         else
         {
@@ -160,9 +161,5 @@ public partial class BulletZeroCold : Node2D, IBulletBase, IObj, IAttack, IWorki
         }
     }
 
-    public bool IsWorking()
-    {
-        return _area2D.Monitoring;
-    }
-
+    public bool IsWorking() => _area2D.Monitoring;
 }

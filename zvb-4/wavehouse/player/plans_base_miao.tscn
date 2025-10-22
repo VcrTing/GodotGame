@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7cd8ou4a7oin"]
+[gd_scene load_steps=11 format=3 uid="uid://b7cd8ou4a7oin"]
 
 [ext_resource type="Script" uid="uid://cn8fhybpbvuo8" path="res://scripts/plans/PlansBaseMiao.cs" id="1_f2xyr"]
 [ext_resource type="Texture2D" uid="uid://xgu4xl0x0kpf" path="res://pngs/planscard/miao.png" id="2_hej8r"]
@@ -32,6 +32,15 @@ radius = 70.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qitbf"]
 size = Vector2(2, 2)
 
+[sub_resource type="Gradient" id="Gradient_qitbf"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0tnil"]
+gradient = SubResource("Gradient_qitbf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.815534, 0.2936893)
+
 [node name="PlansBaseMiao" type="Node2D"]
 z_index = 2000
 script = ExtResource("1_f2xyr")
@@ -56,3 +65,13 @@ script = ExtResource("3_qitbf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlantingArea"]
 shape = SubResource("RectangleShape2D_qitbf")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.3
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2000
+range_layer_max = 4096
+texture = SubResource("GradientTexture2D_0tnil")
+texture_scale = 1.5
+height = 200.0

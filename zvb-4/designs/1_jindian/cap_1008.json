@@ -1,5 +1,8 @@
 {
-    "type": "normal",
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
+    "shooterlowestattackspeedratio": 1,
+
     "initsun": 300,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
@@ -9,8 +12,6 @@
     "allowmiaolist": [
         "SunFlower", "JianGuo", "Cherry", "Pea", "PeaCold", "PeaDouble"
     ],
-    "generatemiaoratio": 1,
-    "shootershootratio": 1,
     
     "initshooter": "PeaCold",
     "initmiaolist": [
@@ -21,9 +22,6 @@
     "enmyviewscale": 1,
     "enmybehurtscale": 1,
 
-    "enmyswaveflag": {
-        "19": 1
-    },
     "enmys": {
         "16": [
             {
@@ -31,9 +29,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
-                "lazyall": 0,
-                "lazyme": 2,
-                "speedmode": "normal"
+                "lazyme": 2
             }
         ],
         "36": [
@@ -42,9 +38,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
-                "lazyall": 0,
-                "lazyme": 3,
-                "speedmode": "normal"
+                "lazyme": 3
             }
         ],
         "45": [
@@ -53,9 +47,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
-                "lazyall": 0,
-                "lazyme": 3,
-                "speedmode": "normal"
+                "lazyme": 3
             }
         ],
         "80": [
@@ -64,9 +56,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
-                "lazyall": 0,
-                "lazyme": 0,
-                "speedmode": "normal"
+                "lazyme": 0
             }
         ],
         "100": [
@@ -75,9 +65,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 4,
-                "speedmode": "normal"
+                "lazyme": 4
             }
         ],
         "117": [
@@ -86,9 +74,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 4,
-                "speedmode": "normal"
+                "lazyme": 4
             }
         ],
         "135": [
@@ -97,20 +83,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 4,
-                "speedmode": "normal"
-            }
-        ]
-    },
-    
-    "suns": {
-        "3": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
+                "lazyme": 4
             }
         ]
     }

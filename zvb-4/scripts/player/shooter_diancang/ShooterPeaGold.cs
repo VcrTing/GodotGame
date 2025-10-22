@@ -82,8 +82,18 @@ public partial class ShooterPeaGold : Node2D, IObj, IPao
         return true;
     }
 
-    public void DoRotingEffect(Vector2 direction)
+    public void OnRotingStart(Vector2 dirTarget)
     {
-        throw new NotImplementedException();
+        
+    }
+
+    public void OnRotingEnd(Vector2 dirNow)
+    {
+        
+    }
+
+    public void OnFireStart(Vector2 direction)
+    {
+        
     }
 }

@@ -3,5 +3,6 @@
 [ext_resource type="Script" uid="uid://bylgs2ddnhooy" path="res://scripts/ground/GeZiWrapper.cs" id="1_j4ybd"]
 
 [node name="GeZiWrapper3x7" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_j4ybd")
 XGeziNum = 3

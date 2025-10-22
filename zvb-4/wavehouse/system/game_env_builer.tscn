@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://b12upl6p1d460"]
+[gd_scene load_steps=12 format=3 uid="uid://b12upl6p1d460"]
 
 [ext_resource type="Script" uid="uid://bdtd1kvhadi8c" path="res://scripts/system/Envs.cs" id="1_iqn62"]
 [ext_resource type="Script" uid="uid://bu22knj6i5gk8" path="res://scripts/ux/DieLineZero.cs" id="3_8fgd1"]
 [ext_resource type="Texture2D" uid="uid://cic44sv3qc2y6" path="res://pngs/bg/Bk.jpg" id="3_rh23g"]
 [ext_resource type="Texture2D" uid="uid://e7bx6uj52710" path="res://pngs/ux/dieline.png" id="4_0ktxj"]
-[ext_resource type="Script" uid="uid://bctsx0boajko" path="res://scripts/ux/BulletLowDown.cs" id="5_shtsd"]
-[ext_resource type="PackedScene" uid="uid://bfthejwtbkxar" path="res://wavehouse/obj/bullet_wall.tscn" id="6_6veu1"]
 [ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="7_5l6ha"]
 [ext_resource type="PackedScene" uid="uid://copbbr5ipfpne" path="res://wavehouse/sounds/sound_oneshot_controller.tscn" id="8_rh23g"]
 [ext_resource type="PackedScene" uid="uid://c6ds1gjwrriuf" path="res://scenes/ui/sound_ui_controller.tscn" id="8_x3k26"]
@@ -15,9 +13,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44saj"]
 size = Vector2(1200, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cnsr"]
-size = Vector2(1160, 90)
 
 [node name="GameEnvBuiler" type="Node2D"]
 script = ExtResource("1_iqn62")
@@ -44,29 +39,6 @@ shape = SubResource("RectangleShape2D_44saj")
 
 [node name="View" type="Sprite2D" parent="Ux/DieLineZero"]
 texture = ExtResource("4_0ktxj")
-
-[node name="BulletFixer" type="Node2D" parent="Ux"]
-
-[node name="BulletLowDown" type="Area2D" parent="Ux/BulletFixer"]
-visible = false
-position = Vector2(0, -550)
-collision_layer = 524288
-collision_mask = 524288
-script = ExtResource("5_shtsd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ux/BulletFixer/BulletLowDown"]
-shape = SubResource("RectangleShape2D_2cnsr")
-
-[node name="BulletWall" parent="Ux/BulletFixer" instance=ExtResource("6_6veu1")]
-position = Vector2(-800, 0)
-
-[node name="BulletWall2" parent="Ux/BulletFixer" instance=ExtResource("6_6veu1")]
-position = Vector2(800, 0)
-
-[node name="BulletWall3" parent="Ux/BulletFixer" instance=ExtResource("6_6veu1")]
-position = Vector2(0, 1000)
-rotation = 1.5707964
-IsX = false
 
 [node name="Sky" type="Node2D" parent="."]
 

@@ -9,6 +9,7 @@ namespace ZVB4.Conf
         public const string Sun = "Sun";
         public const string Money = "Money";
         public const string Plans = "Plans";
+        public const string Buff = "Buff";
 
         // 
         public static readonly Dictionary<string, string> RewordSceneDict = new Dictionary<string, string>
@@ -26,22 +27,6 @@ namespace ZVB4.Conf
             if (RewordSceneDict.TryGetValue(key, out var value))
                 return value;
             return string.Empty;
-        }
-
-        // 植物随机加权值
-        public static readonly Dictionary<string, int> PlansRewordWeightDict = new Dictionary<string, int>
-        {
-            { PlansConstants.Pea, 10 },
-            { PlansConstants.XiguaBing, 5 },
-            { PlansConstants.SunFlower, 30 },
-            { PlansConstants.Cherry, 10 },
-        };
-
-        public static int GetPlansRewordWeight(string key)
-        {
-            if (PlansRewordWeightDict.TryGetValue(key, out var value))
-                return value;
-            return 0;
         }
 
         static float MoneyBaseLv = 0.3f;

@@ -1,5 +1,8 @@
 {
-    "type": "normal",
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
+    "shooterlowestattackspeedratio": 1,
+    
     "initsun": 100,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
@@ -9,8 +12,6 @@
     "allowmiaolist": [
         "SunFlower", "JianGuo", "Cherry", "Pea", "PeaCold", "PeaDouble"
     ],
-    "generatemiaoratio": 1,
-    "shootershootratio": 1,
     
     "initshooter": "PeaDouble",
     "initmiaolist": [
@@ -21,9 +22,6 @@
     "enmyviewscale": 1,
     "enmybehurtscale": 1,
 
-    "enmyswaveflag": {
-        "19": 1
-    },
     "enmys": {
         "6": [
             {
@@ -31,9 +29,7 @@
                 "typesmode": "next",
                 "generator": [ 2, 4, 5, 7, 8, 10, 1 ],
                 "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 3,
-                "speedmode": "normal"
+                "lazyme": 3
             }
         ],
         "16": [
@@ -42,9 +38,8 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 1,
-                "speedmode": "normal"
+                "lazyme": 1
+                 
             }
         ],
         "22": [
@@ -53,20 +48,7 @@
                 "typesmode": "next",
                 "generator": [ 2, 4, 5, 7, 8, 10, 1 ],
                 "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 3,
-                "speedmode": "normal"
-            }
-        ]
-    },
-    
-    "suns": {
-        "3": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
+                "lazyme": 3
             }
         ]
     }

@@ -38,14 +38,12 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
         //
         Damage = BulletConstants.GetDamage(objName);
         DamageExtra = BulletConstants.GetDamageExtra(objName);
-
         // RotationSpeed 随机一下正负
         if (RotationSpeed != 0)
         {
             RotationSpeed += (GD.Randf() * 20f) - 10f;
             if (GD.Randi() % 2 == 0) RotationSpeed = -RotationSpeed;
         }
-        
         // 默认方向向上，根据子弹旋转调整自己的方向
         ViewTool.RotationALittleByX(view, GetDirection());
     }
@@ -167,19 +165,9 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
 
     public void SetWorkingMode(bool working)
     {
-        if (working)
-        {
-            _area2D.Monitoring = true; // 监测碰撞
-        }
-        else
-        {
-            _area2D.Monitoring = false; // 不监测碰撞
-        }
+        _area2D.Monitoring = working;
     }
 
-    public bool IsWorking()
-    {
-        return _area2D.Monitoring;
-    }
+    public bool IsWorking() => _area2D.Monitoring;
 
 }

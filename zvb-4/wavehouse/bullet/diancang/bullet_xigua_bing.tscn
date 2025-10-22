@@ -125,10 +125,13 @@ radius = 16.0
 height = 60.0
 
 [node name="BulletXiguaBing" type="Node2D"]
+z_index = 1320
+y_sort_enabled = true
 scale = Vector2(4.2, 4.2)
 script = ExtResource("1_3rvto")
 
 [node name="UxArea" type="Area2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(1.0000001, 1.0000001)
 collision_layer = 256
 collision_mask = 512
@@ -138,10 +141,12 @@ script = ExtResource("2_3rvto")
 shape = SubResource("RectangleShape2D_00yj6")
 
 [node name="Fx" type="GPUParticles2D" parent="UxArea"]
+y_sort_enabled = true
 texture = ExtResource("3_3rvto")
 process_material = SubResource("ParticleProcessMaterial_vdepn")
 
 [node name="AttackExtraArea" type="Area2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(1.0000001, 1.0000001)
 collision_layer = 256
 collision_mask = 512
@@ -153,17 +158,20 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_sgq3c")
 
 [node name="ViewExtra" type="AnimatedSprite2D" parent="AttackExtraArea"]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_mfqwq")
 autoplay = "default"
 frame = 4
 frame_progress = 1.0
 
 [node name="AttackArea" type="Area2D" parent="."]
+y_sort_enabled = true
 collision_layer = 256
 collision_mask = 512
 script = ExtResource("6_vdepn")
 
 [node name="View" type="AnimatedSprite2D" parent="AttackArea"]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_3bugb")
 frame_progress = 0.42653373
 

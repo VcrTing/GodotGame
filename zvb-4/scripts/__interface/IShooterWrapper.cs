@@ -11,5 +11,7 @@ namespace ZVB4.Interface
 
         void Attack(Vector2 attackPos, bool isFirstAttack, Vector2? startPos = null);
         void ReleaseAttack(bool mustEmpty = false);
+
+        void RebuildForBuffs();
     }
 }

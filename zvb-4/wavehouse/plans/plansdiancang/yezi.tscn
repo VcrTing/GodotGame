@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs80ty4ik8mg2"]
+
+[ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_fl0dw"]
+[ext_resource type="Texture2D" uid="uid://4uoxify3u0g3" path="res://pngs/planscard/diancang/Yezi.png" id="2_fl0dw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7k4o"]
+atlas = ExtResource("2_fl0dw")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65r1o"]
+atlas = ExtResource("2_fl0dw")
+region = Rect2(250, 0, 250, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5pie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7k4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65r1o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Yezi" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
+scale = Vector2(4, 4)
+script = ExtResource("1_fl0dw")
+objName = "Yezi"
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-12, 8)
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_s5pie")
+autoplay = "default"

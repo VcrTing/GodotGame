@@ -97,10 +97,13 @@ animations = [{
 radius = 600.0
 
 [node name="IceFlower" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
 scale = Vector2(3, 3)
 script = ExtResource("1_pglv1")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(3, -18)
 scale = Vector2(0.78, 0.78)
 sprite_frames = SubResource("SpriteFrames_tlc07")

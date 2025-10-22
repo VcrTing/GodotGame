@@ -1,15 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://tyfyw8v7besx"]
 
 [ext_resource type="Script" uid="uid://d1ekdbelko8hi" path="res://scripts/bullet/BulletSingle.cs" id="1_ou5vi"]
-[ext_resource type="Texture2D" uid="uid://c33adi01w21ia" path="res://pngs/bullet/Pea.png" id="2_ou5vi"]
+[ext_resource type="Texture2D" uid="uid://rq2borlc6u1g" path="res://pngs/bullet/bullet_pea.png" id="2_ou5vi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3msd"]
 atlas = ExtResource("2_ou5vi")
-region = Rect2(0, 0, 60, 60)
+region = Rect2(0, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5334"]
 atlas = ExtResource("2_ou5vi")
-region = Rect2(60, 0, 60, 60)
+region = Rect2(200, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yhkfx"]
 animations = [{
@@ -30,13 +30,18 @@ radius = 30.0
 
 [node name="BulletZero" type="Node2D"]
 z_index = 1320
+y_sort_enabled = true
 scale = Vector2(2.7, 2.7)
 script = ExtResource("1_ou5vi")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -4)
-scale = Vector2(1.6, 1.6)
+y_sort_enabled = true
+position = Vector2(-2.5, -2.5)
+rotation = -0.2617994
+scale = Vector2(0.48, 0.48)
 sprite_frames = SubResource("SpriteFrames_yhkfx")
+autoplay = "default"
+frame_progress = 0.9127309
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 256

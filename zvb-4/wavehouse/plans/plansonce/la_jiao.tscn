@@ -26,10 +26,13 @@ animations = [{
 }]
 
 [node name="LaJiao" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
 script = ExtResource("1_hnhu7")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 z_index = 1220
+y_sort_enabled = true
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_5qj52")
 autoplay = "default"

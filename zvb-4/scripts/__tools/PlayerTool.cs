@@ -1,4 +1,5 @@
 
+using System;
 using Godot;
 using ZVB4.Conf;
 
@@ -44,5 +45,29 @@ public static class PlayerTool
             }
         }
         return allowAttackNum;
+    }
+
+    public static float ComputedLowestAttackSpeedRatio(float baseSpeed)
+    {
+        //
+        if (PlayerController.Instance != null)
+        {
+            float ratio = PlayerController.Instance.GetLowestAttackSpeedRatio();
+            if (ratio < 0f) ratio = 0f;
+            float v = baseSpeed * ratio;
+            baseSpeed = v;
+        }
+        return baseSpeed;
+    }
+
+    public static float ComputedSpeedBuffV(float origin, float buffV)
+    {
+        if (buffV > 1f)
+        {
+            buffV = (float)Math.Sqrt(buffV);
+            float v = origin * buffV - origin;
+            return Math.Abs(origin - v);
+        }
+        return origin;
     }
 }

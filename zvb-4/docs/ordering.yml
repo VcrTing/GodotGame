@@ -14,7 +14,7 @@ zombi:
   base: 100 - 1100
 
 plans:
-  base: 1220
+  base: 400
 
 shooter:
   base: 2200

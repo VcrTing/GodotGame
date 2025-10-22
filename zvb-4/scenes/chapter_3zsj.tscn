@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8h65l0dvic83"]
+
+[ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
+[ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="5_34y4i"]
+[ext_resource type="PackedScene" uid="uid://c2di18boq3fwi" path="res://wavehouse/player/working/player_attack_area.tscn" id="5_roak6"]
+[ext_resource type="Texture2D" uid="uid://cic44sv3qc2y6" path="res://pngs/bg/Bk.jpg" id="6_34y4i"]
+[ext_resource type="Texture2D" uid="uid://coj2kw34gr7nk" path="res://pngs/bg/BK21.jpeg" id="6_e87yq"]
+[ext_resource type="PackedScene" uid="uid://dqqr8xhnsg3dy" path="res://wavehouse/ground/bullet_fixer_zsj.tscn" id="7_e87yq"]
+[ext_resource type="Texture2D" uid="uid://cut5nmdr2dwi6" path="res://pngs/bg/BK2.jpeg" id="8_0mmk8"]
+[ext_resource type="Script" uid="uid://blws27e75l035" path="res://scripts/system/GameModeSwitchCenter.cs" id="15_lpa67"]
+[ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
+
+[node name="System" type="Node2D"]
+
+[node name="GameEnvBuiler" parent="." instance=ExtResource("1_5wvqh")]
+
+[node name="GameSVSystems" parent="." instance=ExtResource("19_pniwq")]
+
+[node name="GameModeSwitchCenter" type="Node2D" parent="."]
+script = ExtResource("15_lpa67")
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="PlayerAttackController" parent="Player" instance=ExtResource("5_34y4i")]
+position = Vector2(0, 560)
+
+[node name="PlayerAttackArea" parent="Player" instance=ExtResource("5_roak6")]
+position = Vector2(0, -210)
+
+[node name="Env" type="Node2D" parent="."]
+
+[node name="Bk21" type="Sprite2D" parent="Env"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_e87yq")
+
+[node name="BulletFixerJingDian" parent="Env" instance=ExtResource("7_e87yq")]
+
+[node name="Bk" type="Sprite2D" parent="Env"]
+visible = false
+z_index = -99
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("6_34y4i")
+
+[node name="Bk2" type="Sprite2D" parent="Env"]
+visible = false
+z_index = -99
+scale = Vector2(1.93, 1.93)
+texture = ExtResource("8_0mmk8")

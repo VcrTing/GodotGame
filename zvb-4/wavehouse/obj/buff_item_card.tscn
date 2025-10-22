@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://dx3bpvnp8ksif"]
+
+[ext_resource type="Script" uid="uid://ddd7vfkrw0ide" path="res://scripts/objs/BuffItemCard.cs" id="1_ipmaf"]
+[ext_resource type="Texture2D" uid="uid://brh4movn53lw1" path="res://pngs/ux/buff/Buff_damage.png" id="2_otve7"]
+[ext_resource type="Texture2D" uid="uid://ccu5erk3tjc6n" path="res://pngs/ux/buff/Buff_speed.png" id="3_bkupr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_844oh"]
+atlas = ExtResource("2_otve7")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb2c2"]
+atlas = ExtResource("2_otve7")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1siid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_844oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb2c2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1siid"]
+atlas = ExtResource("3_bkupr")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hxhjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1siid")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b82g5"]
+
+[node name="BuffItemCard" type="Node2D"]
+script = ExtResource("1_ipmaf")
+
+[node name="BuffDamage" type="Node2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BuffDamage"]
+position = Vector2(-15, -7)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_1siid")
+
+[node name="DamageLabel" type="Label" parent="BuffDamage"]
+offset_left = -62.0
+offset_top = 24.0
+offset_right = 62.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.8901961)
+theme_override_font_sizes/font_size = 30
+text = "伤害x2倍"
+
+[node name="BuffSpeed" type="Node2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BuffSpeed"]
+position = Vector2(-7, 5)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hxhjx")
+
+[node name="SpeedLabel" type="Label" parent="BuffSpeed"]
+offset_left = -62.0
+offset_top = 24.0
+offset_right = 62.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.8901961)
+theme_override_font_sizes/font_size = 30
+text = "攻速x2倍"
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_b82g5")

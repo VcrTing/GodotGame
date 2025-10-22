@@ -1,5 +1,8 @@
 {
-    "type": "normal",
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
+    "shooterlowestattackspeedratio": 1,
+
     "initsun": 200,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
@@ -9,9 +12,6 @@
     "allowmiaolist": [
         "SunFlower", "Pea", "JianGuo", "Cherry"
     ],
-    "generatemiaoratio": 1,
-    "shootershootratio": 1,
-    
     "initshooter": "Pea",
     "initmiaolist": [
         "SunFlower", "SunFlower", "Cherry"
@@ -21,9 +21,6 @@
     "enmyviewscale": 1.0,
     "enmybehurtscale": 1.0,
 
-    "enmyswaveflag": {
-        "19": 1
-    },
     "enmys": {
         "4": [
             {
@@ -31,9 +28,7 @@
                 "typesmode": "next",
                 "generator": [ 3, 1, 5 ],
                 "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 0.5,
-                "speedmode": "normal"
+                "lazyme": 0.5
             }
         ],
         "10": [
@@ -42,9 +37,7 @@
                 "typesmode": "next",
                 "generator": [ 9, 2, 8, 6, 4, 10 ],
                 "generatormode": "next",
-                "lazyall": 0,
-                "lazyme": 1,
-                "speedmode": "normal"
+                "lazyme": 1
             }
         ],
         "20": [
@@ -53,9 +46,7 @@
                 "typesmode": "next",
                 "generator": [ 3, 7, 9, 4, 1, 6 ],
                 "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 2,
-                "speedmode": "normal"
+                "lazyme": 2
             }
         ],
         "32": [
@@ -64,20 +55,7 @@
                 "typesmode": "random",
                 "generator": [ 2, 4, 10, 1, 5, 8 ],
                 "generatormode": "random",
-                "lazyall": 0,
-                "lazyme": 2,
-                "speedmode": "normal"
-            }
-        ]
-    },
-    
-    "suns": {
-        "3": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
+                "lazyme": 2
             }
         ]
     }

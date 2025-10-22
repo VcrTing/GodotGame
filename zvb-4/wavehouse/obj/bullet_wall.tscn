@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c52o075ptwybl" path="res://scripts/ux/BulletWall.cs" id="1_wihdo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4k8fq"]
-size = Vector2(20, 1920)
+size = Vector2(20, 2400)
 
 [node name="BulletWall" type="Area2D"]
 collision_layer = 524288

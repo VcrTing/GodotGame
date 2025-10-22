@@ -33,11 +33,13 @@ animations = [{
 }]
 
 [node name="PeaGold" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
 scale = Vector2(4, 4)
 script = ExtResource("1_tixpr")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-z_index = 220
+y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qxqg0")
 autoplay = "default"

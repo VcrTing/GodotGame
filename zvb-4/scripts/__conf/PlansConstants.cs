@@ -26,6 +26,7 @@ namespace ZVB4.Conf
         public const string Cherry = "Cherry";
         public const string LaJiao = "LaJiao";
         // 典藏
+        public const string Yezi = "Yezi";
         public const string PeaGold = "PeaGold";
         public const string XiguaBing = "XiguaBing";
         // 植物名，卡片
@@ -47,11 +48,12 @@ namespace ZVB4.Conf
             { Cherry,  FolderConstants.WavePlans + "plansonce/cherry.tscn" },
             { IceFlower,  FolderConstants.WavePlans + "plansonce/ice_flower.tscn" },
 
+            { Yezi, FolderConstants.WavePlans + "plansdiancang/yezi.tscn" },
             { PeaGold, FolderConstants.WavePlans + "plansdiancang/pea_gold.tscn" },
             { XiguaBing, FolderConstants.WavePlans + "plansdiancang/xigua_bing.tscn" },
         };
         // 植物名，shooter
-        public static readonly  Dictionary<string, string> ShooterDict = new  Dictionary<string, string>
+        public static readonly Dictionary<string, string> ShooterDict = new Dictionary<string, string>
         {
             { Pea, FolderConstants.WavePlayer + "shooter/shooter_pea.tscn" },
             { PeaCold, FolderConstants.WavePlayer + "shooter/shooter_pea_cold.tscn" },
@@ -62,29 +64,32 @@ namespace ZVB4.Conf
             { ShiLiu, FolderConstants.WavePlayer + "shooter/shooter_shi_liu.tscn" },
             { Xigua, FolderConstants.WavePlayer + "shooter/shooter_xigua.tscn" },
             //
+            { Yezi, FolderConstants.WavePlayer + "shooter_diancang/shooter_yezi.tscn" },
             { PeaGold, FolderConstants.WavePlayer + "shooter_diancang/shooter_pea_gold.tscn" },
             { XiguaBing, FolderConstants.WavePlayer + "shooter_diancang/shooter_xigua_bing.tscn" },
         };
         // 植物生长时长
+        static float BaseSubGrowTime = -100f;
         public static readonly  Dictionary<string, float> PlanGrowTimeDict = new  Dictionary<string, float>
         {
             { Pea, 2f },
-            { PeaCold, 2f },
+            { PeaCold, 3f },
             { PeaDouble, 4f },
 
             { LanMei, 3f },
             { YangTao, 5f },
-            { ShiLiu, 1f },
-            { Xigua, 4f },
+            { ShiLiu, 5f },
+            { Xigua, 6f },
 
             { SunFlower, 1f },
             { Cherry, 5f },
             { JianGuo, 2f },
             { IceFlower, 10f },
-            { LaJiao, 3f },
-            //
+            { LaJiao, 7f },
+
+            { Yezi, 20f },
             { XiguaBing, 8f },
-            { PeaGold, 8f },
+            { PeaGold, 12f },
         };
         // 植物生命值
         public static readonly  Dictionary<string, int> PlanHealthDict = new  Dictionary<string, int>
@@ -103,17 +108,19 @@ namespace ZVB4.Conf
             return false;
         }
         // 射手限制
+        static int BaseShootNum = 1000;
         public static readonly  Dictionary<string, int> ShooterAttackLimitDict = new  Dictionary<string, int>
         {
             { Pea, 0 },
-            { PeaCold, 24 },
-            { PeaDouble, 20 },
-            { Xigua, 12 },
-            { LanMei, 14 },
-            { YangTao, 14 },
-            { ShiLiu, 16 },
-            { XiguaBing, 8 },
-            { PeaGold, 10 },
+            { PeaCold, 30 + BaseShootNum },
+            { PeaDouble, 20 + BaseShootNum },
+            { Xigua, 12 + BaseShootNum },
+            { LanMei, 14 + BaseShootNum },
+            { YangTao, 14 + BaseShootNum },
+            { ShiLiu, 16 + BaseShootNum },
+            { XiguaBing, 8 + BaseShootNum },
+            { PeaGold, 10 + BaseShootNum },
+            { Yezi, 7 + BaseShootNum }
         };
         public static int GetShooterAttackLimit(string key) {
             if (ShooterAttackLimitDict.TryGetValue(key, out var value))
@@ -134,6 +141,7 @@ namespace ZVB4.Conf
             //
             if (key == PeaGold) return 2f;
             else if (key == XiguaBing) return 1f;
+            else if (key == Yezi) return 2f;
             return 0f;
         }
         public static float GetPlansAttackSpeedSnap(string key)
@@ -148,6 +156,7 @@ namespace ZVB4.Conf
             //
             if (key == PeaGold) return 0.08f;
             else if (key == XiguaBing) return 0.1f;
+            else if (key == Yezi) return 0.3f;
             return 0f;
         }
         public static float GetPlansAttackSpeedEnd(string key)
@@ -162,6 +171,7 @@ namespace ZVB4.Conf
             // 
             if (key == PeaGold) return 0.25f;
             else if (key == XiguaBing) return 0.2f;
+            else if (key == Yezi) return 0.15f;
             return 0f;
         }
         public static float GetPlansAttackSpeedSnapSnap(string key)
@@ -176,6 +186,7 @@ namespace ZVB4.Conf
             // 
             if (key == PeaGold) return 0.01f;
             if (key == XiguaBing) return 0.01f;
+            if (key == Yezi) return 0.005f;
             return 0f;
         }
 
@@ -185,6 +196,7 @@ namespace ZVB4.Conf
             if (key == PeaGold) return 150f;
             if (key == ShiLiu) return 320f;
             if (key == Xigua) return 240f;
+            if (key == Yezi) return 120f;
             return 0f;
         } 
         // 坚果倍数
@@ -214,8 +226,11 @@ namespace ZVB4.Conf
         // 根据key获取生长时长
         public static float GetPlanGrowTime(string key)
         {
-            if (PlanGrowTimeDict.TryGetValue(key, out var value))
-                return value;
+            if (PlanGrowTimeDict.TryGetValue(key, out var value)) {
+                value -= BaseSubGrowTime;
+                return value < 0 ? 0.1f : value;
+            }
+                
             return 0f;
         }
         public static bool IsShooter(string planName)
@@ -284,7 +299,7 @@ namespace ZVB4.Conf
 
         public static string GetShooterWrapperScenePath(string plansName)
         {
-            if (plansName == PeaGold || plansName == ShiLiu || plansName == Xigua) {
+            if (plansName == PeaGold || plansName == ShiLiu || plansName == Xigua || plansName == Yezi) {
                 return FolderConstants.WavePlayer + "shooter_pao_wrapper.tscn";
             }
             return FolderConstants.WavePlayer + "shooter_gun_wrapper.tscn";

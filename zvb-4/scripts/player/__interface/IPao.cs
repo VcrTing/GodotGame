@@ -12,6 +12,9 @@ namespace ZVB4.Interface
         void DoFireEffect(Vector2 position);
         void DoInitEffect(Vector2 position);
         void DoFireLoadEffect(Vector2 position);
-        void DoRotingEffect(Vector2 direction);
+        //
+        void OnRotingStart(Vector2 dirTarget);
+        void OnRotingEnd(Vector2 dirNow);
+        void OnFireStart(Vector2 direction);
     }
 }

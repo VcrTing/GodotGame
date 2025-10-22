@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://c4314c54wcerx"]
 
 [ext_resource type="Script" uid="uid://dq76us16ek0mk" path="res://scripts/plans/plansonce/PlansCherry.cs" id="1_kvus3"]
-[ext_resource type="Texture2D" uid="uid://brxxwm5f0xfr8" path="res://pngs/plans/CherryNew.png" id="2_bswmn"]
+[ext_resource type="Texture2D" uid="uid://brxxwm5f0xfr8" path="res://pngs/plans/once/CherryNew.png" id="2_bswmn"]
 [ext_resource type="Texture2D" uid="uid://blc0pukv4qaqb" path="res://pngs/planscard/Cherry.png" id="2_sfjm0"]
 [ext_resource type="Texture2D" uid="uid://dibpsb6gx3tea" path="res://pngs/fx/cherry_boom_lizi.png" id="3_sfjm0"]
 [ext_resource type="Texture2D" uid="uid://1wn4qwqpp0lv" path="res://pngs/fx/Cherry_boom_view.png" id="4_pwbcj"]
@@ -108,17 +108,20 @@ height = 200.0
 size = Vector2(40, 20)
 
 [node name="Cherry" type="Node2D"]
-z_index = 1220
+z_index = 400
+y_sort_enabled = true
 scale = Vector2(3.4, 3.4)
 script = ExtResource("1_kvus3")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(1.0000001, 1.0000001)
 sprite_frames = SubResource("SpriteFrames_pwbcj")
 autoplay = "default"
 frame_progress = 0.4528889
 
 [node name="ViewDoing" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-4, 0)
 scale = Vector2(3.4, 3.4)
 sprite_frames = SubResource("SpriteFrames_2dcip")

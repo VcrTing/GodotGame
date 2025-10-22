@@ -8,13 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://k3linm4rcf5o" path="res://wavehouse/ground/ge_zi_wrapper_7x7.tscn" id="7_dmnse"]
 
 [node name="JingDianCapsCenter" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_trk2p")
 
 [node name="RewordMiaoCenterSystem" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -300)
 script = ExtResource("2_dmnse")
 
 [node name="FlowerPengSystem" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, 850)
 script = ExtResource("3_qnl4t")
 
@@ -22,11 +25,13 @@ script = ExtResource("3_qnl4t")
 position = Vector2(0, -850)
 
 [node name="Enmys" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="EnmyEnvBuilder" type="Node2D" parent="Enmys"]
 script = ExtResource("5_5wv8t")
 
 [node name="EnmyGenerator" type="Node2D" parent="Enmys"]
+y_sort_enabled = true
 script = ExtResource("6_sdwyu")
 
 [node name="GeZiWrapper7x7" parent="." instance=ExtResource("7_dmnse")]

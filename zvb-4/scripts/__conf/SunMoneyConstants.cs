@@ -26,7 +26,8 @@ namespace ZVB4.Conf
             { PlansConstants.ShiLiu, 25 },
             { PlansConstants.Xigua, 40 },
             { PlansConstants.XiguaBing, 50 },
-            { PlansConstants.PeaGold, 50 }
+            { PlansConstants.PeaGold, 50 },
+            { PlansConstants.Yezi, 100 }
         };
         public static readonly Dictionary<string, int> DieSunDict = new Dictionary<string, int>
         {
@@ -38,7 +39,8 @@ namespace ZVB4.Conf
             { PlansConstants.ShiLiu, 80 },
             { PlansConstants.Xigua, 100 },
             { PlansConstants.XiguaBing, 200 },
-            { PlansConstants.PeaGold, 200 }
+            { PlansConstants.PeaGold, 200 },
+            { PlansConstants.Yezi, 300 }    
         };
         public static int GetPlansSunCost(string plansName)
         {

@@ -97,7 +97,7 @@ public partial class SoundOneshotController : Node2D
             AudioStream stream = GD.Load<AudioStream>(param.Path);
             if (stream == null) return;
 			_player.Stream = stream;
-			_player.PanningStrength = param.Pan;
+			_player.PanningStrength = Mathf.Abs(param.Pan);
 			_player.VolumeDb = Mathf.LinearToDb(param.Volume);
 			_player.Play();
 			_playingCount++;
@@ -108,7 +108,7 @@ public partial class SoundOneshotController : Node2D
             AudioStream stream = GD.Load<AudioStream>(param.Path);
             if (stream == null) return;
 			_player2.Stream = stream;
-			_player2.PanningStrength = param.Pan;
+			_player.PanningStrength = Mathf.Abs(param.Pan);
 			_player2.VolumeDb = Mathf.LinearToDb(param.Volume);
 			_player2.Play();
 			_playingCount++;

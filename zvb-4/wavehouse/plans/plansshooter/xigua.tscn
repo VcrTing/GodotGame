@@ -1,19 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://nsdghf5jew50"]
+[gd_scene load_steps=7 format=3 uid="uid://nsdghf5jew50"]
 
 [ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_t4a6u"]
 [ext_resource type="Texture2D" uid="uid://co27sj80osjl1" path="res://pngs/planscard/XiGua.png" id="2_cxxvm"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxxvm"]
+atlas = ExtResource("2_cxxvm")
+region = Rect2(0, 0, 200, 200)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1v07"]
 atlas = ExtResource("2_cxxvm")
-region = Rect2(0, 0, 150, 150)
+region = Rect2(200, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhkwl"]
 atlas = ExtResource("2_cxxvm")
-region = Rect2(150, 0, 150, 150)
+region = Rect2(400, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4xpaf"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxxvm")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y1v07")
 }, {
@@ -26,13 +33,16 @@ animations = [{
 }]
 
 [node name="Xigua" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
 scale = Vector2(2.6, 2.6)
 script = ExtResource("1_t4a6u")
 objName = "Xigua"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-z_index = 220
-position = Vector2(3, 0)
+y_sort_enabled = true
+position = Vector2(-5, -3)
+scale = Vector2(0.64, 0.64)
 sprite_frames = SubResource("SpriteFrames_4xpaf")
 autoplay = "default"
 frame_progress = 0.5977832

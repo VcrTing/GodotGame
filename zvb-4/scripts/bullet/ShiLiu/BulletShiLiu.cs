@@ -135,9 +135,9 @@ public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
         MoveBullet(Direction, Speed, delta);
     }
     [Export]
-    public float DamageStayTime = 0.15f;
+    public float DamageStayTime = 0.1f;
     [Export]
-    public float DamageFadeTime = 0.35f;
+    public float DamageFadeTime = 0.4f;
     // 伤害降为0时调用
     void OnDamageZero()
     {

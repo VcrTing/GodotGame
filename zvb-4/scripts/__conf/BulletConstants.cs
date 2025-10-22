@@ -15,6 +15,7 @@ namespace ZVB4.Conf
         //
         public const string BulletPeaGoldName = "BulletPeaGold";
         public const string BulletXiguaBingName = "BulletXiguaBing";
+        public const string BulletYeziName = "BulletYezi";
 
         // 植物名，bullet
         public static readonly Dictionary<string, string> BulletDict = new Dictionary<string, string>
@@ -22,12 +23,13 @@ namespace ZVB4.Conf
             { PlansConstants.Pea, FolderConstants.WaveBullet + "bullet_zero.tscn" },
             { PlansConstants.PeaCold, FolderConstants.WaveBullet + "bullet_zero_cold.tscn" },
             { PlansConstants.PeaDouble, FolderConstants.WaveBullet + "bullet_zero_s.tscn" },
-
+            //
             { PlansConstants.LanMei, FolderConstants.WaveBullet + "bullet_lan_mei.tscn" },
             { PlansConstants.YangTao, FolderConstants.WaveBullet + "bullet_yang_tao.tscn" },
             { PlansConstants.ShiLiu, FolderConstants.WaveBullet + "bullet_shi_liu.tscn" },
             { PlansConstants.Xigua, FolderConstants.WaveBullet + "bullet_xigua.tscn" },
             //
+            { PlansConstants.Yezi, FolderConstants.WaveBullet + "diancang/bullet_yezi.tscn" },
             { PlansConstants.PeaGold, FolderConstants.WaveBullet + "diancang/bullet_pea_gold.tscn" },
             { PlansConstants.XiguaBing, FolderConstants.WaveBullet + "diancang/bullet_xigua_bing.tscn" },
         };
@@ -44,30 +46,27 @@ namespace ZVB4.Conf
             { BulletPeaName, DamageBasic },
             { BulletPeaColdName, Base * 60 },
             { BulletPeaDoubleName, DamageBasic },
-            { BulletShiLiuName, Base * 25 },
-            { BulletXiguaName, Base * 175 },
-
+            { BulletShiLiuName, Base * 40 },
+            { BulletXiguaName, Base * 175 },    
+            //
             { BulletLanMeiName, Base * 70 },
             { BulletYangTaoName, Base * 50 },
             { BulletPeaGoldName, Base * 200 },
             { BulletXiguaBingName, Base * 300 },
+            { BulletYeziName, Base * 600 },
         };
         public static readonly Dictionary<string, int> BulletGroupDamageDict = new Dictionary<string, int>
         {
-            // { BulletPeaName, Zero },
             { BulletLanMeiName, Base * 20 },
-            // { BulletYangTaoName, Zero },
             { BulletXiguaBingName, Base * 100 },
         };
 
         public static readonly Dictionary<string, int> BulletExtraDamageDict = new Dictionary<string, int>
         {
-            // { BulletPeaName, Zero },
-            // { BulletLanMeiName, Zero },
-            // { BulletYangTaoName, Zero },
             { BulletXiguaName, Base * 75 },
             { BulletPeaDoubleName, DamageBasic },
             { BulletXiguaBingName, Base * 100 },
+            { BulletYeziName, Base * 100 },
         };
 
 
@@ -108,6 +107,7 @@ namespace ZVB4.Conf
                 //
                 BulletPeaGoldName => 2500f,
                 BulletXiguaBingName => 1120f,
+                BulletYeziName => 2000f,
                 _ => 700f,
             };
         }

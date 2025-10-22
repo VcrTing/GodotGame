@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bghk0wtumd18d"]
+
+[ext_resource type="Script" uid="uid://bctsx0boajko" path="res://scripts/ux/BulletLowDown.cs" id="1_majvj"]
+[ext_resource type="PackedScene" uid="uid://bfthejwtbkxar" path="res://wavehouse/obj/bullet_wall.tscn" id="2_2l86w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp4jh"]
+size = Vector2(1160, 90)
+
+[node name="BulletFixerJingDian" type="Node2D"]
+
+[node name="BulletLowDown" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, -550)
+collision_layer = 524288
+collision_mask = 524288
+script = ExtResource("1_majvj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletLowDown"]
+shape = SubResource("RectangleShape2D_tp4jh")
+
+[node name="BulletWall" parent="." instance=ExtResource("2_2l86w")]
+position = Vector2(-750, 0)
+rotation = 0.08726646
+
+[node name="BulletWall2" parent="." instance=ExtResource("2_2l86w")]
+position = Vector2(750, 0)
+rotation = -0.08726646
+
+[node name="BulletWall3" parent="." instance=ExtResource("2_2l86w")]
+position = Vector2(0, 1000)
+rotation = 1.5707964
+IsX = false

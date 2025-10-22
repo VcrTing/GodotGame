@@ -123,39 +123,25 @@ public partial class BulletPeaGold : Node2D, IBulletBase, IObj, IAttack
         if (isDoDie)
         {
             // 死亡效果
-            RunningDieFx(delta);
+            GameTool.RunnerBulletZeroWhenDieFx(this, delta, ref fadeElapsed, fadeDuration, fadeLowest);
         }
         else
         {
-            AdjustView();
+            ViewTool.View3In1(this, minScale, maxScale);
         }
     }
     float minScale = GameContants.MinScale;
     float maxScale = GameContants.MaxScale;
-    public bool AdjustView()
-    {
-        ViewTool.View3In1(this, minScale, maxScale);
-        // GD.Print($"BulletPeaGold AdjustView Position.Y={Position.Y}, Scale={Scale}");
-        return true;
-    }
     // 渐隐相关变量
     float fadeElapsed = 0f;
     float fadeDuration = AnimationConstants.BulletFadeDieDuration;
     float fadeLowest = 0f;
-    void RunningDieFx(double delta)
-    {
-        GameTool.RunnerBulletZeroWhenDieFx(this, delta, ref fadeElapsed, fadeDuration, fadeLowest);
-    }
     public void MoveBullet(Vector2 direction, float speed, double delta)
     {
         // 移动始终用世界坐标方向，与节点旋转无关
         Position += direction.Normalized() * speed * (float)delta;
     }
-    public bool Die()
-    {
-        throw new NotImplementedException();
-    }
-
+    public bool Die() => throw new NotImplementedException();
 
     private void UpdateVisuals()
     {

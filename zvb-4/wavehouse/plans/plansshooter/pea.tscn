@@ -1,7 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://clwspk15crvci"]
+[gd_scene load_steps=10 format=3 uid="uid://clwspk15crvci"]
 
 [ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_t4a6u"]
+[ext_resource type="Texture2D" uid="uid://dlmu172mfysph" path="res://pngs/planscard/Pea.png" id="2_qq38c"]
 [ext_resource type="Texture2D" uid="uid://dre0naotexxkr" path="res://pngs/planscard/Pea2.png" id="2_t4a6u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efndb"]
+atlas = ExtResource("2_qq38c")
+region = Rect2(0, 0, 180, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xafq0"]
+atlas = ExtResource("2_qq38c")
+region = Rect2(180, 0, 180, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qq38c"]
 atlas = ExtResource("2_t4a6u")
@@ -19,6 +28,17 @@ region = Rect2(120, 0, 60, 60)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_efndb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xafq0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qq38c")
 }, {
 "duration": 1.0,
@@ -28,17 +48,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_5kaqq")
 }],
 "loop": true,
-"name": &"default",
+"name": &"default_1",
 "speed": 3.0
 }]
 
 [node name="Pea" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
 scale = Vector2(4, 4)
 script = ExtResource("1_t4a6u")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-z_index = 220
-position = Vector2(-1, -2)
+y_sort_enabled = true
+position = Vector2(0, -10)
+scale = Vector2(0.36, 0.36)
 sprite_frames = SubResource("SpriteFrames_1xwo4")
 autoplay = "default"
-frame_progress = 0.48423803

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://df6x44ifkevql"]
+[gd_scene load_steps=10 format=3 uid="uid://df6x44ifkevql"]
 
 [ext_resource type="Script" uid="uid://m1cueyldwl4h" path="res://scripts/player/shooter_diancang/ShooterPeaGold.cs" id="1_7wbqg"]
 [ext_resource type="Texture2D" uid="uid://edxuomv23skn" path="res://pngs/plans/diancang/PeaGold.png" id="2_5da5r"]
@@ -39,6 +39,15 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_7wbqg"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5da5r"]
+gradient = SubResource("Gradient_7wbqg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.815534, 0.2936893)
+
 [node name="ShooterPeaGold" type="Node2D"]
 script = ExtResource("1_7wbqg")
 
@@ -48,3 +57,13 @@ scale = Vector2(0.47, 0.47)
 sprite_frames = SubResource("SpriteFrames_at5dv")
 autoplay = "default"
 frame_progress = 0.6060555
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.3
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2000
+range_layer_max = 4096
+texture = SubResource("GradientTexture2D_5da5r")
+texture_scale = 1.5
+height = 200.0

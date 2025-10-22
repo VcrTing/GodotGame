@@ -174,7 +174,7 @@ public partial class RewordMiaoCenterSystem : Node2D
         x += v;
         y += v2;
         if (must) {
-            DumpPlansMiao(new Vector2(x, y), name, playSound);
+            DumpPlansMiaoMust(new Vector2(x, y), name, playSound);
             return;
         }
         DumpPlansMiao(new Vector2(x, y), name, playSound);

@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://e7u73d4iu0cp"]
+[gd_scene load_steps=9 format=3 uid="uid://e7u73d4iu0cp"]
 
-[ext_resource type="Script" uid="uid://bo4jybuqglmls" path="res://scripts/player/shooter/ShooterXiguaBing.cs" id="1_t61gt"]
+[ext_resource type="Script" uid="uid://dsymxpx2sxy" path="res://scripts/player/shooter/ShooterXigua.cs" id="1_166cg"]
 [ext_resource type="Texture2D" uid="uid://b4xo3kuevk8y0" path="res://pngs/plans/XiguaBing2.png" id="2_2dnwl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqxrb"]
@@ -32,8 +32,17 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_166cg"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nk8te"]
+gradient = SubResource("Gradient_166cg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.815534, 0.2936893)
+
 [node name="ShooterXiguaBing" type="Node2D"]
-script = ExtResource("1_t61gt")
+script = ExtResource("1_166cg")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
@@ -42,3 +51,13 @@ sprite_frames = SubResource("SpriteFrames_iq7xp")
 autoplay = "default"
 frame = 2
 frame_progress = 0.6473648
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.3
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2000
+range_layer_max = 4096
+texture = SubResource("GradientTexture2D_nk8te")
+texture_scale = 1.5
+height = 200.0

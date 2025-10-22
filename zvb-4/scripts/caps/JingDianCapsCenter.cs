@@ -31,6 +31,7 @@ public partial class JingDianCapsCenter : Node2D
             return;
         }
         CapterNumber = ins.GetCapterNumber();
+        GD.Print("加载经典章节数据，章节编号：" + CapterNumber);
         LoadCapData(ChapterTool.GetChapterJsonFilePath(CapterNumber));
     }
     public override void _Process(double delta)

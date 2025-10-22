@@ -188,7 +188,7 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
         RotationEveryFrame(NowRotationDir, delta);
     }
     float attackSpeedStart = 0.3f;
-    float attackSpeedEnd = 0.3f;
+    float speedEnd = 0.3f;
     float attackSpeedSnap = 0.05f;
     float attackSpeedSnapSnap = 0.005f;
 
@@ -211,9 +211,9 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
         {
             __attackSnapTime = 0f;
             __attackSpeed -= __attackSpeedSnap;
-            if (__attackSpeed <= attackSpeedEnd)
+            if (__attackSpeed <= speedEnd)
             {
-                __attackSpeed = attackSpeedEnd;
+                __attackSpeed = speedEnd;
             }
             // 曲线降速
             __attackSpeedSnap -= attackSpeedSnapSnap;
@@ -266,11 +266,6 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
             var _ = DelayAndReload();
             return;
         }
-        // shooterNowName = playerData.ShooterNow;
-        /*
-        _LoadShooterParams(shooterNowName);
-        _LoadShooterInstance(shooterNowName);
-        */
     }
     async System.Threading.Tasks.Task DelayAndReload()
     {
@@ -283,13 +278,13 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
         shooterCostSun = SunMoneyConstants.GetPlansSunCost(shooterName);
         // 获取攻击速度
         attackSpeedStart = PlansConstants.GetPlansAttackSpeedStart(shooterName);
-        attackSpeedEnd = PlansConstants.GetPlansAttackSpeedEnd(shooterName);
+        speedEnd = PlansConstants.GetPlansAttackSpeedEnd(shooterName);
         attackSpeedSnap = PlansConstants.GetPlansAttackSpeedSnap(shooterName);
         __attackSpeed = attackSpeedStart;
         attackSpeedSnapSnap = PlansConstants.GetPlansAttackSpeedSnapSnap(shooterName);
         __attackSpeedSnap = attackSpeedSnap;
+        RebuildForBuffs();
     }
-
     public IShooter shooter;
     void _LoadShooterInstance(string shooterName)
     {
@@ -309,4 +304,10 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
         }
     }
 
+    public void RebuildForBuffs()
+    {
+        // 攻速调节
+        speedEnd = PlansConstants.GetPlansAttackSpeedEnd(shooterNowName);
+        speedEnd = PlayerTool.ComputedLowestAttackSpeedRatio(speedEnd);
+    }
 }

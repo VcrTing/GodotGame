@@ -1,0 +1,45 @@
+{
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
+    "shooterlowestattackspeedratio": 1,
+
+    "initsun": 2200,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "gamechecktime": 120,
+    
+    "initpeng": 8,
+    "allowmiaolist": [
+        "SunFlower", "JianGuo", "Cherry", "LanMei", "Pea", "PeaDouble", "PeaCold"
+    ],
+    
+    "initshooter": "PeaDouble",
+    "initmiaolist": [
+        "SunFlower", "Yezi", "Xigua", "PeaCold", "ShiLiu"
+    ],
+    "enmyspeedattackscale": 1,
+    "enmyspeedmovescale": 1,
+    "enmyviewscale": 1,
+    "enmybehurtscale": 1,
+
+    "enmys": {
+        "6": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyme": 1
+            }
+        ],
+        "7": [
+            {
+                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyme": 2
+            }
+        ]
+    }
+}

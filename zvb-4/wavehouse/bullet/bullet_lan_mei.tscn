@@ -55,6 +55,7 @@ animations = [{
 }]
 
 [node name="BulletLanMei" type="Node2D"]
+y_sort_enabled = true
 scale = Vector2(1.7, 1.7)
 script = ExtResource("1_q7ntg")
 
@@ -73,6 +74,7 @@ texture = ExtResource("3_i0tpk")
 process_material = SubResource("ParticleProcessMaterial_q7ntg")
 
 [node name="AttackArea" type="Area2D" parent="."]
+y_sort_enabled = true
 collision_layer = 256
 collision_mask = 512
 script = ExtResource("4_60tdx")
@@ -82,8 +84,10 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_mfqwq")
 
 [node name="View" type="AnimatedSprite2D" parent="AttackArea"]
+y_sort_enabled = true
 position = Vector2(3, -8)
 scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_bn1va")
 autoplay = "default"
-frame_progress = 0.80018026
+frame = 1
+frame_progress = 0.4116267

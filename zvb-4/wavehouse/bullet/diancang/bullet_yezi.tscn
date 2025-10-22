@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://b2s6t5gps2c0x"]
+
+[ext_resource type="Script" uid="uid://bl33tp7wj2cwg" path="res://scripts/bullet/Yezi/BulletYezi.cs" id="1_w7cvy"]
+[ext_resource type="Texture2D" uid="uid://c4eey1a8mpvq7" path="res://pngs/bullet/Yezi.png" id="2_0owj7"]
+[ext_resource type="Script" uid="uid://b73c22wram71g" path="res://scripts/bullet/LanMei/BulletSingleUxArea.cs" id="3_0owj7"]
+[ext_resource type="Texture2D" uid="uid://dp1p1cp4gg4nv" path="res://pngs/ux/sun2.png" id="4_18dju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7cvy"]
+atlas = ExtResource("2_0owj7")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18dju"]
+atlas = ExtResource("2_0owj7")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o4a5"]
+atlas = ExtResource("2_0owj7")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y04ct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7cvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18dju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o4a5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ll26u"]
+radius = 150.0
+height = 380.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebroe"]
+size = Vector2(250, 60)
+
+[node name="BulletYezi" type="Node2D"]
+z_index = 1320
+y_sort_enabled = true
+script = ExtResource("1_w7cvy")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(4, -24)
+rotation = -0.20943952
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_y04ct")
+autoplay = "default"
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -30)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ll26u")
+
+[node name="AttackExtraArea" type="Area2D" parent="."]
+position = Vector2(0, 28)
+collision_layer = 256
+collision_mask = 512
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackExtraArea"]
+polygon = PackedVector2Array(-250, 120, 250, 120, 500, -1000, 0, -1200, -500, -1000)
+
+[node name="UxArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+script = ExtResource("3_0owj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UxArea"]
+shape = SubResource("RectangleShape2D_ebroe")
+
+[node name="Sprite2D" type="Sprite2D" parent="UxArea"]
+visible = false
+position = Vector2(0, 400)
+texture = ExtResource("4_18dju")

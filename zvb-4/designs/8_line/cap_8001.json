@@ -1,33 +1,77 @@
 {
-    "type": "normal",
-    "initsun": 2000,
+    "generatemiaoratio": 0,
+    "shootershootratio": 99999,
+    "shooterlowestattackspeedratio": 3,
+
+    "initsun": 1900,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 120,
     
-    "initpeng": 8,
-    "generatemiaoratio": 0,
-    
+    "initpeng": 1,
     "allowmiaolist": [
         "SunFlower", "IceFlower", "YangTao", "Pea", "JianGuo", "Cherry"
     ],
-    "shootershootratio": 1,
     "initshooter": "Pea",
-    "initmiaolist": [ "SunFlower", "SunFlower", "SunFlower", "SunFlower" ],
+    "initmiaolist": [ "SunFlower" ],
+
     "enmyspeedattackscale": 2.0,
     "enmyspeedmovescale": 2.0,
     "enmyviewscale": 0.7,
     "enmybehurtscale": 4.0,
 
-    "enmyswaveflag": {
-        "19": 1
-    },
+    "cards": [
+        {
+            "type": 4, "amount": 0, "plansname": "Pea",
+            "viewscale": 3, "hp": 5000, "buff": 12,
+            "x": -300, "y": 200
+        },
+        {
+            "type": 4, "amount": 0, "plansname": "Pea",
+            "viewscale": 3, "hp": 10000, "buff": 11,
+            "x": -270, "y": 0
+        },
+        {
+            "type": 3, "amount": 0, "plansname": "PeaCold",
+            "viewscale": 3, "hp": 20000, "buff": 0,
+            "x": -240, "y": -190
+        },
+        {
+            "type": 1, "amount": 500, "plansname": "Pea",
+            "viewscale": 3, "hp": 10000, "buff": 0,
+            "x": -220, "y": -380
+        }
+    ],
     "enmys": {
         "5": [
             {
                 "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
-                "lazyme": 0, "loop": 10, "loopdelay": 1, "isenmy": 1
+                "lazyme": 0, "loop": 5, "loopdelay": 3, "isenmy": 1
+            }
+        ],
+        
+        "30": [
+            {
+                "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "grids": [ 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 5, "loopdelay": 2, "isenmy": 1
+            }
+        ],
+        
+        "50": [
+            {
+                "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "grids": [ 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 8, "loopdelay": 1, "isenmy": 1
+            }
+        ],
+        
+        "65": [
+            {
+                "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "grids": [ 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 14, "loopdelay": 0.5, "isenmy": 1
             }
         ]
     }

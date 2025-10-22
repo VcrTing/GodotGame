@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b82g5"]
-size = Vector2(900, 400)
+size = Vector2(2000, 500)
 
 [node name="PlayerSliderLine" type="Node2D"]
 script = ExtResource("1_3c85d")
@@ -33,4 +33,5 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UxArea"]
+position = Vector2(0, -100)
 shape = SubResource("RectangleShape2D_b82g5")

@@ -1,34 +1,57 @@
-[gd_scene load_steps=11 format=3 uid="uid://8428d727ktas"]
+[gd_scene load_steps=15 format=3 uid="uid://8428d727ktas"]
 
 [ext_resource type="Script" uid="uid://b0vw3ymcio0c6" path="res://scripts/bullet/Cold/BulletZeroCold.cs" id="1_laihi"]
 [ext_resource type="Texture2D" uid="uid://lo57nsagqf0a" path="res://pngs/bullet/BulletPeaCold.png" id="2_qwbf0"]
 [ext_resource type="Texture2D" uid="uid://cs40gw6kt8ipo" path="res://pngs/fx/iceline.png" id="3_4oa50"]
 [ext_resource type="Script" uid="uid://b73c22wram71g" path="res://scripts/bullet/LanMei/BulletSingleUxArea.cs" id="4_laihi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4oa50"]
-atlas = ExtResource("2_qwbf0")
-region = Rect2(0, 0, 60, 60)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_laihi"]
 atlas = ExtResource("2_qwbf0")
-region = Rect2(60, 0, 60, 60)
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycfol"]
+atlas = ExtResource("2_qwbf0")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk3p3"]
+atlas = ExtResource("2_qwbf0")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuy76"]
+atlas = ExtResource("2_qwbf0")
+region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ycfol"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4oa50")
+"texture": SubResource("AtlasTexture_laihi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_laihi")
+"texture": SubResource("AtlasTexture_ycfol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk3p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuy76")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_laihi"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ycfol"]
+gradient = SubResource("Gradient_laihi")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.815534, 0.2936893)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4oa50"]
-radius = 90.0
+radius = 100.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_laihi"]
 particle_flag_disable_z = true
@@ -47,18 +70,33 @@ scale_over_velocity_min = 0.19999999
 scale_over_velocity_max = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4oa50"]
-size = Vector2(120, 20)
+size = Vector2(140, 30)
 
 [node name="BulletZeroCold" type="Node2D"]
 z_index = 1320
+y_sort_enabled = true
 script = ExtResource("1_laihi")
 IsManyDamage = true
 hurtType = 11
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -7)
-scale = Vector2(3, 3)
+y_sort_enabled = true
+position = Vector2(-3, -11)
+scale = Vector2(1.6, 1.7)
 sprite_frames = SubResource("SpriteFrames_ycfol")
+autoplay = "default"
+frame_progress = 0.31342357
+
+[node name="PointLight2D" type="PointLight2D" parent="View"]
+position = Vector2(2, 6)
+color = Color(1, 1, 1, 0.39215687)
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2000
+range_layer_max = 4096
+texture = SubResource("GradientTexture2D_ycfol")
+texture_scale = 2.0
+height = 200.0
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 256
@@ -79,5 +117,4 @@ collision_mask = 512
 script = ExtResource("4_laihi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UxArea"]
-position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_4oa50")

@@ -1,5 +1,8 @@
 {
-    "type": "normal",
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
+    "shooterlowestattackspeedratio": 1,
+
     "initsun": 2200,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
@@ -9,8 +12,6 @@
     "allowmiaolist": [
         "SunFlower", "IceFlower", "YangTao", "Pea", "PeaDouble", "JianGuo", "Cherry", "LanMei"
     ],
-    "generatemiaoratio": 1,
-    "shootershootratio": 1,
     
     "initshooter": "ShiLiu",
     "initmiaolist": [
@@ -21,9 +22,6 @@
     "enmyviewscale": 1,
     "enmybehurtscale": 1,
 
-    "enmyswaveflag": {
-        "19": 1
-    },
     "enmys": {
         "5": [
             {
@@ -34,17 +32,6 @@
                 "lazyall": 0,
                 "lazyme": 2,
                 "speedmode": "normal"
-            }
-        ]
-    },
-    
-    "suns": {
-        "3": [
-            {
-                "types": [ "sun" ],
-                "typesmode": "next",
-                "generatormode": "random",
-                "lazyme": 0
             }
         ]
     }

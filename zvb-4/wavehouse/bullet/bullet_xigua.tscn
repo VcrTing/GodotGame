@@ -1,21 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0hwf2hay32jv"]
+[gd_scene load_steps=12 format=3 uid="uid://d0hwf2hay32jv"]
 
 [ext_resource type="Script" uid="uid://bpg8v3g7e70gy" path="res://scripts/bullet/Xigua/BulletXigua.cs" id="1_0tabn"]
 [ext_resource type="Texture2D" uid="uid://c1ujbdwbelxur" path="res://pngs/bullet/BulletXiGua.png" id="2_0tabn"]
 [ext_resource type="Texture2D" uid="uid://cs40gw6kt8ipo" path="res://pngs/fx/iceline.png" id="3_4oa50"]
 [ext_resource type="Script" uid="uid://b73c22wram71g" path="res://scripts/bullet/LanMei/BulletSingleUxArea.cs" id="4_laihi"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tabn"]
+atlas = ExtResource("2_0tabn")
+region = Rect2(0, 0, 200, 200)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef6b5"]
 atlas = ExtResource("2_0tabn")
-region = Rect2(0, 0, 150, 150)
+region = Rect2(200, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3kh8"]
 atlas = ExtResource("2_0tabn")
-region = Rect2(150, 0, 150, 150)
+region = Rect2(400, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hk4wd"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tabn")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ef6b5")
 }, {
@@ -52,12 +59,18 @@ size = Vector2(230, 40)
 
 [node name="BulletXigua" type="Node2D"]
 z_index = 1320
+y_sort_enabled = true
 script = ExtResource("1_0tabn")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(6, -7)
-scale = Vector2(2.8, 2.8)
+y_sort_enabled = true
+position = Vector2(-12, -13)
+rotation = 0.05235988
+scale = Vector2(1.9, 1.9)
 sprite_frames = SubResource("SpriteFrames_hk4wd")
+autoplay = "default"
+frame = 1
+frame_progress = 0.44007677
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 256
@@ -81,5 +94,4 @@ collision_mask = 512
 script = ExtResource("4_laihi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UxArea"]
-position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_0tabn")

@@ -30,14 +30,17 @@ radius = 30.0
 
 [node name="BulletZeroS" type="Node2D"]
 z_index = 1320
+y_sort_enabled = true
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_rkaoj")
 objName = "BulletPeaDouble"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -4)
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_yhkfx")
+autoplay = "default"
 frame_progress = 0.8901614
 
 [node name="AttackArea" type="Area2D" parent="."]

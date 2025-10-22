@@ -127,7 +127,7 @@ public partial class SaveDataManager : Node
         if (_playerData != null)
         {
             _playerData.Money += value;
-            GD.Print("AddMoneyAndSave: " + value + " total: " + _playerData.Money);
+            // GD.Print("AddMoneyAndSave: " + value + " total: " + _playerData.Money);
             SavePlayerData();
         }
     }

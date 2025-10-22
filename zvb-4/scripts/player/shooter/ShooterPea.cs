@@ -28,7 +28,7 @@ public partial class ShooterPea : Node2D, IShooter, IObj
     {
         // 正式攻击
         var bulletScene = GD.Load<PackedScene>(BulletScenePath);
-        GD.PrintErr("ShooterPea ShootBullet: " + BulletScenePath);
+        // GD.PrintErr("ShooterPea ShootBullet: " + BulletScenePath);
         if (bulletScene != null)
         {
             var bullet = bulletScene.Instantiate<Node2D>();
