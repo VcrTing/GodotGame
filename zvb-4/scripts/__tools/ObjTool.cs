@@ -182,12 +182,21 @@ namespace ZVB4.Tool
                         isWorking = hurt.TakeDamage(objType, Damage, hurtType);
                     }
                 }
-            }   
+            }
             catch (Exception ex)
             {
                 GD.PrintErr($"ObjTool.TakeDamage 出错: {ex.Message} ");
             }
             return isWorking;
+        }
+        
+        // 治疗
+        public static bool DoPlansCure(IHealth area, EnumObjType objType, int cureAmount)
+        {
+            if (area == null) return false;
+            if (objType != EnumObjType.Plans) return false;
+            area.UpHealth(cureAmount);
+            return true;
         }
     }
 }

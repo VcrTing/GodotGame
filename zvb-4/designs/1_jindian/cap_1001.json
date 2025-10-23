@@ -11,9 +11,9 @@
     "allowmiaolist": [
         "SunFlower", "Pea", "Cherry"
     ],
-    "initshooter": "Pea",
+    "initshooter": "",
     "initmiaolist": [
-        "SunFlower"
+        "SunFlower", "Pea"
     ],
 
     "enmyspeedattackscale": 1.0,

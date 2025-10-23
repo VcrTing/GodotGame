@@ -84,11 +84,6 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
         }
         return died;
     }
-    public bool BeCure(int cure)
-    {
-        GD.Print($"{Name} 治疗，回血 {cure}. ");
-        return false;
-    }
     bool canBeHurt = true;
     public void StopBeHurt() => canBeHurt = false;
     public void StartBeHurt() => canBeHurt = true;
@@ -115,4 +110,10 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
     {
         throw new NotImplementedException();
     }
+
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
+    {
+        throw new NotImplementedException();
+    }
+
 }

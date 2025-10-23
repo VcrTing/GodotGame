@@ -27,6 +27,7 @@ public partial class TabPanWrapper : Control
         if (idx < 1 || idx > _tabControls.Length)
             return;
 		string targetName = $"Tab{idx}";
+		GD.Print($"Switch tab: {targetName}");
 		foreach (var ctrl in _tabControls)
 		{
 			if (ctrl.Name == targetName)

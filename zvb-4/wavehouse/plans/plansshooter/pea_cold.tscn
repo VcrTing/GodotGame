@@ -68,7 +68,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.815534, 0.2936893)
 
-[node name="Pea" type="Node2D"]
+[node name="PeaCold" type="Node2D"]
 z_index = 400
 y_sort_enabled = true
 scale = Vector2(4, 4)

@@ -3,42 +3,52 @@
     "shootershootratio": 1,
     "shooterlowestattackspeedratio": 1,
 
-    "initsun": 2200,
-    "initmiaomode": "all",
-    "initmiaorandomnummode": "FlowerPeng",
-    "gamechecktime": 120,
-    
-    "initpeng": 8,
-    "allowmiaolist": [
-        "SunFlower", "JianGuo", "Cherry", "LanMei", "Pea", "PeaDouble", "PeaCold"
-    ],
-    
-    "initshooter": "PeaDouble",
-    "initmiaolist": [
-        "SunFlower", "Yezi", "Xigua", "PeaCold", "ShiLiu"
-    ],
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,
     "enmyviewscale": 1,
     "enmybehurtscale": 1,
 
+    "initsun": 1000,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "gamechecktime": 40,
+    
+    "initpeng": 8,
+    "allowmiaolist": [
+        "SunFlower", "JianGuo", "Cherry", "Pea", "PeaDouble", "PeaCold"
+    ],
+    
+    "initshooter": "Pea",
+    "initmiaolist": [
+        
+    ],
+    "attackstarts": [ 7.5, 29.5 ],
     "enmys": {
-        "6": [
+        "8": [
             {
                 "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 1
+                "lazyme": 1, "redeyeratio": 0.5
             }
         ],
-        "7": [
+        "30": [
             {
-                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+                "types": [ "zombi_m", "zombi_s", "zombi_s", "zombi_m", "zombi_s", "zombi_s", "zombi_m", "zombi_s", "zombi_s", "zombi_m" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 2
+                "lazyme": 2, "redeyeratio": 0.5
+            }
+        ],
+        "41": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyme": 2, "redeyeratio": 0.5
             }
         ]
     }

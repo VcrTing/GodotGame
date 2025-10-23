@@ -80,7 +80,6 @@ public partial class ShooterWorkTable : Node2D
         }
         return false;
     }
-
     void GenerateShooter(PackedScene scene)
     {
         //

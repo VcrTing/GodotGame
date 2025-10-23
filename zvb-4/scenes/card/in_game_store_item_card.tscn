@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccbyadg1swmtg"]
+
+[ext_resource type="Script" uid="uid://c6ssf070wxpld" path="res://scripts/ui/store/InGameStoreItemCard.cs" id="1_sebey"]
+[ext_resource type="Texture2D" uid="uid://cyfi1hxec57xg" path="res://pngs/ui/store/StoreItemCard.png" id="1_x5vwc"]
+[ext_resource type="Texture2D" uid="uid://c6a6wikmng5dp" path="res://pngs/ui/store/StoreItemCard_fcs.png" id="2_sebey"]
+[ext_resource type="Texture2D" uid="uid://7tuo24mx3pus" path="res://pngs/ui/store/StoreItemCard_hv.png" id="3_yphg4"]
+[ext_resource type="Texture2D" uid="uid://c30173qhjjygq" path="res://pngs/ui/store/StoreBuy.png" id="5_ewhap"]
+[ext_resource type="Texture2D" uid="uid://x4yipaxmiuok" path="res://pngs/ui/store/StoreBuy_fcs.png" id="6_xg54m"]
+[ext_resource type="Texture2D" uid="uid://wmrxydyjoaos" path="res://pngs/ui/store/StoreBuy_hv.png" id="7_fip2i"]
+[ext_resource type="Texture2D" uid="uid://crevmft6t2g02" path="res://pngs/ux/Sun3.png" id="8_x70kt"]
+[ext_resource type="Script" uid="uid://b7w2fy8aawh5j" path="res://scripts/ui/button/SingleEffectButton.cs" id="9_yphg4"]
+
+[node name="InGameStoreItemCard" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sebey")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_x5vwc")
+texture_pressed = ExtResource("2_sebey")
+texture_hover = ExtResource("3_yphg4")
+texture_focused = ExtResource("3_yphg4")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+alignment = 1
+
+[node name="View" type="Node2D" parent="TextureButton/VBoxContainer/HBoxContainer2"]
+position = Vector2(155, 75)
+scale = Vector2(0.6, 0.6)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="DescLabel" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.6666667)
+theme_override_font_sizes/font_size = 18
+text = "寒冰射手"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TextureButton/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BuyButton" type="TextureButton" parent="TextureButton/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("5_ewhap")
+texture_pressed = ExtResource("6_xg54m")
+texture_hover = ExtResource("7_fip2i")
+texture_focused = ExtResource("7_fip2i")
+script = ExtResource("9_yphg4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer3/BuyButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="TextureButton/VBoxContainer/HBoxContainer3/BuyButton/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureButton/VBoxContainer/HBoxContainer3/BuyButton/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.34
+anchor_right = 0.5
+anchor_bottom = 0.34
+offset_left = -20.0
+offset_top = -11.400001
+offset_right = 100.0
+offset_bottom = 108.6
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.34, 0.34)
+mouse_filter = 2
+texture = ExtResource("8_x70kt")
+
+[node name="PriceLabel" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer3/BuyButton/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "9999"
+horizontal_alignment = 1
+vertical_alignment = 1

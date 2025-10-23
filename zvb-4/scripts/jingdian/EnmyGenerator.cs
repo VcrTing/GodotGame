@@ -42,7 +42,7 @@ public partial class EnmyGenerator : Node2D
         return points;
     }
 
-    async void Generate(string type, int grid, bool israndom, float lazyme, int randomXRate)
+    async void Generate(string type, int grid, bool israndom, float lazyme, int randomXRate, float redeyeratio)
     {
         if (lazyme > 0)
         {
@@ -50,11 +50,11 @@ public partial class EnmyGenerator : Node2D
         }
         if (israndom)
         {
-            Instance.GenerateEnemyByCode(type, randomXRate);
+            Instance.GenerateEnemyByCode(type, randomXRate, redeyeratio);
         }
         else
         {
-            Instance.GenerateEnemyByCode(type, grid, randomXRate);
+            Instance.GenerateEnemyByCode(type, grid, randomXRate, redeyeratio);
         }
     }
 
@@ -82,7 +82,7 @@ public partial class EnmyGenerator : Node2D
 
     /// 根据types、generator、typesmode、generatormode批量生成敌人
     /// </summary>
-    public static void GenerateEnemiesByConfig(Godot.Collections.Array types, Godot.Collections.Array generator, string typesmode, string generatormode, float lazyme, int randomXRate)
+    public static void GenerateEnemiesByConfig(Godot.Collections.Array types, Godot.Collections.Array generator, string typesmode, string generatormode, float lazyme, int randomXRate, float redeyeratio)
     {
         var gen = Instance;
         if (gen == null)
@@ -94,7 +94,7 @@ public partial class EnmyGenerator : Node2D
             int count = Math.Min(types.Count, generator.Count);
             for (int i = 0; i < count; i++)
             {
-                gen.Generate(types[i].AsString(), (int)generator[i], generatormode == "random", lazyme * i, randomXRate);
+                gen.Generate(types[i].AsString(), (int)generator[i], generatormode == "random", lazyme * i, randomXRate, redeyeratio);
             }
         }
         if (typesmode == "random")
@@ -107,7 +107,7 @@ public partial class EnmyGenerator : Node2D
                 foreach (var idx in idxList)
                 {
                     i += 1;
-                    gen.Generate(types[idx].AsString(), (int)generator[idx], generatormode == "random", lazyme * i, randomXRate);
+                    gen.Generate(types[idx].AsString(), (int)generator[idx], generatormode == "random", lazyme * i, randomXRate, redeyeratio);
                 }
             }
         }
@@ -118,20 +118,21 @@ public partial class EnmyGenerator : Node2D
     /// </summary>
     /// <param name="code">敌人代号名称</param>
     /// <returns>生成的敌人节点（Node2D），失败返回null</returns>
-    public Node2D GenerateEnemyByCode(string code, int randomXRate)
+    public Node2D GenerateEnemyByCode(string code, int randomXRate, float redeyeratio)
     {
         int max = TileNumHalf * 2;
         int tileIndex = (int)GD.RandRange(1, max);
-        return GenerateEnemyByCode(code, tileIndex, randomXRate);
+        return GenerateEnemyByCode(code, tileIndex, randomXRate, redeyeratio);
     }
     float DoRandomX(Vector2 tilePos, int randomXRate)
     {
+        float v = tilePos.X + TileMapW / 2f; 
         if (randomXRate <= 0)
         {
-            return tilePos.X;
+            return v;
         }
-        float left = tilePos.X - TileMapW / 2f;
-        float right = tilePos.X + TileMapW / 2f;
+        float left = v - TileMapW / 2f;
+        float right = v + TileMapW / 2f;
         float randX = (float)GD.RandRange(left, right);
         return randX;
     }
@@ -142,7 +143,7 @@ public partial class EnmyGenerator : Node2D
     /// <param name="code">敌人代号名称</param>
     /// <param name="tileIndex">格子编号（1-10）</param>
     /// <returns>生成的敌人节点（Node2D），失败返回null</returns>
-    public Node2D GenerateEnemyByCode(string name, int tileIndex, int randomXRate)
+    public Node2D GenerateEnemyByCode(string name, int tileIndex, int randomXRate, float redeyeratio)
     {
         try
         {
@@ -167,7 +168,7 @@ public partial class EnmyGenerator : Node2D
             pos.X = DoRandomX(tilePos, randomXRate);
             //
             pos.Y = pos.Y + genY;
-            return Doing(instance, pos, name);
+            return Doing(instance, pos, name, redeyeratio);
         }
         catch (Exception ex)
         {
@@ -177,15 +178,15 @@ public partial class EnmyGenerator : Node2D
     }
 
     float genY = GameContants.HorizonYEnmyGen;
-    public Node2D GenerateEnemyOfPos(Vector2 pos, string name)
+    public Node2D GenerateEnemyOfPos(Vector2 pos, string name, float redeyeratio)
     {
         string path = EnmyTypeConstans.GetZombiWrapperScenePath(name);
         var packed = GD.Load<PackedScene>(path);
         if (packed == null) return null;
-        return Doing(packed.Instantiate<Node2D>(), pos, name);
+        return Doing(packed.Instantiate<Node2D>(), pos, name, redeyeratio);
     }
 
-    Node2D Doing(Node2D instance, Vector2 pos, string name)
+    Node2D Doing(Node2D instance, Vector2 pos, string name, float redeyeratio)
     {
         // 
         instance.Position = pos;
@@ -195,11 +196,17 @@ public partial class EnmyGenerator : Node2D
             enmy.SetObjName(name);
             enmy.SetInitScale(InitMoveSpeedScale, InitBeHurtScale, InitViewScale, InitAttackSpeedScale);
         }
-        if (instance is IInit init) {
+        if (instance is IInit init)
+        {
             init.Init(name);
         }
         //
         AddChild(instance);
+        //
+        if (instance is IEnmy enmy2)
+        {
+            enmy2.JudgeOpenRedEyeMode(redeyeratio);
+        }
         // 加计数
         GameStatistic.Instance?.AddZombie(1);
         return instance;

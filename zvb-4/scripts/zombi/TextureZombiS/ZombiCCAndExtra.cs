@@ -154,6 +154,11 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
     public float GetAttackSpeedScale() => (fatherNode as IStatus)?.GetAttackSpeedScale() ?? 1f;
     public float GetAnimationSpeedScale() => (fatherNode as IStatus)?.GetAnimationSpeedScale() ?? 1f;
 
+    Node2D redEye;
+    public void StartRedMode() => redEye.Visible = true;
+    public void EndRedMode() => redEye.Visible = false;
+    public void JudgeOpenRedEyeMode(float redeyeratio) => throw new NotImplementedException();
+
     Node2D fatherNode;
     public bool Init(string objName = null)
     {
@@ -242,6 +247,8 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         viewExtra = GetNodeOrNull<AnimatedSprite2D>(NameConstants.ViewExtra);
         iceFx = GetNode<AnimatedSprite2D>(NameConstants.IceFreeze);
         fatherNode = GetParent<Node2D>();
+        redEye = GetNode<Node2D>(NameConstants.ViewRed);
+        EndRedMode();
         Init();
     }
 
@@ -339,4 +346,10 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
     {
         //  
     }
+
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
+    {
+        throw new NotImplementedException();
+    }
+
 }

@@ -111,7 +111,7 @@ public partial class ThingsGuanZi : Node2D, IObj
             var eg = EnmyGenerator.Instance;
             if (eg != null)
             {
-                eg.GenerateEnemyOfPos(Position, enmyName);
+                eg.GenerateEnemyOfPos(Position, enmyName, 0f);
             }
         }
     }

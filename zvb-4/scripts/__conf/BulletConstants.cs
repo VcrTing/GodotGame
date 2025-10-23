@@ -111,14 +111,24 @@ namespace ZVB4.Conf
                 _ => 700f,
             };
         }
+        
+        // 根据key获取 Bullet 场景路径
+        public static string GetBullet(string key)
+        {
+            if (BulletDict.TryGetValue(key, out var value))
+                return value;
+            return string.Empty;
+        }
 
         // 其他植物
-        public const int DamageCherry = 1000 * 10;
-        public const int DamageLaJiao = 1000 * 16;
+        public const int PlansDamageBase = DamageBasic;
+        public const int DamageCherry = PlansDamageBase * 20;
+        public const int DamageLaJiao = PlansDamageBase * 30;
         public static int GetPlansDamage(string plantName)
         {
             if (plantName == PlansConstants.Cherry) return DamageCherry;
-            if (plantName == PlansConstants.LaJiao) return DamageLaJiao;
+            else if (plantName == PlansConstants.LaJiao) return DamageLaJiao;
+            else if (plantName == PlansConstants.XianRenQiu) return PlansDamageBase / 2;
             return 0;
         }
         public static int GetPlansDamageExtra(string plantName)
@@ -128,13 +138,10 @@ namespace ZVB4.Conf
             return 0;
         }
 
-        
-        // 根据key获取 Bullet 场景路径
-        public static string GetBullet(string key)
+        public static float GetPlansAttackSpeed(string plantName)
         {
-            if (BulletDict.TryGetValue(key, out var value))
-                return value;
-            return string.Empty;
+            if (plantName == PlansConstants.XianRenQiu) return 1.4f;
+            return 1f;
         }
     }
 

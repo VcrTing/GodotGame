@@ -30,6 +30,7 @@ namespace ZVB4.Conf
         public const string AttackBody = "AttackBody";
         public const string EyeArea = "EyeArea";
 
+        public const string ViewRed = "ViewRed";
         //
         public const string BodyMove = "BodyMove";
         public const string BeHurtArea = "BeHurtArea";

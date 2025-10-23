@@ -252,4 +252,10 @@ public partial class LineFreezeCard : Node2D, IBeHurt
             viewExtra.Position = new Vector2(viewExtra.Position.X, _baseY + offset);
         }
     }
+
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
+    {
+        throw new NotImplementedException();
+    }
+
 }

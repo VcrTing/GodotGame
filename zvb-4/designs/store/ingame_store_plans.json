@@ -1,0 +1,26 @@
+[
+    {
+        "name": "SunFlower",
+        "price": 300, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "JianGuo",
+        "price": 100, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "XianRenQiu",
+        "price": 250, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "Cherry",
+        "price": 300, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "LaJiao",
+        "price": 350, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "IceFlower",
+        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+    }
+]

@@ -21,6 +21,7 @@ namespace ZVB4.Conf
         // 种植
         public const string SunFlower = "SunFlower";
         public const string JianGuo = "JianGuo";
+        public const string XianRenQiu = "XianRenQiu";
         // 炸弹
         public const string IceFlower = "IceFlower";
         public const string Cherry = "Cherry";
@@ -43,6 +44,7 @@ namespace ZVB4.Conf
 
             { SunFlower, FolderConstants.WavePlans + "plansfuzhu/sun_flower.tscn" },
             { JianGuo,  FolderConstants.WavePlans + "planszhongzhi/jian_guo.tscn" },
+            { XianRenQiu,  FolderConstants.WavePlans + "planszhongzhi/xian_ren_qiu.tscn" },
 
             { LaJiao,  FolderConstants.WavePlans + "plansonce/la_jiao.tscn" },
             { Cherry,  FolderConstants.WavePlans + "plansonce/cherry.tscn" },
@@ -69,7 +71,7 @@ namespace ZVB4.Conf
             { XiguaBing, FolderConstants.WavePlayer + "shooter_diancang/shooter_xigua_bing.tscn" },
         };
         // 植物生长时长
-        static float BaseSubGrowTime = -100f;
+        static float BaseSubGrowTime = 1f;
         public static readonly  Dictionary<string, float> PlanGrowTimeDict = new  Dictionary<string, float>
         {
             { Pea, 2f },
@@ -83,6 +85,7 @@ namespace ZVB4.Conf
 
             { SunFlower, 1f },
             { Cherry, 5f },
+            { XianRenQiu, 8f },
             { JianGuo, 2f },
             { IceFlower, 10f },
             { LaJiao, 7f },
@@ -97,16 +100,10 @@ namespace ZVB4.Conf
             //  
             { SunFlower, (int)EnumHealth.Four },
             { JianGuo, (int)EnumHealth.JianGuo },
+            { XianRenQiu, (int)EnumHealth.JianGuo },
         };
         // 会占用格子的植物
-        public static bool IsWillZhanYongGeZi(string planName)
-        {
-            if (planName == SunFlower || planName == JianGuo)
-            {
-                return true;
-            }
-            return false;
-        }
+        public static bool IsWillZhanYongGeZi(string planName) => PlanHealthDict.ContainsKey(planName);
         // 射手限制
         static int BaseShootNum = 1000;
         public static readonly  Dictionary<string, int> ShooterAttackLimitDict = new  Dictionary<string, int>
@@ -201,6 +198,7 @@ namespace ZVB4.Conf
         } 
         // 坚果倍数
         public static float BiggerRateMaxJianGuo = 1.5f;
+        public static float BiggerRateMaxZhongzhi = 1f;
 
         // 根据key获取植物生命值
         public static int GetPlansHealth(string key)
@@ -227,10 +225,9 @@ namespace ZVB4.Conf
         public static float GetPlanGrowTime(string key)
         {
             if (PlanGrowTimeDict.TryGetValue(key, out var value)) {
-                value -= BaseSubGrowTime;
-                return value < 0 ? 0.1f : value;
+                if (BaseSubGrowTime > 0f) return BaseSubGrowTime;
+                return value < 0 ? 1f : value;
             }
-                
             return 0f;
         }
         public static bool IsShooter(string planName)
@@ -299,11 +296,14 @@ namespace ZVB4.Conf
 
         public static string GetShooterWrapperScenePath(string plansName)
         {
-            if (plansName == PeaGold || plansName == ShiLiu || plansName == Xigua || plansName == Yezi) {
+            if (plansName == PeaGold || plansName == ShiLiu || plansName == Xigua || plansName == Yezi)
+            {
                 return FolderConstants.WavePlayer + "shooter_pao_wrapper.tscn";
             }
             return FolderConstants.WavePlayer + "shooter_gun_wrapper.tscn";
         }
+
+        //
     }
 
 }

@@ -58,6 +58,9 @@ namespace ZVB4.Conf
             { ZombiM, BaseBaitSpeed * 2 },
             { ZombiJi, BaseBaitSpeed * 2 },
         };
+
+        public static float RedEyeScale = 3f;
+
         public static int GetZombieDamage(string key)
         {
             if (DamageDict.TryGetValue(key, out int value))

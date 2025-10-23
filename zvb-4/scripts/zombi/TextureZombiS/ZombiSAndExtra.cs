@@ -110,8 +110,8 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     public void HideIceFx() => iceFx.Visible = false;
     public void ShowIceFx() => iceFx.Visible = true;    public void SetColdFx(bool isCold)
     {
-        if (view != null) ViewTool.SetLvJingBlue(IsChanged ? viewChanged : view, 0.618f, isCold);
-        if (viewExtra != null) ViewTool.SetLvJingBlue(viewExtra, 0.618f, isCold);
+        if (view != null) ViewTool.SetLvJingBlue(IsChanged ? viewChanged : view, 0.5f, isCold);
+        if (viewExtra != null) ViewTool.SetLvJingBlue(viewExtra, 0.5f, isCold);
     }
     public void SetAnimationSpeedScale()
     {
@@ -155,6 +155,11 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     public float GetMoveSpeedScale() => (fatherNode as IStatus)?.GetMoveSpeedScale() ?? 1f;
     public float GetAttackSpeedScale() => (fatherNode as IStatus)?.GetAttackSpeedScale() ?? 1f;
     public float GetAnimationSpeedScale() => (fatherNode as IStatus)?.GetAnimationSpeedScale() ?? 1f;
+
+    Node2D redEye;
+    public void StartRedMode() => redEye.Visible = true;
+    public void EndRedMode() => redEye.Visible = false;
+    public void JudgeOpenRedEyeMode(float redeyeratio) => throw new NotImplementedException();
 
     Node2D fatherNode;
     public bool Init(string objName = null)
@@ -207,6 +212,8 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         enmyStatus = status;
         if (status == EnumEnmyStatus.Move) (fatherNode as IMove)?.StartMove();
         else (fatherNode as IMove)?.PauseMove();
+        //
+        SetAnimationSpeedScale();
     }
 
     [Export]
@@ -244,6 +251,8 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         viewExtra = GetNodeOrNull<AnimatedSprite2D>(NameConstants.ViewExtra);
         iceFx = GetNode<AnimatedSprite2D>(NameConstants.IceFreeze);
         fatherNode = GetParent<Node2D>();
+        redEye = GetNode<Node2D>(NameConstants.ViewRed);
+        EndRedMode();
         Init();
     }
 
@@ -339,5 +348,10 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     {
         //  
         // GD.Print("ZombiSAndExtra.EndChange");
+    }
+
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Pea",
+        "price": 100, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "PeaCold",
+        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "PeaDouble",
+        "price": 250, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "LanMei",
+        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "ShiLiu",
+        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "YangTao",
+        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "Xigua",
+        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+    }
+]

@@ -50,6 +50,7 @@ public partial class JingDianCapsCenter : Node2D
         if (enmys == null) return;
         if (enmys.Count == 0) return;
         WorkForEnmys();
+        WorkForAttackStart();
     }
     string workEnmysString = "";
     // 敌人工作器
@@ -79,7 +80,7 @@ public partial class JingDianCapsCenter : Node2D
             }
         }
     }
-    void WorkForGenerateEnmys( Dictionary generateInfo)
+    void WorkForGenerateEnmys(Dictionary generateInfo)
     {
         Godot.Collections.Array types = generateInfo["types"].AsGodotArray();
         Godot.Collections.Array generator = generateInfo["generator"].AsGodotArray();
@@ -95,14 +96,37 @@ public partial class JingDianCapsCenter : Node2D
         {
             randomxrate = generateInfo["randomxrate"].AsInt32();
         }
+        float redeyeratio = 0f;
+        if (generateInfo.ContainsKey("redeyeratio"))
+        {
+            redeyeratio = generateInfo["redeyeratio"].AsSingle();
+        }
         // 通过配置生成敌人
-        EnmyGenerator.GenerateEnemiesByConfig(types, generator, typesmode, generatormode, lazyme, randomxrate);
+        EnmyGenerator.GenerateEnemiesByConfig(types, generator, typesmode, generatormode, lazyme, randomxrate, redeyeratio);
+    }
+
+    // 咆哮
+    string workStartsString = "";
+    void WorkForAttackStart()
+    {
+        if (attackstarts != null && attackstarts.Count > 0)
+        {
+            foreach (var item in attackstarts)
+            {
+                if (workStartsString.Contains(item + "__")) continue;
+                if (Mathf.Abs(_gaming - (float)item) < 1f)
+                {
+                    workStartsString += (item + "__");
+                    // 播放咆哮音效
+                    SoundOneshotController.Instance?.PlayFx("Zombi/wavestart/start_attack_night", "attack_star", 3, 1f, new Vector2(0, 0));
+                }
+            }
+        }
     }
     public void PauseGaming() => _gamingPaused = true;
     public void ResumeGaming() => _gamingPaused = false;
-    Dictionary enmyswaveflag;
+    Godot.Collections.Array attackstarts;
     Dictionary enmys;
-    Dictionary suns;
     void LoadCapData(string jsonPath)
     {
         if (Godot.FileAccess.FileExists(jsonPath))
@@ -115,6 +139,7 @@ public partial class JingDianCapsCenter : Node2D
                 LoadVar(_capData);
                 LoadMiao(_capData);
                 LoadZombis(_capData);
+                LoadInitShooter(_capData);
             }
         }
     }
@@ -126,8 +151,8 @@ public partial class JingDianCapsCenter : Node2D
             string initmiaorandomnummode = _capData["initmiaorandomnummode"].AsString();
             Godot.Collections.Array initmiaolist = _capData["initmiaolist"].AsGodotArray();
             //
-            string initshooter = _capData["initshooter"].AsString();
-            initmiaolist.Add(initshooter);
+            // string initshooter = _capData["initshooter"].AsString();
+            // initmiaolist.Add(initshooter);
             //
             var miaoCenter = RewordMiaoCenterSystem.Instance;
             if (miaoCenter != null)
@@ -167,13 +192,17 @@ public partial class JingDianCapsCenter : Node2D
                 EnmyGenerator.SetInitScale(
                     (float)_capData["enmyspeedmovescale"],
                     (float)_capData["enmybehurtscale"],
-                    (float)_capData["enmyviewscale"], 
+                    (float)_capData["enmyviewscale"],
                     (float)_capData["enmyspeedattackscale"]
                     );
             }
         }
+        if (_capData.ContainsKey("attackstarts"))
+        {
+            attackstarts = _capData["attackstarts"].AsGodotArray();
+        }
     }
-    void LoadVar( Dictionary varData)
+    void LoadVar(Dictionary varData)
     {
         if (varData.ContainsKey("initsun"))
         {
@@ -202,5 +231,34 @@ public partial class JingDianCapsCenter : Node2D
                 RewordMiaoCenterSystem.Instance?.SetGenerateRatio(generatemiaoratio);
             }
         }
+    }
+    
+    async void LoadInitShooter(Dictionary varData)
+    {
+        string initshooter = _capData["initshooter"].AsString();
+        if (initshooter == null || initshooter == "_") {
+            if (SaveDataManager.Instance == null) {
+                GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(_capData);
+                return;
+            }
+            initshooter = SaveDataManager.Instance.GetPlayerShooter();
+        }
+        if (PlayerController.Instance == null)
+        {
+            GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(_capData);
+            return;
+        }
+        // 玩家初始化参数
+        if (varData.ContainsKey("shooterlowestattackspeedratio"))
+        {
+            float lowestSpeedRatio = varData["shooterlowestattackspeedratio"].AsSingle();
+            PlayerController.Instance?.SetLowestAttackSpeedRatio(lowestSpeedRatio);
+        }
+        if (varData.ContainsKey("shootershootratio"))
+        {
+            float shootRatio = varData["shootershootratio"].AsSingle();
+            PlayerController.Instance?.SetShootRatio(shootRatio);
+        }
+        PlayerController.Instance?.LoadInitShooter(initshooter);
     }
 }

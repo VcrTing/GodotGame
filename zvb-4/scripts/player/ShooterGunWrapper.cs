@@ -26,10 +26,10 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
 
     public void ChangeShooter(string shooterName)
     {
-        // 重新加载参数
-        _LoadShooterParams(shooterName);
         // 加载射手实力
         _LoadShooterInstance(shooterName);
+        // 重新加载参数
+        _LoadShooterParams(shooterName);
         // 切换了射手，保存数据
         SaveDataManager.Instance?.SetPlayerShooter(shooterName);
 
@@ -67,7 +67,6 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
         {
             if (num >= allowAttackNum)
             {
-                // GD.Print("你没有这个射手");
                 ShooterWorkTable.Instance?.ChangeToLastBaseShooter();
             }
         }

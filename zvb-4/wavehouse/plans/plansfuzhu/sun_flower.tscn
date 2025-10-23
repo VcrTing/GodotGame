@@ -1,13 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://cd848ibmilgja"]
+[gd_scene load_steps=14 format=3 uid="uid://cd848ibmilgja"]
 
 [ext_resource type="Script" uid="uid://bvjp63ndt7exj" path="res://scripts/plans/plansfuzhu/PlansSunFlower.cs" id="1_0w6da"]
 [ext_resource type="Script" uid="uid://bx5hcsjngaxeb" path="res://scripts/godobj/GodobjView.cs" id="2_45h3k"]
 [ext_resource type="Script" uid="uid://xd2b2sm7oqlb" path="res://scripts/plans/PlansBeHurtArea.cs" id="3_r7htr"]
 [ext_resource type="Script" uid="uid://cmcx8217u2avf" path="res://scripts/plans/plansfuzhu/FlowerWorkingReword.cs" id="3_yxjyf"]
 [ext_resource type="Texture2D" uid="uid://ci0utjvye56si" path="res://pngs/planscard/sun2.png" id="4_45h3k"]
+[ext_resource type="Texture2D" uid="uid://ns8fxqxxtxqr" path="res://pngs/planscard/sun.png" id="4_j4ffn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxjyf"]
 size = Vector2(40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l8hx"]
+atlas = ExtResource("4_j4ffn")
+region = Rect2(0, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4ffn"]
 atlas = ExtResource("4_45h3k")
@@ -25,6 +30,14 @@ region = Rect2(160, 0, 80, 80)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6l8hx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_j4ffn")
 }, {
 "duration": 1.0,
@@ -34,7 +47,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_icvx4")
 }],
 "loop": true,
-"name": &"default",
+"name": &"default_1",
 "speed": 3.0
 }]
 
@@ -64,8 +77,9 @@ WhatYouObj = 5
 
 [node name="Alive" type="AnimatedSprite2D" parent="View"]
 z_index = 220
+position = Vector2(2, -2)
+scale = Vector2(0.48, 0.48)
 sprite_frames = SubResource("SpriteFrames_p8c7m")
-frame_progress = 0.6886384
 
 [node name="AliveHalf" type="AnimatedSprite2D" parent="View"]
 visible = false

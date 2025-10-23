@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d2bv7ksnwsjk4"]
+[gd_scene load_steps=40 format=3 uid="uid://d2bv7ksnwsjk4"]
 
 [ext_resource type="Script" uid="uid://cbalors4fy6na" path="res://scripts/zombi/TextureZombiS/ZombiSAndExtra.cs" id="1_wmr5c"]
 [ext_resource type="Texture2D" uid="uid://bi2ydxcoda27d" path="res://pngs/zombi/new_zombi_s_walk_n_eat.png" id="2_7j41l"]
@@ -287,6 +287,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_csi2b"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ityjn"]
+gradient = SubResource("Gradient_csi2b")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.8)
+
 [node name="Body" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_wmr5c")
@@ -318,3 +327,22 @@ y_sort_enabled = true
 position = Vector2(8, -12)
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_ir1tb")
+
+[node name="ViewRed" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="ViewRed"]
+position = Vector2(-13, -17)
+color = Color(0.99215406, 0, 0.08799436, 1)
+energy = 2.0
+range_layer_min = -1200
+range_layer_max = 1200
+texture = SubResource("GradientTexture2D_ityjn")
+texture_scale = 0.5
+
+[node name="PointLight2DR" type="PointLight2D" parent="ViewRed"]
+position = Vector2(6, -17)
+color = Color(0.99215406, 0, 0.08799436, 1)
+range_layer_min = -1200
+range_layer_max = 1200
+texture = SubResource("GradientTexture2D_ityjn")
+texture_scale = 0.4

@@ -36,6 +36,7 @@ script = ExtResource("15_lpa67")
 
 [node name="PlayerAttackController" parent="Player" instance=ExtResource("5_34y4i")]
 position = Vector2(0, 560)
+IsInitShooter = true
 
 [node name="PlayerAttackArea" parent="Player" instance=ExtResource("5_roak6")]
 position = Vector2(0, -210)

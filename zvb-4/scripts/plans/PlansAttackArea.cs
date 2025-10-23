@@ -6,6 +6,10 @@ using ZVB4.Conf;
 
 public partial class PlansAttackArea : Area2D
 {
+
+    [Export]
+    public EnumHurts enumHurts = EnumHurts.Pea;
+
     public override void _Ready()
     {
         AreaEntered += OnAreaEntered;
@@ -14,6 +18,7 @@ public partial class PlansAttackArea : Area2D
 
     private void OnAreaEntered(Area2D area)
     {
+        GD.Print("PlansAttackArea.OnAreaEntered: 检测到进入攻击范围的Area2D");
         if (area == null) return;
         var parent = area.GetParent();
         if (parent is IObj obj)
@@ -38,11 +43,12 @@ public partial class PlansAttackArea : Area2D
     {
         LoadFather();
         int damage = myAttack?.GetDamage() ?? 0;
+        // GD.Print($"PlansAttackArea.Attack: {myObj.GetObjName()} 攻击 {areaObj.GetObjName()} 造成伤害 {damage}");
         // TODO: 实际攻击逻辑
         IHurtBase hurtBase = area as IHurtBase;
         if (hurtBase != null)
         {
-            hurtBase.TakeDamage(myObj.GetEnumObjType(), damage, EnumHurts.Boom);
+            hurtBase.TakeDamage(myObj.GetEnumObjType(), damage, enumHurts);
         }
 
     }

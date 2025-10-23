@@ -26,7 +26,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
         else
         {
             // 伤害缩放
-            damage = (int)(damage * InitBeHurtScale);
+            damage = (int)(damage * GetBeHurtScale());
             // 处理伤害
             IBeHurt beHurt = bodyNode as IBeHurt;
             if (beHurt != null)
@@ -127,7 +127,6 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
     {
         isMoving = false;
         SetWorkingMode(false);
-        // Init();
     }
     bool isMoving = false;
     public void PauseMove() { isMoving = false; }
@@ -155,7 +154,6 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
     {
         return ((bodyNode as IEnmy) != null) ? (bodyNode as IEnmy).GetEnumMoveType() : EnumMoveType.LineWalk;
     }
-
     public bool DoFreeze(float time)
     {
         iceFreezeTime += time;
@@ -224,23 +222,26 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
         Scale = new Vector2(sx, sx);
 
         scaleMax = Scale.X;
-        // GD.Print(InitViewScale + " " + viewscale);
         scaleMin = ViewTool.GetYouMinScale(scaleMax, InitViewScale);
     }
     float moveSpeedScale = 1f;
     public float GetMoveSpeedScale()
     {
-        return moveSpeedScale * InitMoveSpeedScale;
+        return moveSpeedScale * InitMoveSpeedScale * RedEyeScale;
     }
     float attackSpeedScale = 1f;
     public float GetAttackSpeedScale()
     {
-        return attackSpeedScale * InitAttackSpeedScale;
+        return attackSpeedScale * InitAttackSpeedScale * RedEyeScale;
     }
     float animationSpeedScale = 1f;
     public float GetAnimationSpeedScale()
     {
-        return animationSpeedScale * InitMoveSpeedScale;
+        return animationSpeedScale * InitMoveSpeedScale * RedEyeScale;
+    }
+    public float GetBeHurtScale()
+    {
+        return 1f * InitBeHurtScale;
     }
     float scaleMin = GameContants.MinScale;
     float scaleMax = GameContants.MaxScale;
@@ -259,4 +260,27 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
         throw new NotImplementedException();
     }
 
+    float RedEyeScale = 1f;
+    public void JudgeOpenRedEyeMode(float redeyeratio)
+    {
+        if (redeyeratio <= 0f) return;
+        int i = GD.RandRange(0, 100);
+        if (i <= (100 * redeyeratio)) StartRedMode();
+    }
+    public void StartRedMode()
+    {
+        RedEyeScale = EnmyTypeConstans.RedEyeScale;
+        (bodyNode as IEnmy)?.StartRedMode();
+    }
+
+    public void EndRedMode()
+    {
+        RedEyeScale = 1f;
+        (bodyNode as IEnmy)?.EndRedMode();
+    }
+
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -113,4 +113,6 @@ public partial class PlansJianGuo : Node2D, IObj, IBeHurt, IWorking
     }
 
     public bool IsWorking() => isWorking;
+
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts) => ObjTool.DoPlansCure(view as IHealth, objType, cureAmount);
 }

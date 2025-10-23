@@ -80,7 +80,15 @@ public partial class SaveDataManager : Node
             SavePlayerData();
         }
     }
-
+    public string GetPlayerShooter()
+    {
+        if (_playerData == null)
+        {
+            LoadPlayerData();
+        }
+        if (_playerData == null) return PlansConstants.Pea;
+        return _playerData.ShooterNow;
+    }
     public string GetLastBaseShooter()
     {
         if (_playerData == null)

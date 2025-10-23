@@ -134,4 +134,10 @@ public partial class GodobjWrapper : Node2D, IMove, IBeHurt, IObj, IAttack
     {
         throw new NotImplementedException();
     }
+
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
+    {
+        throw new NotImplementedException();
+    }
+
 }

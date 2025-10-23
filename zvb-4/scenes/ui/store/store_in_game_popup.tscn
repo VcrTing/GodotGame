@@ -1,0 +1,152 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0tvukvfcol8e"]
+
+[ext_resource type="Script" uid="uid://w3rusj0pik16" path="res://scripts/ui/pop/StoreInGamePopup.cs" id="1_nc6ce"]
+[ext_resource type="PackedScene" uid="uid://drkul0cdcikwx" path="res://scenes/ui/menu_options_button.tscn" id="2_0keky"]
+[ext_resource type="Script" uid="uid://fn0h4htk00tr" path="res://scripts/ui/main/TabPanWrapper.cs" id="3_daufs"]
+[ext_resource type="Script" uid="uid://hhfnwokmxa6y" path="res://scripts/ui/store/StoreLoadCardFlowWrapper.cs" id="4_stc03"]
+[ext_resource type="PackedScene" uid="uid://cnga353s1lfs3" path="res://scenes/ui/popup_option_button.tscn" id="5_0keky"]
+
+[node name="StoreInGamePopup" type="PopupPanel"]
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(912, 1610)
+visible = true
+script = ExtResource("1_nc6ce")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.47058824)
+theme_override_font_sizes/font_size = 72
+text = "苗商城"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BoxContainer2" type="BoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainerTab" type="HBoxContainer" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+alignment = 1
+
+[node name="MenuOptionsButton" parent="Control/VBoxContainer/HBoxContainerTab" instance=ExtResource("2_0keky")]
+layout_mode = 2
+LabelText = "射手类型"
+
+[node name="MenuOptionsButton2" parent="Control/VBoxContainer/HBoxContainerTab" instance=ExtResource("2_0keky")]
+layout_mode = 2
+Key = 2
+LabelText = "其他类型"
+
+[node name="TabWrapper" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1080)
+layout_mode = 2
+script = ExtResource("3_daufs")
+
+[node name="Tab1" type="Control" parent="Control/VBoxContainer/TabWrapper"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/VBoxContainer/TabWrapper/Tab1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StoreLoadCardFlowWrapper" type="FlowContainer" parent="Control/VBoxContainer/TabWrapper/Tab1/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+alignment = 1
+last_wrap_alignment = 1
+script = ExtResource("4_stc03")
+CardsJsonPath = "ingame_store_shooters.json"
+
+[node name="Tab2" type="Control" parent="Control/VBoxContainer/TabWrapper"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/VBoxContainer/TabWrapper/Tab2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StoreLoadCardFlowWrapper" type="FlowContainer" parent="Control/VBoxContainer/TabWrapper/Tab2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+alignment = 1
+last_wrap_alignment = 1
+script = ExtResource("4_stc03")
+CardsJsonPath = "ingame_store_plans.json"
+
+[node name="ControlBar" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/ControlBar"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/ControlBar/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/ControlBar/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(420, 90)
+layout_mode = 2
+
+[node name="PopupOptionButton" parent="Control/VBoxContainer/ControlBar/VBoxContainer/HBoxContainer/Control" instance=ExtResource("5_0keky")]
+layout_mode = 1

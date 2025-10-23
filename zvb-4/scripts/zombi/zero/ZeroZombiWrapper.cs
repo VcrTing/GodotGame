@@ -297,4 +297,23 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
         throw new NotImplementedException();
     }
 
+    public void StartRedMode()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void EndRedMode()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void JudgeOpenRedEyeMode(float redeyeratio)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
+    {
+        throw new NotImplementedException();
+    }
 }

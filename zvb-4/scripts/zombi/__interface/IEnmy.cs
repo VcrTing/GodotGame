@@ -14,5 +14,9 @@ namespace ZVB4.Interface
         EnumMoveType GetEnumMoveType();
 
         void SeeTarget(IObj obj);
+
+        void JudgeOpenRedEyeMode(float redeyeratio);
+        void StartRedMode();
+        void EndRedMode();
     }
 }

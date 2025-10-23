@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfktokotlwyjt"]
+[gd_scene load_steps=12 format=3 uid="uid://dfktokotlwyjt"]
 
 [ext_resource type="Texture2D" uid="uid://cp3cqqvvtoj76" path="res://pngs/test/ice_frezz.png" id="1_gd6xa"]
 [ext_resource type="Script" uid="uid://cbalors4fy6na" path="res://scripts/zombi/TextureZombiS/ZombiSAndExtra.cs" id="1_je6ml"]
@@ -102,6 +102,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_hgkm5"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8bmof"]
+gradient = SubResource("Gradient_hgkm5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.8)
+
 [node name="Body" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_je6ml")
@@ -124,3 +133,22 @@ position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_3gnv3")
 animation = &"outro"
 autoplay = "default"
+
+[node name="ViewRed" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="ViewRed"]
+position = Vector2(-8, 15)
+color = Color(0.99215406, 0, 0.08799436, 1)
+energy = 2.0
+range_layer_min = -1200
+range_layer_max = 1200
+texture = SubResource("GradientTexture2D_8bmof")
+texture_scale = 0.5
+
+[node name="PointLight2DR" type="PointLight2D" parent="ViewRed"]
+position = Vector2(8, 16)
+color = Color(0.99215406, 0, 0.08799436, 1)
+range_layer_min = -1200
+range_layer_max = 1200
+texture = SubResource("GradientTexture2D_8bmof")
+texture_scale = 0.4

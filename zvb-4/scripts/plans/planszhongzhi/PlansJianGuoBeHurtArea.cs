@@ -6,6 +6,12 @@ using ZVB4.Interface;
 
 public partial class PlansJianGuoBeHurtArea : Area2D, IBeHurt
 {
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
+    {
+        throw new NotImplementedException();
+    }
+
+
     public bool BeHurt(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
         if (objType == EnumObjType.Plans)

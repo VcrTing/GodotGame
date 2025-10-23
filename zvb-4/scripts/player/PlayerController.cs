@@ -146,7 +146,6 @@ public partial class PlayerController : Node2D
         }
 
     }
-
     // 玩家攻速调节
     float __lowestAttackSpeedRatio = 1f;
     float InitialLowestAttackSpeedRatio = 1f;
@@ -199,12 +198,10 @@ public partial class PlayerController : Node2D
         buffList.Remove(buff);
         RebuildBuffs();
     }
-
     void RunningLineShooter(double delta)
     {
         Attack(Vector2.Up, false, Position);
     }
-    
     void RunningTouchShooter(double delta)
     {
         if (__startAttack)
