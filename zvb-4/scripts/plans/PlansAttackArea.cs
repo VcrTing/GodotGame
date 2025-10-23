@@ -18,7 +18,6 @@ public partial class PlansAttackArea : Area2D
 
     private void OnAreaEntered(Area2D area)
     {
-        GD.Print("PlansAttackArea.OnAreaEntered: 检测到进入攻击范围的Area2D");
         if (area == null) return;
         var parent = area.GetParent();
         if (parent is IObj obj)

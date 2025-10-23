@@ -22,6 +22,7 @@ namespace ZVB4.Conf
         public const string SunFlower = "SunFlower";
         public const string JianGuo = "JianGuo";
         public const string XianRenQiu = "XianRenQiu";
+        public const string XiHongShi = "XiHongShi";
         // 炸弹
         public const string IceFlower = "IceFlower";
         public const string Cherry = "Cherry";
@@ -45,6 +46,7 @@ namespace ZVB4.Conf
             { SunFlower, FolderConstants.WavePlans + "plansfuzhu/sun_flower.tscn" },
             { JianGuo,  FolderConstants.WavePlans + "planszhongzhi/jian_guo.tscn" },
             { XianRenQiu,  FolderConstants.WavePlans + "planszhongzhi/xian_ren_qiu.tscn" },
+            { XiHongShi,  FolderConstants.WavePlans + "planszhongzhi/xi_hong_shi.tscn" },
 
             { LaJiao,  FolderConstants.WavePlans + "plansonce/la_jiao.tscn" },
             { Cherry,  FolderConstants.WavePlans + "plansonce/cherry.tscn" },
@@ -84,15 +86,17 @@ namespace ZVB4.Conf
             { Xigua, 6f },
 
             { SunFlower, 1f },
-            { Cherry, 5f },
-            { XianRenQiu, 8f },
             { JianGuo, 2f },
+            { XianRenQiu, 8f },
+            { XiHongShi, 6f },
+
+            { Cherry, 5f },
             { IceFlower, 10f },
             { LaJiao, 7f },
 
-            { Yezi, 20f },
-            { XiguaBing, 8f },
-            { PeaGold, 12f },
+            { Yezi, 30f },
+            { XiguaBing, 12f },
+            { PeaGold, 17f },
         };
         // 植物生命值
         public static readonly  Dictionary<string, int> PlanHealthDict = new  Dictionary<string, int>
@@ -100,7 +104,8 @@ namespace ZVB4.Conf
             //  
             { SunFlower, (int)EnumHealth.Four },
             { JianGuo, (int)EnumHealth.JianGuo },
-            { XianRenQiu, (int)EnumHealth.JianGuo },
+            { XianRenQiu, (int)EnumHealth.XianRenQiu },
+            { XiHongShi, (int)EnumHealth.Six },
         };
         // 会占用格子的植物
         public static bool IsWillZhanYongGeZi(string planName) => PlanHealthDict.ContainsKey(planName);

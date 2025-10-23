@@ -129,6 +129,7 @@ namespace ZVB4.Conf
             if (plantName == PlansConstants.Cherry) return DamageCherry;
             else if (plantName == PlansConstants.LaJiao) return DamageLaJiao;
             else if (plantName == PlansConstants.XianRenQiu) return PlansDamageBase / 2;
+            else if (plantName == PlansConstants.XiHongShi) return PlansDamageBase * 10;
             return 0;
         }
         public static int GetPlansDamageExtra(string plantName)

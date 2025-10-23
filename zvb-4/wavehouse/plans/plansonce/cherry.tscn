@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4314c54wcerx"]
+[gd_scene load_steps=23 format=3 uid="uid://c4314c54wcerx"]
 
 [ext_resource type="Script" uid="uid://dq76us16ek0mk" path="res://scripts/plans/plansonce/PlansCherry.cs" id="1_kvus3"]
 [ext_resource type="Texture2D" uid="uid://brxxwm5f0xfr8" path="res://pngs/plans/once/CherryNew.png" id="2_bswmn"]
@@ -100,9 +100,11 @@ gravity = Vector3(0, 0, 0)
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_xe8bl")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pwbcj"]
-radius = 80.0
-height = 200.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_pwbcj"]
+radius = 70.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ef1ic"]
+radius = 50.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bswmn"]
 size = Vector2(40, 20)
@@ -139,9 +141,13 @@ collision_layer = 2048
 collision_mask = 512
 script = ExtResource("4_xe8bl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_pwbcj")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-30, 10)
+shape = SubResource("CircleShape2D_pwbcj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(50, -20)
+shape = SubResource("CircleShape2D_ef1ic")
 
 [node name="BodyLand" type="StaticBody2D" parent="."]
 position = Vector2(0, 40)

@@ -123,19 +123,20 @@ radius = 30.0
 height = 200.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c23i6"]
-radius = 150.0
-height = 420.0
+radius = 160.0
+height = 400.0
 
 [node name="XianRenQiu" type="Node2D"]
 script = ExtResource("1_c23i6")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -20)
+position = Vector2(-1, -12)
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_yihhn")
+animation = &"live"
 autoplay = "default"
-frame_progress = 0.010311504
 script = ExtResource("4_jxfsa")
+WhatYouObj = 5
 
 [node name="BeHurtArea" type="Area2D" parent="."]
 position = Vector2(0, 10)

@@ -46,7 +46,6 @@ public partial class PlansViewAndHealth : AnimatedSprite2D, IHealth
         if (Health <= 0)
         {
             isDie = true;
-            // 0.5秒后调用DieFaker
             await ToSignal(GetTree().CreateTimer(AnimationConstants.GetViewDieAniTime(myObj)), "timeout");
             DieFaker();
         }
