@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using ZVB4.Conf;
 
@@ -82,7 +83,7 @@ public static class GodotTool
     }
 
     //
-    public static 
+    public static
     AnimatedSprite2D GetViewAndAutoPlay(Node2D node)
     {
         AnimatedSprite2D view = node.GetNodeOrNull<AnimatedSprite2D>(NameConstants.View);
@@ -96,5 +97,20 @@ public static class GodotTool
             view.Play(NameConstants.Default);
         }
         return view;
+    }
+    
+    public static void KillChildren(Node node) {
+        try
+        {
+            var ass = node.GetChildren();
+            for (int j = 0; j < ass.Count; j++)
+            {
+                Node a = ass[j];
+                a.QueueFree();
+            }
+        }
+        catch (Exception e) {
+            GD.Print(e);
+        }
     }
 }

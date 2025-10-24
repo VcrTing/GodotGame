@@ -8,7 +8,7 @@
     "enmyviewscale": 1,
     "enmybehurtscale": 1,
 
-    "initsun": 2000,
+    "initsun": 1100,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 40,
@@ -18,13 +18,13 @@
         "SunFlower", "JianGuo", "Cherry", "Pea", "PeaDouble", "PeaCold"
     ],
     
-    "initshooter": "Pea",
+    "initshooter": "PeaDouble",
     "initmiaolist": [
-        "SunGu", "SunFlower"
+        "SunGu", "SunGu"
     ],
     "attackstarts": [ 7.5, 29.5 ],
     "enmys": {
-        "38": [
+        "8": [
             {
                 "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
                 "typesmode": "next",
@@ -42,7 +42,7 @@
                 "lazyme": 2, "redeyeratio": 0.5
             }
         ],
-        "43": [
+        "47": [
             {
                 "types": [ "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s" ],
                 "typesmode": "next",
@@ -51,7 +51,7 @@
                 "lazyme": 2, "redeyeratio": 0.5
             }
         ],
-        "56": [
+        "66": [
             {
                 "types": [ "zombi_m", "zombi_mu_tong", "zombi_s", "zombi_m", "zombi_mu_tong", "zombi_s", "zombi_m", "zombi_mu_tong", "zombi_s", "zombi_m" ],
                 "typesmode": "next",

@@ -52,8 +52,16 @@ public partial class ShooterWorkTable : Node2D
     public bool ChangeToLastBaseShooter()
     {
         if (SaveDataManager.Instance == null) return false;
-        string lastBaseShooter = SaveDataManager.Instance?.GetLastBaseShooter();
-        return ChangeShooter(lastBaseShooter);
+        try
+        {
+            string lastBaseShooter = SaveDataManager.Instance?.GetLastBaseShooter();
+            return ChangeShooter(lastBaseShooter);
+        }
+        catch (Exception e)
+        {
+            GD.PrintErr(e);
+        }
+        return false;
     }
 
     public bool ChangeShooter(string plansName)
@@ -62,16 +70,16 @@ public partial class ShooterWorkTable : Node2D
         if (pc == null) return false;
         pc.UnLockAttack();
         //
-        string shooterScene = PlansConstants.GetShooterWrapperScenePath(plansName);
-        if (!string.IsNullOrEmpty(shooterScene))
+        string wps = PlansConstants.GetShooterWrapperScenePath(plansName);
+        if (!string.IsNullOrEmpty(wps))
         {
-            var scene = GD.Load<PackedScene>(shooterScene);
-            if (scene == null) return false;
-            plansNameNow = plansName;
-            SaveDataManager.Instance?.TrySavePlayerShooterBaseLast(plansNameNow);
             // 删掉老射手。
             PlayerController.Instance?.TrashOldShooter();
+            var scene = GD.Load<PackedScene>(wps);
+            if (scene == null) return false;
+            plansNameNow = plansName;
             GenerateShooter(scene);
+            SaveDataManager.Instance?.TrySavePlayerShooterBaseLast(plansNameNow);
             return true;
         }
         else
@@ -80,16 +88,14 @@ public partial class ShooterWorkTable : Node2D
         }
         return false;
     }
-    void GenerateShooter(PackedScene scene)
+    void GenerateShooter(PackedScene wps)
     {
-        //
-        var shooterInstance = scene.Instantiate();
-        shooterInstance.Name = NameConstants.ShooterWrapper;
-        AddChild(shooterInstance);
-        if (shooterInstance is IShooterWrapper s)
+        var wp = wps.Instantiate();
+        wp.Name = NameConstants.ShooterWrapper;
+        this.AddChild(wp);
+        if (wp is IShooterWrapper s)
         {
             s.ChangeShooter(plansNameNow);
         }
-        // 删掉花盆
     }  
 }

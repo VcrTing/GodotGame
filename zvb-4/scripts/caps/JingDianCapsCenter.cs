@@ -243,7 +243,7 @@ public partial class JingDianCapsCenter : Node2D
             }
             initshooter = SaveDataManager.Instance.GetPlayerShooter();
         }
-        if (PlayerController.Instance == null)
+        if (!PlayerController.CheckAlive())
         {
             GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(_capData);
             return;

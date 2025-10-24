@@ -19,11 +19,25 @@ public static class PlayerTool
     }
     public static Node2D GenerateWorkTable(EnumPlayerShooterMode mode, Node parent)
     {
+        try
+        {
+            Node n = parent.GetNodeOrNull(NameConstants.ShooterWrapper);
+            if (n != null)
+            {
+                n.QueueFree();
+            }
+        }
+        catch
+        {
+            
+        }
+
         string scenePath = GetShooterWorkTableScenePath(mode);
         if (scenePath == "") return null;
         var scene = GD.Load<PackedScene>(scenePath);
         if (scene == null) return null;
         var instance = scene.Instantiate<Node2D>();
+        // instance.Name = NameConstants.ShooterWrapper;
         parent.AddChild(instance);
         return instance;
     }

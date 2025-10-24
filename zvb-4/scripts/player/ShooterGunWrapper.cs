@@ -32,7 +32,6 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
         _LoadShooterParams(shooterName);
         // 切换了射手，保存数据
         SaveDataManager.Instance?.SetPlayerShooter(shooterName);
-
         // 检查是否解锁该射手
         allowAttackNum = PlansConstants.GetShooterAttackLimit(shooterNowName);
         if (SaveDataManager.Instance == null) return;

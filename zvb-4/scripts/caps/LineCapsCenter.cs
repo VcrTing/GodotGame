@@ -186,7 +186,8 @@ public partial class LineCapsCenter : Node2D
     {
         string initshooter = _capData["initshooter"].AsString();
         if (initshooter == null || initshooter == "") return;
-        if (PlayerController.Instance == null)
+        
+        if (!PlayerController.CheckAlive())
         {
             GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(_capData);
             return;

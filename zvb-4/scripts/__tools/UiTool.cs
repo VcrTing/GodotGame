@@ -12,10 +12,7 @@ public static class UiTool {
         await node.ToSignal(node.GetTree().CreateTimer(GameContants.UiLazyTouchTime), "timeout");
         var tree = node.GetTree();
 		var currentScene = tree.CurrentScene;
-		if (currentScene != null)
-		{
-			currentScene.QueueFree();
-		}
+		if (currentScene != null) currentScene.QueueFree();
         tree.ChangeSceneToFile(FolderConstants.Scenes + ChapterTool.MainMenuScene);
     }
     public static async void PrevScene(TextureButton node, string ScenePath)
@@ -25,7 +22,9 @@ public static class UiTool {
             SoundUiController.Instance.Back();
             // 0.2s后切换下一个场景
             await node.ToSignal(node.GetTree().CreateTimer(GameContants.UiLazyTouchTime), "timeout");
+            Node currentScene = node.GetTree().CurrentScene;
             node.GetTree().ChangeSceneToFile(ScenePath);
+		    if (currentScene != null) currentScene.QueueFree();
         }
         catch (Exception ex)
         {
@@ -39,11 +38,18 @@ public static class UiTool {
             SoundUiController.Instance.Sure();
             // 0.2s后切换下一个场景
             await node.ToSignal(node.GetTree().CreateTimer(GameContants.UiLazyTouchTime), "timeout");
+            Node currentScene = node.GetTree().CurrentScene;
             node.GetTree().ChangeSceneToFile(ScenePath);
+            if (currentScene != null) currentScene.QueueFree();
         }
         catch (Exception ex)
         {
             GD.PrintErr("NextScene error: " + ex.Message);
         }
+    }
+    
+    public static async void Reload()
+    {
+        // Node currentScene = node.GetTree().CurrentScene;
     }
 }

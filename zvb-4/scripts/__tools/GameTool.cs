@@ -71,7 +71,6 @@ public static class GameTool
     // 生成奖励组
     public static bool GenReword(string rName, int count, int v, Node2D parent)
     {
-        GD.Print(rName + " " + count + " " + v);
         string sc = RewordConstants.GetRewordGroupScene(rName);
         if (string.IsNullOrEmpty(sc)) return false;
         var groupSc = GD.Load<PackedScene>(sc);

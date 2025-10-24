@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Godot;
 using ZVB4.Conf;
@@ -5,7 +6,7 @@ using ZVB4.Entity;
 using ZVB4.Interface;
 
 
-public partial class PlayerController : Node2D
+public partial class PlayerController : Node2D, IInit
 {
     [Export]
     public bool IsInitShooter = false;
@@ -22,10 +23,30 @@ public partial class PlayerController : Node2D
     private IShooterWrapper _shooter;
     Node2D workTable;
     public Vector2 _shooterInitPosition;
+
+    bool init = false;
+    public bool Init(string objName = null)
+    {
+        InitShooterWorkTable();
+        init = true;
+        return init;
+    }
+    public static bool CheckAlive() {
+        try
+        {
+            string n = Instance.Name;
+        }
+        catch (Exception e)
+        {
+            Instance = null;
+            return false;
+        }
+        return true;
+    }
     public override void _Ready()
     {
         Instance = this;
-        InitShooterWorkTable();
+        Init();
     }
     void InitShooterWorkTable() {
         workTable = PlayerTool.GenerateWorkTable(ShooterMode, this);
@@ -33,14 +54,29 @@ public partial class PlayerController : Node2D
     public async void LoadInitShooter(string shooterName)
     {
         if (IsInitShooter == false) return;
-        TrashOldShooter();
         if (workTable == null)
         {
             InitShooterWorkTable();
-            GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(shooterName);
+            GetTree().CreateTimer(0.2f).Timeout += () => LoadInitShooter(shooterName);
             return;
         }
         ShooterWorkTable wt = workTable as ShooterWorkTable;
+        try
+        {
+            string n = wt.Name;
+        }
+        catch (Exception e) {
+            InitShooterWorkTable();
+            GetTree().CreateTimer(0.2f).Timeout += () => LoadInitShooter(shooterName);
+            return;
+        }
+        if (wt == null)
+        {
+            InitShooterWorkTable();
+            GetTree().CreateTimer(0.2f).Timeout += () => LoadInitShooter(shooterName);
+            return;
+        }
+        TrashOldShooter();
         wt.HandleCollision(shooterName);
         AfterGetShooter();
         RebuildBuffs();
@@ -134,8 +170,8 @@ public partial class PlayerController : Node2D
     // 
     public override void _Process(double delta)
     {
-
         Position = new Vector2(lastPos.X, Position.Y);
+        if (workTable == null) return;
         if (ShooterMode == EnumPlayerShooterMode.TouchShooter)
         {
             RunningTouchShooter(delta);
