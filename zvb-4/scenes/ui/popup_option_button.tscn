@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnga353s1lfs3"]
+[gd_scene load_steps=4 format=3 uid="uid://cnga353s1lfs3"]
 
-[ext_resource type="Texture2D" uid="uid://yd4p8illo7wh" path="res://pngs/ui/store/StoreOption.png" id="1_udsco"]
-[ext_resource type="Texture2D" uid="uid://cjp7bx5q8vknx" path="res://pngs/ui/store/StoreOption_fcs.png" id="2_r6ybr"]
-[ext_resource type="Texture2D" uid="uid://dinnacuheflj1" path="res://pngs/ui/store/StoreOption_hv.png" id="3_miu2y"]
+[ext_resource type="Texture2D" uid="uid://drn3gvybyk55r" path="res://pngs/ui/button2.png" id="1_l4umi"]
+[ext_resource type="Texture2D" uid="uid://b6lr1fxfw0yr7" path="res://pngs/ui/button_1.png" id="2_udsco"]
 [ext_resource type="Script" uid="uid://clpl5ob4q35me" path="res://scripts/ui/button/PopOptionButton.cs" id="4_fr84f"]
 
 [node name="PopupOptionButton" type="TextureButton"]
@@ -12,10 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("1_udsco")
-texture_pressed = ExtResource("2_r6ybr")
-texture_hover = ExtResource("3_miu2y")
-texture_focused = ExtResource("3_miu2y")
+texture_pressed = ExtResource("1_l4umi")
+texture_hover = ExtResource("2_udsco")
+texture_focused = ExtResource("2_udsco")
 stretch_mode = 0
 script = ExtResource("4_fr84f")
 

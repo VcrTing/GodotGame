@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://br3fnkwdn12o7"]
+[gd_scene load_steps=7 format=3 uid="uid://du1e7ly7lmj12"]
 
 [ext_resource type="Script" uid="uid://36rfmc3ixu1j" path="res://scripts/player/ShooterWorkTable.cs" id="1_bgl10"]
 [ext_resource type="Texture2D" uid="uid://pbfyml2nrhqc" path="res://pngs/ux/table.png" id="2_khky8"]

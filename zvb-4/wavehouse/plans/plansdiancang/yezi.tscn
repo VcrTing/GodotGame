@@ -27,7 +27,6 @@ animations = [{
 
 [node name="Yezi" type="Node2D"]
 z_index = 400
-y_sort_enabled = true
 scale = Vector2(4, 4)
 script = ExtResource("1_fl0dw")
 objName = "Yezi"

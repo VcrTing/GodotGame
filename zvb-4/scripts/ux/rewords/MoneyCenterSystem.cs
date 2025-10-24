@@ -119,6 +119,7 @@ public partial class MoneyCenterSystem : Control
             {
                 // SoundFxController.Instance?.PlayFx("Ux/coll", "coll_sun", 4);
             }
+            if (instance == null || instance.Name == "") return;
             GetTree().CurrentScene.AddChild(instance);
         }
         catch

@@ -53,7 +53,14 @@ public partial class RewordGroup : Node2D
             float x = startPos.X + i * spacing;
             Vector2 pos = new Vector2(x, startPos.Y);
             //
-            Gen(rewordName, i, pos, value);
+            try
+            {
+                Gen(rewordName, i, pos, value);
+            }
+            catch
+            {
+                
+            }
         }
 
     }
@@ -70,6 +77,7 @@ public partial class RewordGroup : Node2D
         // x加1-5f随机偏移
         float randOffset = (float)GD.RandRange(1f, 5f);
         Vector2 realPos = new Vector2(pos.X + randOffset, pos.Y);
+        if (sunScene == null) return;
         Node2D r = sunScene.Instantiate<Node2D>();
         r.Position = realPos;
         //

@@ -87,7 +87,7 @@ script = ExtResource("1_w1fym")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, 16)
-scale = Vector2(1.4, 1.4)
+scale = Vector2(1.42, 1.42)
 sprite_frames = SubResource("SpriteFrames_rf7gy")
 animation = &"live60"
 script = ExtResource("3_7l1dn")
@@ -104,5 +104,3 @@ shape = SubResource("RectangleShape2D_ue5a4")
 
 [node name="Working" type="Node2D" parent="."]
 script = ExtResource("5_oq70v")
-EveryGenerateInterval = 9.0
-RewordName = "Money"

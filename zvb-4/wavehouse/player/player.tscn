@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="2_s51ln"]
 
 [node name="Player" type="Node2D"]
+y_sort_enabled = true
 
 [node name="SoundPlayerController" parent="." instance=ExtResource("1_qh060")]
 position = Vector2(0, -600)

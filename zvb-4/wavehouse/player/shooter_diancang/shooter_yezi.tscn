@@ -29,6 +29,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.815534, 0.2936893)
 
 [node name="ShooterYezi" type="Node2D"]
+z_index = 401
 y_sort_enabled = true
 script = ExtResource("1_6icii")
 

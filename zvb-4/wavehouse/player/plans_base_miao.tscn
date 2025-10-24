@@ -42,7 +42,8 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.815534, 0.2936893)
 
 [node name="PlansBaseMiao" type="Node2D"]
-z_index = 2000
+z_index = 400
+y_sort_enabled = true
 script = ExtResource("1_f2xyr")
 
 [node name="Miao" type="AnimatedSprite2D" parent="."]

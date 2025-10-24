@@ -82,9 +82,8 @@ y_sort_enabled = true
 script = ExtResource("1_0w6da")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-z_index = 220
-position = Vector2(5, -26)
-scale = Vector2(1.56, 1.56)
+position = Vector2(7, -26)
+scale = Vector2(1.53, 1.53)
 sprite_frames = SubResource("SpriteFrames_p8c7m")
 animation = &"live60"
 script = ExtResource("3_j4ffn")

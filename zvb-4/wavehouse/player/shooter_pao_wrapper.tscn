@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://d4e3uxnrh50ij" path="res://scripts/player/ShooterPaoWrapper.cs" id="1_hm2xe"]
 
 [node name="ShooterPaoWrapper" type="Node2D"]
-z_index = 2200
 y_sort_enabled = true
 scale = Vector2(4, 4)
 script = ExtResource("1_hm2xe")

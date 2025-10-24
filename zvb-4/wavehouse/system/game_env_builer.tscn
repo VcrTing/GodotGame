@@ -28,13 +28,15 @@ texture = ExtResource("3_rh23g")
 [node name="Ux" type="Node2D" parent="."]
 
 [node name="DieLineZero" type="Area2D" parent="Ux"]
-z_index = 40
+z_index = -1
+y_sort_enabled = true
 position = Vector2(0, 450)
 collision_layer = 8
 collision_mask = 2048
 script = ExtResource("3_8fgd1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ux/DieLineZero"]
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_44saj")
 
 [node name="View" type="Sprite2D" parent="Ux/DieLineZero"]

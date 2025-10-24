@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="5_0xwnv"]
 
 [node name="PlayerAttackController" type="Node2D"]
-z_index = 100
+y_sort_enabled = true
 script = ExtResource("1_hh42k")
 
 [node name="PlayerBuffController" type="Node2D" parent="."]
