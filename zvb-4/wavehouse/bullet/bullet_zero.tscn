@@ -29,7 +29,7 @@ animations = [{
 radius = 30.0
 
 [node name="BulletZero" type="Node2D"]
-z_index = 1320
+z_index = 999
 y_sort_enabled = true
 scale = Vector2(2.7, 2.7)
 script = ExtResource("1_ou5vi")

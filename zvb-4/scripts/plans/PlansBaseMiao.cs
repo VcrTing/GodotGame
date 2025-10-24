@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using ZVB4.Conf;
 using ZVB4.Interface;
 
@@ -158,7 +159,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
             BackToPosition();
         }
         // 延迟 0.1f
-        // await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
     }
     public override void _Input(InputEvent @event)
     {
@@ -184,6 +184,11 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         }
     }
 
+    List<string> InitWorkPlans = new List<string>
+    {
+        PlansConstants.SunFlower, PlansConstants.RewordFlower, PlansConstants.SunGu
+    };
+
     // 生长完成方法
     protected virtual void OnGrowFinished()
     {
@@ -195,7 +200,13 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
             miaoNode.QueueFree();
         }
         _area2D.Visible = true;
-        PlansConstants.GeneratePlans(this, PlanName);
+        Node2D plan = PlansConstants.GeneratePlans(this, PlanName);
+        if (plan != null) {
+            if (InitWorkPlans.Contains(PlanName)) {
+                IWorking iw = plan as IWorking;
+                iw.SetWorkingMode(true);
+            }
+        }
         // 播放生长完成音效
         SoundFxController.Instance?.PlayFx("Ux/grow", "grow", 4);
     }

@@ -35,6 +35,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.815534, 0.2936893)
 
 [node name="ShooterLanMei" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_qlx4v")
 
 [node name="View" type="AnimatedSprite2D" parent="."]

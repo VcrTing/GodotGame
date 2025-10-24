@@ -21,7 +21,7 @@ shooter:
   table: 1160
 
 bullet:
-  base: 1320
+  base: 999
 
 sun:
   base: 1980

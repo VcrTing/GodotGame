@@ -42,6 +42,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.815534, 0.2936893)
 
 [node name="ShooterPeaDouble" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_luxpm")
 
 [node name="View" type="AnimatedSprite2D" parent="."]

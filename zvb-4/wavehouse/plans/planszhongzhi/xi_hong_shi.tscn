@@ -100,6 +100,8 @@ radius = 170.0
 height = 360.0
 
 [node name="XiHongShi" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
 script = ExtResource("1_lhted")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
@@ -109,7 +111,7 @@ sprite_frames = SubResource("SpriteFrames_xiptw")
 animation = &"attack"
 autoplay = "default"
 script = ExtResource("3_sk0xw")
-WhatYouObj = 1
+WhatYouObj = 5
 
 [node name="BeHurtArea" type="Area2D" parent="."]
 position = Vector2(0, 30)

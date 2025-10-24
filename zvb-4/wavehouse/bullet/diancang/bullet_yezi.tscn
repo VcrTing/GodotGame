@@ -42,7 +42,7 @@ height = 380.0
 size = Vector2(250, 60)
 
 [node name="BulletYezi" type="Node2D"]
-z_index = 1320
+z_index = 999
 y_sort_enabled = true
 script = ExtResource("1_w7cvy")
 

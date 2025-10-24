@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bpgnj5ktw5xtk" path="res://scripts/ui/SinglePopWorkButton.cs" id="5_qmaax"]
 [ext_resource type="Script" uid="uid://cjymbyjjtrsnm" path="res://scripts/ux/rewords/SunCenterSystem.cs" id="6_fnkl6"]
 [ext_resource type="Texture2D" uid="uid://dkp32atjlrfko" path="res://pngs/ui/btn_things_bg.png" id="8_hx4eg"]
-[ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="9_hjp3a"]
+[ext_resource type="Texture2D" uid="uid://crevmft6t2g02" path="res://pngs/ux/Sun3.png" id="8_su7pk"]
 [ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://scenes/ui/control_back_button.tscn" id="10_7dr2n"]
 [ext_resource type="PackedScene" uid="uid://bqwpvqnfkp735" path="res://scenes/ui/capter_die_popup.tscn" id="11_crkn6"]
 [ext_resource type="PackedScene" uid="uid://j1afhac3mr6i" path="res://scenes/ui/capter_win_popup.tscn" id="12_dwo5b"]
@@ -87,7 +87,7 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ControlSun/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("9_hjp3a")
+texture = ExtResource("8_su7pk")
 expand_mode = 2
 
 [node name="CountShowLabel" type="Label" parent="CanvasLayer/ControlSun/HBoxContainer"]

@@ -74,16 +74,6 @@ public partial class SunCenterSystem : Control
         return _v < 0;
     }
 
-    // 增加普通阳光
-    public void FlowerGet()
-    {
-        _value += SunMoneyConstants.FlowerGetSun;
-    }
-    public void SkyGet()
-    {
-        _value += SunMoneyConstants.SkyGetSun;
-    }
-
     // 攻击扣除
     public bool CostForAttack(int v)
     {

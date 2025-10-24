@@ -25,11 +25,9 @@ public partial class Sun : Node2D, IWorking, IReword
         IsWorkingMode = working;
         if (working)
         {
-            // 默认目标为左上角世界坐标
             try
             {
                 targetWorldPos = SunCenterSystem.Instance.GetLabelPosition();
-                // GD.Print("Sun Target Pos: " + targetWorldPos);
             }
             catch
             {
@@ -44,11 +42,10 @@ public partial class Sun : Node2D, IWorking, IReword
         value = _value;
         float rd = (float)GD.RandRange(0f, 0.1f);
         originScale = 1.03f - rd;
-        if (value < 50) originScale = 0.7f - rd;
-        if (value >= 100) originScale = 1.5f - rd;
-        // Scale = new Vector2(originScale, originScale);
+        if (value < SunMoneyConstants.SunNormal) originScale = 0.66f - rd;
+        if (value == SunMoneyConstants.SunNormal2) originScale = 1.13f - rd;
+        if (value > SunMoneyConstants.SunNormal2) originScale = 1.43f - rd;
         view = GodotTool.GetViewAndAutoPlay(this);
-        //
         SetWorkingMode(true);
         return true;
     }
@@ -97,8 +94,10 @@ public partial class Sun : Node2D, IWorking, IReword
 
     public override void _Ready()
     {
+        rotating = GameTool.RandomRotatingV(rotating);
     }
 
+    float rotating = 60f;
     public override void _Process(double delta)
     {
         if (IsWorkingMode)
@@ -141,6 +140,8 @@ public partial class Sun : Node2D, IWorking, IReword
                     _fadeTime = 0f;
                 }
             }
+            // 轻微旋转自己
+            Rotation += Mathf.DegToRad(rotating) * (float)delta;
         }
         
         // 淡出销毁逻辑

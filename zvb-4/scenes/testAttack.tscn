@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://hawbvochwphb"]
+[gd_scene load_steps=10 format=3 uid="uid://hawbvochwphb"]
 
 [ext_resource type="PackedScene" uid="uid://tyfyw8v7besx" path="res://wavehouse/bullet/bullet_zero.tscn" id="1_fmfhj"]
 [ext_resource type="PackedScene" uid="uid://crbw8wgirbf30" path="res://wavehouse/sounds/sound_game_obj_controller.tscn" id="1_rf7gy"]
 [ext_resource type="PackedScene" uid="uid://dw2furgw83cid" path="res://wavehouse/bullet/diancang/bullet_xigua_bing.tscn" id="2_sgq3c"]
 [ext_resource type="PackedScene" uid="uid://cibpmmee5t74" path="res://wavehouse/zombi/wrapper/zombi_c_wrapper.tscn" id="4_c5axu"]
-[ext_resource type="PackedScene" uid="uid://dhd1gc6olt83b" path="res://wavehouse/bullet/diancang/bullet_pea_gold.tscn" id="5_66j71"]
+[ext_resource type="PackedScene" uid="uid://dhd1gc6olt83b" path="res://wavehouse/bullet/bullet_lan_mei.tscn" id="5_66j71"]
+[ext_resource type="PackedScene" uid="uid://cxbau0yoaio8n" path="res://wavehouse/plans/plansfuzhu/sun_gu.tscn" id="5_fmfhj"]
 [ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="11_yihhn"]
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="13_tlc07"]
 [ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="13_xiptw"]
@@ -45,6 +46,8 @@ position = Vector2(0, -550)
 objName = "zombi_s"
 
 [node name="Plans" type="Node2D" parent="."]
+
+[node name="SunGu" parent="Plans" instance=ExtResource("5_fmfhj")]
 
 [node name="Other" type="Node2D" parent="."]
 

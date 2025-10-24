@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnf2oqk6j33sr"]
+[gd_scene load_steps=17 format=3 uid="uid://cnf2oqk6j33sr"]
 
 [ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
 [ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="5_34y4i"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://df86w0dr3t426" path="res://wavehouse/plans/plansshooter/pea_cold.tscn" id="9_iwmpd"]
 [ext_resource type="PackedScene" uid="uid://cxp8h1au7mu3g" path="res://wavehouse/plans/plansonce/la_jiao.tscn" id="10_3ydkh"]
 [ext_resource type="PackedScene" uid="uid://8428d727ktas" path="res://wavehouse/bullet/bullet_zero_cold.tscn" id="14_h24fl"]
+[ext_resource type="Script" uid="uid://dqsmk6yiaioi4" path="res://scripts/fx/SoundsNightFx.cs" id="14_weca1"]
 [ext_resource type="Script" uid="uid://blws27e75l035" path="res://scripts/system/GameModeSwitchCenter.cs" id="15_lpa67"]
 [ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
 
@@ -116,3 +117,8 @@ position = Vector2(300, 0)
 
 [node name="BulletZeroCold" parent="Env/TestObj" instance=ExtResource("14_h24fl")]
 position = Vector2(-200, 582)
+
+[node name="SoundsNightFx" type="Node2D" parent="Env"]
+script = ExtResource("14_weca1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Env/SoundsNightFx"]

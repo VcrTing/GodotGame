@@ -1,5 +1,5 @@
 {
-    "generatemiaoratio": 1,
+    "generatemiaoratio": 0,
     "shootershootratio": 1,
     "shooterlowestattackspeedratio": 1,
 
@@ -8,7 +8,7 @@
     "enmyviewscale": 1,
     "enmybehurtscale": 1,
 
-    "initsun": 1000,
+    "initsun": 2000,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 40,
@@ -30,7 +30,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 1, "redeyeratio": 0.5
+                "lazyme": 1, "redeyeratio": 0.3
             }
         ],
         "30": [
@@ -39,7 +39,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 2, "redeyeratio": 0.5
+                "lazyme": 2, "redeyeratio": 0.4
             }
         ],
         "41": [

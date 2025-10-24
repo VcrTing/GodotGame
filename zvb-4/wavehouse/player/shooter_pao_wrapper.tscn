@@ -4,5 +4,6 @@
 
 [node name="ShooterPaoWrapper" type="Node2D"]
 z_index = 2200
+y_sort_enabled = true
 scale = Vector2(4, 4)
 script = ExtResource("1_hm2xe")

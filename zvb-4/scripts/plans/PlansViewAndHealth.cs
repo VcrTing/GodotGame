@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using ZVB4.Conf;
 using ZVB4.Interface;
 using ZVB4.Tool;
@@ -15,7 +14,6 @@ public partial class PlansViewAndHealth : AnimatedSprite2D, IHealth
     IObj myObj => GetParent<IObj>();
     public override void _Ready()
     {
-        GodotTool.SwitchAnimatedSprite(this, NameConstants.Alive);
         HealthInit = ObjTool.GetYouHealth(myObj.GetEnumObjType(), myObj.GetObjName());
         Health = HealthInit;
         DoingDie();

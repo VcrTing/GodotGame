@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://eq185ci4acyi"]
+[gd_scene load_steps=7 format=3 uid="uid://eq185ci4acyi"]
 
 [ext_resource type="Script" uid="uid://dxa8ahwbp5srs" path="res://scripts/objs/Sun.cs" id="1_plwk5"]
+[ext_resource type="Texture2D" uid="uid://crevmft6t2g02" path="res://pngs/ux/Sun3.png" id="2_a6j61"]
 [ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="2_vcxqt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nofcv"]
+atlas = ExtResource("2_a6j61")
+region = Rect2(0, 0, 120, 120)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlc07"]
 atlas = ExtResource("2_vcxqt")
@@ -11,10 +16,18 @@ region = Rect2(0, 0, 60, 60)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tlc07")
+"texture": SubResource("AtlasTexture_nofcv")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlc07")
+}],
+"loop": true,
+"name": &"default_1",
 "speed": 5.0
 }]
 
@@ -23,5 +36,6 @@ z_index = 1980
 script = ExtResource("1_plwk5")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-visible = false
+position = Vector2(0, -3)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_xiptw")

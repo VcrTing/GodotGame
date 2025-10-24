@@ -78,7 +78,7 @@ public partial class GameStatistic : Node2D
     public int GuanZiDieCount { get; private set; } = 0;
 
     //
-    public bool JinDianWinCheck()
+    public bool WinCheckWhenChapterAllEnmyDie()
     {
         if (ZombieChapterTotal > 0)
         {
@@ -93,7 +93,7 @@ public partial class GameStatistic : Node2D
     public void AddGuanziDie(int num = 1) {
         GuanZiDieCount += num;
     }
-    public bool GuanZiWinCheck()
+    public bool WinCheckWhenGuanZiMode()
     {
         bool star = false;
         if (GuanZiChapterTotal > 0)

@@ -94,12 +94,12 @@ public partial class GameWinnerChecker : Node2D
         // 等待3秒后再执行下一个时间点
         bool isWin = false;
 
-        if (ChapterTool.IsJinDian(capnum))
+        if (ChapterTool.IsJinDian(capnum) || ChapterTool.IsTwoCap(capnum) || ChapterTool.IsThirdChapter(capnum))
         {
-            isWin = GameStatistic.Instance?.JinDianWinCheck() ?? false;
+            isWin = GameStatistic.Instance?.WinCheckWhenChapterAllEnmyDie() ?? false;
         }
         else if (ChapterTool.IsGuanZi(capnum)) {
-            isWin = GameStatistic.Instance?.GuanZiWinCheck() ?? false;
+            isWin = GameStatistic.Instance?.WinCheckWhenGuanZiMode() ?? false;
         }
         //
         if (isWin)

@@ -19,7 +19,9 @@ namespace ZVB4.Conf
         public const string ShiLiu = "ShiLiu";
         public const string Xigua = "Xigua";
         // 种植
+        public const string SunGu = "SunGu";
         public const string SunFlower = "SunFlower";
+        public const string RewordFlower = "RewordFlower";
         public const string JianGuo = "JianGuo";
         public const string XianRenQiu = "XianRenQiu";
         public const string XiHongShi = "XiHongShi";
@@ -43,7 +45,11 @@ namespace ZVB4.Conf
             { ShiLiu, FolderConstants.WavePlans + "plansshooter/shi_liu.tscn" },
             { Xigua, FolderConstants.WavePlans + "plansshooter/xigua.tscn" },
 
+            { SunGu, FolderConstants.WavePlans + "plansfuzhu/sun_gu.tscn" },
             { SunFlower, FolderConstants.WavePlans + "plansfuzhu/sun_flower.tscn" },
+            { RewordFlower, FolderConstants.WavePlans + "plansfuzhu/reword_flower.tscn" },
+
+
             { JianGuo,  FolderConstants.WavePlans + "planszhongzhi/jian_guo.tscn" },
             { XianRenQiu,  FolderConstants.WavePlans + "planszhongzhi/xian_ren_qiu.tscn" },
             { XiHongShi,  FolderConstants.WavePlans + "planszhongzhi/xi_hong_shi.tscn" },
@@ -85,7 +91,9 @@ namespace ZVB4.Conf
             { ShiLiu, 5f },
             { Xigua, 6f },
 
+            { SunGu, 4f },
             { SunFlower, 1f },
+            { RewordFlower, 1f },
             { JianGuo, 2f },
             { XianRenQiu, 8f },
             { XiHongShi, 6f },
@@ -102,7 +110,9 @@ namespace ZVB4.Conf
         public static readonly  Dictionary<string, int> PlanHealthDict = new  Dictionary<string, int>
         {
             //  
+            { SunGu, (int)EnumHealth.Six },
             { SunFlower, (int)EnumHealth.Four },
+            { RewordFlower, (int)EnumHealth.Eight },
             { JianGuo, (int)EnumHealth.JianGuo },
             { XianRenQiu, (int)EnumHealth.XianRenQiu },
             { XiHongShi, (int)EnumHealth.Six },
@@ -203,6 +213,7 @@ namespace ZVB4.Conf
         } 
         // 坚果倍数
         public static float BiggerRateMaxJianGuo = 1.5f;
+        public static float BiggerRateMaxGu = 1.9f;
         public static float BiggerRateMaxZhongzhi = 1f;
 
         // 根据key获取植物生命值
@@ -309,6 +320,7 @@ namespace ZVB4.Conf
         }
 
         //
+        public static float SunPlansGrowTime = 20f;
     }
 
 }

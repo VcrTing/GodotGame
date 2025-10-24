@@ -55,6 +55,7 @@ animations = [{
 }]
 
 [node name="BulletLanMei" type="Node2D"]
+z_index = 999
 y_sort_enabled = true
 scale = Vector2(1.7, 1.7)
 script = ExtResource("1_q7ntg")

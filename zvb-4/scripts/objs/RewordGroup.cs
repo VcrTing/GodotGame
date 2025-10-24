@@ -16,7 +16,6 @@ public partial class RewordGroup : Node2D
         _checkTimer = -_checkInterval; // 先等待0.5s
         _lifeTime = 0f;
         _started = true;
-        
     }
 
     public override void _Process(double delta)

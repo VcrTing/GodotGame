@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxbau0yoaio8n"]
+
+[ext_resource type="Script" uid="uid://d3eiia0jn7i2t" path="res://scripts/plans/plansfuzhu/PlansSunGu.cs" id="1_6x2hd"]
+[ext_resource type="Texture2D" uid="uid://0kiuu1r6r4n6" path="res://pngs/planscard/SunGu.png" id="2_efoh6"]
+[ext_resource type="Script" uid="uid://dg3oca6rm8x7j" path="res://scripts/plans/PlansViewAndHealth.cs" id="3_k8lng"]
+[ext_resource type="Script" uid="uid://xd2b2sm7oqlb" path="res://scripts/plans/PlansBeHurtArea.cs" id="4_h4em1"]
+[ext_resource type="Script" uid="uid://cmcx8217u2avf" path="res://scripts/plans/plansfuzhu/FlowerWorkingReword.cs" id="5_4xmnr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66j71"]
+atlas = ExtResource("2_efoh6")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue5a4"]
+atlas = ExtResource("2_efoh6")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c5axu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66j71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue5a4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66j71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue5a4")
+}],
+"loop": true,
+"name": &"live",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66j71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue5a4")
+}],
+"loop": true,
+"name": &"live30",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66j71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue5a4")
+}],
+"loop": true,
+"name": &"live60",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rf7gy"]
+radius = 40.0
+height = 240.0
+
+[node name="SunGu" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
+script = ExtResource("1_6x2hd")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 30)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_c5axu")
+animation = &"live60"
+autoplay = "default"
+script = ExtResource("3_k8lng")
+WhatYouObj = 5
+
+[node name="BeHurtArea" type="Area2D" parent="."]
+position = Vector2(0, 10)
+collision_layer = 512
+collision_mask = 2304
+script = ExtResource("4_h4em1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeHurtArea"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rf7gy")
+
+[node name="Working" type="Node2D" parent="."]
+script = ExtResource("5_4xmnr")

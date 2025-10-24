@@ -25,6 +25,18 @@
     },
     {
         "name": "Xigua",
-        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 300, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "XiguaBing",
+        "price": 600, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "PeaGold",
+        "price": 450, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "Yezi",
+        "price": 1000, "x": 155, "y": 75, "viewscale": 1.0
     }
 ]

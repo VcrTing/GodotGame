@@ -16,7 +16,7 @@
     
     "initshooter": "PeaDouble",
     "initmiaolist": [
-        "SunFlower", "Yezi", "XiHongShi", "XiHongShi", "XianRenQiu", "XiHongShi"
+        "SunFlower", "Yezi", "RewordFlower", "XiHongShi", "XianRenQiu", "XiHongShi"
     ],
     "enmyspeedattackscale": 2.0,
     "enmyspeedmovescale": 1.2,

@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwc5qv4r3yred"]
+
+[ext_resource type="Script" uid="uid://dogpojbiwqfms" path="res://scripts/plans/plansfuzhu/PlansRewordFlower.cs" id="1_w1fym"]
+[ext_resource type="Texture2D" uid="uid://bmfjvrfuwynjl" path="res://pngs/planscard/MoneyFlower.png" id="2_d64xs"]
+[ext_resource type="Script" uid="uid://dg3oca6rm8x7j" path="res://scripts/plans/PlansViewAndHealth.cs" id="3_7l1dn"]
+[ext_resource type="Script" uid="uid://xd2b2sm7oqlb" path="res://scripts/plans/PlansBeHurtArea.cs" id="4_jsh5y"]
+[ext_resource type="Script" uid="uid://cmcx8217u2avf" path="res://scripts/plans/plansfuzhu/FlowerWorkingReword.cs" id="5_oq70v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1fym"]
+atlas = ExtResource("2_d64xs")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d64xs"]
+atlas = ExtResource("2_d64xs")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l1dn"]
+atlas = ExtResource("2_d64xs")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rf7gy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1fym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d64xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l1dn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1fym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d64xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l1dn")
+}],
+"loop": true,
+"name": &"live",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1fym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d64xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l1dn")
+}],
+"loop": true,
+"name": &"live30",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1fym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d64xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l1dn")
+}],
+"loop": true,
+"name": &"live60",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue5a4"]
+size = Vector2(40, 120)
+
+[node name="RewordFlower" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
+script = ExtResource("1_w1fym")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 16)
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_rf7gy")
+animation = &"live60"
+script = ExtResource("3_7l1dn")
+
+[node name="BeHurtArea" type="Area2D" parent="."]
+position = Vector2(0, 10)
+collision_layer = 512
+collision_mask = 2304
+script = ExtResource("4_jsh5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeHurtArea"]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_ue5a4")
+
+[node name="Working" type="Node2D" parent="."]
+script = ExtResource("5_oq70v")
+EveryGenerateInterval = 9.0
+RewordName = "Money"

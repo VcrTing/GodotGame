@@ -10,10 +10,10 @@ namespace ZVB4.Conf
         public const string Sun = "Sun";
         public const string MoneyG = "MoneyG";
         public const string MoneyS = "MoneyS";
-        public const int SunNormal = 50;
-        public const int SunLarge = 150;
-        public const int FlowerGetSun = 50;
-        public const int SkyGetSun = 50;
+        public const int SunBase = 10;
+        public const int SunSmall = SunBase * 3;
+        public const int SunNormal = SunBase * 5;
+        public const int SunNormal2 = SunBase * 6;
 
         // 攻击消耗字典
         public static readonly Dictionary<string, int> AttackCostDict = new Dictionary<string, int>
@@ -80,6 +80,67 @@ namespace ZVB4.Conf
             return DefGravity * i / 100;
         }
 
+        public static readonly Dictionary<string, string> PlansRewordType = new Dictionary<string, string>
+        {
+            { PlansConstants.SunFlower, Sun },
+            { PlansConstants.RewordFlower, MoneyS },
+            { PlansConstants.SunGu, Sun },
+        };
+        public static string GetPlansRewordType(string plansName) => PlansRewordType[plansName];
+        //
+        public static readonly Dictionary<string, int> SunPlansFirstGenTime = new Dictionary<string, int>
+        {
+            { PlansConstants.SunFlower, 2 },
+            { PlansConstants.RewordFlower, 3 },
+            { PlansConstants.SunGu, 3 },
+        };
+        public static int GetSunPlansFirstGenTime(string plansName) => SunPlansFirstGenTime[plansName];
+        public static readonly Dictionary<string, int> SunPlansEveryGenTime = new Dictionary<string, int>
+        {
+            { PlansConstants.SunFlower, 8 },
+            { PlansConstants.RewordFlower, 9 },
+            { PlansConstants.SunGu, 9 },
+        };
+        public static int GetSunPlansEveryGenTime(string plansName) => SunPlansEveryGenTime[plansName];
+        public static readonly Dictionary<string, int> SunPlansGrowTime = new Dictionary<string, int>
+        {
+            { PlansConstants.SunFlower, 1000 },
+            { PlansConstants.RewordFlower, 999 },
+            { PlansConstants.SunGu, 2 },
+        };
+        public static int GetSunPlansGrowTime(string plansName) => SunPlansGrowTime[plansName];
+
+        //
+        public static readonly Dictionary<string, int> SunPlansSunLevel1 = new Dictionary<string, int>
+        {
+            { PlansConstants.SunFlower, SunNormal },
+            { PlansConstants.RewordFlower, SunNormal },
+            { PlansConstants.SunGu, SunSmall },
+        };
+        public static int GetSunPlansSunLevel1(string plansName) => SunPlansSunLevel1[plansName];
+        public static readonly Dictionary<string, int> SunPlansSunLevel2 = new Dictionary<string, int>
+        {
+            { PlansConstants.SunFlower, SunNormal },
+            { PlansConstants.RewordFlower, SunNormal },
+            { PlansConstants.SunGu, SunNormal2 },
+        };
+        public static int GetSunPlansSunLevel2(string plansName) => SunPlansSunLevel2[plansName];
+
+        //
+        public static readonly Dictionary<string, int> SunPlansSunCount1 = new Dictionary<string, int>
+        {
+            { PlansConstants.SunFlower, 1 },
+            { PlansConstants.RewordFlower, 3 },
+            { PlansConstants.SunGu, 1 },
+        };
+        public static int GetSunPlansSunCount1(string plansName) => SunPlansSunCount1[plansName];
+        public static readonly Dictionary<string, int> SunPlansSunCount2 = new Dictionary<string, int>
+        {
+            { PlansConstants.SunFlower, 1 },
+            { PlansConstants.RewordFlower, 3 },
+            { PlansConstants.SunGu, 1 },
+        };
+        public static int GetSunPlansSunCount2(string plansName) => SunPlansSunCount2[plansName];
     }
 
 }

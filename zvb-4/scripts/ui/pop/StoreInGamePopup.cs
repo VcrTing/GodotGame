@@ -19,6 +19,7 @@ public partial class StoreInGamePopup : PopupPanel
     public void ShowPopup()
     {
         SystemController.Instance?.PauseGame();
+        SoundUiController.Instance.ShopStart();
         Show();
     }
 
