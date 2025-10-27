@@ -25,7 +25,9 @@ size = Vector2(2000, 500)
 script = ExtResource("1_3c85d")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.2, 1)
+z_index = -1
+y_sort_enabled = true
+scale = Vector2(2.7, 1)
 sprite_frames = SubResource("SpriteFrames_grrdn")
 
 [node name="UxArea" type="Area2D" parent="."]

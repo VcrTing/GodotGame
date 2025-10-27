@@ -97,7 +97,7 @@ height = 200.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhted"]
 radius = 170.0
-height = 360.0
+height = 400.0
 
 [node name="XiHongShi" type="Node2D"]
 z_index = 400
@@ -105,7 +105,7 @@ y_sort_enabled = true
 script = ExtResource("1_lhted")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -25)
+position = Vector2(0, -20)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_xiptw")
 animation = &"attack"

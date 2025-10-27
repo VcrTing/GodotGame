@@ -95,8 +95,8 @@ namespace ZVB4.Conf
             { SunFlower, 1f },
             { RewordFlower, 1f },
             { JianGuo, 2f },
-            { XianRenQiu, 8f },
-            { XiHongShi, 6f },
+            { XianRenQiu, 4f },
+            { XiHongShi, 2f },
 
             { Cherry, 5f },
             { IceFlower, 10f },
@@ -120,7 +120,7 @@ namespace ZVB4.Conf
         // 会占用格子的植物
         public static bool IsWillZhanYongGeZi(string planName) => PlanHealthDict.ContainsKey(planName);
         // 射手限制
-        static int BaseShootNum = 1000;
+        static int BaseShootNum = 0;
         public static readonly  Dictionary<string, int> ShooterAttackLimitDict = new  Dictionary<string, int>
         {
             { Pea, 0 },
@@ -320,7 +320,7 @@ namespace ZVB4.Conf
         }
 
         //
-        public static float SunPlansGrowTime = 20f;
+        public static float SunPlansGrowTime = 2f;
     }
 
 }

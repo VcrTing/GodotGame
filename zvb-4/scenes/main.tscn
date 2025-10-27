@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdrdpdmg6kgbx"]
+[gd_scene load_steps=8 format=3 uid="uid://cdrdpdmg6kgbx"]
 
 [ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://scenes/main/system_for_main.tscn" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://b3067rcwroi85" path="res://pngs/ui/logo.png" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://xguhn7vnih0e" path="res://scenes/ui/single_options_button.tscn" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://nj1o4abovt5f" path="res://pngs/bg/post/mainbg.png" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://be6opc4lx5yyh" path="res://pngs/ui/store/Store.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://ds8nnj6ehnv3s" path="res://pngs/ui/main/Book.png" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://dtxmhhsjv7mos" path="res://scripts/ui/button/SingleOptionsButton.cs" id="5_tefeu"]
 
@@ -179,6 +180,7 @@ alignment = 2
 [node name="TextureRectShop" type="TextureRect" parent="CanvasLayer/MainBottomBar/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+texture = ExtResource("4_o6xl0")
 
 [node name="SingleQubeButton" type="TextureButton" parent="CanvasLayer/MainBottomBar/HBoxContainer/TextureRectShop"]
 layout_mode = 1

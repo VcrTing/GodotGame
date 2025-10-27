@@ -9,6 +9,7 @@ public partial class StoreInGamePopup : PopupPanel
     {
         ProcessMode = ProcessModeEnum.Always;
         Instance = this;
+        this.PopupHide += WhenHide;
     }
 
     public bool IsShowing()
@@ -23,9 +24,15 @@ public partial class StoreInGamePopup : PopupPanel
         Show();
     }
 
+    void WhenHide()
+    {
+        GD.Print("关闭被监听了");
+        SystemController.Instance?.ResumeGame();
+    }
+
     public void HidePopup()
     {
-        SystemController.Instance?.ResumeGame();
+        WhenHide();
         Hide();
     }
 }

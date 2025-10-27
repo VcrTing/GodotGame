@@ -13,7 +13,7 @@ namespace ZVB4.Conf
         public const int SunBase = 10;
         public const int SunSmall = SunBase * 3;
         public const int SunNormal = SunBase * 5;
-        public const int SunNormal2 = SunBase * 6;
+        public const int SunNormal2 = SunBase * 7;
 
         // 攻击消耗字典
         public static readonly Dictionary<string, int> AttackCostDict = new Dictionary<string, int>

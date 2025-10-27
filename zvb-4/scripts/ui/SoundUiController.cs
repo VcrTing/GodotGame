@@ -16,6 +16,7 @@ public partial class SoundUiController : Node2D
 
     public override void _Ready()
     {
+        ProcessMode = ProcessModeEnum.Always;
         Instance = this;
         _player = GetNodeOrNull<AudioStreamPlayer2D>("AudioStreamPlayer2D");
         if (_player == null)
@@ -118,6 +119,6 @@ public partial class SoundUiController : Node2D
     // RobotTalk
     public void ShopStart()
     {
-        EnqueueSound("Ui/shop", "shop", 8);
+        EnqueueSound("Ui/shop", "shop", 7);
     }
 }

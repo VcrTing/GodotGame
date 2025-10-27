@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1onpauofh0jj"]
+[gd_scene load_steps=5 format=3 uid="uid://bdxwkk221oe47"]
 
 [ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://scenes/main/system_for_main.tscn" id="1_0xy7u"]
 [ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://scenes/ui/control_back_button.tscn" id="2_11o83"]
-[ext_resource type="PackedScene" uid="uid://drkul0cdcikwx" path="res://scenes/ui/menu_options_button.tscn" id="3_rllmn"]
-[ext_resource type="PackedScene" uid="uid://boafu0qiye5tv" path="res://scenes/card/tu_jian_plans_card.tscn" id="4_3lime"]
+[ext_resource type="Script" uid="uid://btlrtaqdkdss3" path="res://scripts/ui/store/StoreLoadCardSystem.cs" id="3_a0kp3"]
+[ext_resource type="Texture2D" uid="uid://cldn5ifcl6ptf" path="res://pngs/bg/shop/ShopBG.jpeg" id="3_skj83"]
 
 [node name="ChouJiang" type="Node2D"]
 
@@ -14,38 +14,38 @@
 [node name="ControlBack" parent="CanvasLayer" instance=ExtResource("2_11o83")]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 1200)
 layout_mode = 3
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 160.0
-offset_bottom = 280.0
-grow_horizontal = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
-[node name="MenuOptionsButton" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_rllmn")]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/HBoxContainer"]
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
-Key = "plans"
-LabelText = "植物图鉴"
 
-[node name="MenuOptionsButton2" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_rllmn")]
+[node name="StoreLoadCardSystem" type="HFlowContainer" parent="CanvasLayer/Control/HBoxContainer/ScrollContainer"]
 layout_mode = 2
-Key = "zombis"
-LabelText = "僵尸图鉴"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+last_wrap_alignment = 1
+script = ExtResource("3_a0kp3")
+CardsJsonPath = "ingame_store_shooters.json"
 
-[node name="ControlPan" type="Control" parent="CanvasLayer"]
-custom_minimum_size = Vector2(0, 1240)
+[node name="ControlBottomBar" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -54,42 +54,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ControlPan"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Env" type="Node2D" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ControlPan/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/ControlPan/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/ControlPan/ScrollContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "射手类型"
-
-[node name="TuJianPlansCard" parent="CanvasLayer/ControlPan/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-
-[node name="TuJianPlansCard3" parent="CanvasLayer/ControlPan/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansshooter/LanMei.json"
-
-[node name="TuJianPlansCard2" parent="CanvasLayer/ControlPan/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansshooter/YangTao.json"
-
-[node name="TuJianPlansCard4" parent="CanvasLayer/ControlPan/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansshooter/XiguaBing.json"
-SceneLocX = 100.0
+[node name="ShopBg" type="Sprite2D" parent="Env"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_skj83")

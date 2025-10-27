@@ -15,8 +15,13 @@ namespace ZVB4.Conf
             { PlansConstants.YangTao, "杨桃" },
             { PlansConstants.ShiLiu, "石榴" },
             { PlansConstants.Xigua, "西瓜" },
-
+            
+            { PlansConstants.RewordFlower, "金钱花" },
             { PlansConstants.SunFlower, "阳光花" },
+            { PlansConstants.SunGu, "阳光菇" },
+            { PlansConstants.XianRenQiu, "仙人球" },
+            { PlansConstants.XiHongShi, "西红柿" },
+
             { PlansConstants.Cherry, "樱桃丸子" },
             { PlansConstants.JianGuo, "坚果墙" },
             { PlansConstants.IceFlower, "冰冻花" },

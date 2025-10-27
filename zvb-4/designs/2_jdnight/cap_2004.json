@@ -1,0 +1,74 @@
+{
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
+    "shooterlowestattackspeedratio": 1,
+
+    "enmyspeedattackscale": 1,
+    "enmyspeedmovescale": 1,
+    "enmyviewscale": 1,
+    "enmybehurtscale": 1,
+
+    "initsun": 1100,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "gamechecktime": 40,
+    
+    "initpeng": 8,
+    "allowmiaolist": [
+        "LaJiao", "Cherry", "Pea", "PeaDouble", "LanMei", 
+        "XiHongShi", "RewordFlower"
+    ],
+    
+    "initshooter": "LanMei",
+    "initmiaolist": [
+        "SunGu", "SunGu", "SunGu", "XiHongShi", "XiHongShi", "XiHongShi", "XiHongShi"
+    ],
+    "attackstarts": [ 7.5, 23.5, 46.5, 76.5 ],
+    "enmys": {
+        "8": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyme": 1, "redeyeratio": 0.4
+            }
+        ],
+        "24": [
+            {
+                "types": [ "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyme": 1, "redeyeratio": 0.6
+            }
+        ],
+        "47": [
+            {
+                "types": [ "zombi_s", "zombi_tie_tong", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_tie_tong", "zombi_mu_tong", "zombi_s", "zombi_tie_tong" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 0, "redeyeratio": 1
+            }
+        ],
+        "55": [
+            {
+                "types": [ "zombi_m", "zombi_mu_tong", "zombi_s", "zombi_tie_tong", "zombi_mu_tong", "zombi_s", "zombi_m", "zombi_mu_tong", "zombi_s", "zombi_tie_tong" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 2, "redeyeratio": 0.6
+            }
+        ],
+        "77": [
+            {
+                "types": [ "zombi_tie_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 0, "redeyeratio": 1
+            }
+        ]
+    }
+}

@@ -14,24 +14,34 @@ public partial class BulletSingleUxArea : Area2D
 
 	private void OnAreaEntered(Area2D area)
 	{
-		IObj obj = area.GetParent<IObj>();
-		if (obj != null)
+		try
 		{
-			EnumObjType objType = obj.GetEnumObjType();
-			if (objType == EnumObjType.Zombie)
+			if (area == null) return;
+			Node2D pa = area.GetParent<Node2D>();
+			if (pa == null) return;
+			IObj obj = pa as IObj;
+			if (obj != null)
 			{
-				OnFirstAreaEntered(area);
-			}
-			else if (objType == EnumObjType.Things)
-			{
-				OnFirstAreaEntered(area);
-			}
-			else
-			{
-				// 不是僵尸类型，直接返回
-				return;
+				EnumObjType objType = obj.GetEnumObjType();
+				if (objType == EnumObjType.Zombie)
+				{
+					OnFirstAreaEntered(area);
+				}
+				else if (objType == EnumObjType.Things)
+				{
+					OnFirstAreaEntered(area);
+				}
+				else
+				{
+					// 不是僵尸类型，直接返回
+					return;
+				}
 			}
 		}
+		catch (Exception e)
+        {
+            
+        }
 	}
 
 	// 检测到第一个子对象时执行的方法

@@ -7,8 +7,13 @@ public partial class ChapterItemButton : TextureButton
     // 对外暴露的场景名称变量
     [Export]
     public EnumChapter Chapter = EnumChapter.One1;
+    [Export]
+    public string ChapterTitle = "";
+    [Export]
+    public string ChapterDesc = "";
 
-    private Label _label;
+    private Label _labelTitle;
+    private Label _labelDesc;
 
 	public static ChapterItemButton Instance { get; private set; }
 
@@ -16,7 +21,8 @@ public partial class ChapterItemButton : TextureButton
     {
         Instance = this;
         this.Pressed += OnButtonPressed;
-        _label = GetNodeOrNull<Label>(NameConstants.Label);
+        _labelTitle = GodotTool.FindLabelByName(this, "LabelTitle");
+        _labelDesc = GodotTool.FindLabelByName(this, "LabelDesc");
         UpdateLabelText();
     }
 
@@ -44,10 +50,27 @@ public partial class ChapterItemButton : TextureButton
     {
         int i = (int)Chapter;
         string _cap = i.ToString();
-        // string displayNum = _cap.Substring(1, _cap.Length - 1);
-        if (_label != null)
+        if (_labelTitle != null)
         {
-            _label.Text = $"{_cap}";
+            if (ChapterTitle != "")
+            {
+                _labelTitle.Text = ChapterTitle;
+            }
+            else
+            {
+                _labelTitle.Text = $"{_cap}";
+            }
+        }
+        if (_labelDesc != null)
+        {
+            if (ChapterDesc != "")
+            {
+                _labelDesc.Text = ChapterDesc;
+            }
+            else
+            {
+                
+            }
         }
     }
 

@@ -5,7 +5,7 @@ using ZVB4.Conf;
 using ZVB4.Interface;
 using ZVB4.Tool;
 
-public partial class PlansSunGu : Node2D, IWorking, IObj, IBeHurt
+public partial class PlansSunGu : Node2D, IWorking, IObj, IBeHurt, IGrow
 {
     float growTime = PlansConstants.SunPlansGrowTime;
     string objName = PlansConstants.SunGu;
@@ -19,13 +19,14 @@ public partial class PlansSunGu : Node2D, IWorking, IObj, IBeHurt
     public override void _Ready()
     {
         view = GodotTool.GetViewAndAutoPlay(this);
-        maxScale = Scale.X;
-        minScale = ViewTool.GetYouMinScale(maxScale);
+        SetScale(Scale.X);
         _flowerWorking = GetNodeOrNull<FlowerWorkingReword>(NameConstants.Working);
+        growInitY = view.Position.Y;
     }
 
     float smallScale = 0f;
-    void DoGrowing(double delta)
+    float growInitY = 0f;
+    public void DoGrowing(double delta)
     {
         if (__t <= 0f) return;
         float v = __t - growTime;
@@ -36,22 +37,36 @@ public partial class PlansSunGu : Node2D, IWorking, IObj, IBeHurt
         {
             s = PlansConstants.BiggerRateMaxGu;
         }
-        view.Position = new Vector2(view.Position.X, view.Position.Y - (s/9));
         //
-        maxScale = smallScale * s;
-        minScale = ViewTool.GetYouMinScale(maxScale);
-        if (s >= PlansConstants.BiggerRateMaxGu)
-        {
-            __t = -100f;
-        }
+        view.Position = new Vector2(view.Position.X, view.Position.Y - (s / 12));
+        SetScale(s * smallScale);
+        if (s >= PlansConstants.BiggerRateMaxGu) DoGrowingEnd();
     }
+    void SetScale(float s)
+    {
+        maxScale = s;
+        minScale = ViewTool.GetYouMinScale(maxScale);
+    }
+    bool isGrowFinished = false;
     bool isStartGrow = false;
-    void DoGrowingStart()
+    public void DoGrowingStart()
     {
         if (isStartGrow) return; isStartGrow = true;
-        smallScale = maxScale;
+        smallScale = maxScale; isGrowFinished = false;
     }
-
+    public void DoGrowingEnd()
+    {
+        __t = -100f; isGrowFinished = true;
+    }
+    public void FinishedGrowNow()
+    {
+        DoGrowingStart();
+        SetScale(PlansConstants.BiggerRateMaxGu);
+        float y = growInitY - PlansConstants.BiggerRateMaxGu * 10;
+        view.Position = new Vector2(view.Position.X, y);
+        DoGrowingEnd();
+    }
+    //
     float __t = 0.0001f;
     public override void _Process(double delta)
     {
@@ -98,5 +113,9 @@ public partial class PlansSunGu : Node2D, IWorking, IObj, IBeHurt
     }
     public EnumMoveType GetEnumMoveType() => throw new NotImplementedException();
     public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts) => ObjTool.DoPlansCure(view as IHealth, objType, cureAmount);
+
+    public void SetGrowTime(float t) => growTime = t;
+
+    public bool IsGrowed() => isGrowFinished;
 
 }

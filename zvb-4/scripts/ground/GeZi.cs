@@ -126,8 +126,14 @@ public partial class GeZi : Node2D
                 if (pls is IWorking working)
                 {
                     working.SetWorkingMode(true);
-                    return pls;
                 }
+                IGrow ig = pls as IGrow;
+                if (ig != null)
+                {
+                    ig.FinishedGrowNow();
+                    ig.SetGrowTime(1f);
+                }
+                return pls;
             }
         }
         return null;
@@ -163,9 +169,6 @@ public partial class GeZi : Node2D
 	// 维护Node2D对象列表
 	private System.Collections.Generic.List<Node2D> _node2DList = new System.Collections.Generic.List<Node2D>();
 
-    /// <summary>
-    /// 尝试将Node2D加入列表，若已存在则不加，加入时可做复杂判断（此处默认true）
-    /// </summary>
     public bool AddNode2D(Node2D node)
     {
         if (node == null) return false;
@@ -181,9 +184,7 @@ public partial class GeZi : Node2D
         _node2DList.Add(node);
         return true;
     }
-    /// <summary>
-    /// 移除Node2D对象，若存在则移除
-    /// </summary>
+    //
     public bool RemoveNode2D(Node2D node)
     {
         if (node == null) return false;
@@ -205,8 +206,8 @@ public partial class GeZi : Node2D
                 break;
             }
         }
-        // 相同的坚果，阔以种下
-        if (ns == PlansConstants.JianGuo)
+        // 相同的xx，阔以种下
+        if (ns == PlansConstants.JianGuo || ns == PlansConstants.XianRenQiu)
         {
             return ns;
         }

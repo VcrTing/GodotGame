@@ -31,4 +31,5 @@ position = Vector2(0, -300)
 script = ExtResource("2_a2ip6")
 
 [node name="LineFreezeCardSystem" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("7_yt48t")

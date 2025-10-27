@@ -42,6 +42,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.815534, 0.2936893)
 
 [node name="ShooterXiguaBing" type="Node2D"]
+z_index = 1000
 y_sort_enabled = true
 script = ExtResource("1_166cg")
 

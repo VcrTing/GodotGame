@@ -1,7 +1,7 @@
 {
     "name": "JianGuo",
-    "nickname": "坚果弟弟",
-    "scenepath": "plans/planszhongzhi/jian_guo.tscn",
-    "info": "血量：800，攻击力：0。",
-    "description": "他很小的时候，就凭借坚硬外壳而无坚不摧。可越长大却越发现，坚硬的外壳并不能保护他那脆弱的内心。"
+    "nickname": "寒冰花",
+    "scenepath": "plans/plansonce/ice_flower.tscn",
+    "info": "攻击力：0。大范围冰冻所有敌人，后附带减速效果",
+    "description": "北方的寒冷女王，在某日陨落了，她在凡世间留下了一颗寒冰水晶，而正是这颗水晶，获得了花朵们的青睐。从此，便有了我。"
 }

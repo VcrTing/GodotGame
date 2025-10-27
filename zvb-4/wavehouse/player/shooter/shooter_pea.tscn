@@ -62,6 +62,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.815534, 0.2936893)
 
 [node name="ShooterPea" type="Node2D"]
+z_index = 1000
 y_sort_enabled = true
 script = ExtResource("1_nocao")
 
@@ -73,6 +74,7 @@ frame = 1
 frame_progress = 0.4504423
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 energy = 0.3
 range_z_min = -4096
 range_z_max = 4096

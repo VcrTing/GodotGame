@@ -27,115 +27,194 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-custom_minimum_size = Vector2(0, 900)
+custom_minimum_size = Vector2(0, 1100)
 layout_mode = 3
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_top = -610.0
+offset_bottom = 490.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "关卡选择"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 980)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(720, 120)
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ChapterItemButton" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
 layout_mode = 2
+ChapterTitle = "第一关"
+ChapterDesc = "新手教学"
 
-[node name="ChapterItemButton2" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton2" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 1002
+ChapterTitle = "第二关"
+ChapterDesc = "经典"
 
-[node name="ChapterItemButton3" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton3" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 1003
+ChapterTitle = "第三关"
+ChapterDesc = "经典"
 
-[node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 1004
+ChapterTitle = "第四关"
+ChapterDesc = "经典"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(720, 120)
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ChapterItemButton2" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton2" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 1005
+ChapterTitle = "第五关"
+ChapterDesc = "迷你僵尸"
 
-[node name="ChapterItemButton3" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton3" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 7001
+ChapterTitle = "第六关"
+ChapterDesc = "罐子捉迷藏"
 
-[node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 7002
+ChapterTitle = "第七关"
+ChapterDesc = "罐子捉迷藏"
 
-[node name="ChapterItemButton5" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton5" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 1006
+ChapterTitle = "第八关"
+ChapterDesc = "经典"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(720, 120)
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ChapterItemButton2" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton2" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 1007
+ChapterTitle = "第九关"
+ChapterDesc = "经典"
 
-[node name="ChapterItemButton3" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton3" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 1008
+ChapterTitle = "第十关"
+ChapterDesc = "经典"
 
-[node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 1009
+ChapterTitle = "第十一关"
+ChapterDesc = "经典"
 
-[node name="ChapterItemButton5" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton5" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 8001
+ChapterTitle = "第十二关"
+ChapterDesc = "刺激前线"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(720, 120)
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ChapterItemButton2" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton2" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 8002
+ChapterTitle = "第十三关"
+ChapterDesc = "刺激前线"
 
-[node name="ChapterItemButton3" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton3" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 2001
+ChapterTitle = "第十四关"
+ChapterDesc = "夜幕降临"
 
-[node name="ChapterItemButton4" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 2002
+ChapterTitle = "第十五关"
+ChapterDesc = "夜幕降临"
 
-[node name="ChapterItemButton5" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
+[node name="ChapterItemButton5" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 2003
+ChapterTitle = "第十六关"
+ChapterDesc = "夜幕降临"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 120)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ChapterItemButton2" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 2004
+ChapterTitle = "第十七关"
+ChapterDesc = "夜幕降临"
+
+[node name="ChapterItemButton3" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 2005
+ChapterTitle = "第十八关"
+ChapterDesc = "夜幕降临"
+
+[node name="ChapterItemButton4" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 8003
+ChapterTitle = "第十九关"
+ChapterDesc = "刺激前线"
+
+[node name="ChapterItemButton5" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("3_yjp08")]
+layout_mode = 2
+Chapter = 8004
+ChapterTitle = "第二十关"
+ChapterDesc = "刺激前线"
 
 [node name="ControlBottomBar" type="Control" parent="CanvasLayer"]
 custom_minimum_size = Vector2(0, 300)
@@ -151,30 +230,31 @@ offset_right = 240.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlBottomBar"]
-custom_minimum_size = Vector2(0, 120)
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ControlBottomBar"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
-[node name="SingleOptionsButton" parent="CanvasLayer/ControlBottomBar/HBoxContainer" instance=ExtResource("4_3dnfa")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlBottomBar/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+alignment = 1
+
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlBottomBar/VBoxContainer/HBoxContainer" instance=ExtResource("4_3dnfa")]
 layout_mode = 2
 LabelText = "返回主菜单"
 ButtonType = 110
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/ControlBottomBar"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/ControlBottomBar/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 160.0
-offset_bottom = 280.0
-grow_horizontal = 2
+layout_mode = 2
 alignment = 1
 
-[node name="SingleOptionsButton" parent="CanvasLayer/ControlBottomBar/HBoxContainer2" instance=ExtResource("4_3dnfa")]
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlBottomBar/VBoxContainer/HBoxContainer2" instance=ExtResource("4_3dnfa")]
 layout_mode = 2
 LabelText = "开始下一关"
 ButtonType = 1

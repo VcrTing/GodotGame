@@ -30,6 +30,7 @@ radius = 96.0
 height = 300.0
 
 [node name="ShooterWorkTable" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_bgl10")
 
 [node name="ViewOld" type="Sprite2D" parent="."]
@@ -40,6 +41,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_khky8")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+z_index = -1
 position = Vector2(-7, 4)
 scale = Vector2(3.6, 3.6)
 sprite_frames = SubResource("SpriteFrames_75pfo")

@@ -47,18 +47,23 @@ public partial class InGameStoreItemCard : Control
             if (__sure < 0.4f) __sure = 0f;
         }
     }
+
+    void Buy()
+    {
+        RewordMiaoCenterSystem.Instance.DumpPlansMiaoMust(new Vector2(0, 0), ItemName, false);
+        SunCenterSystem.Instance.SubValue(price);
+        StoreInGamePopup.Instance.HidePopup();
+    }
+    
     private void OnBuyButtonPressed()
     {
         if (__sure > 0f) return;
         __sure = 0.0001f;
         // 在这里实现购买逻辑
         int pp = SunCenterSystem.Instance.Value;
-        GD.Print($"点击购买：{ItemName}，价格：{price} pp: {pp}");
         if (pp >= price)
         {
-            RewordMiaoCenterSystem.Instance.DumpPlansMiaoMust(new Vector2(0, 0), ItemName, false);
-            SunCenterSystem.Instance.SubValue(price);
-            StoreInGamePopup.Instance.HidePopup();
+            Buy();
         }
         else
         {

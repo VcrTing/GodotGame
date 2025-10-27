@@ -15,7 +15,7 @@
     
     "initshooter": "PeaDouble",
     "initmiaolist": [
-        "SunFlower", "SunFlower", "PeaCold"
+        "SunFlower", "SunFlower", "PeaCold", "PeaCold"
     ],
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,

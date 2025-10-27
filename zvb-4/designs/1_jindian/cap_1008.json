@@ -10,12 +10,12 @@
     
     "initpeng": 8,
     "allowmiaolist": [
-        "SunFlower", "JianGuo", "Cherry", "Pea", "PeaCold", "PeaDouble"
+        "SunFlower", "JianGuo", "Cherry", "Pea", "PeaCold", "PeaDouble", "RewordFlower", "XiHongShi"
     ],
     
     "initshooter": "PeaCold",
     "initmiaolist": [
-        "SunFlower", "SunFlower", "JianGuo", "JianGuo", "JianGuo", "PeaDouble"
+        "SunFlower", "SunFlower", "JianGuo", "JianGuo", "JianGuo", "PeaCold", "XiHongShi"
     ],
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,

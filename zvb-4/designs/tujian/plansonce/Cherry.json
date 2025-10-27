@@ -2,6 +2,6 @@
     "name": "Cherry",
     "nickname": "樱桃小炸弹",
     "scenepath": "plans/plansonce/cherry.tscn",
-    "info": "攻击力：200，爆炸范围：3x3圆形",
-    "description": ""
+    "info": "攻击力：2000，爆炸范围：3x3圆形",
+    "description": "爆炸脾气，一触即发。你以为我是比较安稳的小子吗！？怎么可能，哼！炸死你们！"
 }

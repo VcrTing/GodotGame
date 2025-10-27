@@ -54,6 +54,7 @@ autoplay = "default"
 frame_progress = 0.83609366
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 energy = 0.3
 range_z_min = -4096
 range_z_max = 4096

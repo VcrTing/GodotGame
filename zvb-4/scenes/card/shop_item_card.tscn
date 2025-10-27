@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://clst8p4fxr53p"]
+
+[ext_resource type="Script" uid="uid://db12ghpiexr6t" path="res://scripts/ui/store/ShopItemCard.cs" id="1_ockry"]
+[ext_resource type="Texture2D" uid="uid://c30173qhjjygq" path="res://pngs/ui/store/StoreBuy.png" id="2_lymoe"]
+[ext_resource type="Texture2D" uid="uid://x4yipaxmiuok" path="res://pngs/ui/store/StoreBuy_fcs.png" id="3_huay5"]
+[ext_resource type="Texture2D" uid="uid://wmrxydyjoaos" path="res://pngs/ui/store/StoreBuy_hv.png" id="4_afjme"]
+[ext_resource type="Script" uid="uid://b7w2fy8aawh5j" path="res://scripts/ui/button/SingleEffectButton.cs" id="5_y2bpb"]
+[ext_resource type="Texture2D" uid="uid://crevmft6t2g02" path="res://pngs/ux/Sun3.png" id="6_fj32i"]
+
+[node name="ShopItemCard" type="Control"]
+custom_minimum_size = Vector2(200, 240)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ockry")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="View" type="Node2D" parent="HBoxContainer"]
+position = Vector2(100, 90)
+scale = Vector2(0.6, 0.6)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="BuyButton" type="TextureButton" parent="HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("2_lymoe")
+texture_pressed = ExtResource("3_huay5")
+texture_hover = ExtResource("4_afjme")
+texture_focused = ExtResource("4_afjme")
+script = ExtResource("5_y2bpb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/BuyButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer2/BuyButton/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2/BuyButton/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.34
+anchor_right = 0.5
+anchor_bottom = 0.34
+offset_left = -20.0
+offset_top = -11.400001
+offset_right = 100.0
+offset_bottom = 108.6
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.34, 0.34)
+mouse_filter = 2
+texture = ExtResource("6_fj32i")
+
+[node name="PriceLabel" type="Label" parent="HBoxContainer2/BuyButton/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "9999"
+horizontal_alignment = 1
+vertical_alignment = 1

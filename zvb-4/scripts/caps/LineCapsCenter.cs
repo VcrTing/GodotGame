@@ -130,8 +130,7 @@ public partial class LineCapsCenter : Node2D
                 bool isEnmy = entity.isEnmy;
                 if (isEnmy)
                 {
-
-                    EnmyGenerator.Instance.GenerateEnemyByCode(entity.objName, entity.lineNumX, 0);
+                    EnmyGenerator.Instance.GenerateEnemyByCode(entity.objName, entity.lineNumX, 0, 0);
                 }
                 else
                 {
@@ -185,8 +184,15 @@ public partial class LineCapsCenter : Node2D
     async void LoadInitShooter(Dictionary varData)
     {
         string initshooter = _capData["initshooter"].AsString();
-        if (initshooter == null || initshooter == "") return;
-        
+        if (initshooter == null || initshooter == "_")
+        {
+            if (SaveDataManager.Instance == null)
+            {
+                GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(_capData);
+                return;
+            }
+            initshooter = SaveDataManager.Instance.GetPlayerShooter();
+        }
         if (!PlayerController.CheckAlive())
         {
             GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(_capData);
@@ -205,6 +211,7 @@ public partial class LineCapsCenter : Node2D
         }
         PlayerController.Instance?.LoadInitShooter(initshooter);
     }
+    
     void LoadZombis(Dictionary _capData)
     {
         if (_capData.ContainsKey("enmys"))

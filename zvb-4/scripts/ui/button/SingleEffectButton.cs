@@ -12,12 +12,10 @@ public partial class SingleEffectButton : TextureButton
     private void OnMouseEntered()
     {
         SoundUiController.Instance.Hover();
-        GD.Print("SingleEffectButton: Mouse Entered");
     }
 
     private void OnButtonPressed()
     {
         SoundUiController.Instance.Sure();
-        GD.Print("SingleEffectButton: Button Pressed");
     }
 }

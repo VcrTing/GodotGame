@@ -119,12 +119,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rf7gy"]
-radius = 50.0
+radius = 70.0
 height = 200.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c23i6"]
-radius = 160.0
-height = 400.0
+radius = 200.0
+height = 420.0
 
 [node name="XianRenQiu" type="Node2D"]
 z_index = 400
@@ -156,5 +156,5 @@ collision_mask = 512
 script = ExtResource("6_u3tj6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-rotation = 1.5707964
+position = Vector2(0, 20)
 shape = SubResource("CapsuleShape2D_c23i6")

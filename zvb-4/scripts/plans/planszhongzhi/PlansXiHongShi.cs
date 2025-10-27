@@ -93,6 +93,7 @@ public partial class PlansXiHongShi : Node2D, IObj, IBeHurt, IWorking, IAttack
         attackArea.Monitorable = false;
     }
 
+    float BeHurtStartTime = 3f;
     float InitAttackDelayTime = 12f;
     float AttackAnimationTime = 0.3f;
     float __t = 0f;
@@ -111,7 +112,7 @@ public partial class PlansXiHongShi : Node2D, IObj, IBeHurt, IWorking, IAttack
 
         if (__attackTime > 0f) {
             __attackTime += (float)delta;
-            if (__attackTime >= 2f)
+            if (__attackTime >= BeHurtStartTime)
             {
                 Attack();
                 __attackTime = 0f;

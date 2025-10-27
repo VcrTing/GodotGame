@@ -22,12 +22,13 @@ namespace ZVB4.Conf
         Two2 = 2002,
         Two3 = 2003,
         Two4 = 2004,
+        Two5 = 2005,
         Eight3 = 8003,
         Eight4 = 8004,
-        Two5 = 2005,
         Two6 = 2006,
         Two7 = 2007,
         Two8 = 2008,
+        Two9 = 2009,
 
         // 第三章
         Three1 = 3001,

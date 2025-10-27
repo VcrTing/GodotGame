@@ -1,7 +1,7 @@
 {
-    "name": "JianGuo",
-    "nickname": "坚果弟弟",
-    "scenepath": "plans/planszhongzhi/jian_guo.tscn",
-    "info": "血量：800，攻击力：0。",
-    "description": "他很小的时候，就凭借坚硬外壳而无坚不摧。可越长大却越发现，坚硬的外壳并不能保护他那脆弱的内心。"
+    "name": "LaJiao",
+    "nickname": "十字辣椒",
+    "scenepath": "plans/plansonce/la_jiao.tscn",
+    "info": "攻击力：3000。爆炸范围：十字延申",
+    "description": "你喜欢魔术吗？我，曾经也是个魔术高手~"
 }

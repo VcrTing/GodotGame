@@ -1,0 +1,7 @@
+{
+    "name": "XianRenQiu",
+    "nickname": "仙人球妹妹",
+    "scenepath": "plans/planszhongzhi/xian_ren_qiu.tscn",
+    "info": "血量：5000，攻击力：25。每隔1s，会用针，扎刺自己周围的僵尸。",
+    "description": "别靠近我，会带来不幸。"
+}

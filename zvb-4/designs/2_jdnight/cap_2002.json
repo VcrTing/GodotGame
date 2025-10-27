@@ -8,21 +8,22 @@
     "enmyviewscale": 1,
     "enmybehurtscale": 1,
 
-    "initsun": 1100,
+    "initsun": 900,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
-    "gamechecktime": 40,
+    "gamechecktime": 66,
     
     "initpeng": 8,
     "allowmiaolist": [
-        "SunFlower", "JianGuo", "Cherry", "Pea", "PeaDouble", "PeaCold"
+        "SunFlower", "JianGuo", "Cherry", "Pea", "PeaDouble", "PeaCold", 
+        "LanMei", "RewordFlower", "SunGu", "XiHongShi"
     ],
     
-    "initshooter": "PeaDouble",
+    "initshooter": "PeaCold",
     "initmiaolist": [
-        "SunGu", "SunGu"
+        "SunGu", "SunGu", "PeaCold", "LaJiao", "LaJiao"
     ],
-    "attackstarts": [ 7.5, 29.5 ],
+    "attackstarts": [ 7.5, 29.5, 65.5 ],
     "enmys": {
         "8": [
             {

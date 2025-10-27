@@ -1,0 +1,143 @@
+{
+    "generatemiaoratio": 1,
+    "shootershootratio": 1,
+    "shooterlowestattackspeedratio": 1,
+
+    "initsun": 350,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "gamechecktime": 20,
+    
+    "initpeng": 8,
+    
+    "allowmiaolist": [
+        "SunFlower", "IceFlower", "YangTao", "Pea", "JianGuo", "Cherry"
+    ],
+    
+    "initshooter": "YangTao",
+    "initmiaolist": [ ],
+    "enmyspeedattackscale": 1.0,
+    "enmyspeedmovescale": 1,
+    "enmyviewscale": 1,
+    "enmybehurtscale": 1.0,
+
+    "guanzis": [
+        {
+            "gezi": 1, "view": 1, "mustenmyratio": 0.5, 
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "PeaDouble" ]
+        },
+        {
+            "gezi": 2, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "PeaDouble" ]
+        },
+        {
+            "gezi": 3, "view": 2, "mustenmyratio": 0.5,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 4, "view": 1, "mustenmyratio": 0,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "LanMei" ]
+        },
+        {
+            "gezi": 5, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 6, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "LanMei" ]
+        },
+        {
+            "gezi": 7, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "Cherry" ]
+        },
+        {
+            "gezi": 8, "view": 1, "mustenmyratio": 0.7,
+            "enmyrandomlist": [ "zombi_tie_tong" ],
+            "plansrandomlist": [ "Cherry" ]
+        },
+        {
+            "gezi": 9, "view": 1, "mustenmyratio": 0.7,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "LanMei" ]
+        },
+        {
+            "gezi": 10, "view": 2, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 11, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 12, "view": 1, "mustenmyratio": 0.7,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 13, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 14, "view": 1, "mustenmyratio": 0.3,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "Cherry" ]
+        },
+        
+        {
+            "gezi": 15, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_tie_tong" ],
+            "plansrandomlist": [ "Cherry" ]
+        },
+        {
+            "gezi": 16, "view": 1, "mustenmyratio": 0.7,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 17, "view": 2, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 18, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 19, "view": 1, "mustenmyratio": 0.6,
+            "enmyrandomlist": [ "zombi_s" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 20, "view": 1, "mustenmyratio": 1,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "SunFlower" ]
+        },
+        {
+            "gezi": 21, "view": 1, "mustenmyratio": 0.3,
+            "enmyrandomlist": [ "zombi_mu_tong" ],
+            "plansrandomlist": [ "Cherry" ]
+        }
+    ],
+    
+    "suns": {
+        "3": [
+            {
+                "types": [ "sun" ],
+                "typesmode": "next",
+                "generatormode": "random",
+                "lazyme": 0
+            }
+        ]
+    }
+}

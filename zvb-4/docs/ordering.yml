@@ -17,8 +17,8 @@ plans:
   base: 400
 
 shooter:
-  base: 2200
-  table: 1160
+  base: 1000
+  table: 300
 
 bullet:
   base: 999

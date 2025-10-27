@@ -1,0 +1,7 @@
+{
+    "name": "SunGu",
+    "nickname": "阳光小菇",
+    "scenepath": "plans/plansfuzhu/sun_gu.tscn",
+    "info": "血量：800。每隔9s，会产出70阳光，当然是在它生长20s之后。",
+    "description": "黑夜的时候，来仰仗我吧！我会为你带来70阳光，怎么样，是不是很厉害呢？"
+}

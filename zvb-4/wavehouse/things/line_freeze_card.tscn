@@ -38,7 +38,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d26e3"]
-size = Vector2(300, 30)
+size = Vector2(300, 40)
 
 [node name="LineFreezeCard" type="Node2D"]
 script = ExtResource("1_gllyd")

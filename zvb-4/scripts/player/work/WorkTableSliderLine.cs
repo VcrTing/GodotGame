@@ -85,7 +85,7 @@ public partial class WorkTableSliderLine : Node2D
 	}
 
     [Export]
-    public float XLimit = 300f;
+    public float XLimit = 360f;
     public void MoveSliderToPos(Vector2 pos)
     {
         Vector2 newPos = pos;

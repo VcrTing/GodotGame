@@ -28,7 +28,6 @@ public partial class MenuOptionsButton : TextureButton
 
 	private void OnButtonPressed()
 	{
-        GD.Print($"MenuOptionsButton clicked, Key: {Key}");
         SoundUiController.Instance.Sure();
         IsActive = true;
         if (IsActive)

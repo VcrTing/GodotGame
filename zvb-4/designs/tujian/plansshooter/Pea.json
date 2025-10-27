@@ -1,6 +1,6 @@
 {
     "name": "Pea",
-    "nickname": "豌豆射手",
+    "nickname": "初始豌豆",
     "scenepath": "plans/plansshooter/pea.tscn",
     "info": "子弹攻击力：50，子弹个数：1，攻击消耗：10 阳光。",
     "description": "他来自于原始部落的幽秘丛林。他性格胆小率真，但遇见僵尸都会尽力的干掉它。"
