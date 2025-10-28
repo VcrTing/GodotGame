@@ -14,7 +14,7 @@ public partial class FlowerWorkingReword: Node2D
 
     public int RewordValueLevel1 = 50;
     public int RewordValueLevel2 = 50;
-    public float ChangeLevelTime = PlansConstants.SunPlansGrowTime;
+    public float ChangeLevelTime = 999;
     public int RewordCountLevel1 = 1;
     public int RewordCountLevel2 = 1;
     public string RewordName = SunMoneyConstants.Sun;

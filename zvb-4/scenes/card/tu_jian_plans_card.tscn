@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://boafu0qiye5tv"]
+[gd_scene load_steps=5 format=3 uid="uid://boafu0qiye5tv"]
 
 [ext_resource type="Script" uid="uid://xxu88gf37lm7" path="res://scenes/card/TuJianPlansCard.cs" id="1_6wgtp"]
-[ext_resource type="Texture2D" uid="uid://wqju1l810gvj" path="res://pngs/ui/kuang.png" id="2_2wwch"]
-[ext_resource type="Texture2D" uid="uid://cx2t7yvsuhv17" path="res://pngs/ui/kuang_fcs.png" id="3_f1qt4"]
-[ext_resource type="Texture2D" uid="uid://cx87o6cwkkygp" path="res://pngs/ui/kuang_hv.png" id="4_gdxwn"]
+[ext_resource type="Texture2D" uid="uid://bcygekn78pows" path="res://pngs/ui/tujian/card_tujian.png" id="2_6wgtp"]
+[ext_resource type="Texture2D" uid="uid://duwm3uk2xprnj" path="res://pngs/ui/tujian/card_tujian_hv.png" id="4_f1qt4"]
 
 [sub_resource type="Theme" id="Theme_3lime"]
 
@@ -16,10 +15,10 @@ script = ExtResource("1_6wgtp")
 [node name="TextureButton" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
-texture_normal = ExtResource("2_2wwch")
-texture_pressed = ExtResource("3_f1qt4")
-texture_hover = ExtResource("4_gdxwn")
-texture_focused = ExtResource("4_gdxwn")
+texture_normal = ExtResource("2_6wgtp")
+texture_pressed = ExtResource("4_f1qt4")
+texture_hover = ExtResource("4_f1qt4")
+texture_focused = ExtResource("4_f1qt4")
 stretch_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureButton"]

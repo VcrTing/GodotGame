@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtr821wahbfc"]
+[gd_scene load_steps=9 format=3 uid="uid://dtr821wahbfc"]
 
 [ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://scenes/main/system_for_main.tscn" id="1_0xy7u"]
 [ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://scenes/ui/control_back_button.tscn" id="2_11o83"]
 [ext_resource type="PackedScene" uid="uid://drkul0cdcikwx" path="res://scenes/ui/menu_options_button.tscn" id="3_rllmn"]
 [ext_resource type="PackedScene" uid="uid://boafu0qiye5tv" path="res://scenes/card/tu_jian_plans_card.tscn" id="4_3lime"]
 [ext_resource type="Script" uid="uid://fn0h4htk00tr" path="res://scripts/ui/main/TabPanWrapper.cs" id="4_vmp0g"]
+[ext_resource type="Texture2D" uid="uid://dcixcbp6puerj" path="res://pngs/bg/main/tujian.jpeg" id="6_6rirm"]
+[ext_resource type="Texture2D" uid="uid://c83mq8nifoltb" path="res://pngs/bg/main/tujian2.jpeg" id="7_17sl0"]
+[ext_resource type="Texture2D" uid="uid://bx6kvtrdqrqrv" path="res://pngs/bg/main/tujian3.jpeg" id="8_hua2u"]
 
 [node name="ChouJiang" type="Node2D"]
 
@@ -70,203 +73,6 @@ LabelText = "植物图鉴"
 layout_mode = 2
 LabelText = "僵尸图鉴"
 
-[node name="TabPanWrapper" type="Control" parent="CanvasLayer"]
-custom_minimum_size = Vector2(0, 1400)
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -1520.0
-offset_bottom = -120.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("4_vmp0g")
-
-[node name="Tab1" type="Control" parent="CanvasLayer/TabPanWrapper"]
-visible = false
-custom_minimum_size = Vector2(0, 1366)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TabPanWrapper/Tab1"]
-layout_mode = 0
-offset_right = 1620.0
-offset_bottom = 1366.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "射手类型"
-
-[node name="TuJianPlansCard" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-
-[node name="TuJianPlansCard7" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansshooter/PeaCold.json"
-
-[node name="TuJianPlansCard5" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansshooter/PeaDouble.json"
-
-[node name="TuJianPlansCard3" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansshooter/LanMei.json"
-
-[node name="TuJianPlansCard9" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansshooter/Xigua.json"
-
-[node name="TuJianPlansCard2" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansshooter/YangTao.json"
-
-[node name="TuJianPlansCard4" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansdiancang/XiguaBing.json"
-SceneLocX = 100.0
-
-[node name="TuJianPlansCard6" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansdiancang/PeaGold.json"
-SceneLocX = 100.0
-
-[node name="TuJianPlansCard8" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansdiancang/Yezi.json"
-SceneLocX = 100.0
-
-[node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-
-[node name="Tab2" type="Control" parent="CanvasLayer/TabPanWrapper"]
-visible = false
-custom_minimum_size = Vector2(0, 1366)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TabPanWrapper/Tab2"]
-layout_mode = 0
-offset_right = 1620.0
-offset_bottom = 1366.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TabPanWrapper/Tab2/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "普通类型"
-
-[node name="TuJianPlansCard" parent="CanvasLayer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/planszhongzhi/SunFlower.json"
-
-[node name="TuJianPlansCard2" parent="CanvasLayer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/planszhongzhi/JianGuo.json"
-
-[node name="TuJianPlansCard3" parent="CanvasLayer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/planszhongzhi/XianRenQiu.json"
-
-[node name="TuJianPlansCard5" parent="CanvasLayer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/planszhongzhi/RewordFlower.json"
-
-[node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-
-[node name="Tab3" type="Control" parent="CanvasLayer/TabPanWrapper"]
-visible = false
-custom_minimum_size = Vector2(0, 1366)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TabPanWrapper/Tab3"]
-layout_mode = 0
-offset_right = 1620.0
-offset_bottom = 1366.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TabPanWrapper/Tab3/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "普通类型"
-
-[node name="TuJianPlansCard" parent="CanvasLayer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansonce/Cherry.json"
-
-[node name="TuJianPlansCard4" parent="CanvasLayer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansonce/XiHongShi.json"
-
-[node name="TuJianPlansCard2" parent="CanvasLayer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansonce/LaJiao.json"
-
-[node name="TuJianPlansCard3" parent="CanvasLayer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
-layout_mode = 2
-CardPath = "tujian/plansonce/IceFlower.json"
-
-[node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-
 [node name="ControlBottomBar" type="Control" parent="CanvasLayer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 3
@@ -285,23 +91,263 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlBottomBar/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ControlBottomBar/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ControlBottomBar/ScrollContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="MenuOptionsButton" parent="CanvasLayer/ControlBottomBar/ScrollContainer/HBoxContainer" instance=ExtResource("3_rllmn")]
+[node name="MenuOptionsButton" parent="CanvasLayer/ControlBottomBar/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_rllmn")]
 layout_mode = 2
 LabelText = "射手植物"
 
-[node name="MenuOptionsButton2" parent="CanvasLayer/ControlBottomBar/ScrollContainer/HBoxContainer" instance=ExtResource("3_rllmn")]
+[node name="MenuOptionsButton2" parent="CanvasLayer/ControlBottomBar/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_rllmn")]
 layout_mode = 2
 Key = 2
 LabelText = "普通植物"
 
-[node name="MenuOptionsButton3" parent="CanvasLayer/ControlBottomBar/ScrollContainer/HBoxContainer" instance=ExtResource("3_rllmn")]
+[node name="MenuOptionsButton3" parent="CanvasLayer/ControlBottomBar/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_rllmn")]
 layout_mode = 2
 Key = 3
 LabelText = "消费植物"
+
+[node name="TuJianItemsView" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 1400)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1520.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TabPanWrapper" type="Control" parent="CanvasLayer/TuJianItemsView/HBoxContainer"]
+custom_minimum_size = Vector2(0, 1400)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("4_vmp0g")
+
+[node name="Tab1" type="Control" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper"]
+visible = false
+custom_minimum_size = Vector2(0, 1366)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "射手类型"
+
+[node name="TuJianPlansCard" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+
+[node name="TuJianPlansCard7" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansshooter/PeaCold.json"
+
+[node name="TuJianPlansCard5" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansshooter/PeaDouble.json"
+
+[node name="TuJianPlansCard3" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansshooter/LanMei.json"
+
+[node name="TuJianPlansCard9" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansshooter/Xigua.json"
+
+[node name="TuJianPlansCard2" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansshooter/YangTao.json"
+
+[node name="TuJianPlansCard4" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansdiancang/XiguaBing.json"
+SceneLocX = 100.0
+
+[node name="TuJianPlansCard6" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansdiancang/PeaGold.json"
+SceneLocX = 100.0
+
+[node name="TuJianPlansCard8" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansdiancang/Yezi.json"
+SceneLocX = 100.0
+
+[node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Tab2" type="Control" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper"]
+visible = false
+custom_minimum_size = Vector2(0, 1366)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "普通类型"
+
+[node name="TuJianPlansCard" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/planszhongzhi/SunFlower.json"
+
+[node name="TuJianPlansCard2" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/planszhongzhi/JianGuo.json"
+
+[node name="TuJianPlansCard3" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/planszhongzhi/XianRenQiu.json"
+
+[node name="TuJianPlansCard5" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/planszhongzhi/RewordFlower.json"
+
+[node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Tab3" type="Control" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper"]
+visible = false
+custom_minimum_size = Vector2(0, 1366)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "普通类型"
+
+[node name="TuJianPlansCard" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansonce/Cherry.json"
+
+[node name="TuJianPlansCard4" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansonce/XiHongShi.json"
+
+[node name="TuJianPlansCard2" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansonce/LaJiao.json"
+
+[node name="TuJianPlansCard3" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+CardPath = "tujian/plansonce/IceFlower.json"
+
+[node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Env" type="Node2D" parent="."]
+
+[node name="Tujian" type="Sprite2D" parent="Env"]
+visible = false
+z_index = -1
+y_sort_enabled = true
+scale = Vector2(2, 2)
+texture = ExtResource("6_6rirm")
+
+[node name="Tujian2" type="Sprite2D" parent="Env"]
+z_index = -99
+y_sort_enabled = true
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_17sl0")
+
+[node name="Tujian3" type="Sprite2D" parent="Env"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("8_hua2u")

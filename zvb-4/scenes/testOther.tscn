@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="6_ulph4"]
 [ext_resource type="Script" uid="uid://cxcgsqncwoqqb" path="res://scripts/ux/FlowerPengSystem.cs" id="8_3r76w"]
 [ext_resource type="Script" uid="uid://cg23d5r85c0lt" path="res://scripts/objs/RewordMiaoCenterSystem.cs" id="10_jteds"]
-[ext_resource type="Script" uid="uid://lh6wuyr0v4sq" path="res://scripts/objs/MoneyCenterSystem.cs" id="11_kesu3"]
-[ext_resource type="PackedScene" uid="uid://br0revff2jaxi" path="res://wavehouse/obj/Money.tscn" id="12_bfg5g"]
+[ext_resource type="Script" path="res://scripts/objs/MoneyCenterSystem.cs" id="11_kesu3"]
+[ext_resource type="PackedScene" uid="uid://br0revff2jaxi" path="res://wavehouse/obj/MoneyS.tscn" id="12_bfg5g"]
 
 [node name="Node2D" type="Node2D"]
 

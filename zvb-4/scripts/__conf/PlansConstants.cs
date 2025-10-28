@@ -318,9 +318,6 @@ namespace ZVB4.Conf
             }
             return FolderConstants.WavePlayer + "shooter_gun_wrapper.tscn";
         }
-
-        //
-        public static float SunPlansGrowTime = 2f;
     }
 
 }

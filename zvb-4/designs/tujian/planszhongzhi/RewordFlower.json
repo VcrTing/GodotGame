@@ -2,6 +2,6 @@
     "name": "RewordFlower",
     "nickname": "金钱花",
     "scenepath": "plans/plansfuzhu/reword_flower.tscn",
-    "info": "血量：400，单次产出：150金币，产出间隔：7s。",
+    "info": "血量：400。成长前生产：3*50金币，30秒成长后：4*100金币。产出间隔：9s。",
     "description": "钱钱钱，我的钱，全是我的钱~"
 }

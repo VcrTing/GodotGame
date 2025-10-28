@@ -9,11 +9,13 @@ namespace ZVB4.Conf
     {
         public const string Sun = "Sun";
         public const string MoneyG = "MoneyG";
+        public const string Money = "Money";
         public const string MoneyS = "MoneyS";
         public const int SunBase = 10;
         public const int SunSmall = SunBase * 3;
         public const int SunNormal = SunBase * 5;
         public const int SunNormal2 = SunBase * 7;
+        public const int SunLarge = SunBase * 10;
 
         // 攻击消耗字典
         public static readonly Dictionary<string, int> AttackCostDict = new Dictionary<string, int>
@@ -105,8 +107,8 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> SunPlansGrowTime = new Dictionary<string, int>
         {
             { PlansConstants.SunFlower, 1000 },
-            { PlansConstants.RewordFlower, 999 },
-            { PlansConstants.SunGu, 2 },
+            { PlansConstants.RewordFlower, 30 },
+            { PlansConstants.SunGu, 20 },
         };
         public static int GetSunPlansGrowTime(string plansName) => SunPlansGrowTime[plansName];
 
@@ -114,15 +116,15 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> SunPlansSunLevel1 = new Dictionary<string, int>
         {
             { PlansConstants.SunFlower, SunNormal },
-            { PlansConstants.RewordFlower, SunNormal },
             { PlansConstants.SunGu, SunSmall },
+            { PlansConstants.RewordFlower, SunNormal },
         };
         public static int GetSunPlansSunLevel1(string plansName) => SunPlansSunLevel1[plansName];
         public static readonly Dictionary<string, int> SunPlansSunLevel2 = new Dictionary<string, int>
         {
             { PlansConstants.SunFlower, SunNormal },
-            { PlansConstants.RewordFlower, SunNormal },
             { PlansConstants.SunGu, SunNormal2 },
+            { PlansConstants.RewordFlower, SunLarge },
         };
         public static int GetSunPlansSunLevel2(string plansName) => SunPlansSunLevel2[plansName];
 
@@ -137,7 +139,7 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> SunPlansSunCount2 = new Dictionary<string, int>
         {
             { PlansConstants.SunFlower, 1 },
-            { PlansConstants.RewordFlower, 3 },
+            { PlansConstants.RewordFlower, 4 },
             { PlansConstants.SunGu, 1 },
         };
         public static int GetSunPlansSunCount2(string plansName) => SunPlansSunCount2[plansName];

@@ -7,7 +7,7 @@ using ZVB4.Tool;
 
 public partial class PlansSunGu : Node2D, IWorking, IObj, IBeHurt, IGrow
 {
-    float growTime = PlansConstants.SunPlansGrowTime;
+    float growTime = 999;
     string objName = PlansConstants.SunGu;
     EnumObjType objType = EnumObjType.Plans;
     public EnumObjType GetEnumObjType() => objType;
@@ -22,6 +22,7 @@ public partial class PlansSunGu : Node2D, IWorking, IObj, IBeHurt, IGrow
         SetScale(Scale.X);
         _flowerWorking = GetNodeOrNull<FlowerWorkingReword>(NameConstants.Working);
         growInitY = view.Position.Y;
+        growTime = PlansConstants.GetPlanGrowTime(objName);
     }
 
     float smallScale = 0f;
