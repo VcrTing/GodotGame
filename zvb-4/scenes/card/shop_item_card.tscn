@@ -1,42 +1,145 @@
-[gd_scene load_steps=7 format=3 uid="uid://clst8p4fxr53p"]
+[gd_scene load_steps=8 format=3 uid="uid://clst8p4fxr53p"]
 
 [ext_resource type="Script" uid="uid://db12ghpiexr6t" path="res://scripts/ui/store/ShopItemCard.cs" id="1_ockry"]
 [ext_resource type="Texture2D" uid="uid://c30173qhjjygq" path="res://pngs/ui/store/StoreBuy.png" id="2_lymoe"]
+[ext_resource type="Texture2D" uid="uid://co80kput3ccrn" path="res://pngs/ui/money.png" id="3_afjme"]
 [ext_resource type="Texture2D" uid="uid://x4yipaxmiuok" path="res://pngs/ui/store/StoreBuy_fcs.png" id="3_huay5"]
 [ext_resource type="Texture2D" uid="uid://wmrxydyjoaos" path="res://pngs/ui/store/StoreBuy_hv.png" id="4_afjme"]
 [ext_resource type="Script" uid="uid://b7w2fy8aawh5j" path="res://scripts/ui/button/SingleEffectButton.cs" id="5_y2bpb"]
-[ext_resource type="Texture2D" uid="uid://crevmft6t2g02" path="res://pngs/ux/Sun3.png" id="6_fj32i"]
+[ext_resource type="Texture2D" uid="uid://wqju1l810gvj" path="res://pngs/ui/kuang.png" id="8_huay5"]
 
 [node name="ShopItemCard" type="Control"]
-custom_minimum_size = Vector2(200, 240)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_ockry")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 180)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="View" type="Node2D" parent="HBoxContainer"]
-position = Vector2(100, 90)
-scale = Vector2(0.6, 0.6)
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_ockry")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_huay5")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
-[node name="BuyButton" type="TextureButton" parent="HBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(220, 200)
+layout_mode = 2
+alignment = 1
+
+[node name="View" type="Node2D" parent="TextureButton/VBoxContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(120, 100)
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureButton/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8980392)
+theme_override_font_sizes/font_size = 26
+text = "解锁权限"
+
+[node name="DescLabel" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.54901963)
+theme_override_font_sizes/font_size = 18
+text = "永久使用权"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 60)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/HBoxContainer/Control"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_right = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_afjme")
+expand_mode = 2
+
+[node name="PriceLabel" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
+theme_override_font_sizes/font_size = 30
+text = "9999"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 2
+
+[node name="BuyButton" type="TextureButton" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/Control/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_lymoe")
 texture_pressed = ExtResource("3_huay5")
@@ -44,7 +147,7 @@ texture_hover = ExtResource("4_afjme")
 texture_focused = ExtResource("4_afjme")
 script = ExtResource("5_y2bpb")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/BuyButton"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/Control/HBoxContainer/BuyButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,32 +157,11 @@ grow_vertical = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="Control" type="Control" parent="HBoxContainer2/BuyButton/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
+[node name="TextLabel" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/Control/HBoxContainer/BuyButton/HBoxContainer"]
 layout_mode = 2
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer2/BuyButton/HBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.34
-anchor_right = 0.5
-anchor_bottom = 0.34
-offset_left = -20.0
-offset_top = -11.400001
-offset_right = 100.0
-offset_bottom = 108.6
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.34, 0.34)
-mouse_filter = 2
-texture = ExtResource("6_fj32i")
-
-[node name="PriceLabel" type="Label" parent="HBoxContainer2/BuyButton/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.7058824)
 theme_override_font_sizes/font_size = 24
-text = "9999"
+text = "购买"
 horizontal_alignment = 1
 vertical_alignment = 1

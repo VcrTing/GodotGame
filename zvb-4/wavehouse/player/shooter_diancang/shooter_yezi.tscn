@@ -1,18 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcbkcdyy0yhim"]
+[gd_scene load_steps=10 format=3 uid="uid://bcbkcdyy0yhim"]
 
 [ext_resource type="Script" uid="uid://cd5i8tc0r5p1a" path="res://scripts/player/shooter_diancang/ShooterYezi.cs" id="1_6icii"]
 [ext_resource type="Texture2D" uid="uid://phq3kt33n002" path="res://pngs/plans/diancang/Yezi.png" id="2_jbxb8"]
 [ext_resource type="AudioStream" uid="uid://wroiprnx6f1" path="res://musics/Bullets/Yezi/Rotating/Yezi_rotating_long.mp3" id="3_jbxb8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yww7w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbxb8"]
 atlas = ExtResource("2_jbxb8")
 region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yww7w"]
+atlas = ExtResource("2_jbxb8")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqvyl"]
+atlas = ExtResource("2_jbxb8")
+region = Rect2(600, 0, 300, 300)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yww7w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jbxb8")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yww7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqvyl")
 }],
 "loop": true,
 "name": &"default",
@@ -34,7 +48,7 @@ y_sort_enabled = true
 script = ExtResource("1_6icii")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, -15)
+position = Vector2(-1.5, -20)
 scale = Vector2(0.38, 0.38)
 sprite_frames = SubResource("SpriteFrames_yww7w")
 autoplay = "default"
@@ -44,6 +58,7 @@ stream = ExtResource("3_jbxb8")
 autoplay = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 energy = 0.3
 range_z_min = -4096
 range_z_max = 4096

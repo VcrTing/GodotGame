@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnf2oqk6j33sr"]
+[gd_scene load_steps=18 format=3 uid="uid://cnf2oqk6j33sr"]
 
 [ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
 [ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="5_34y4i"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://8428d727ktas" path="res://wavehouse/bullet/bullet_zero_cold.tscn" id="14_h24fl"]
 [ext_resource type="Script" uid="uid://dqsmk6yiaioi4" path="res://scripts/fx/SoundsNightFx.cs" id="14_weca1"]
 [ext_resource type="Script" uid="uid://blws27e75l035" path="res://scripts/system/GameModeSwitchCenter.cs" id="15_lpa67"]
+[ext_resource type="PackedScene" uid="uid://cwc5qv4r3yred" path="res://wavehouse/plans/plansfuzhu/reword_flower.tscn" id="15_weca1"]
 [ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
 
 [sub_resource type="Gradient" id="Gradient_weca1"]
@@ -122,3 +123,7 @@ position = Vector2(-200, 582)
 script = ExtResource("14_weca1")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Env/SoundsNightFx"]
+
+[node name="RewordFlower" parent="." instance=ExtResource("15_weca1")]
+visible = false
+position = Vector2(-91, 674)

@@ -1,0 +1,14 @@
+[
+    {
+        "name": "PeaGold", "title": "解锁：海洋金枪", "desc": "任意关卡内，苗掉落时，可有概率掉落他的苗",
+        "price": 30000, "x": 100, "y": 105, "viewscale": 1.0, "buyed": 0
+    },
+    {
+        "name": "XiguaBing", "title": "解锁：西瓜姐姐", "desc": "任意关卡内，苗掉落时，可有概率掉落她的苗",
+        "price": 40000, "x": 100, "y": 100, "viewscale": 0.8, "buyed": 0
+    },
+    {
+        "name": "Yezi", "title": "解锁：椰子爷爷", "desc": "任意关卡内，苗掉落时，可有概率掉落他的苗",
+        "price": 50000, "x": 120, "y": 90, "viewscale": 1.1, "buyed": 0
+    }
+]

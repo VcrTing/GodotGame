@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cd848ibmilgja"]
+[gd_scene load_steps=16 format=3 uid="uid://cd848ibmilgja"]
 
 [ext_resource type="Script" uid="uid://bvjp63ndt7exj" path="res://scripts/plans/plansfuzhu/PlansSunFlower.cs" id="1_0w6da"]
 [ext_resource type="Script" uid="uid://dg3oca6rm8x7j" path="res://scripts/plans/PlansViewAndHealth.cs" id="3_j4ffn"]
@@ -10,6 +10,18 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_6l8hx"]
 atlas = ExtResource("4_j4ffn")
 region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jklxj"]
+atlas = ExtResource("4_j4ffn")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qviyw"]
+atlas = ExtResource("4_j4ffn")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nftls"]
+atlas = ExtResource("4_j4ffn")
+region = Rect2(600, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4ffn"]
 atlas = ExtResource("4_45h3k")
@@ -28,6 +40,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6l8hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jklxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qviyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nftls")
 }],
 "loop": true,
 "name": &"default",
@@ -50,6 +71,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6l8hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jklxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qviyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nftls")
 }],
 "loop": true,
 "name": &"live",
@@ -58,6 +88,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6l8hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jklxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qviyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nftls")
 }],
 "loop": true,
 "name": &"live30",
@@ -66,6 +105,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6l8hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jklxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qviyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nftls")
 }],
 "loop": true,
 "name": &"live60",

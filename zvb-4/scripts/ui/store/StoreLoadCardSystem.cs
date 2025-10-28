@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using ZVB4.Conf;
 
-public partial class StoreLoadCardSystem : HFlowContainer
+public partial class StoreLoadCardSystem : BoxContainer
 {
     
     [Export]
@@ -42,11 +42,12 @@ public partial class StoreLoadCardSystem : HFlowContainer
     //
     public void LoadAndFilterItems()
     {
+        GD.Print("A");
         availableItems.Clear();
         if (string.IsNullOrEmpty(CardsJsonPath)) return;
         string ph = FolderConstants.Designs + "store/" + CardsJsonPath;
+        GD.Print(ph);
         var file = FileAccess.Open(ph, FileAccess.ModeFlags.Read);
-        GD.Print("file =" + ph);
         if (file == null) return;
         var json = file.GetAsText();
         file.Close();
@@ -60,6 +61,7 @@ public partial class StoreLoadCardSystem : HFlowContainer
                 continue;
             availableItems.Add(dict);
         }
+            GD.Print(availableItems);
         //
         GenerateStoreCards();
     }
@@ -67,6 +69,7 @@ public partial class StoreLoadCardSystem : HFlowContainer
     // 批量生成卡片节点
     public void GenerateStoreCards()
     {
+            GD.Print("GenerateStoreCards");
         if (availableItems.Count == 0) return;
         // 先删掉自己所有的子节点
         foreach (var child in GetChildren())
@@ -81,16 +84,19 @@ public partial class StoreLoadCardSystem : HFlowContainer
             var scene = GD.Load<PackedScene>(FolderConstants.Scenes + "card/shop_item_card.tscn");
             if (scene == null) continue;
             var card = scene.Instantiate<Control>();
+            GD.Print(dict);
             // 假设卡片有Init(dict)方法
             AddChild(card);
-            if (card is InGameStoreItemCard storeCard)
+            if (card is ShopItemCard storeCard)
             {
                 string itemName = dict.ContainsKey("name") ? dict["name"].ToString() : "Pea";
+                string desc = dict.ContainsKey("desc") ? dict["desc"].ToString() : "解锁使用权";
+                string title = dict.ContainsKey("title") ? dict["title"].ToString() : "解锁使用权";
                 float itemX = dict.ContainsKey("x") ? dict["x"].AsSingle() : 155f;
                 float itemY = dict.ContainsKey("y") ? dict["y"].AsSingle() : 75f;
                 int Price = dict.ContainsKey("price") ? dict["price"].AsInt32() : 0;
                 float itemViewScale = dict.ContainsKey("viewscale") ? dict["viewscale"].AsSingle() : 1f;
-                storeCard.Init(itemName, Price, itemX, itemY, itemViewScale);
+                storeCard.Init(itemName, Price, title, desc, itemX, itemY, itemViewScale);
             }
         }
     }

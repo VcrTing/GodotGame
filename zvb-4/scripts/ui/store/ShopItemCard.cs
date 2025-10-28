@@ -7,9 +7,9 @@ public partial class ShopItemCard : Control
     [Export]
     public string ItemName = "Pea";
     [Export]
-    public float ItemX = 155;
+    public float ItemX = 100;
     [Export]
-    public float ItemY = 75;
+    public float ItemY = 100;
     [Export]
     public float ItemViewScale = 1f;
 
@@ -19,7 +19,8 @@ public partial class ShopItemCard : Control
 
     int price = 100;
 
-    // Label DescLabel;
+    Label TitleLabel;
+    Label DescLabel;
     Label PriceLabel;
 
     TextureButton buyButton;
@@ -27,7 +28,8 @@ public partial class ShopItemCard : Control
     public override void _Ready()
     {
         itemDisplayNode = GodotTool.FindNode2DByName(this, NameConstants.View);
-        // DescLabel = GodotTool.FindLabelByName(this, "DescLabel");
+        DescLabel = GodotTool.FindLabelByName(this, "DescLabel");
+        TitleLabel = GodotTool.FindLabelByName(this, "TitleLabel");
         PriceLabel = GodotTool.FindLabelByName(this, "PriceLabel");
         buyButton = GodotTool.FindCanvasItemByName(this, "BuyButton") as TextureButton;
         if (buyButton != null)
@@ -74,19 +76,21 @@ public partial class ShopItemCard : Control
 
     bool init = false;
 
-    public void Init(string name, int price, float x, float y, float viewscale)
+    public void Init(string name, int price, string title, string desc, float x, float y, float viewscale)
     {
         ItemName = name;
         ItemX = x;
         ItemY = y;
-        ItemViewScale = viewscale * 0.6f;
+        ItemViewScale = viewscale * 0.86f;
         this.price = price;
         // 根据ItemName加载和显示物品
         PlansConstants.GeneratePlans(itemDisplayNode, name);
         itemDisplayNode.Position = new Vector2(ItemX, ItemY);
         itemDisplayNode.Scale = new Vector2(ItemViewScale, ItemViewScale);
         //
-        PriceLabel.Text = __isBuyed ? "已购买": price.ToString();
+        PriceLabel.Text = __isBuyed ? "已购买" : price.ToString();
+        TitleLabel.Text = title;
+        DescLabel.Text = desc;
     }
 
     bool __isBuyed = false;
