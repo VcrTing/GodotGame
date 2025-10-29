@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using Godot;
 using ZVB4.Interface;
 
@@ -29,7 +30,8 @@ public static class CommonTool
         if (obj == null) return "";
         return obj.GetObjName();
     }
-    public static Node2D LocationNode2DByName(List<Node2D> _node2DList, string n) {
+    public static Node2D LocationNode2DByName(List<Node2D> _node2DList, string n)
+    {
         Node2D node = null;
         foreach (var nd in _node2DList)
         {
@@ -41,5 +43,84 @@ public static class CommonTool
             }
         }
         return node;
+    }
+
+    public static bool WriteDataToJson(List<System.Collections.Generic.Dictionary<string, object>> data, string filePath)
+    {
+        try
+        {
+            // 1. 配置JSON序列化选项（支持Godot的Dictionary和中文等）
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true, // 格式化JSON（便于阅读）
+                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping // 避免中文被转义
+            };
+            // 2. 序列化数据为JSON字符串
+            string jsonString = JsonSerializer.Serialize(data, options);
+            // 3. 覆盖写入文件（使用FileAccess）
+            using (var file = FileAccess.Open(filePath, FileAccess.ModeFlags.Write))
+            {
+                file.StoreString(jsonString);
+            }
+            return true;
+        }
+        catch (FieldAccessException e)
+        {
+            GD.PrintErr($"文件操作失败: {e.Message}，路径: {filePath}");
+            return false;
+        }
+        catch (JsonException e)
+        {
+            GD.PrintErr($"JSON序列化失败: {e.Message}");
+            return false;
+        }
+        catch (System.Exception e)
+        {
+            GD.PrintErr($"错误: {e.Message}");
+            return false;
+        }
+    }
+    
+    public static Dictionary<string, object> ToCSharpDictionary(Godot.Collections.Dictionary godotDict)
+    {
+        var csharpDict = new Dictionary<string, object>();
+
+        foreach (var key in godotDict.Keys)
+        {
+            // 确保键是字符串（如果实际键为其他类型，需修改目标字典的键类型，如int）
+            if (key.GetType() != typeof(string))
+            {
+                GD.PrintErr($"键类型不是string，无法转换：{key.GetType()}");
+                continue;
+            }
+            // 处理值（递归转换嵌套结构）
+            object value = ConvertGodotValue(godotDict[key]);
+            csharpDict.Add(key.AsString(), value);
+        }
+
+        return csharpDict;
+    }
+    private static object ConvertGodotValue(object value)
+    {
+        // 如果值是Godot字典，递归转换
+        if (value is Godot.Collections.Dictionary godotSubDict)
+        {
+            return ToCSharpDictionary(godotSubDict);
+        }
+        // 如果值是Godot数组，转换为C# List<object>
+        else if (value is Godot.Collections.Array godotArray)
+        {
+            var csharpList = new List<object>();
+            foreach (var item in godotArray)
+            {
+                csharpList.Add(ConvertGodotValue(item)); // 递归处理数组元素
+            }
+            return csharpList;
+        }
+        // 其他基础类型（int、string、float、Vector2等）直接返回
+        else
+        {
+            return value;
+        }
     }
 }

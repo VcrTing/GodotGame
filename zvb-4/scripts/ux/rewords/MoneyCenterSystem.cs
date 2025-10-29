@@ -1,10 +1,14 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 using ZVB4.Conf;
 
 public partial class MoneyCenterSystem : Control
 {
+    [Export]
+    public bool IsAlwaysShow = false;
+        
     public static MoneyCenterSystem Instance { get; private set; }
 
     private Label _countShowLabel;
@@ -26,7 +30,7 @@ public partial class MoneyCenterSystem : Control
         UpdateMoneyLabel(v);
         AsyncMoneyValue();
         ShowMe();
-        SaveDataManager.Instance.SetMoneyAndSave(0);
+        SaveDataManager.Instance.SetMoneyAndSave(80000);
     }
     bool show = false;
     float stayTime = 2f;
@@ -35,6 +39,7 @@ public partial class MoneyCenterSystem : Control
         if (show) return;
         show = true;
         Visible = true;
+        if (IsAlwaysShow) return;
         await ToSignal(GetTree().CreateTimer(stayTime), "timeout");
         show = false;
         Visible = false;
@@ -59,6 +64,15 @@ public partial class MoneyCenterSystem : Control
             UpdateMoneyLabel(v);
             stayTime = 2f;
         }
+    }
+
+    public bool CostForBuyed(int price)
+    {
+        int v = SaveDataManager.Instance.GetMoney();
+        if (v < price) return false;
+        SaveDataManager.Instance.SetMoneyAndSave(v - price);
+        UpdateMoneyLabel(v - price);
+        return true;
     }
 
     float __vt = 0f;
@@ -108,11 +122,11 @@ public partial class MoneyCenterSystem : Control
     {
         try
         {
-            var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + "Money.tscn");
+            var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + SunMoneyConstants.MoneyS + ".tscn");
             var instance = scene.Instantiate<Node2D>();
             instance.Position = position;
             countMoney += 1;
-            string n = "Money" + countMoney;
+            string n = SunMoneyConstants.MoneyS + countMoney;
             instance.Name = n;
             // 设置名称
             if (playSound)

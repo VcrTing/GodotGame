@@ -115,7 +115,7 @@ namespace ZVB4.Conf
             { RewordFlower, (int)EnumHealth.Eight },
             { JianGuo, (int)EnumHealth.JianGuo },
             { XianRenQiu, (int)EnumHealth.XianRenQiu },
-            { XiHongShi, (int)EnumHealth.Six },
+            { XiHongShi, (int)EnumHealth.Eight },
         };
         // 会占用格子的植物
         public static bool IsWillZhanYongGeZi(string planName) => PlanHealthDict.ContainsKey(planName);
@@ -127,12 +127,12 @@ namespace ZVB4.Conf
             { PeaCold, 30 + BaseShootNum },
             { PeaDouble, 20 + BaseShootNum },
             { Xigua, 12 + BaseShootNum },
-            { LanMei, 14 + BaseShootNum },
+            { LanMei, 18 + BaseShootNum },
             { YangTao, 14 + BaseShootNum },
             { ShiLiu, 16 + BaseShootNum },
             { XiguaBing, 8 + BaseShootNum },
             { PeaGold, 10 + BaseShootNum },
-            { Yezi, 7 + BaseShootNum }
+            { Yezi, 6 + BaseShootNum }
         };
         public static int GetShooterAttackLimit(string key) {
             if (ShooterAttackLimitDict.TryGetValue(key, out var value))

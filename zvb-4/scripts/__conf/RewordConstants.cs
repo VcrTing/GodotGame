@@ -29,7 +29,7 @@ namespace ZVB4.Conf
             return string.Empty;
         }
 
-        static float MoneyBaseLv = 0.3f;
+        static float MoneyBaseLv = 0.1f;
         public static float MoneyPrevSuccRewordSubLv = 0.1f;
         static float MiaoBaseLv = 0.05f;
         public static float MiaoPrevSuccRewordSubLv = 0.05f;

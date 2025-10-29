@@ -115,10 +115,16 @@ public partial class SoundUiController : Node2D
     {
         // EnqueueSound("Ui/pause", "Resume", 4);
     }
-    
+
     // RobotTalk
     public void ShopStart()
     {
         EnqueueSound("Ui/shop", "shop", 7);
+    }
+    
+    // buyed
+    public void Buyed()
+    {
+        EnqueueSound("Ui/money", "money", 4);
     }
 }

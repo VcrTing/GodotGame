@@ -107,7 +107,7 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> SunPlansGrowTime = new Dictionary<string, int>
         {
             { PlansConstants.SunFlower, 1000 },
-            { PlansConstants.RewordFlower, 30 },
+            { PlansConstants.RewordFlower, 999 },
             { PlansConstants.SunGu, 20 },
         };
         public static int GetSunPlansGrowTime(string plansName) => SunPlansGrowTime[plansName];
@@ -124,7 +124,7 @@ namespace ZVB4.Conf
         {
             { PlansConstants.SunFlower, SunNormal },
             { PlansConstants.SunGu, SunNormal2 },
-            { PlansConstants.RewordFlower, SunLarge },
+            { PlansConstants.RewordFlower, SunNormal },
         };
         public static int GetSunPlansSunLevel2(string plansName) => SunPlansSunLevel2[plansName];
 

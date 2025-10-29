@@ -94,12 +94,12 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/HBoxContainer"]
+[node name="PriceIcon" type="Control" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 60)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/HBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="TextureButton/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2/HBoxContainer2/MarginContainer/HBoxContainer/PriceIcon"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 1
 anchors_preset = 8

@@ -18,10 +18,12 @@ public partial class ShopItemCard : Control
     Node2D itemDisplayNode;
 
     int price = 100;
+    int itemId = 0;
 
     Label TitleLabel;
     Label DescLabel;
     Label PriceLabel;
+    CanvasItem PriceIcon;
 
     TextureButton buyButton;
 
@@ -31,6 +33,7 @@ public partial class ShopItemCard : Control
         DescLabel = GodotTool.FindLabelByName(this, "DescLabel");
         TitleLabel = GodotTool.FindLabelByName(this, "TitleLabel");
         PriceLabel = GodotTool.FindLabelByName(this, "PriceLabel");
+        PriceIcon = GodotTool.FindCanvasItemByName(this, "PriceIcon");
         buyButton = GodotTool.FindCanvasItemByName(this, "BuyButton") as TextureButton;
         if (buyButton != null)
         {
@@ -51,7 +54,25 @@ public partial class ShopItemCard : Control
 
     void Buy()
     {
-        
+        if (MoneyCenterSystem.Instance == null) return;
+        bool issucc = MoneyCenterSystem.Instance.CostForBuyed(price);
+        if (!issucc)
+        {
+            FlashPriceLabelRed();
+            SoundUiController.Instance.Error();
+            return;
+        }
+        else
+        {
+            SoundUiController.Instance.Buyed();
+            issucc = StoreLoadCardSystem.Instance.SetItemBuyed(itemId, true);
+            if (issucc)
+            {
+                __isBuyed = true;
+                AsyncForBuyed();
+            }
+            return;
+        }
     }
 
     private void OnBuyButtonPressed()
@@ -60,47 +81,47 @@ public partial class ShopItemCard : Control
         __sure = 0.0001f;
         if (__isBuyed) return;
         if (!init) return;
-        // 在这里实现购买逻辑
-        int pp = SunCenterSystem.Instance.Value;
-        if (pp >= price)
-        {
-            //
-        }
-        else
-        {
-            FlashPriceLabelRed();
-            SoundUiController.Instance.Error();
-            return;
-        }
+        Buy();
     }
 
     bool init = false;
 
-    public void Init(string name, int price, string title, string desc, float x, float y, float viewscale)
+    void AsyncForBuyed()
     {
-        ItemName = name;
+        PriceLabel.Text = __isBuyed ? "已购买" : price.ToString();
+        if (__isBuyed)
+        {
+            buyButton.Visible = false;
+            PriceIcon.Visible = false;
+        }
+    }
+
+    public void Init2(int id, int buyed, float x, float y, float viewscale)
+    {
+        if (id == 0) return;
+        itemId = id;
         ItemX = x;
         ItemY = y;
         ItemViewScale = viewscale * 0.86f;
-        this.price = price;
-        // 根据ItemName加载和显示物品
-        PlansConstants.GeneratePlans(itemDisplayNode, name);
         itemDisplayNode.Position = new Vector2(ItemX, ItemY);
         itemDisplayNode.Scale = new Vector2(ItemViewScale, ItemViewScale);
         //
-        PriceLabel.Text = __isBuyed ? "已购买" : price.ToString();
-        TitleLabel.Text = title;
+        __isBuyed = buyed == 1;
+        AsyncForBuyed();
+        init = true;
+    }
+
+    public void Init(string name, int price, string title, string desc)
+    {
+        ItemName = name;
+        this.price = price;
         DescLabel.Text = desc;
+        TitleLabel.Text = title;
+        // 根据ItemName加载和显示物品
+        PlansConstants.GeneratePlans(itemDisplayNode, name);
     }
 
     bool __isBuyed = false;
-
-    public void SetIsBuyed(bool isBuyed)
-    {
-        __isBuyed = isBuyed;
-        PriceLabel.Text = __isBuyed ? "已购买" : price.ToString();
-        init = true;
-    }
 
     public async void FlashPriceLabelRed()
     {

@@ -16,9 +16,11 @@ public partial class PlansXiHongShi : Node2D, IObj, IBeHurt, IWorking, IAttack
     public string GetObjName() => objName;
     public bool Init(string name = null) => true;
     Area2D attackArea;
+    Node2D fxNode;
     public override void _Ready()
     {
         view = GetNodeOrNull<AnimatedSprite2D>(NameConstants.View);
+        fxNode = GetNodeOrNull<Node2D>(NameConstants.Fx);
         attackArea = GetNodeOrNull<Area2D>(NameConstants.AttackArea);
         maxScale = Scale.X;
         minScale = ViewTool.GetYouMinScale(maxScale);
@@ -78,13 +80,14 @@ public partial class PlansXiHongShi : Node2D, IObj, IBeHurt, IWorking, IAttack
     {
         if (isAttacking) return;
         isAttacking = true;
+        AnimationTool.DoAniAttack(view);
         __attackTime = 0.0001f;
     }
     void Attack() {
         attackArea.Monitoring = true;
         attackArea.Monitorable = true;
         SoundFxController.Instance.PlayFx("Plans/" + objName, objName, 5);
-        AnimationTool.DoAniAttack(view);
+        fxNode.Visible = true;
         __dieTime = 0.0001f;
     }
     void CloseAttack()
@@ -93,8 +96,8 @@ public partial class PlansXiHongShi : Node2D, IObj, IBeHurt, IWorking, IAttack
         attackArea.Monitorable = false;
     }
 
-    float BeHurtStartTime = 3f;
-    float InitAttackDelayTime = 12f;
+    float BeHurtStartTime = 2.5f;
+    float InitAttackDelayTime = 30f;
     float AttackAnimationTime = 0.3f;
     float __t = 0f;
     public override void _Process(double delta)

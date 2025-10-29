@@ -26,7 +26,6 @@ public partial class StoreInGamePopup : PopupPanel
 
     void WhenHide()
     {
-        GD.Print("关闭被监听了");
         SystemController.Instance?.ResumeGame();
     }
 

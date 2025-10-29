@@ -1,14 +1,35 @@
 [
-    {
-        "name": "PeaGold", "title": "解锁：海洋金枪", "desc": "任意关卡内，苗掉落时，可有概率掉落他的苗",
-        "price": 30000, "x": 100, "y": 105, "viewscale": 1.0, "buyed": 0
-    },
-    {
-        "name": "XiguaBing", "title": "解锁：西瓜姐姐", "desc": "任意关卡内，苗掉落时，可有概率掉落她的苗",
-        "price": 40000, "x": 100, "y": 100, "viewscale": 0.8, "buyed": 0
-    },
-    {
-        "name": "Yezi", "title": "解锁：椰子爷爷", "desc": "任意关卡内，苗掉落时，可有概率掉落他的苗",
-        "price": 50000, "x": 120, "y": 90, "viewscale": 1.1, "buyed": 0
-    }
+  {
+    "id": 101,
+    "name": "PeaGold",
+    "desc": "任意关卡内，苗掉落时，可有概率掉落他的苗",
+    "title": "典藏射手：海洋金枪",
+    "x": 100,
+    "y": 105,
+    "price": 30000,
+    "buyed": 0,
+    "viewscale": 1
+  },
+  {
+    "id": 102,
+    "name": "XiguaBing",
+    "desc": "任意关卡内，苗掉落时，可有概率掉落她的苗",
+    "title": "典藏射手：冰西瓜",
+    "x": 100,
+    "y": 100,
+    "price": 40000,
+    "buyed": 0,
+    "viewscale": 0.8
+  },
+  {
+    "id": 103,
+    "name": "Yezi",
+    "desc": "任意关卡内，苗掉落时，可有概率掉落他的苗",
+    "title": "典藏射手：椰子大炮",
+    "x": 120,
+    "y": 90,
+    "price": 50000,
+    "buyed": 0,
+    "viewscale": 1.1
+  }
 ]

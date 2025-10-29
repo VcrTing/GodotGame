@@ -13,11 +13,11 @@
     },
     {
         "name": "XiHongShi",
-        "price": 50, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 25, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "Cherry",
-        "price": 300, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 250, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "LaJiao",
