@@ -2,6 +2,6 @@
     "name": "XiHongShi",
     "nickname": "西红柿糖果",
     "scenepath": "plans/planszhongzhi/xi_hong_shi.tscn",
-    "info": "攻击力：1000。被咬3s后，小规模爆炸。无人咬她，12s后爆炸。",
-    "description": "我这暴脾气，我最容忍不了的，就是别人咬我了！老娘非炸死它不可！！！"
+    "info": "攻击力：1000。被咬2.5s后，小规模爆炸。无人咬她，30s后爆炸。",
+    "description": "我这暴脾气，我最容忍不了的，就是别人咬我了！看好了，老娘非炸死它不可！！！"
 }

@@ -16,7 +16,7 @@
     
     "initshooter": "YangTao",
     "initmiaolist": [
-        "SunFlower", "SunGu", "RewordFlower", "RewordFlower", "RewordFlower", "RewordFlower", "RewordFlower"
+        "SunFlower", "SunGu", "RewordFlower", "PaoGu"
     ],
     "enmyspeedattackscale": 2.0,
     "enmyspeedmovescale": 1.2,

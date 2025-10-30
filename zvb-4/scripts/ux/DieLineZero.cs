@@ -13,10 +13,12 @@ public partial class DieLineZero : Area2D
 
     private void OnAreaEntered(Area2D area)
     {
+        if (area == null) return;
         string name = area.Name;
         if (name == NameConstants.AttackArea)
         {
             IObj obj = area.GetParent<IObj>();
+            if (obj == null) return; 
             if (obj != null && obj.GetEnumObjType() == EnumObjType.Zombie)
             {
                 GD.Print($"DieLineZero: 游戏结束 被僵尸 {obj.GetObjName()} 进入");

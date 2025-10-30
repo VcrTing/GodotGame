@@ -84,31 +84,37 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bigby")
+"texture": SubResource("AtlasTexture_kxblx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qjvug")
+"texture": SubResource("AtlasTexture_ir2la")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8ot2i")
+"texture": SubResource("AtlasTexture_7nfap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg76t")
 }],
 "loop": true,
-"name": &"live60",
-"speed": 3.0
+"name": &"live30",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bigby")
+"texture": SubResource("AtlasTexture_kxblx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qjvug")
+"texture": SubResource("AtlasTexture_ir2la")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8ot2i")
+"texture": SubResource("AtlasTexture_7nfap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg76t")
 }],
 "loop": true,
-"name": &"lvie30",
-"speed": 3.0
+"name": &"live60",
+"speed": 15.0
 }]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qjvug"]
@@ -131,11 +137,11 @@ color = Color(1, 1, 1, 0.627451)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ue5a4"]
 radius = 60.0
-height = 200.0
+height = 240.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhted"]
 radius = 190.0
-height = 460.0
+height = 480.0
 
 [node name="XiHongShi" type="Node2D"]
 z_index = 400
@@ -146,9 +152,8 @@ script = ExtResource("1_lhted")
 position = Vector2(0, -20)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_xiptw")
-animation = &"attack"
+animation = &"live60"
 autoplay = "default"
-frame_progress = 0.38097984
 script = ExtResource("3_sk0xw")
 WhatYouObj = 5
 

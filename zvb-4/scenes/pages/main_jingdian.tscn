@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://nj1o4abovt5f" path="res://pngs/bg/post/mainbg.png" id="4_yjp08"]
 [ext_resource type="Texture2D" uid="uid://c30173qhjjygq" path="res://pngs/ui/store/StoreBuy.png" id="6_prp83"]
 [ext_resource type="PackedScene" uid="uid://cnga353s1lfs3" path="res://scenes/ui/popup_option_button.tscn" id="6_pxbb1"]
-[ext_resource type="Texture2D" uid="uid://cbfbh72gjaqnj" path="res://pngs/ui/PopPaper.png" id="6_x3od3"]
+[ext_resource type="Texture2D" uid="uid://wqju1l810gvj" path="res://pngs/ui/kuang.png" id="6_x3od3"]
 [ext_resource type="Texture2D" uid="uid://x4yipaxmiuok" path="res://pngs/ui/store/StoreBuy_fcs.png" id="7_up1te"]
 [ext_resource type="Texture2D" uid="uid://wmrxydyjoaos" path="res://pngs/ui/store/StoreBuy_hv.png" id="8_xlva4"]
 [ext_resource type="Texture2D" uid="uid://jxadxgr4duti" path="res://pngs/ui/button_2.png" id="9_xlva4"]
@@ -279,8 +279,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -4.0
-offset_bottom = -4.0
+offset_right = 1616.0
+offset_bottom = 1616.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -325,7 +325,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Control" type="Control" parent="CanvasLayer/BaseShooterSwitcher/VBoxContainer/HBoxContainer3/ScrollContainer/VFlowContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(724, 580)
+custom_minimum_size = Vector2(360, 400)
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer/BaseShooterSwitcher/VBoxContainer/HBoxContainer3/ScrollContainer/VFlowContainer/VBoxContainer/HBoxContainer/Control"]
@@ -343,12 +343,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -19.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/BaseShooterSwitcher/VBoxContainer/HBoxContainer3/ScrollContainer/VFlowContainer/VBoxContainer/HBoxContainer/Control/TextureButton/VBoxContainer"]
-custom_minimum_size = Vector2(0, 360)
+custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 alignment = 1
 

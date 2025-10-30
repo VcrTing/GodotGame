@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://btnrffm06fs5"]
+
+[ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_t4a6u"]
+[ext_resource type="Texture2D" uid="uid://ufac5l2t8fg3" path="res://pngs/plans/ShooterGu.png" id="2_ryrjy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4fcf"]
+atlas = ExtResource("2_ryrjy")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6j6i8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4fcf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PaoGu" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
+scale = Vector2(2.6, 2.6)
+script = ExtResource("1_t4a6u")
+objName = "PaoGu"
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(7, -30)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_6j6i8")
+autoplay = "default"

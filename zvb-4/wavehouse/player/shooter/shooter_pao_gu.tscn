@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://b125aok2f1lbb"]
+
+[ext_resource type="Script" uid="uid://bohnv6moy24we" path="res://scripts/player/shooter/ShooterPaoGu.cs" id="1_lxum0"]
+[ext_resource type="Texture2D" uid="uid://ufac5l2t8fg3" path="res://pngs/plans/ShooterGu.png" id="2_lxum0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkwgp"]
+atlas = ExtResource("2_lxum0")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_338e4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkwgp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_bbetf"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dnq5t"]
+gradient = SubResource("Gradient_bbetf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.815534, 0.2936893)
+
+[node name="ShooterPaoGu" type="Node2D"]
+z_index = 1000
+y_sort_enabled = true
+script = ExtResource("1_lxum0")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.42, 0.42)
+sprite_frames = SubResource("SpriteFrames_338e4")
+autoplay = "default"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+energy = 0.3
+range_z_min = -4096
+range_z_max = 4096
+range_layer_min = -2000
+range_layer_max = 4096
+texture = SubResource("GradientTexture2D_dnq5t")
+texture_scale = 1.5
+height = 200.0

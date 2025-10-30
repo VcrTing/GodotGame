@@ -18,6 +18,7 @@ namespace ZVB4.Conf
         public const string LanMei = "LanMei";
         public const string ShiLiu = "ShiLiu";
         public const string Xigua = "Xigua";
+        public const string PaoGu = "PaoGu";
         // 种植
         public const string SunGu = "SunGu";
         public const string SunFlower = "SunFlower";
@@ -44,6 +45,8 @@ namespace ZVB4.Conf
             { YangTao, FolderConstants.WavePlans + "plansshooter/yang_tao.tscn" },
             { ShiLiu, FolderConstants.WavePlans + "plansshooter/shi_liu.tscn" },
             { Xigua, FolderConstants.WavePlans + "plansshooter/xigua.tscn" },
+            { PaoGu, FolderConstants.WavePlans + "plansshooter/pao_gu.tscn" },
+
 
             { SunGu, FolderConstants.WavePlans + "plansfuzhu/sun_gu.tscn" },
             { SunFlower, FolderConstants.WavePlans + "plansfuzhu/sun_flower.tscn" },
@@ -73,6 +76,8 @@ namespace ZVB4.Conf
             { YangTao, FolderConstants.WavePlayer + "shooter/shooter_yang_tao.tscn" },
             { ShiLiu, FolderConstants.WavePlayer + "shooter/shooter_shi_liu.tscn" },
             { Xigua, FolderConstants.WavePlayer + "shooter/shooter_xigua.tscn" },
+            { PaoGu, FolderConstants.WavePlayer + "shooter/shooter_pao_gu.tscn" },
+
             //
             { Yezi, FolderConstants.WavePlayer + "shooter_diancang/shooter_yezi.tscn" },
             { PeaGold, FolderConstants.WavePlayer + "shooter_diancang/shooter_pea_gold.tscn" },
@@ -90,6 +95,7 @@ namespace ZVB4.Conf
             { YangTao, 5f },
             { ShiLiu, 5f },
             { Xigua, 6f },
+            { PaoGu, 3f },
 
             { SunGu, 4f },
             { SunFlower, 1f },
@@ -130,6 +136,7 @@ namespace ZVB4.Conf
             { LanMei, 18 + BaseShootNum },
             { YangTao, 14 + BaseShootNum },
             { ShiLiu, 16 + BaseShootNum },
+            { PaoGu, 18 + BaseShootNum },
             { XiguaBing, 8 + BaseShootNum },
             { PeaGold, 10 + BaseShootNum },
             { Yezi, 6 + BaseShootNum }
@@ -150,6 +157,7 @@ namespace ZVB4.Conf
             else if (key == YangTao) return 0.36f;
             else if (key == ShiLiu) return 0.8f;
             else if (key == Xigua) return 1f;
+            else if (key == PaoGu) return 1f;
             //
             if (key == PeaGold) return 2f;
             else if (key == XiguaBing) return 1f;
@@ -163,8 +171,9 @@ namespace ZVB4.Conf
             else if (key == PeaDouble) return 0.07f;
             else if (key == LanMei) return 0.06f;
             else if (key == YangTao) return 0.05f;
-            else if (key == ShiLiu) return 0.8f;
-            else if (key == Xigua) return 0.8f;
+            else if (key == ShiLiu) return 0.08f;
+            else if (key == Xigua) return 0.08f;
+            else if (key == PaoGu) return 0.1f;
             //
             if (key == PeaGold) return 0.08f;
             else if (key == XiguaBing) return 0.1f;
@@ -180,6 +189,7 @@ namespace ZVB4.Conf
             else if (key == YangTao) return 0.2f;
             else if (key == ShiLiu) return 0.4f;
             else if (key == Xigua) return 0.5f;
+            else if (key == PaoGu) return 0.3f;
             // 
             if (key == PeaGold) return 0.25f;
             else if (key == XiguaBing) return 0.2f;
@@ -193,8 +203,9 @@ namespace ZVB4.Conf
             else if (key == PeaDouble) return 0.01f;
             else if (key == LanMei) return 0.012f;
             else if (key == YangTao) return 0.012f;
-            else if (key == ShiLiu) return 0.12f;
+            else if (key == ShiLiu) return 0.012f;
             else if (key == Xigua) return 0.01f;
+            else if (key == PaoGu) return 0.015f;
             // 
             if (key == PeaGold) return 0.01f;
             if (key == XiguaBing) return 0.01f;

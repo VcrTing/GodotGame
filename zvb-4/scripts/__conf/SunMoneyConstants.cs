@@ -21,12 +21,13 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> AttackCostDict = new Dictionary<string, int>
         {
             { PlansConstants.Pea, 10 },
-            { PlansConstants.PeaCold, 12 },
+            { PlansConstants.PeaCold, 15 },
             { PlansConstants.PeaDouble, 20 },
             { PlansConstants.LanMei, 20 },
             { PlansConstants.YangTao, 30 },
             { PlansConstants.ShiLiu, 25 },
-            { PlansConstants.Xigua, 40 },
+            { PlansConstants.Xigua, 35 },
+            { PlansConstants.PaoGu, 15 },
             { PlansConstants.XiguaBing, 50 },
             { PlansConstants.PeaGold, 50 },
             { PlansConstants.Yezi, 100 }
@@ -38,6 +39,7 @@ namespace ZVB4.Conf
             { PlansConstants.PeaDouble, 75 },
             { PlansConstants.LanMei, 75 },
             { PlansConstants.YangTao, 100 },
+            { PlansConstants.PaoGu, 75 },
             { PlansConstants.ShiLiu, 80 },
             { PlansConstants.Xigua, 100 },
             { PlansConstants.XiguaBing, 200 },

@@ -33,6 +33,7 @@ animations = [{
 }]
 
 [node name="ShooterShiLiu" type="Node2D"]
+z_index = 1000
 y_sort_enabled = true
 script = ExtResource("1_gxosm")
 ObjName = "ShiLiu"

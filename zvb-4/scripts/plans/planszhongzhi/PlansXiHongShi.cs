@@ -80,7 +80,6 @@ public partial class PlansXiHongShi : Node2D, IObj, IBeHurt, IWorking, IAttack
     {
         if (isAttacking) return;
         isAttacking = true;
-        AnimationTool.DoAniAttack(view);
         __attackTime = 0.0001f;
     }
     void Attack() {
@@ -88,6 +87,7 @@ public partial class PlansXiHongShi : Node2D, IObj, IBeHurt, IWorking, IAttack
         attackArea.Monitorable = true;
         SoundFxController.Instance.PlayFx("Plans/" + objName, objName, 5);
         fxNode.Visible = true;
+        AnimationTool.DoAniAttack(view);
         __dieTime = 0.0001f;
     }
     void CloseAttack()
