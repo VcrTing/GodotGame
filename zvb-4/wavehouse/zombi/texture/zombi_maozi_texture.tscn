@@ -15,6 +15,14 @@ region = Rect2(360, 0, 180, 180)
 atlas = ExtResource("2_7j41l")
 region = Rect2(540, 0, 180, 180)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtc52"]
+atlas = ExtResource("2_7j41l")
+region = Rect2(0, 0, 180, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0af2"]
+atlas = ExtResource("2_7j41l")
+region = Rect2(180, 0, 180, 180)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wmr5c"]
 atlas = ExtResource("2_7j41l")
 region = Rect2(0, 0, 180, 180)
@@ -67,14 +75,6 @@ region = Rect2(360, 0, 180, 180)
 atlas = ExtResource("4_yebru")
 region = Rect2(540, 0, 180, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wtc52"]
-atlas = ExtResource("2_7j41l")
-region = Rect2(0, 0, 180, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f0af2"]
-atlas = ExtResource("2_7j41l")
-region = Rect2(180, 0, 180, 180)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_acifq"]
 atlas = ExtResource("4_yebru")
 region = Rect2(0, 0, 180, 180)
@@ -103,6 +103,17 @@ animations = [{
 "loop": true,
 "name": &"attack",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtc52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0af2")
+}],
+"loop": true,
+"name": &"changing",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -216,6 +227,14 @@ animations = [{
 "texture": SubResource("AtlasTexture_fwd5b")
 }],
 "loop": true,
+"name": &"intro",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwd5b")
+}],
+"loop": true,
 "name": &"live",
 "speed": 5.0
 }, {
@@ -233,6 +252,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"live60",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwd5b")
+}],
+"loop": true,
+"name": &"outro",
 "speed": 5.0
 }]
 
@@ -265,16 +292,17 @@ y_sort_enabled = true
 script = ExtResource("1_wmr5c")
 ObjName = "zombi_maozi"
 ExtraObj = 10
-MoveChangeBefore = 1
-MoveChanging = 1
+MoveChanging = 11
+MoveChangeAfter = 11
+ChangingTime = 0.02
 IntroAniTime = 0.001
-WhenChangingType = 0
+WhenChangingType = 1
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 scale = Vector2(1, 0.8)
 sprite_frames = SubResource("SpriteFrames_wmr5c")
-animation = &"outro"
+animation = &"changing"
 autoplay = "default"
 
 [node name="ViewExtra" type="AnimatedSprite2D" parent="."]
@@ -282,7 +310,7 @@ y_sort_enabled = true
 position = Vector2(1.2, -31)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_o3qmg")
-animation = &"live60"
+animation = &"intro"
 autoplay = "default"
 
 [node name="IceFreeze" type="AnimatedSprite2D" parent="."]

@@ -24,6 +24,8 @@ public partial class PlayerController : Node2D, IInit
     Node2D workTable;
     public Vector2 _shooterInitPosition;
 
+    public Vector2 GetPlayerPosition() => GlobalPosition;
+
     bool init = false;
     public bool Init(string objName = null)
     {

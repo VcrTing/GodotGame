@@ -42,12 +42,12 @@ public static class ZombiTool
             // 钢门 / 报纸，不能被Cold减速
             if (whatYouObj == EnumWhatYouObj.GangMen || whatYouObj == EnumWhatYouObj.Baozhi)
             {
-                GD.Print("钢门报纸 不减速 COld");
+                // GD.Print("钢门报纸 不减速 COld");
                 return false;
             }
             return true;
         }
-        return true;
+        return false;
     }
     
     public static bool IsOnlyHurtBody(EnumWhatYouObj whatYouObj, EnumHurts enumHurts)
@@ -58,13 +58,13 @@ public static class ZombiTool
             // 针，通过
             if (enumHurts == EnumHurts.Zheng || enumHurts == EnumHurts.ColdZheng)
             {
-                GD.Print("针 / 冰针 通过钢门");
+                // GD.Print("针 / 冰针 通过钢门");
                 return true;
             }
             // 泡泡，通过
             if (enumHurts == EnumHurts.PaoPao)
             {
-                GD.Print("泡泡 通过钢门");
+                // GD.Print("泡泡 通过钢门");
                 return true;
             }
         }
@@ -74,7 +74,7 @@ public static class ZombiTool
             // 只有针，通过
             if (enumHurts == EnumHurts.Zheng || enumHurts == EnumHurts.ColdZheng)
             {
-                GD.Print("针 / 冰针 通过报纸");
+                // GD.Print("针 / 冰针 通过报纸");
                 return true;
             }
         }

@@ -107,7 +107,8 @@ public static class GameTool
         return new Vector2(pos.X + v, pos.Y);
     }
 
-    public static float RandomRotatingV(float rotating) {
+    public static float RandomRotatingV(float rotating)
+    {
         int i = GD.RandRange(0, 100);
         rotating += (i / 10);
         if (i < 50)
@@ -115,5 +116,30 @@ public static class GameTool
             rotating = 0 - rotating;
         }
         return rotating;
+    }
+    
+    // 计算下一个位置的方法（传入目标位置）
+    public static Vector2 GetNextPosition(Vector2 currentPosition, Vector2 targetPosition, float Speed, float delta)
+    {
+        // 2. 计算当前到目标的向量
+        Vector2 directionToTarget = targetPosition - currentPosition;
+        // 3. 计算距离（避免除以0，若已到达目标则返回当前位置）
+        float distanceToTarget = directionToTarget.Length();
+        if (distanceToTarget <= 0.1f) // 允许微小误差，避免抖动
+        {
+            return targetPosition;
+        }
+        // 4. 归一化方向向量（确保方向正确，速度稳定）
+        Vector2 normalizedDirection = directionToTarget.Normalized();
+        // 5. 计算本次移动的距离（速度 × 时间增量）
+        float moveDistance = Speed * delta;
+        // 6. 限制移动距离（如果剩余距离不足，直接移动到目标）
+        if (moveDistance > distanceToTarget)
+        {
+            moveDistance = distanceToTarget;
+        }
+        // 7. 计算下一个位置
+        Vector2 nextPosition = currentPosition + normalizedDirection * moveDistance;
+        return nextPosition;
     }
 }

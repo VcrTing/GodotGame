@@ -82,11 +82,12 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     {
         int yichu = 0;
         healthExtra -= damage;
-        if (healthExtra < 0)
+        if (healthExtra <= 0)
         {
             yichu = -healthExtra;
             healthExtra = 0;
             RunningJudgeChanging(EnumWhenChangingType.LoseViewExtra);
+            ExtraObj = EnumWhatYouObj.None;
         }
         SwitchExtraLiveAnimation(healthExtra, healthExtraInit);
         return yichu;
@@ -95,7 +96,7 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     {
         int yichu = 0;
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
             yichu = -health;
             health = 0;
@@ -161,7 +162,10 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     }
     public float GetMoveSpeedScale() => (fatherNode as IStatus)?.GetMoveSpeedScale() ?? 1f;
     public float GetAttackSpeedScale() => (fatherNode as IStatus)?.GetAttackSpeedScale() ?? 1f;
-    public float GetAnimationSpeedScale() => (fatherNode as IStatus)?.GetAnimationSpeedScale() ?? 1f;
+    public float GetAnimationSpeedScale() {
+        if (health <= 0) { return (fatherNode as IStatus)?.GetAnimationSpeedScaleNoCold() ?? 1f; }
+        return (fatherNode as IStatus)?.GetAnimationSpeedScale() ?? 1f;
+    }
 
     Node2D redEye;
     public void StartRedMode() => redEye.Visible = true;
@@ -217,16 +221,16 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
                 break;
         }
         enmyStatus = status;
-        if (status == EnumEnmyStatus.Move) (fatherNode as IMove)?.StartMove();
+        if (status == EnumEnmyStatus.Move || status == EnumEnmyStatus.Changing) (fatherNode as IMove)?.StartMove();
         else (fatherNode as IMove)?.PauseMove();
         //
         SetAnimationSpeedScale();
     }
 
     [Export]
-    public EnumMoveType MoveChangeBefore = EnumMoveType.LineRun;
+    public EnumMoveType MoveChangeBefore = EnumMoveType.LineWalk;
     [Export]
-    public EnumMoveType MoveChanging = EnumMoveType.LineRun;
+    public EnumMoveType MoveChanging = EnumMoveType.LineWalk;
     [Export]
     public EnumMoveType MoveChangeAfter = EnumMoveType.LineWalk;
     public EnumMoveType GetEnumMoveType()
@@ -235,11 +239,12 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         if (IsChanged) return MoveChangeAfter;
         return MoveChangeBefore;
     }
-
-    public float HasChangeAction() => 2f;
+    [Export]
+    public float ChangingTime = 2f;
+    public float HasChangeAction() => ChangingTime;
     public bool StartChangeAction()
     {
-        SwitchStatus(EnumEnmyStatus.Changing); __changeTime = 0.01f; return true;
+        SwitchStatus(EnumEnmyStatus.Changing); __changeTime = 0.0001f; StartChange(); return true;
     }
     public bool EndChangeAction()
     {
@@ -277,6 +282,11 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         SwitchStatus(EnumEnmyStatus.Outro);
         return true;
     }
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
+    {
+        throw new NotImplementedException();
+    }
+    public float GetAnimationSpeedScaleNoCold() => 1f;
 
     bool IsChanged = false;
     float __introAniTime = 0f;
@@ -302,8 +312,8 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
             if (__changeTime > HasChangeAction())
             {
                 __changeTime = 0f;
-                EndChange();
                 EndChangeAction();
+                EndChange();
             }
         }
     }
@@ -347,6 +357,9 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         EnmyCenter.Instance?.PlayAlonePaoxiao(ObjName, this.GlobalPosition);
     }
     // 改变
+    void StartChange()
+    {
+    }
     void DoingChange(float delta)
     {
         //
@@ -355,10 +368,5 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     {
         //  
         // GD.Print("ZombiSAndExtra.EndChange");
-    }
-
-    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
-    {
-        throw new NotImplementedException();
     }
 }

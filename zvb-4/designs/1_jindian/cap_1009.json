@@ -16,7 +16,7 @@
     
     "initshooter": "PeaCold",
     "initmiaolist": [
-        "SunFlower", "RewordFlower", "LanMei", "Xigua", "PaoGu", "ShiLiu"
+        "SunFlower", "LanMei", "Xigua", "PaoGu", "ShiLiu", "PeaDouble"
     ],
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,

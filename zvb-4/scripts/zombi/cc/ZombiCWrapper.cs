@@ -32,7 +32,6 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
             if (beHurt != null)
             {
                 bool isAlive = beHurt.BeHurt(objType, damage, enumHurts);
-                GD.Print("alive = " + isAlive);
                 if (!isAlive) { Die(objType, damage, enumHurts); }
             }
             // 处理减速
@@ -54,7 +53,6 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
             if (enumHurts != EnumHurts.Boom) // 炸弹不播放死亡动画
             {
                 dieTime = actionExtra.HasDieAction();
-                GD.Print("死亡动画时间 = " + dieTime);
                 if (dieTime > 0f)
                 {
                     actionExtra.DoDieAction();
@@ -63,7 +61,6 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
             }
             else
             {
-                GD.Print("死亡动画时间 2 = " + dieTime);
                 await ToSignal(GetTree().CreateTimer(dieTime), "timeout");
             }
         }
@@ -248,6 +245,10 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
     {
         return animationSpeedScale * InitMoveSpeedScale * RedEyeScale;
     }
+    public float GetAnimationSpeedScaleNoCold()
+    {
+        return 1f * InitMoveSpeedScale * RedEyeScale;
+    }
     public float GetBeHurtScale()
     {
         return 1f * InitBeHurtScale;
@@ -281,18 +282,15 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
         RedEyeScale = EnmyTypeConstans.RedEyeScale;
         (bodyNode as IEnmy)?.StartRedMode();
     }
-
     public void EndRedMode()
     {
         RedEyeScale = 1f;
         (bodyNode as IEnmy)?.EndRedMode();
     }
-
     public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
     {
         throw new NotImplementedException();
     }
-
     public EnumWhatYouObj GetWhatYouObj() => (EnumWhatYouObj)((bodyNode as IEnmy)?.GetWhatYouObj());
 
 }

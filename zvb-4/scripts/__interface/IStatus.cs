@@ -14,6 +14,7 @@ namespace ZVB4.Interface
         float GetMoveSpeedScale();
         float GetAttackSpeedScale();
         float GetAnimationSpeedScale();
+        float GetAnimationSpeedScaleNoCold();
 
     }
 }
