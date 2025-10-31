@@ -6,16 +6,17 @@ namespace ZVB4.Conf
 
         // 直线步行
         LineWalk = 1,
+        WalkToPalyer = 11,
         // 间歇性步行
-        LineWalkFast = 11,
+        LineWalkFast = 2,
         // 直线跑步
-        LineRun = 2,
+        LineRun = 3,
         // 间歇性跑步
-        RunToPalyer = 21,
+        RunToPalyer = 31,
         // 直线加速跑步
-        LineRunFast = 3,
+        LineRunFast = 4,
         // 间歇性加速跑步
-        IntermittentRunFast = 31,
+        IntermittentRunFast = 41,
 
     }
 }

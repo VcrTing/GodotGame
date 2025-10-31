@@ -286,8 +286,11 @@ y_sort_enabled = true
 script = ExtResource("1_wmr5c")
 ObjName = "zombi_glq"
 ExtraObj = 13
+MoveChangeBefore = 3
+MoveChanging = 31
+MoveChangeAfter = 31
 IntroAniTime = 0.001
-WhenChangingType = 0
+WhenChangingType = 1
 
 [node name="ViewExtra" type="AnimatedSprite2D" parent="."]
 z_index = 20

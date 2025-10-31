@@ -4,25 +4,25 @@
     "shootershootratio": 1,
     "shooterlowestattackspeedratio": 1,
 
-    "initsun": 4000,
+    "initsun": 3000,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 190,
     
     "initpeng": 8,
     "allowmiaolist": [
-        "SunFlower", "JianGuo", "Cherry", "Pea", 
+        "SunFlower", "JianGuo", "Cherry", 
         "YangTao", "PeaDouble"
     ],
     
     "initshooter": "YangTao",
     "initmiaolist": [
-        "SunFlower", "SunFlower", "YangTao"
+        "SunFlower", "SunFlower", "YangTao", "YangTao"
     ],
     "enmyspeedattackscale": 2.0,
     "enmyspeedmovescale": 1.2,
     "enmyviewscale": 0.68,
-    "enmybehurtscale": 4.0,
+    "enmybehurtscale": 5.0,
 
     "enmys": {
         "4": [

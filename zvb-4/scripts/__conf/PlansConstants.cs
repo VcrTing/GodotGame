@@ -131,10 +131,10 @@ namespace ZVB4.Conf
         {
             { Pea, 0 },
             { PeaCold, 30 + BaseShootNum },
-            { PeaDouble, 20 + BaseShootNum },
+            { PeaDouble, 24 + BaseShootNum },
             { Xigua, 12 + BaseShootNum },
             { LanMei, 18 + BaseShootNum },
-            { YangTao, 14 + BaseShootNum },
+            { YangTao, 18 + BaseShootNum },
             { ShiLiu, 16 + BaseShootNum },
             { PaoGu, 18 + BaseShootNum },
             { XiguaBing, 8 + BaseShootNum },

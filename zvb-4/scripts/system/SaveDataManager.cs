@@ -24,7 +24,7 @@ public partial class SaveDataManager : Node
 
     public void ResetData() {
         if (_playerData == null) { LoadPlayerData(); }
-        _playerData.Money = 200;
+        _playerData.Money = 3000;
         _playerData.PlansUnLock = "_" + PlansConstants.Pea + "_" + "_" + PlansConstants.SunFlower + "_";
         _playerData.ShooterUnLimit = "_" + PlansConstants.Pea + "_";
         _playerData.ShooterBaseLast = PlansConstants.Pea;
@@ -127,7 +127,7 @@ public partial class SaveDataManager : Node
         if (_playerData != null)
         {
             _playerData.Money += value;
-            // GD.Print("AddMoneyAndSave: " + value + " total: " + _playerData.Money);
+            GD.Print("AddMoneyAndSave: " + value + " total: " + _playerData.Money);
             SavePlayerData();
         }
     }

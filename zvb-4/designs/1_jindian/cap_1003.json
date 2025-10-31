@@ -49,13 +49,13 @@
                 "lazyme": 2
             }
         ],
-        "32": [
+        "35": [
             {
-                "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_mu_tong" ],
-                "typesmode": "random",
+                "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_tie_tong", "zombi_s", "zombi_tie_tong", "zombi_mu_tong" ],
+                "typesmode": "next",
                 "generator": [ 2, 4, 10, 1, 5, 8 ],
-                "generatormode": "random",
-                "lazyme": 2
+                "generatormode": "next",
+                "lazyme": 3
             }
         ]
     }

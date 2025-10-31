@@ -115,7 +115,9 @@ fill_to = Vector2(0.75, 0.8)
 y_sort_enabled = true
 script = ExtResource("1_je6ml")
 ObjName = "zombi_ji"
-MoveChangeAfter = 2
+MoveChangeBefore = 3
+MoveChanging = 3
+MoveChangeAfter = 3
 IntroAniTime = 0.001
 WhenChangingType = 0
 

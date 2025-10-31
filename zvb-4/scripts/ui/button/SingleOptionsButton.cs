@@ -13,9 +13,7 @@ public partial class SingleOptionsButton : TextureButton
     [Export]
     public EnumOptions ButtonType = EnumOptions.NextScene;
 
-
     public static SingleOptionsButton Instance { get; private set; }
-
 
     public override void _Ready()
     {
@@ -72,7 +70,17 @@ public partial class SingleOptionsButton : TextureButton
                 GD.PrintErr("SingleOptionsButton: Unknown ButtonType " + ButtonType);
                 break;
         }
+        RunningEveryOptions();
+    }
+
+    void RunningEveryOptions()
+    {
         SystemController.Instance.ResumeGame();
+        var mcs = MoneyCenterSystem.Instance;
+        if (mcs != null)
+        {
+            mcs.AsyncMoneyValue();
+        }
     }
 
     void PrevScene()

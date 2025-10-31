@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bnuxrd2qq1hba"]
+[gd_scene load_steps=39 format=3 uid="uid://bnuxrd2qq1hba"]
 
 [ext_resource type="Script" uid="uid://cbalors4fy6na" path="res://scripts/zombi/TextureZombiS/ZombiSAndExtra.cs" id="1_wmr5c"]
 [ext_resource type="Texture2D" uid="uid://0fgekogoqbpj" path="res://pngs/zombiextra/MaoZi.png" id="2_3kbd0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bmt04j2ea8wfb" path="res://pngs/zombi/zombi_s_hui.png" id="3_567s2"]
 [ext_resource type="Texture2D" uid="uid://mv7623rk8xff" path="res://pngs/zombi/new_zombi_s_walk30_n_die.png" id="4_yebru"]
 [ext_resource type="Texture2D" uid="uid://cp3cqqvvtoj76" path="res://pngs/test/ice_frezz.png" id="5_r7vw5"]
+[ext_resource type="Texture2D" uid="uid://ci182lfnqs42t" path="res://pngs/zombiextra/MaoZi_60.png" id="6_fwd5b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_csi2b"]
 atlas = ExtResource("2_7j41l")
@@ -212,6 +213,18 @@ animations = [{
 atlas = ExtResource("2_3kbd0")
 region = Rect2(0, 0, 200, 200)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj1q7"]
+atlas = ExtResource("6_fwd5b")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3qmg"]
+atlas = ExtResource("6_fwd5b")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shb3c"]
+atlas = ExtResource("6_fwd5b")
+region = Rect2(0, 0, 200, 200)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_o3qmg"]
 animations = [{
 "frames": [{
@@ -240,7 +253,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fwd5b")
+"texture": SubResource("AtlasTexture_mj1q7")
 }],
 "loop": true,
 "name": &"live30",
@@ -248,7 +261,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fwd5b")
+"texture": SubResource("AtlasTexture_o3qmg")
 }],
 "loop": true,
 "name": &"live60",
@@ -256,7 +269,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fwd5b")
+"texture": SubResource("AtlasTexture_shb3c")
 }],
 "loop": true,
 "name": &"outro",
@@ -310,7 +323,7 @@ y_sort_enabled = true
 position = Vector2(1.2, -31)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_o3qmg")
-animation = &"intro"
+animation = &"live"
 autoplay = "default"
 
 [node name="IceFreeze" type="AnimatedSprite2D" parent="."]

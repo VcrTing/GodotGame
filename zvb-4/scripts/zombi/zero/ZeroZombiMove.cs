@@ -45,20 +45,23 @@ public partial class ZeroZombiMove : Node2D
             switch (_parentMove.GetEnumMoveType())
             {
                 case EnumMoveType.LineWalk:
-                    pos = LineWalk(pos, delta, 1f);
+                    pos = Move(pos, delta, 1f);
                     break;
                 case EnumMoveType.LineRun:
                     pos = LineRun(pos, delta);
                     break;
                 case EnumMoveType.LineWalkFast:
-                    pos = LineWalk(pos, delta, 1.6f);
+                    pos = Move(pos, delta, 1.6f);
                     break;
                 case EnumMoveType.LineRunFast:
                     __fastTime += (float)delta;
                     pos = LineRunFast(pos, delta);
                     break;
                 case EnumMoveType.RunToPalyer:
-                    pos = RunToPlayer(pos, delta);
+                    pos = RunToPlayer(pos, delta, 2.7f);
+                    break;
+                case EnumMoveType.WalkToPalyer:
+                    pos = RunToPlayer(pos, delta, 1.2f);
                     break;
                 default:
                     break;
@@ -76,8 +79,8 @@ public partial class ZeroZombiMove : Node2D
     // 随机一点移速
     public float GetRandomSpeedRatio()
     {
-        float f = __random / 500f;
-        return f + 0.95f;
+        float f = __random / 1000f;
+        return f + 0.98f;
     }
 
     // 根据移动时机，曲线加速
@@ -94,7 +97,7 @@ public partial class ZeroZombiMove : Node2D
         float scale = _parentStatus.GetMoveSpeedScale();
         return speedBase * scale;
     }
-    public Vector2 LineWalk(Vector2 pos, double delta, float ratio)
+    public Vector2 Move(Vector2 pos, double delta, float ratio)
     {
         float sp = QuXianJiaSu(ParentMoveSpeed, ratio);
         pos += MoveDirection.Normalized() * sp * (float)delta * GetRandomSpeedRatio();
@@ -119,9 +122,13 @@ public partial class ZeroZombiMove : Node2D
         return pos;
     }
     //
-    public Vector2 RunToPlayer(Vector2 pos, double delta)
+    void RefreshDirection(Vector2 pos)
     {
-        float sp = QuXianJiaSu(ParentMoveSpeed, 2f) * (float)delta * GetRandomSpeedRatio();
-        return GameTool.GetNextPosition(pos, PlayerPosition, sp, (float)delta);
+        MoveDirection = PlayerPosition - pos;
+    }
+    public Vector2 RunToPlayer(Vector2 pos, double delta, float ratio)
+    {
+        RefreshDirection(pos);
+        return Move(pos, delta, ratio);
     }
 }

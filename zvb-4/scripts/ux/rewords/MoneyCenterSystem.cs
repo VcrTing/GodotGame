@@ -29,6 +29,7 @@ public partial class MoneyCenterSystem : Control
         UpdateMoneyLabel(v);
         AsyncMoneyValue();
         ShowMe();
+        __vt = 0.0001f;
     }
     bool show = false;
     float stayTime = 2f;
@@ -48,18 +49,20 @@ public partial class MoneyCenterSystem : Control
         {
             if (value < 0) { value = -value; }
             v += value;
+            // GD.Print("vv" + value + " v =" + v);
             UpdateMoneyLabel(v);
             ShowMe();
         }
     }
-    void AsyncMoneyValue()
+    // 第5关 保底 950 金币
+    public void AsyncMoneyValue()
     {
         __vt = 0.0001f;
         if (SaveDataManager.Instance != null)
         {
-            SaveDataManager.Instance.AddMoneyAndSave(prev - v);
-            prev = v;
+            SaveDataManager.Instance.AddMoneyAndSave(v - prev);
             UpdateMoneyLabel(v);
+            prev = v;
             stayTime = 2f;
         }
     }
@@ -79,7 +82,7 @@ public partial class MoneyCenterSystem : Control
     {
         if (__vt > 0f)
         {
-            __vt -= (float)delta;
+            __vt += (float)delta;
             if (__vt > 0.5f)
             {
                 AsyncMoneyValue();
