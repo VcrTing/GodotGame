@@ -31,7 +31,7 @@ public static class UiTool {
             GD.PrintErr("PrevScene error: " + ex.Message);
         }
     }
-    public static async void NextScene(TextureButton node, string ScenePath)
+    public static async void NextScene(CanvasItem node, string ScenePath)
     {
         try
         {
@@ -46,6 +46,21 @@ public static class UiTool {
         {
             GD.PrintErr("NextScene error: " + ex.Message);
         }
+    }
+
+    //
+    public static void OpenBaseShooterOrStartGame(CanvasItem canvasItem, int capnum)
+    {
+        if (ChapterTool.NeedOpenBaseShooterPopup(capnum))
+        {
+            var bss = BaseShooterSwitcherPopup.Instance;
+            if (bss != null)
+            {
+                BaseShooterSwitcherPopup.Instance.ShowPopup();
+                return;
+            }
+        }
+        NextScene(canvasItem, FolderConstants.Scenes + ChapterTool.GetChapterSceneName(capnum));
     }
     
     public static async void Reload()

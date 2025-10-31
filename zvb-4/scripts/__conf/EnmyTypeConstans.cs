@@ -5,44 +5,56 @@ namespace ZVB4.Conf
 {
     public static class EnmyTypeConstans
     {
-        public const string ZombiM = "zombi_m";
-        public const string ZombiS = "zombi_s";
-        public const string ZombiJi = "zombi_ji";
-        public const string ZombiGlq = "zombi_glq";
+        public const string ZombiM = "zombi_m"; // 1
+        public const string ZombiS = "zombi_s"; // 2
+        public const string ZombiJi = "zombi_ji"; // 0.5
+        public const string ZombiGlq = "zombi_glq"; // 13
         public const string ZombiCgt = "zombi_cgt";
-        public const string ZombiMuTong = "zombi_mu_tong";
-        public const string ZombiTieTong = "zombi_tie_tong";
+        public const string ZombiBaozhi = "zombi_baozhi"; // 5
+        public const string ZombiMaozi = "zombi_maozi"; // 3
+        public const string ZombiMuTong = "zombi_mu_tong"; // 4
+        public const string ZombiTieTong = "zombi_tie_tong"; // 8
+        public const string ZombiGangMen = "zombi_gang_men"; // 10
 
         // 存储血量的字典
         public static readonly Dictionary<string, int> HpDict = new Dictionary<string, int>()
         {
             { ZombiM, (int)EnumHealth.One },
             { ZombiS, (int)EnumHealth.Two },
+            { ZombiMaozi, (int)EnumHealth.Two },
             { ZombiMuTong, (int)EnumHealth.Two },
             { ZombiTieTong, (int)EnumHealth.Two },
-
+            { ZombiBaozhi, (int)EnumHealth.Three },
             { ZombiJi, (int)EnumHealth.Tiny },
-            { ZombiGlq, (int)EnumHealth.Two },
+            { ZombiGlq, (int)EnumHealth.Three },
+            { ZombiGangMen, (int)EnumHealth.Two },
         };
 
         // 存储额外血量的字典
         public static readonly Dictionary<string, int> ExtraHpDict = new Dictionary<string, int>()
         {
+            { ZombiMaozi, (int)EnumHealth.One },
             { ZombiMuTong, (int)EnumHealth.Two },
-            { ZombiTieTong, (int)EnumHealth.Four },
-            { ZombiGlq, (int)EnumHealth.Eight },
+            { ZombiBaozhi, (int)EnumHealth.Two },
+            { ZombiTieTong, (int)EnumHealth.Six },
+            { ZombiGangMen, (int)EnumHealth.Eight },
+            { ZombiGlq, (int)EnumHealth.Ten },
         };
 
         // 储存速度的字典
         public static readonly Dictionary<string, float> SpeedDict = new Dictionary<string, float>()
         {
-            { ZombiJi, 70f },
-            { ZombiM, 20f },
-            { ZombiGlq, 20f },
             { ZombiCgt, 20f },
             { ZombiS, 20f },
+            { ZombiMaozi, 30f },
             { ZombiMuTong, 15f },
-            { ZombiTieTong, 10f }
+            { ZombiTieTong, 10f },
+            { ZombiBaozhi, 10f },
+            { ZombiGangMen, 20f },
+
+            { ZombiJi, 70f }, // run
+            { ZombiM, 20f }, // run
+            { ZombiGlq, 15f }, // run
         };
 
         static int BaseDamage = (int)EnumHealth.One / 6;
@@ -104,7 +116,7 @@ namespace ZVB4.Conf
         public static bool GenerateZombiTexture(Node2D father, string key)
         {
             string folder = "texture/";
-            if (key.Contains("_cgt")) {
+            if (key.Contains("_cgt") || key.Contains("_baozhi")) {
                 folder = "texture_cc/";
             }
             var textureScene = GD.Load<PackedScene>(FolderConstants.WaveEnemy + folder + key + "_texture.tscn");

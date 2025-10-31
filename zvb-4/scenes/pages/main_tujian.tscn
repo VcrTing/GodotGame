@@ -182,40 +182,51 @@ text = "射手类型"
 
 [node name="TuJianPlansCard" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
+PlansName = "Pea"
 
 [node name="TuJianPlansCard7" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansshooter/PeaCold.json"
+PlansName = "PeaCold"
 
 [node name="TuJianPlansCard5" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansshooter/PeaDouble.json"
+PlansName = "PeaDouble"
 
 [node name="TuJianPlansCard3" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansshooter/LanMei.json"
+PlansName = "LanMei"
 
 [node name="TuJianPlansCard9" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansshooter/Xigua.json"
+PlansName = "PaoGu"
 
 [node name="TuJianPlansCard2" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansshooter/YangTao.json"
+PlansName = "YangTao"
 
 [node name="TuJianPlansCard4" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansdiancang/XiguaBing.json"
+PlansName = "Xigua"
 SceneLocX = 100.0
 
 [node name="TuJianPlansCard6" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansdiancang/PeaGold.json"
+PlansName = "ShiLiu"
 SceneLocX = 100.0
 
 [node name="TuJianPlansCard8" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansdiancang/Yezi.json"
+PlansName = "XiguaBing"
+SceneLocX = 100.0
+
+[node name="TuJianPlansCard11" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+PlansName = "PeaGold"
+SceneLocX = 100.0
+
+[node name="TuJianPlansCard10" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+PlansName = "Yezi"
 SceneLocX = 100.0
 
 [node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer"]
@@ -259,19 +270,23 @@ text = "普通类型"
 
 [node name="TuJianPlansCard" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/planszhongzhi/SunFlower.json"
+PlansName = "SunFlower"
 
 [node name="TuJianPlansCard2" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/planszhongzhi/JianGuo.json"
+PlansName = "JianGuo"
 
 [node name="TuJianPlansCard3" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/planszhongzhi/XianRenQiu.json"
+PlansName = "XianRenQiu"
 
 [node name="TuJianPlansCard5" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/planszhongzhi/RewordFlower.json"
+PlansName = "RewordFlower"
+
+[node name="TuJianPlansCard4" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+PlansName = "SunGu"
 
 [node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 120)
@@ -314,19 +329,19 @@ text = "普通类型"
 
 [node name="TuJianPlansCard" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansonce/Cherry.json"
+PlansName = "Cherry"
 
 [node name="TuJianPlansCard4" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansonce/XiHongShi.json"
+PlansName = "LaJiao"
 
 [node name="TuJianPlansCard2" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansonce/LaJiao.json"
+PlansName = "XiHongShi"
 
 [node name="TuJianPlansCard3" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
-CardPath = "tujian/plansonce/IceFlower.json"
+PlansName = "IceFlower"
 
 [node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 120)

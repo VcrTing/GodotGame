@@ -52,19 +52,21 @@ public partial class Money : RigidBody2D, IWorking, IReword
     float speed = 440f;
     public async void Init()
     {
+        string n = SunMoneyConstants.GetRnadomMoneyName();
+        value = SunMoneyConstants.GetMoneyValue(n);
+        //
         view = GodotTool.GetViewAndAutoPlay(this);
         int rd = (int)GD.RandRange(0, 50);
         float v = 1.1f - (rd / 100f);
         originScale = v;
         Scale = new Vector2(originScale, originScale);
         // GD.Print("原始缩放 =" + v);
-        speed += ((float)rd * 10);
-        GravityScale = GravityScale + (rd / 100f);
+        speed += ((float)rd * 8);
+        speed += (value * 10f);
+        GravityScale = GravityScale + (rd / 200f) + (value / 100f);
         // LLL
         TanShe();
 
-        string n = SunMoneyConstants.GetRnadomMoneyName();
-        value = SunMoneyConstants.GetMoneyValue(n);
         await ToSignal(GetTree().CreateTimer(1.5f + (rd / 200f)), "timeout");
         init = true;
         Init(n, 1, value);

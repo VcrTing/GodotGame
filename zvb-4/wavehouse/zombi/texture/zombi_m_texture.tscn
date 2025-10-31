@@ -188,7 +188,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"outro",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -289,6 +289,7 @@ sprite_frames = SubResource("SpriteFrames_5qj52")
 y_sort_enabled = true
 position = Vector2(0, 10)
 sprite_frames = SubResource("SpriteFrames_00yj6")
+animation = &"outro"
 autoplay = "default"
 
 [node name="ViewRed" type="Node2D" parent="."]

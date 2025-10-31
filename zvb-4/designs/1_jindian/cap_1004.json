@@ -10,10 +10,10 @@
     
     "initpeng": 7,
     "allowmiaolist": [
-        "SunFlower", "Pea", "JianGuo", "Cherry"
+        "SunFlower", "Pea", "PeaDouble", "JianGuo", "Cherry"
     ],
     
-    "initshooter": "Pea",
+    "initshooter": "PeaDouble",
     "initmiaolist": [
         "SunFlower", "JianGuo", "JianGuo", "JianGuo", "JianGuo", "Cherry"
     ],

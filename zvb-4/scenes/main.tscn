@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdrdpdmg6kgbx"]
+[gd_scene load_steps=10 format=3 uid="uid://cdrdpdmg6kgbx"]
 
 [ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://scenes/main/system_for_main.tscn" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://b3067rcwroi85" path="res://pngs/ui/logo.png" id="2_tbgi4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://nj1o4abovt5f" path="res://pngs/bg/post/mainbg.png" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://be6opc4lx5yyh" path="res://pngs/ui/store/Store.png" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://ds8nnj6ehnv3s" path="res://pngs/ui/main/Book.png" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://cs40gw6kt8ipo" path="res://pngs/fx/iceline.png" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://dtxmhhsjv7mos" path="res://scripts/ui/button/SingleOptionsButton.cs" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://bcspdiiythtei" path="res://pngs/bg/main/main2.jpeg" id="8_tipki"]
 
@@ -178,23 +179,31 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 2
 
-[node name="TextureRectShop" type="TextureRect" parent="CanvasLayer/MainBottomBar/HBoxContainer"]
+[node name="TextureRectRest" type="TextureRect" parent="CanvasLayer/MainBottomBar/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("4_o6xl0")
 
-[node name="SingleQubeButton" type="TextureButton" parent="CanvasLayer/MainBottomBar/HBoxContainer/TextureRectShop"]
+[node name="ControlRest" type="Control" parent="CanvasLayer/MainBottomBar/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="SingleQubeButton" type="TextureButton" parent="CanvasLayer/MainBottomBar/HBoxContainer/ControlRest"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("5_85g3d")
+stretch_mode = 0
 script = ExtResource("5_tefeu")
 NextSceneName = "main_shop.tscn"
-LabelText = "商城"
+LabelText = "重置数据"
+ButtonType = 99
 
-[node name="Label" type="Label" parent="CanvasLayer/MainBottomBar/HBoxContainer/TextureRectShop/SingleQubeButton"]
+[node name="Label" type="Label" parent="CanvasLayer/MainBottomBar/HBoxContainer/ControlRest/SingleQubeButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -211,23 +220,58 @@ theme_override_font_sizes/font_size = 36
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRectBook" type="TextureRect" parent="CanvasLayer/MainBottomBar/HBoxContainer"]
+[node name="ControlShop" type="Control" parent="CanvasLayer/MainBottomBar/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture = ExtResource("4_tbgi4")
 
-[node name="SingleQubeButton" type="TextureButton" parent="CanvasLayer/MainBottomBar/HBoxContainer/TextureRectBook"]
+[node name="SingleQubeButton" type="TextureButton" parent="CanvasLayer/MainBottomBar/HBoxContainer/ControlShop"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("4_o6xl0")
+stretch_mode = 0
+script = ExtResource("5_tefeu")
+NextSceneName = "main_shop.tscn"
+LabelText = "商城"
+
+[node name="Label" type="Label" parent="CanvasLayer/MainBottomBar/HBoxContainer/ControlShop/SingleQubeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlBook" type="Control" parent="CanvasLayer/MainBottomBar/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="SingleQubeButton" type="TextureButton" parent="CanvasLayer/MainBottomBar/HBoxContainer/ControlBook"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_tbgi4")
+stretch_mode = 0
 script = ExtResource("5_tefeu")
 NextSceneName = "main_tujian.tscn"
 LabelText = "图鉴"
 
-[node name="Label" type="Label" parent="CanvasLayer/MainBottomBar/HBoxContainer/TextureRectBook/SingleQubeButton"]
+[node name="Label" type="Label" parent="CanvasLayer/MainBottomBar/HBoxContainer/ControlBook/SingleQubeButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

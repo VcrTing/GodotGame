@@ -123,4 +123,56 @@ public static class CommonTool
             return value;
         }
     }
+    public static Godot.Collections.Array LoadJsonToArray(string CardsJsonPath)
+    {
+        if (string.IsNullOrEmpty(CardsJsonPath)) return null;
+        var file = FileAccess.Open(CardsJsonPath, FileAccess.ModeFlags.Read);
+        if (file == null) return null;
+        var json = file.GetAsText();
+        file.Close();
+        return (Godot.Collections.Array)Godot.Json.ParseString(json);
+    }
+    public static List<Godot.Collections.Dictionary> LoadJsonToListDict(string CardsJsonPath)
+    {
+        List<Godot.Collections.Dictionary> availableItems = new List<Godot.Collections.Dictionary>();
+        Godot.Collections.Array data = CommonTool.LoadJsonToArray(CardsJsonPath);
+        if (data == null) return null;
+        foreach (var obj in data)
+        {
+            var dict = (Godot.Collections.Dictionary)obj;
+            if (dict == null) continue;
+            availableItems.Add(dict);
+        }
+        return availableItems;
+    }
+
+    public static List<string> SplitStringToList(string sss)
+    {
+        List<string> plans = new List<string>();
+        string[] aa = sss.Split("__");
+        foreach (string a in aa)
+        {
+            if (a != null && a != "" && a.Length > 1)
+            {
+                plans.Add(a);
+            }
+        }
+        return plans;
+    }
+    
+    public static Godot.Collections.Dictionary LoadJsonToDict(string path) {
+        if (Godot.FileAccess.FileExists(path))
+        {
+            using var file = Godot.FileAccess.Open(path, Godot.FileAccess.ModeFlags.Read);
+            var jsonText = file.GetAsText();
+            var json = new Json();
+            var err = json.Parse(jsonText);
+            if (err == Error.Ok)
+            {
+                Godot.Collections.Dictionary cardData = json.Data.AsGodotDictionary();
+                return cardData;
+            }
+        }
+        return null;
+    }
 }

@@ -65,6 +65,9 @@ public partial class SingleOptionsButton : TextureButton
                 // 关闭游戏
                 GetTree().Quit();
                 break;
+            case EnumOptions.RestGameData:
+                SaveDataManager.Instance.ResetData();
+                break;
             default:
                 GD.PrintErr("SingleOptionsButton: Unknown ButtonType " + ButtonType);
                 break;
@@ -126,6 +129,6 @@ public partial class SingleOptionsButton : TextureButton
             if (isBackToMain) UiTool.BackToMainScene(this);
             return;
         }
-        UiTool.NextScene(this, FolderConstants.Scenes + ChapterTool.GetChapterSceneName(nextCap));
+        UiTool.OpenBaseShooterOrStartGame(this, nextCap);
     }
 }

@@ -40,6 +40,20 @@ public partial class PopOptionButton : TextureButton
                     StoreInGamePopup.Instance.ShowPopup();
                 }
                 break;
+            case "base_shooter":
+                if (IsClose)
+                {
+                    if (BaseShooterSwitcherPopup.Instance.IsVisible())
+                    {
+                        BaseShooterSwitcherPopup.Instance.HidePopup();
+                        return;
+                    }
+                }
+                else
+                {
+                    BaseShooterSwitcherPopup.Instance.ShowPopup();
+                }
+                break;
             default:
                 GD.Print($"PopOptionButton: Unknown key {k}");
                 break;

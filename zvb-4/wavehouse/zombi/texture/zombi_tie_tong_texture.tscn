@@ -236,7 +236,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"outro",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -318,7 +318,10 @@ autoplay = "default"
 y_sort_enabled = true
 scale = Vector2(1, 0.8)
 sprite_frames = SubResource("SpriteFrames_ityjn")
+animation = &"outro"
 autoplay = "default"
+frame = 2
+frame_progress = 1.0
 
 [node name="IceFreeze" type="AnimatedSprite2D" parent="."]
 visible = false

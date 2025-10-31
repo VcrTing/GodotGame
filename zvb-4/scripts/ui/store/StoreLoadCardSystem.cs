@@ -7,13 +7,10 @@ using ZVB4.Conf;
 
 public partial class StoreLoadCardSystem : BoxContainer
 {
-
     [Export]
     public string CardsJsonPath;
     public static StoreLoadCardSystem Instance { get; private set; }
-    List<string> excludeItems = new List<string>();
     List<Godot.Collections.Dictionary> availableItems = new List<Godot.Collections.Dictionary>();
-
     public override void _Ready()
     {
         Instance = this;
@@ -26,48 +23,22 @@ public partial class StoreLoadCardSystem : BoxContainer
 
     }
     string GetJsonPath() => FolderConstants.Designs + "store/" + CardsJsonPath;
-    //
     public void LoadAndFilterItems()
     {
-        availableItems.Clear();
-        if (string.IsNullOrEmpty(CardsJsonPath)) return;
-        var file = FileAccess.Open(GetJsonPath(), FileAccess.ModeFlags.Read);
-        if (file == null) return;
-        var json = file.GetAsText();
-        file.Close();
-        Godot.Collections.Array data = (Godot.Collections.Array)Godot.Json.ParseString(json);
-        if (data == null) return;
-        foreach (var obj in data)
-        {
-            var dict = (Godot.Collections.Dictionary)obj;
-            if (dict == null) continue;
-            if (dict.ContainsKey("name") && excludeItems.Contains(dict["name"].ToString()))
-                continue;
-            availableItems.Add(dict);
-        }
-        //
+        availableItems = CommonTool.LoadJsonToListDict(GetJsonPath());
         GenerateStoreCards();
     }
     // 批量生成卡片节点
     public void GenerateStoreCards()
     {
         if (availableItems.Count == 0) return;
-        // 先删掉自己所有的子节点
-        foreach (var child in GetChildren())
+        List<Control> controls = GodotTool.GenerateControlList(this, availableItems.Count, FolderConstants.Scenes + "card/shop_item_card.tscn");
+        for (int i = 0; i < availableItems.Count; i++)
         {
-            if (child is Node node)
-            {
-                node.QueueFree();
-            }
-        }
-        foreach (var dict in availableItems)
-        {
-            var scene = GD.Load<PackedScene>(FolderConstants.Scenes + "card/shop_item_card.tscn");
-            if (scene == null) continue;
-            var card = scene.Instantiate<Control>();
-            // 假设卡片有Init(dict)方法
-            AddChild(card);
-            if (card is ShopItemCard storeCard)
+            Control c = controls[i];
+            var dict = availableItems[i];
+            AddChild(c);
+            if (c is ShopItemCard storeCard)
             {
                 int id = GetItemId(dict);
                 string itemName = dict.ContainsKey("name") ? dict["name"].ToString() : "Pea";
@@ -115,29 +86,23 @@ public partial class StoreLoadCardSystem : BoxContainer
     public bool SetItemBuyed(int itemId, bool isBuyed)
     {
         List<System.Collections.Generic.Dictionary<string, object>> res = new List<System.Collections.Generic.Dictionary<string, object>>();
+        string plansName = null;
         foreach (var dict in availableItems)
         {
             int id = GetItemId(dict);
-            if (id == itemId) { dict["buyed"] = isBuyed ? 1 : 0; }
+            if (id == itemId) {
+                dict["buyed"] = isBuyed ? 1 : 0;
+                plansName = dict["name"].AsString();
+            }
             System.Collections.Generic.Dictionary<string, object> one = toSystemDict(dict);
             res.Add(one);
         }
-        return CommonTool.WriteDataToJson(res, GetJsonPath());
+        bool src = CommonTool.WriteDataToJson(res, GetJsonPath());
+        if (src && plansName != null)
+        {
+            GD.Print("顺便解锁植物 " + plansName);
+            SaveDataManager.Instance.UnlockPlans(plansName);
+        }
+        return src;
     }
 }
-
-    /*
-    __t += (float)delta;
-    if (__t >= __delay)
-    {
-        __t = 0f;
-        if (StoreInGamePopup.Instance != null)
-        {
-            if (__delay < 2f || !StoreInGamePopup.Instance.IsVisible())
-            {
-                LoadAndFilterItems();
-            }
-            __delay = GD.RandRange(1, 10) * 0.3f + 10f;
-        }
-    }
-    */

@@ -13,6 +13,7 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     public EnumWhatYouObj BodyObj { get; set; } = EnumWhatYouObj.ZombiSoftBody;
     [Export]
     public EnumWhatYouObj ExtraObj { get; set; } = EnumWhatYouObj.None;
+    public EnumWhatYouObj GetWhatYouObj() => ExtraObj;
 
     AnimatedSprite2D view;
     AnimatedSprite2D viewChanged;
@@ -42,9 +43,16 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         {
             DoBeHurtEffect(objType, damage, enumHurts);
         }
+        // 穿透
+        bool isonlyhurtbody = ZombiTool.IsOnlyHurtBody(ExtraObj, enumHurts);
+
         // 伤害计算
         int yichu = 0;
-        if (healthExtra > 0)
+        if (healthExtra <= 0 || isonlyhurtbody)
+        {
+            CostHealthBody(damage + yichu);
+        }
+        else
         {
             yichu = CostHealthExtra(damage);
             if (yichu > 0)
@@ -52,10 +60,7 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
                 CostHealthBody(yichu);
             }
         }
-        else
-        {
-            CostHealthBody(damage + yichu);
-        }
+
         // 死亡
         if (health <= 0)
         {
@@ -69,6 +74,8 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         {
             RunningJudgeChanging(EnumWhenChangingType.HealthBelowHalf);
         }
+
+        if (health <= 0) return false;
         return res > 0;
     }
     int CostHealthExtra(int damage)
@@ -316,7 +323,7 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     [Export]
     public float IntroAniTime = 1f;
     [Export]
-    public float OutroAniTime = 0.5f;
+    public float OutroAniTime = 0.66f;
     [Export]
     public EnumWhenChangingType WhenChangingType = EnumWhenChangingType.SeePlansFirst;
     // 进场

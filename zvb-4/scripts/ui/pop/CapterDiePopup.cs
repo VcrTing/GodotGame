@@ -11,6 +11,11 @@ public partial class CapterDiePopup : PopupPanel
         this.Hide();
         HidePopup();
 	}
+
+    void WhenHide()
+    {
+        SystemController.Instance?.ResumeGame();
+    }
     
     bool isShowing = false;
 

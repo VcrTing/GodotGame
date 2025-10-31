@@ -18,5 +18,7 @@ namespace ZVB4.Interface
         void JudgeOpenRedEyeMode(float redeyeratio);
         void StartRedMode();
         void EndRedMode();
+
+        EnumWhatYouObj GetWhatYouObj();
     }
 }

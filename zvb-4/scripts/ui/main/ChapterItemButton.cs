@@ -36,8 +36,10 @@ public partial class ChapterItemButton : TextureButton
         var manager = SaveGamerRunnerDataManger.Instance;
         if (manager == null) return;
         manager.SetCapterNumber(_cap);
-        string scenePath = FolderConstants.Scenes + ChapterTool.GetChapterSceneName(_cap);
-        GetTree().ChangeSceneToFile(scenePath);
+        // string scenePath = FolderConstants.Scenes + ChapterTool.GetChapterSceneName(_cap);
+        // GetTree().ChangeSceneToFile(scenePath);
+        UiTool.OpenBaseShooterOrStartGame(this, _cap);
+        // BaseShooterSwitcherPopup.Instance.ShowPopup();
     }
 
     public void SetChapter(EnumChapter chapter)

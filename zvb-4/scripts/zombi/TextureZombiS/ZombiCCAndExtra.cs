@@ -8,13 +8,13 @@ using ZVB4.Tool;
 
 public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionExtra, IStatus
 {
-    
     [Export]
     public string ObjName { get; set; } = EnmyTypeConstans.ZombiS;
     [Export]
     public EnumWhatYouObj BodyObj { get; set; } = EnumWhatYouObj.ZombiSoftBody;
     [Export]
     public EnumWhatYouObj ExtraObj { get; set; } = EnumWhatYouObj.None;
+    public EnumWhatYouObj GetWhatYouObj() => ExtraObj;
 
     AnimatedSprite2D view;
     AnimatedSprite2D viewChanged;
@@ -44,9 +44,16 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         {
             DoBeHurtEffect(objType, damage, enumHurts);
         }
+        // 穿透
+        bool isonlyhurtbody = ZombiTool.IsOnlyHurtBody(ExtraObj, enumHurts);
+
         // 伤害计算
         int yichu = 0;
-        if (healthExtra > 0)
+        if (healthExtra <= 0 || isonlyhurtbody)
+        {
+            CostHealthBody(damage + yichu);
+        }
+        else
         {
             yichu = CostHealthExtra(damage);
             if (yichu > 0)
@@ -54,10 +61,7 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
                 CostHealthBody(yichu);
             }
         }
-        else
-        {
-            CostHealthBody(damage + yichu);
-        }
+
         // 死亡
         if (health <= 0)
         {
@@ -71,6 +75,8 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         {
             RunningJudgeChanging(EnumWhenChangingType.HealthBelowHalf);
         }
+
+        if (health < 0) return false;
         return res > 0;
     }
     int CostHealthExtra(int damage)
@@ -112,8 +118,8 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
     public void HideIceFx() => iceFx.Visible = false;
     public void ShowIceFx() => iceFx.Visible = true;    public void SetColdFx(bool isCold)
     {
-        if (view != null) ViewTool.SetLvJingBlue(IsChanged ? viewChanged : view, 0.618f, isCold);
-        if (viewExtra != null) ViewTool.SetLvJingBlue(viewExtra, 0.618f, isCold);
+        if (view != null) ViewTool.SetLvJingBlue(IsChanged ? viewChanged : view, 0.5f, isCold);
+        if (viewExtra != null) ViewTool.SetLvJingBlue(viewExtra, 0.5f, isCold);
     }
     public void SetAnimationSpeedScale()
     {
@@ -121,7 +127,11 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         {
             view.SpeedScale = GetAnimationSpeedScale();
             viewChanged.SpeedScale = GetAnimationSpeedScale();
-            if (viewExtra != null) viewExtra.SpeedScale = GetAnimationSpeedScale();
+            try
+            {
+                if (viewExtra != null) viewExtra.SpeedScale = GetAnimationSpeedScale();
+            }
+            catch (Exception e) { }
         }
     }
     public bool DoFreeze(float time)
@@ -210,6 +220,8 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         enmyStatus = status;
         if (status == EnumEnmyStatus.Move) (fatherNode as IMove)?.StartMove();
         else (fatherNode as IMove)?.PauseMove();
+        //
+        SetAnimationSpeedScale();
     }
 
     [Export]
@@ -242,7 +254,7 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         viewChanged = GetNodeOrNull<AnimatedSprite2D>(NameConstants.ViewChanged);
         if (viewChanged == null)
         {
-            viewChanged = view;
+            viewChanged = GetNode<AnimatedSprite2D>(NameConstants.View);
         }
         viewExtra = GetNodeOrNull<AnimatedSprite2D>(NameConstants.ViewExtra);
         iceFx = GetNode<AnimatedSprite2D>(NameConstants.IceFreeze);
@@ -252,15 +264,12 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         Init();
     }
 
-    public float HasInitAction()
-    {
-        return IntroAniTime;
-    }
+    public float HasInitAction() => IntroAniTime;
     public bool DoInitAction()
     {
         SwitchStatus(EnumEnmyStatus.Intro);
-        StartIntro();
         __introAniTime = 0.00001f;
+        StartIntro();
         return true;
     }
     public float HasDieAction() => OutroAniTime;
@@ -329,6 +338,7 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
     }
     void EndIntro()
     {
+        // GD.Print("ZombiSAndExtra.EndIntro");
         IWorking iw = fatherNode as IWorking;
         // 开启工作
         if (iw != null) iw.SetWorkingMode(true);
@@ -345,6 +355,7 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
     void EndChange()
     {
         //  
+        // GD.Print("ZombiSAndExtra.EndChange");
     }
 
     public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)

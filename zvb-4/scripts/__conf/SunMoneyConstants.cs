@@ -17,6 +17,9 @@ namespace ZVB4.Conf
         public const int SunNormal2 = SunBase * 7;
         public const int SunLarge = SunBase * 10;
 
+        public const int MoneyLarge = 20;
+        public const int MoneyNormal = 10;
+
         // 攻击消耗字典
         public static readonly Dictionary<string, int> AttackCostDict = new Dictionary<string, int>
         {
@@ -64,9 +67,9 @@ namespace ZVB4.Conf
         //
         public static int GetMoneyValue(string n)
         {
-            if (n == MoneyG) return 50;
-            else if (n == MoneyS) return 25;
-            return 25;
+            if (n == MoneyG) return MoneyLarge;
+            else if (n == MoneyS) return MoneyNormal;
+            return MoneyNormal;
         }
         public static string GetRnadomMoneyName()
         {
@@ -119,14 +122,14 @@ namespace ZVB4.Conf
         {
             { PlansConstants.SunFlower, SunNormal },
             { PlansConstants.SunGu, SunSmall },
-            { PlansConstants.RewordFlower, SunNormal },
+            { PlansConstants.RewordFlower, MoneyNormal },
         };
         public static int GetSunPlansSunLevel1(string plansName) => SunPlansSunLevel1[plansName];
         public static readonly Dictionary<string, int> SunPlansSunLevel2 = new Dictionary<string, int>
         {
             { PlansConstants.SunFlower, SunNormal },
             { PlansConstants.SunGu, SunNormal2 },
-            { PlansConstants.RewordFlower, SunNormal },
+            { PlansConstants.RewordFlower, MoneyNormal },
         };
         public static int GetSunPlansSunLevel2(string plansName) => SunPlansSunLevel2[plansName];
 

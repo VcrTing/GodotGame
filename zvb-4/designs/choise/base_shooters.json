@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Pea", "id": 1,
+        "price": 0, "x": 150, "y": 130, "viewscale": 1
+    },
+    {
+        "name": "PeaCold", "id": 2,
+        "price": 3000, "x": 120, "y": 110, "viewscale": 1
+    },
+    {
+        "name": "PeaDouble", "id": 3,
+        "price": 10000, "x": 120, "y": 110, "viewscale": 1
+    },
+    {
+        "name": "LanMei", "id": 4,
+        "price": 18000, "x": 120, "y": 110, "viewscale": 1
+    },
+    {
+        "name": "PaoGu", "id": 5,
+        "price": 30000, "x": 120, "y": 110, "viewscale": 1
+    }
+]

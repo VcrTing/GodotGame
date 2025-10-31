@@ -129,6 +129,7 @@ z_index = 999
 y_sort_enabled = true
 scale = Vector2(4.2, 4.2)
 script = ExtResource("1_3rvto")
+hurtType = 15
 
 [node name="UxArea" type="Area2D" parent="."]
 y_sort_enabled = true

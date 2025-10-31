@@ -14,7 +14,6 @@ public partial class MoneyCenterSystem : Control
     private Label _countShowLabel;
     public int v = 0;
     public int prev = 0;
-    // Node working;
 
     public override void _Ready()
     {
@@ -30,7 +29,6 @@ public partial class MoneyCenterSystem : Control
         UpdateMoneyLabel(v);
         AsyncMoneyValue();
         ShowMe();
-        SaveDataManager.Instance.SetMoneyAndSave(80000);
     }
     bool show = false;
     float stayTime = 2f;

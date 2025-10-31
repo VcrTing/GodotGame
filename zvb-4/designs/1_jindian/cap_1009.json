@@ -10,13 +10,13 @@
     
     "initpeng": 8,
     "allowmiaolist": [
-        "SunFlower", "JianGuo", "Cherry", "Pea", "PeaDouble", "PeaCold", 
-        "LanMei", "RewordFlower", "XiHongShi"
+        "SunFlower", "JianGuo", "Cherry", "Pea", "RewordFlower", "PeaCold", "PeaDouble", "XiHongShi",
+        "LanMei"
     ],
     
-    "initshooter": "Pea",
+    "initshooter": "PeaCold",
     "initmiaolist": [
-        "SunFlower", "RewordFlower", "XiHongShi", "XiHongShi", "XiHongShi"
+        "SunFlower", "RewordFlower", "LanMei", "Xigua", "PaoGu", "ShiLiu"
     ],
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,
@@ -24,13 +24,23 @@
     "enmybehurtscale": 1,
 
     "enmys": {
-        "5": [
+        "3": [
             {
-                "types": [ "boos_snake" ],
+                "types": [ "zombi_gang_men", "zombi_baozhi", "zombi_maozi" ],
                 "typesmode": "next",
-                "generator": [ 1 ],
-                "generatormode": "far",
-                "lazyme": 2
+                "generator": [ 1, 6, 10 ],
+                "generatormode": "next",
+                "lazyme": 3
+            }
+        ],
+        
+        "102": [
+            {
+                "types": [ "zombi_gang_men", "zombi_baozhi", "zombi_maozi" ],
+                "typesmode": "next",
+                "generator": [ 1, 6, 10 ],
+                "generatormode": "next",
+                "lazyme": 1
             }
         ]
     }

@@ -22,11 +22,11 @@
     "initmiaolist": [
         "SunGu", "SunGu", "SunGu", "XianRenQiu", "XianRenQiu", "XianRenQiu"
     ],
-    "attackstarts": [ 7.5, 29.5, 49.5, 79.5, 96.5, 109.5, 129.5, 134.5, 144.5 ],
+    "attackstarts": [ 7.5, 29.5, 49.5, 59.5, 79.5, 99.5, 119.5, 139.5, 154.5, 164.5 ],
     "enmys": {
         "8": [
             {
-                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s" ],
+                "types": [ "zombi_s", "zombi_maozi", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_maozi", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_maozi" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
@@ -44,8 +44,8 @@
         ],
         "30": [
             {
-                "types": [ "zombi_mu_tong", "zombi_s", "zombi_m", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_s", "zombi_s", "zombi_mu_tong" ],
-                "typesmode": "next",
+                "types": [ "zombi_mu_tong", "zombi_s", "zombi_m", "zombi_mu_tong", "zombi_s", "zombi_maozi", "zombi_mu_tong", "zombi_s", "zombi_maozi", "zombi_mu_tong" ],
+                "typesmode": "random",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
                 "lazyme": 1, "redeyeratio": 0.6
@@ -75,10 +75,19 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
+                "lazyme": 0, "redeyeratio": 0.4
+            }
+        ],
+        "60": [
+            {
+                "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
                 "lazyme": 4, "redeyeratio": 0.4
             }
         ],
-        "57": [
+        "67": [
             {
                 "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
                 "typesmode": "next",
@@ -87,7 +96,7 @@
                 "lazyme": 2, "redeyeratio": 0
             }
         ],
-        "70": [
+        "80": [
             {
                 "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
                 "typesmode": "next",
@@ -96,16 +105,16 @@
                 "lazyme": 4, "redeyeratio": 0
             }
         ],
-        "90": [
+        "100": [
             {
-                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "types": [ "zombi_s", "zombi_s", "zombi_maozi", "zombi_s", "zombi_s", "zombi_maozi", "zombi_s", "zombi_s", "zombi_maozi", "zombi_s" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
                 "lazyme": 0, "redeyeratio": 1
             }
         ],
-        "97": [
+        "105": [
             {
                 "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
                 "typesmode": "next",
@@ -114,7 +123,7 @@
                 "lazyme": 0, "redeyeratio": 1
             }
         ],
-        "105": [
+        "110": [
             {
                 "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
                 "typesmode": "next",
@@ -124,7 +133,7 @@
             }
         ],
         
-        "110": [
+        "115": [
             {
                 "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
                 "typesmode": "next",
@@ -134,7 +143,7 @@
             }
         ],
         
-        "115": [
+        "120": [
             {
                 "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
                 "typesmode": "next",
@@ -143,16 +152,16 @@
                 "lazyme": 4, "redeyeratio": 0
             }
         ],
-        "120": [
+        "127": [
             {
-                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+                "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
                 "typesmode": "next",
                 "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ],
                 "generatormode": "next",
                 "lazyme": 2, "redeyeratio": 0.3
             }
         ],
-        "125": [
+        "140": [
             {
                 "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
                 "typesmode": "next",
@@ -161,7 +170,7 @@
                 "lazyme": 4, "redeyeratio": 0.5
             }
         ],
-        "130": [
+        "145": [
             {
                 "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
                 "typesmode": "next",
@@ -170,7 +179,7 @@
                 "lazyme": 4, "redeyeratio": 1
             }
         ],
-        "135": [
+        "155": [
             {
                 "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
                 "typesmode": "next",
@@ -179,7 +188,7 @@
                 "lazyme": 0, "redeyeratio": 1
             }
         ],
-        "140": [
+        "160": [
             {
                 "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
                 "typesmode": "next",
@@ -188,7 +197,7 @@
                 "lazyme": 0, "redeyeratio": 1
             }
         ],
-        "145": [
+        "165": [
             {
                 "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
                 "typesmode": "next",

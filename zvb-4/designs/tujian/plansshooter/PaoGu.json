@@ -1,0 +1,7 @@
+{
+    "name": "PaoGu",
+    "nickname": "紫泡泡蘑菇",
+    "scenepath": "plans/plansshooter/pao_gu.tscn",
+    "info": "子弹攻击力：50，子弹个数：1，攻击消耗：20 阳光。攻击群伤且穿透，无视物理防具",
+    "description": "最害怕黑夜了，外面全是红色眼睛的怪物，它们不分青红皂白，见到什么都咬，好可怕。"
+}

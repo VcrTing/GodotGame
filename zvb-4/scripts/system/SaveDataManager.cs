@@ -1,6 +1,7 @@
 
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using ZVB4.Conf;
@@ -17,14 +18,23 @@ public partial class SaveDataManager : Node
     {
         Instance = this;
         LoadPlayerData();
+        
+        // ResetData();
+    }
+
+    public void ResetData() {
+        if (_playerData == null) { LoadPlayerData(); }
+        _playerData.Money = 200;
+        _playerData.PlansUnLock = "_" + PlansConstants.Pea + "_" + "_" + PlansConstants.SunFlower + "_";
+        _playerData.ShooterUnLimit = "_" + PlansConstants.Pea + "_";
+        _playerData.ShooterBaseLast = PlansConstants.Pea;
+        SavePlayerData();
+        GD.Print("REST GAME DATA");
     }
 
     public EntityPlayerData GetPlayerData()
     {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
-        }
+        if (_playerData == null) { LoadPlayerData(); }
         return _playerData;
     }
 
@@ -70,10 +80,7 @@ public partial class SaveDataManager : Node
 
     public void SetPlayerShooter(string shooterName)
     {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
-        }
+        if (_playerData == null) { LoadPlayerData(); }
         if (_playerData != null)
         {
             _playerData.ShooterNow = shooterName;
@@ -82,44 +89,32 @@ public partial class SaveDataManager : Node
     }
     public string GetPlayerShooter()
     {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
-        }
+        if (_playerData == null) { LoadPlayerData(); }
         if (_playerData == null) return PlansConstants.Pea;
         return _playerData.ShooterNow;
     }
     public string GetLastBaseShooter()
     {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
+        if (_playerData == null) { LoadPlayerData(); }
+        if (_playerData == null) {
+            return PlansConstants.Pea;
         }
-        if (_playerData == null) return PlansConstants.Pea;
         return _playerData.ShooterBaseLast;
     }
 
     public void TrySavePlayerShooterBaseLast(string shooterName)
     {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
-        }
+        if (_playerData == null) { LoadPlayerData(); }
         if (_playerData != null)
         {
-            if (shooterName == PlansConstants.Pea)
-            {
-                _playerData.ShooterBaseLast = shooterName;
-                SavePlayerData();
-            }
+            _playerData.ShooterBaseLast = shooterName;
+            // GD.Print("保存基础射手 = " + shooterName);
+            SavePlayerData();
         }
     }
     public void SetMoneyAndSave(int value)
     {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
-        }
+        if (_playerData == null) { LoadPlayerData(); }
         if (_playerData != null)
         {
             _playerData.Money = value;
@@ -128,10 +123,7 @@ public partial class SaveDataManager : Node
     }
     public void AddMoneyAndSave(int value)
     {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
-        }
+        if (_playerData == null) { LoadPlayerData(); }
         if (_playerData != null)
         {
             _playerData.Money += value;
@@ -141,45 +133,71 @@ public partial class SaveDataManager : Node
     }
     public int GetMoney()
     {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
-        }
+        if (_playerData == null) { LoadPlayerData(); }
         if (_playerData != null)
         {
             return _playerData.Money;
         }
         return 0;
     }
-
-    // 是否有此射手
-    public bool HasThisShooter(string n)
+    // 射手限制
+    public bool IsShooterUnLimit(string n)
     {
-        if (_playerData == null)
-        {
-            LoadPlayerData();
-        }
+        if (_playerData == null) { LoadPlayerData(); }
         if (_playerData != null)
         {
-            string UnlockShooter = _playerData.UnlockShooter;
-            if (UnlockShooter.Contains("_" + n + "_"))
+            string p = _playerData.ShooterUnLimit;
+            if (p.Contains("_" + n + "_"))
             {
                 return true;
             }
         }
         return false;
     }
-
-    // 解锁该射手
-    public void UnlockThisShooter(string n)
+    public void UnLockShooterUnLimit(string n) 
     {
-        bool has = HasThisShooter(n);
+        bool has = IsShooterUnLimit(n);
         if (!has)
         {
-            string UnlockShooter = _playerData.UnlockShooter;
-            UnlockShooter += ("_" + n + "_");
-            _playerData.UnlockShooter = UnlockShooter;
+            string p = _playerData.ShooterUnLimit;
+            p += ("_" + n + "_");
+            _playerData.ShooterUnLimit = p;
             SavePlayerData();
         }
+    }
+    public List<string> GetShooterUnLimitList()
+    {
+        if (_playerData == null) { LoadPlayerData(); }
+        if (_playerData != null)
+        { return CommonTool.SplitStringToList(_playerData.ShooterUnLimit); }
+        return null;
+    }
+    // 植物
+    public bool HasPlans(string n)
+    {
+        if (_playerData == null) { LoadPlayerData(); }
+        if (_playerData != null)
+        {
+            string p = _playerData.PlansUnLock;
+            if (p.Contains("_" + n + "_")) { return true; }
+        }
+        return false;
+    }
+    public void UnlockPlans(string n)
+    {
+        bool has = HasPlans(n);
+        if (!has)
+        {
+            string p = _playerData.PlansUnLock;
+            p += ("_" + n + "_");
+            _playerData.PlansUnLock = p;
+            SavePlayerData();
+        }
+    }
+    public List<string> GetPlansUnLockList()
+    {
+        if (_playerData == null) { LoadPlayerData(); }
+        if (_playerData != null) { return CommonTool.SplitStringToList(_playerData.PlansUnLock); }
+        return null;
     }
 }

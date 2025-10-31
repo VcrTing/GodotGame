@@ -35,7 +35,7 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
         // 检查是否解锁该射手
         allowAttackNum = PlansConstants.GetShooterAttackLimit(shooterNowName);
         if (SaveDataManager.Instance == null) return;
-        bool hasShooter = (bool)(SaveDataManager.Instance?.HasThisShooter(shooterNowName));
+        bool hasShooter = (bool)(SaveDataManager.Instance?.IsShooterUnLimit(shooterNowName));
         if (hasShooter)
         {
             allowAttackNum = -1;

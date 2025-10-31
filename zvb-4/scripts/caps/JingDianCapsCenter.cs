@@ -241,7 +241,8 @@ public partial class JingDianCapsCenter : Node2D
                 GetTree().CreateTimer(0.1f).Timeout += () => LoadInitShooter(_capData);
                 return;
             }
-            initshooter = SaveDataManager.Instance.GetPlayerShooter();
+            initshooter = SaveDataManager.Instance.GetLastBaseShooter();
+            GD.Print("切换自主选择的射手" + initshooter);
         }
         if (!PlayerController.CheckAlive())
         {

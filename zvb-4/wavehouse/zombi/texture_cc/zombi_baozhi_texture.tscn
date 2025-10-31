@@ -1,0 +1,258 @@
+[gd_scene load_steps=23 format=3 uid="uid://d30vv5c7av643"]
+
+[ext_resource type="Script" uid="uid://dk1k7g128nn4g" path="res://scripts/zombi/TextureZombiS/ZombiCCAndExtra.cs" id="1_1kkvc"]
+[ext_resource type="Texture2D" uid="uid://fpug28dx24xv" path="res://pngs/zombi/hand/zombi_baozhi.png" id="2_a8uip"]
+[ext_resource type="Texture2D" uid="uid://bmt04j2ea8wfb" path="res://pngs/zombi/zombi_s_hui.png" id="4_emie2"]
+[ext_resource type="Texture2D" uid="uid://cp3cqqvvtoj76" path="res://pngs/test/ice_frezz.png" id="6_yoely"]
+[ext_resource type="Texture2D" uid="uid://dtmcvml1yllby" path="res://pngs/zombiextra/baozhi.png" id="7_a8uip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42rj6"]
+atlas = ExtResource("2_a8uip")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05e71"]
+atlas = ExtResource("4_emie2")
+region = Rect2(0, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7xwe"]
+atlas = ExtResource("4_emie2")
+region = Rect2(60, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox7n7"]
+atlas = ExtResource("4_emie2")
+region = Rect2(120, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmjnl"]
+atlas = ExtResource("4_emie2")
+region = Rect2(180, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wqpv"]
+atlas = ExtResource("4_emie2")
+region = Rect2(240, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb4lx"]
+atlas = ExtResource("4_emie2")
+region = Rect2(300, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewc5y"]
+atlas = ExtResource("4_emie2")
+region = Rect2(360, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_721ns"]
+atlas = ExtResource("4_emie2")
+region = Rect2(420, 0, 60, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8uip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42rj6")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42rj6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05e71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7xwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox7n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmjnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wqpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb4lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewc5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_721ns")
+}],
+"loop": true,
+"name": &"dieforboom",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42rj6")
+}],
+"loop": true,
+"name": &"intro",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42rj6")
+}],
+"loop": true,
+"name": &"outro",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42rj6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42rj6")
+}],
+"loop": true,
+"name": &"walk30",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42rj6")
+}],
+"loop": true,
+"name": &"walk60",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaish"]
+atlas = ExtResource("7_a8uip")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpchg"]
+atlas = ExtResource("7_a8uip")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7mms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaish")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaish")
+}],
+"loop": true,
+"name": &"intro",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaish")
+}],
+"loop": true,
+"name": &"live",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpchg")
+}],
+"loop": true,
+"name": &"live30",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaish")
+}],
+"loop": true,
+"name": &"live60",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whv1q"]
+atlas = ExtResource("6_yoely")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glr7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whv1q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_wmr5c"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hpchg"]
+gradient = SubResource("Gradient_wmr5c")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.8)
+
+[node name="Body" type="Node2D"]
+script = ExtResource("1_1kkvc")
+ObjName = "zombi_cgt"
+IntroAniTime = 0.1
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(1.1, 0.968)
+sprite_frames = SubResource("SpriteFrames_a8uip")
+autoplay = "default"
+
+[node name="ViewChange" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 20)
+scale = Vector2(1.1, 0.968)
+sprite_frames = SubResource("SpriteFrames_a8uip")
+autoplay = "default"
+
+[node name="ViewExtra" type="AnimatedSprite2D" parent="."]
+z_index = 20
+y_sort_enabled = true
+position = Vector2(0, 10)
+sprite_frames = SubResource("SpriteFrames_t7mms")
+animation = &"intro"
+autoplay = "default"
+
+[node name="IceFreeze" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 30
+position = Vector2(8, -10)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_glr7o")
+
+[node name="ViewRed" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="ViewRed"]
+position = Vector2(-10, -10)
+color = Color(0.99215406, 0, 0.08799436, 1)
+energy = 2.0
+range_layer_min = -1200
+range_layer_max = 1200
+texture = SubResource("GradientTexture2D_hpchg")
+texture_scale = 0.5
+
+[node name="PointLight2DR" type="PointLight2D" parent="ViewRed"]
+position = Vector2(8, -10)
+color = Color(0.99215406, 0, 0.08799436, 1)
+range_layer_min = -1200
+range_layer_max = 1200
+texture = SubResource("GradientTexture2D_hpchg")
+texture_scale = 0.4

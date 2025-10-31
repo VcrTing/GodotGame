@@ -111,8 +111,13 @@ public partial class BulletZeroCold : Node2D, IBulletBase, IObj, IAttack, IWorki
         if (cs <= (SpeedInit * 0.1f)) { DoDie(); }
         return cs;
     }
-
-    public bool DoTakeDamage(Area2D area) => ObjTool.TakeDamage(area, objType, Damage, hurtType);
+    bool first = false;
+    public bool DoTakeDamage(Area2D area)
+    {
+        int d = Damage / 3;
+        if (!first) { d = Damage; first = true; }
+        return ObjTool.TakeDamage(area, objType, d, hurtType);
+    }
     public float Speed { get; set; } = BulletConstants.SpeedBasic; // 默认速度
     float SpeedInit = BulletConstants.SpeedBasic; // 初始速度
     public EnumHurts GetHurtType() => hurtType;

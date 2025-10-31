@@ -57,7 +57,7 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
     {
         if (!_hasHit)
         {
-            bool isOk = DoTakeDamage(area, Damage);
+            bool isOk = DoTakeDamage(area, Damage, hurtTypeFirst);
             if (isOk)
             {
                 _hasHit = true; __Die();
@@ -69,7 +69,7 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
         {
             if (IsManyDamage)
             {
-                DoTakeDamage(area, DamageExtra);
+                DoTakeDamage(area, DamageExtra, hurtType);
             }
         }
     }
@@ -126,7 +126,7 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
         return cs;
     }
 
-    public bool DoTakeDamage(Area2D area, int damage) => ObjTool.TakeDamage(area, objType, damage, hurtType);
+    public bool DoTakeDamage(Area2D area, int damage, EnumHurts hurts) => ObjTool.TakeDamage(area, objType, damage, hurts);
     public float Speed { get; set; } = BulletConstants.SpeedBasic; // 默认速度
     float SpeedInit = BulletConstants.SpeedBasic; // 初始速度
     public EnumHurts GetHurtType() => hurtType;
@@ -147,7 +147,9 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
     EnumObjType objType = EnumObjType.Plans;
     public EnumObjType GetEnumObjType() => objType;
     [Export]
-    public EnumHurts hurtType { get; set; } = EnumHurts.Pea;
+    public EnumHurts hurtType { get; set; } = EnumHurts.Zheng;
+    [Export]
+    public EnumHurts hurtTypeFirst { get; set; } = EnumHurts.Pea;
     [Export]
     public string objName = BulletConstants.BulletXiguaName;
     public string GetObjName() => objName;

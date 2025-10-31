@@ -82,11 +82,11 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_csi2b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8uip"]
 atlas = ExtResource("2_7j41l")
 region = Rect2(360, 0, 180, 180)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cpycr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_po0j1"]
 atlas = ExtResource("2_7j41l")
 region = Rect2(540, 0, 180, 180)
 
@@ -170,10 +170,10 @@ region = Rect2(180, 0, 180, 180)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_csi2b")
+"texture": SubResource("AtlasTexture_a8uip")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cpycr")
+"texture": SubResource("AtlasTexture_po0j1")
 }],
 "loop": true,
 "name": &"attack",
@@ -236,7 +236,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"outro",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -318,6 +318,7 @@ autoplay = "default"
 y_sort_enabled = true
 scale = Vector2(1, 0.8)
 sprite_frames = SubResource("SpriteFrames_wmr5c")
+animation = &"outro"
 autoplay = "default"
 
 [node name="IceFreeze" type="AnimatedSprite2D" parent="."]

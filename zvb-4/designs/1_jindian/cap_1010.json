@@ -13,7 +13,7 @@
         "SunFlower", "IceFlower", "YangTao", "Pea", "PeaDouble", "JianGuo", "Cherry", "LanMei"
     ],
     
-    "initshooter": "ShiLiu",
+    "initshooter": "_",
     "initmiaolist": [
         "SunFlower", "SunFlower", "JianGuo", "JianGuo", "PeaGold", "PeaDouble"
     ],

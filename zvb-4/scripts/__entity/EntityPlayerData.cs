@@ -18,12 +18,8 @@ namespace ZVB4.Entity
         public string ShooterNow { get; set; } = PlansConstants.Pea;
         public string ShooterBaseLast { get; set; } = PlansConstants.Pea;
 
-        public string UnlockShooter { get; set; } = "_" + PlansConstants.Pea + "_";
-
-        public List<string> ShooterUnlockedList { get; set; } = new List<string>() {
-            PlansConstants.Pea,
-            PlansConstants.XiguaBing
-        };
+        public string PlansUnLock { get; set; } = "_" + PlansConstants.Pea + "_" + "_" + PlansConstants.SunFlower + "_";
+        public string ShooterUnLimit { get; set; } = "_" + PlansConstants.Pea + "_";
     }
 
 }

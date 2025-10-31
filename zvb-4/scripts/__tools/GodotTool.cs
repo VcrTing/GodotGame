@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 using ZVB4.Conf;
 
@@ -98,8 +99,9 @@ public static class GodotTool
         }
         return view;
     }
-    
-    public static void KillChildren(Node node) {
+
+    public static void KillChildren(Node node)
+    {
         try
         {
             var ass = node.GetChildren();
@@ -109,8 +111,31 @@ public static class GodotTool
                 a.QueueFree();
             }
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
             GD.Print(e);
         }
+    }
+    
+    public static List<Control> GenerateControlList(Node father, int num, string scenepath)
+    {
+        List<Control> res = new List<Control>();
+        foreach (var child in father.GetChildren())
+        {
+            if (child is Node node)
+            {
+                node.QueueFree();
+            }
+        }
+        int i = 0;
+        while (i < num)
+        {
+            var scene = GD.Load<PackedScene>(scenepath); // FolderConstants.Scenes + "card/in_game_store_item_card.tscn"
+            if (scene == null) continue;
+            var card = scene.Instantiate<Control>();
+            res.Add(card);
+            i += 1;
+        }
+        return res;
     }
 }

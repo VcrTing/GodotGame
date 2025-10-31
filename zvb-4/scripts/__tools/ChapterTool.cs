@@ -129,4 +129,13 @@ public static class ChapterTool
         if (chapter == (int)EnumChapter.Three8) return (int)EnumChapter.None;
         return (int)EnumChapter.None;
     }
+
+    public static bool NeedOpenBaseShooterPopup(int num)
+    {
+        if (num > 2000 && num < 4000)
+        {
+            return true;
+        }
+        return false;
+    }
 }

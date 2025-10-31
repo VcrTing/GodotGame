@@ -31,9 +31,16 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
             IBeHurt beHurt = bodyNode as IBeHurt;
             if (beHurt != null)
             {
-                if (!beHurt.BeHurt(objType, damage, enumHurts)) { Die(objType, damage, enumHurts); }
+                bool isAlive = beHurt.BeHurt(objType, damage, enumHurts);
+                GD.Print("alive = " + isAlive);
+                if (!isAlive) { Die(objType, damage, enumHurts); }
             }
-            if (enumHurts == EnumHurts.Cold) { DoCold(iceColdTimeInit); PlayColdingSound(); }
+            // 处理减速
+            if (ZombiTool.CanBeCold(GetWhatYouObj(), enumHurts)) 
+            {
+                DoCold(iceColdTimeInit);
+                PlayColdingSound(); 
+            }
         }
         return true;
     }
@@ -47,6 +54,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
             if (enumHurts != EnumHurts.Boom) // 炸弹不播放死亡动画
             {
                 dieTime = actionExtra.HasDieAction();
+                GD.Print("死亡动画时间 = " + dieTime);
                 if (dieTime > 0f)
                 {
                     actionExtra.DoDieAction();
@@ -55,6 +63,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
             }
             else
             {
+                GD.Print("死亡动画时间 2 = " + dieTime);
                 await ToSignal(GetTree().CreateTimer(dieTime), "timeout");
             }
         }
@@ -283,4 +292,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
     {
         throw new NotImplementedException();
     }
+
+    public EnumWhatYouObj GetWhatYouObj() => (EnumWhatYouObj)((bodyNode as IEnmy)?.GetWhatYouObj());
+
 }

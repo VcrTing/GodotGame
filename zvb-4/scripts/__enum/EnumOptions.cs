@@ -12,6 +12,8 @@ namespace ZVB4.Conf
 
         NextScene = 11,
 
+        RestGameData = 99,
+
 
         NextChapterAuto = 100,
         Back = 110,

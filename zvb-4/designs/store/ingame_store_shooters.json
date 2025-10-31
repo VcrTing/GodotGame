@@ -16,6 +16,10 @@
         "price": 200, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
+        "name": "PaoGu",
+        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
         "name": "ShiLiu",
         "price": 200, "x": 155, "y": 75, "viewscale": 1.0
     },

@@ -316,4 +316,10 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
     {
         throw new NotImplementedException();
     }
+
+    public EnumWhatYouObj GetWhatYouObj()
+    {
+        throw new NotImplementedException();
+    }
+
 }

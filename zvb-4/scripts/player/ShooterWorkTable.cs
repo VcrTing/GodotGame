@@ -79,7 +79,8 @@ public partial class ShooterWorkTable : Node2D
             if (scene == null) return false;
             plansNameNow = plansName;
             GenerateShooter(scene);
-            SaveDataManager.Instance?.TrySavePlayerShooterBaseLast(plansNameNow);
+            SaveDataManager.Instance.SetPlayerShooter(plansNameNow);
+            // SaveDataManager.Instance?.TrySavePlayerShooterBaseLast(plansNameNow);
             return true;
         }
         else
