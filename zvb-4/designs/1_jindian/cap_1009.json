@@ -16,27 +16,54 @@
     
     "initshooter": "PeaCold",
     "initmiaolist": [
-        "SunFlower", "LanMei", "Xigua", "PaoGu", "ShiLiu", "PeaDouble"
+        "SunFlower", "LanMei", "Xigua", "PaoGu", "ShiLiu", "JianGuo"
     ],
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,
     "enmyviewscale": 1,
     "enmybehurtscale": 1,
-
-    "enmys": {
-        "3": [
+    "enmyy": {
+        "1": [
             {
-                "types": [ "zombi_gang_men", "zombi_baozhi", "zombi_maozi" ],
-                "typesmode": "next",
-                "generator": [ 1, 6, 10 ],
-                "generatormode": "next",
-                "lazyme": 3
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 12, "loopdelay": 1, "isenmy": 1, "generatormode": "farY"
             }
         ],
-        
-        "102": [
+        "3": [
             {
-                "types": [ "zombi_gang_men", "zombi_baozhi", "zombi_maozi" ],
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 12, "loopdelay": 0.8, "isenmy": 1, "generatormode": "farY"
+            }
+        ],
+        "5": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 12, "loopdelay": 0.7, "isenmy": 1, "generatormode": "farY"
+            }
+        ],
+        "7": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 12, "loopdelay": 1.2, "isenmy": 1, "generatormode": "farY"
+            }
+        ],
+        "9": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 12, "loopdelay": 0.6, "isenmy": 1, "generatormode": "farY"
+            }
+        ]
+    },
+    "enmys": {
+        
+        "5": [
+            {
+                "types": [ "zombi_gang_men", "zombi_ju_ren", "zombi_maozi", "zombi_bao_zhi" ],
                 "typesmode": "next",
                 "generator": [ 1, 6, 10 ],
                 "generatormode": "next",

@@ -222,12 +222,13 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
                 break;
         }
         enmyStatus = status;
-        if (status == EnumEnmyStatus.Move || status == EnumEnmyStatus.Changing) (fatherNode as IMove)?.StartMove();
+        if (status == EnumEnmyStatus.Move || status == EnumEnmyStatus.Changing || status == EnumEnmyStatus.Attack) (fatherNode as IMove)?.StartMove();
         else (fatherNode as IMove)?.PauseMove();
         //
         SetAnimationSpeedScale();
     }
-
+    [Export]
+    public EnumMoveType MoveWhenAttack = EnumMoveType.Stone;
     [Export]
     public EnumMoveType MoveChangeBefore = EnumMoveType.LineWalk;
     [Export]
@@ -236,6 +237,7 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
     public EnumMoveType MoveChangeAfter = EnumMoveType.LineWalk;
     public EnumMoveType GetEnumMoveType()
     {
+        if (enmyStatus == EnumEnmyStatus.Attack) return MoveWhenAttack;
         if (enmyStatus == EnumEnmyStatus.Changing) return MoveChanging;
         if (IsChanged) return MoveChangeAfter;
         return MoveChangeBefore;

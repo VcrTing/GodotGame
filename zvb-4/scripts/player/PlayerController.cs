@@ -51,7 +51,13 @@ public partial class PlayerController : Node2D, IInit
         Init();
     }
     void InitShooterWorkTable() {
-        workTable = PlayerTool.GenerateWorkTable(ShooterMode, this);
+        try
+        {
+            workTable = PlayerTool.GenerateWorkTable(ShooterMode, this);
+        }
+        catch (Exception e) {
+
+        }
     }
     public async void LoadInitShooter(string shooterName)
     {
@@ -78,10 +84,20 @@ public partial class PlayerController : Node2D, IInit
             GetTree().CreateTimer(0.2f).Timeout += () => LoadInitShooter(shooterName);
             return;
         }
-        TrashOldShooter();
-        wt.HandleCollision(shooterName);
-        AfterGetShooter();
-        RebuildBuffs();
+        try
+        {
+            TrashOldShooter();
+            if (shooterName == null || shooterName == "")
+            {
+                shooterName = SaveDataManager.Instance.GetLastBaseShooter();
+            }
+            wt.HandleCollision(shooterName);
+            AfterGetShooter();
+            RebuildBuffs();
+        }
+        catch (Exception e) {
+
+        }
     }
     
     public void TrashOldShooter()
@@ -212,19 +228,23 @@ public partial class PlayerController : Node2D, IInit
     // Buff 重建
     void RebuildBuffs()
     {
-        // 攻速 Buff
-        __lowestAttackSpeedRatio = InitialLowestAttackSpeedRatio;
-        // 伤害 Buff
-        __attackDamageRatio = InitialAttackDamageRatio;
-        foreach (var buff in buffList)
+        try
         {
-            __lowestAttackSpeedRatio = PlayerTool.ComputedSpeedBuffV(__lowestAttackSpeedRatio, buff.attackSpeedRatio);
-            
-            //
-            __attackDamageRatio *= buff.attackDamageRatio;
+            // 攻速 Buff
+            __lowestAttackSpeedRatio = InitialLowestAttackSpeedRatio;
+            // 伤害 Buff
+            __attackDamageRatio = InitialAttackDamageRatio;
+            foreach (var buff in buffList)
+            {
+                __lowestAttackSpeedRatio = PlayerTool.ComputedSpeedBuffV(__lowestAttackSpeedRatio, buff.attackSpeedRatio);
+                
+                //
+                __attackDamageRatio *= buff.attackDamageRatio;
+            }
+            // 调整射手属性
+            _shooter?.RebuildForBuffs();
         }
-        // 调整射手属性
-        _shooter?.RebuildForBuffs();
+        catch { }
     }
     public void AddShootBuff(ShootBuff buff)
     {

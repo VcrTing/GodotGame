@@ -104,6 +104,9 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
     float iceColdTime = 0f;
     float iceColdTimeInit = GameContants.ColdTime;
     float __coldTime = 0f;
+
+    // 
+    float __liveTime = 0f;
     public override void _Process(double delta)
     {
         // 冰冻
@@ -128,10 +131,21 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
         }
         //
         AdjustView();
+
+        // 持续存活时间
+        if (LiveTime > 0)
+        {
+            __liveTime += (float)delta;
+            if (__liveTime > LiveTime)
+            {
+                QueueFree();
+            }
+        }
     }
     public override void _Ready()
     {
         isMoving = false;
+        RandomBigger();
         SetWorkingMode(false);
     }
     bool isMoving = false;
@@ -255,9 +269,13 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
     }
     float scaleMin = GameContants.MinScale;
     float scaleMax = GameContants.MaxScale;
+    [Export]
+    public bool IsFlipFace = true;
     public bool AdjustView()
     {
-        ViewTool.View3In1(this, scaleMin, scaleMax); return true;
+        if (IsFlipFace) { ViewTool.View3In1(this, scaleMin, scaleMax); }
+        else { ViewTool.View2In1(this, scaleMin, scaleMax); }
+        return true;
     }
 
     public EnumEnmyStatus GetStatus() => (bodyNode as IEnmy != null) ? (bodyNode as IEnmy).GetStatus() : EnumEnmyStatus.None;
@@ -293,4 +311,25 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
     }
     public EnumWhatYouObj GetWhatYouObj() => (EnumWhatYouObj)((bodyNode as IEnmy)?.GetWhatYouObj());
 
+    [Export]
+    public Vector2 MoveDirection = new Vector2(0, 1);
+    public Vector2 GetBasicDirection() => MoveDirection;
+    [Export]
+    public float RandomBiggerRatio = 1;
+    void RandomBigger()
+    {
+        float x = bodyNode.Scale.X;
+        if (RandomBiggerRatio > 1)
+        {
+            int xxx = (int)(10 * RandomBiggerRatio);
+            int i = GD.RandRange(0, xxx);
+            float a = i / 20f;
+            x = x * (1f + a);
+            bodyNode.Scale = new Vector2(x, x);
+        }
+    }
+    // GD.Print("bigger = " + x);
+    // GD.Print(i + "   " + a + "    " + (1f + a));
+    [Export]
+    public float LiveTime = 0;
 }

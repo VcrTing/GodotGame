@@ -86,14 +86,15 @@ public partial class ZeroZombiAttackArea : Area2D
     {
         try
         {
-            Monitoring = enable;
             SetDeferred("monitoring", enable);
+            Monitoring = enable;
         }
         catch (Exception ex)
         {
-            // 使用SetDeferred避免信号回调期间的状态变更错误
             SetDeferred("monitoring", enable);
-            GD.PrintErr($"ZeroZombiAttackArea EnableCollision error: {ex.Message}");
+            // 使用SetDeferred避免信号回调期间的状态变更错误
+            // SetDeferred("monitoring", enable);
+            // GD.PrintErr($"ZeroZombiAttackArea EnableCollision error: {ex.Message}");
         }
         SetProcess(enable);
     }
@@ -141,7 +142,8 @@ public partial class ZeroZombiAttackArea : Area2D
             attackIntervalElapsed = 0.0;
         }
     }
-
+    [Export]
+    public bool AllowAttackEnmy = false;
     string lastAnimationName = AnimationConstants.AniWalk;
     void TryAttack(IObj p, double delta)
     {
@@ -150,11 +152,17 @@ public partial class ZeroZombiAttackArea : Area2D
         if (t == EnumObjType.Plans)
         {
             // 伤害植物
-            AttackPlans(p);
+            Attack(p);
             SwitchAttackStatus();
         }
+        if (AllowAttackEnmy) {
+            if (t == EnumObjType.Zombie) {
+                Attack(p);
+                SwitchAttackStatus();
+            }
+        }
     }
-    void AttackPlans(IObj plans)
+    void Attack(IObj plans)
     {
         IBeHurt beHurt = plans as IBeHurt;
         if (beHurt != null)

@@ -11,24 +11,25 @@ public partial class EnmyGenerator : Node2D
     public override void _Ready()
     {
         Instance = this;
-        var intervals = GetTenIntervals();
-        tiles.Clear();
-        tiles.AddRange(intervals);
-        // GenerateEnemyByCode("zombi_s", 5);
+        XPointList.Clear();
+        XPointList.AddRange(GetTenIntervalsX());
+        YPointList.Clear();
+        YPointList.AddRange(GetTenIntervalsY());
     }
     [Export]
     public float TileMapW = GameContants.ZombieTileW; // 每个格子的宽度 
     [Export]
     public int TileNumHalf = GameContants.GrassNumHalf;
 
-    List<Vector2> tiles = new List<Vector2>();
+    List<Vector2> XPointList = new List<Vector2>();
+    List<Vector2> YPointList = new List<Vector2>();
     /// <summary>
     /// 获取以本节点x轴为中心的10份区间坐标点（共10个，左5右5）
     /// </summary>
     /// <returns>长度为10的Vector2数组</returns>
     /// 
     /// 
-    public Vector2[] GetTenIntervals()
+    public Vector2[] GetTenIntervalsX()
     {
         int num = TileNumHalf * 2;
         Vector2[] points = new Vector2[num];
@@ -41,20 +42,40 @@ public partial class EnmyGenerator : Node2D
         }
         return points;
     }
+    public Vector2[] GetTenIntervalsY()
+    {
+        int num = TileNumHalf * 2;
+        Vector2[] points = new Vector2[num];
+        float x = this.Position.X - GameContants.ScreenHalfW - GameContants.ScreenHalfW;
+        //
+        float everyY = ((HorizonYEnmyGenEnd - (TileMapW * 1.5f)) - (HorizonYEnmyGen)) / num;
+        //
+        for (int i = 0; i < num; i++)
+        {
+            float __y = (HorizonYEnmyGen + TileMapW) + (everyY * i);
+            points[i] = new Vector2(x, __y);
+        }
+        return points;
+    }
 
-    async void Generate(string type, int grid, bool israndom, float lazyme, int randomXRate, float redeyeratio)
+    async void Generate(string type, int grid, string genmode, float lazyme, int randomXRate, float redeyeratio)
     {
         if (lazyme > 0)
         {
             await ToSignal(GetTree().CreateTimer(lazyme), "timeout");
         }
-        if (israndom)
+        if (genmode == "random")
         {
             Instance.GenerateEnemyByCode(type, randomXRate, redeyeratio);
         }
-        else
+        else if (genmode == "next")
         {
             Instance.GenerateEnemyByCode(type, grid, randomXRate, redeyeratio);
+        }
+        // fary
+        else
+        {
+            GenerateEnemyByCodeY(type, grid, redeyeratio);
         }
     }
 
@@ -94,7 +115,7 @@ public partial class EnmyGenerator : Node2D
             int count = Math.Min(types.Count, generator.Count);
             for (int i = 0; i < count; i++)
             {
-                gen.Generate(types[i].AsString(), (int)generator[i], generatormode == "random", lazyme * i, randomXRate, redeyeratio);
+                gen.Generate(types[i].AsString(), (int)generator[i], generatormode, lazyme * i, randomXRate, redeyeratio);
             }
         }
         if (typesmode == "random")
@@ -107,17 +128,12 @@ public partial class EnmyGenerator : Node2D
                 foreach (var idx in idxList)
                 {
                     i += 1;
-                    gen.Generate(types[idx].AsString(), (int)generator[idx], generatormode == "random", lazyme * i, randomXRate, redeyeratio);
+                    gen.Generate(types[idx].AsString(), (int)generator[idx], generatormode, lazyme * i, randomXRate, redeyeratio);
                 }
             }
         }
     }
-
-    /// <summary>
-    /// 根据敌人代号名称生成敌人实例，随机格子编号
-    /// </summary>
-    /// <param name="code">敌人代号名称</param>
-    /// <returns>生成的敌人节点（Node2D），失败返回null</returns>
+    
     public Node2D GenerateEnemyByCode(string code, int randomXRate, float redeyeratio)
     {
         int max = TileNumHalf * 2;
@@ -137,47 +153,41 @@ public partial class EnmyGenerator : Node2D
         return randX;
     }
 
-    /// <summary>
-    /// 根据敌人代号名称和格子编号生成敌人实例，x坐标在格子区间内随机
-    /// </summary>
-    /// <param name="code">敌人代号名称</param>
-    /// <param name="tileIndex">格子编号（1-10）</param>
-    /// <returns>生成的敌人节点（Node2D），失败返回null</returns>
     public Node2D GenerateEnemyByCode(string name, int tileIndex, int randomXRate, float redeyeratio)
     {
         try
         {
             string path = EnmyTypeConstans.GetZombiWrapperScenePath(name);
             var packed = GD.Load<PackedScene>(path);
-            if (packed == null)
-            {
-                GD.PrintErr($"未找到敌人场景: {path}");
-                return null;
-            }
-            //
+            if (packed == null) return null;
             var instance = packed.Instantiate<Node2D>();
-            // 取格子区间
-            if (tileIndex < 1 || tileIndex > tiles.Count)
-            {
-                GD.PrintErr($"格子编号超出范围: {tileIndex}");
-                // AddChild(instance);
-                return instance;
-            }
-            var tilePos = tiles[tileIndex - 1];
+            if (tileIndex < 1 || tileIndex > XPointList.Count) return instance;
+            var tilePos = XPointList[tileIndex - 1];
             var pos = instance.Position;
             pos.X = DoRandomX(tilePos, randomXRate);
-            //
-            pos.Y = pos.Y + genY;
+            pos.Y = pos.Y + HorizonYEnmyGen;
             return Doing(instance, pos, name, redeyeratio);
         }
-        catch (Exception ex)
+        catch (Exception ex) { } return null;
+    }
+    public Node2D GenerateEnemyByCodeY(string name, int tileIndex, float redeyeratio)
+    {
+        try
         {
-            GD.PrintErr($"生成敌人异常: {ex}");
+            string path = EnmyTypeConstans.GetZombiWrapperScenePath(name);
+            var packed = GD.Load<PackedScene>(path);
+            if (packed == null) return null;
+            var instance = packed.Instantiate<Node2D>();
+            if (tileIndex < 1 || tileIndex > YPointList.Count) return instance;
+            var tilePos = YPointList[tileIndex - 1];
+            var pos = tilePos;
+            return Doing(instance, pos, name, redeyeratio);
         }
-        return null;
+        catch (Exception ex) { } return null;
     }
 
-    float genY = GameContants.HorizonYEnmyGen;
+    float HorizonYEnmyGen = GameContants.HorizonYEnmyGen;
+    float HorizonYEnmyGenEnd = GameContants.HorizonYEnmyGenEnd;
     public Node2D GenerateEnemyOfPos(Vector2 pos, string name, float redeyeratio)
     {
         string path = EnmyTypeConstans.GetZombiWrapperScenePath(name);

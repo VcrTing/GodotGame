@@ -140,4 +140,8 @@ public partial class GodobjWrapper : Node2D, IMove, IBeHurt, IObj, IAttack
         throw new NotImplementedException();
     }
 
+    public Vector2 GetBasicDirection()
+    {
+        throw new NotImplementedException();
+    }
 }

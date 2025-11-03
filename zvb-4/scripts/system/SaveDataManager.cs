@@ -29,7 +29,7 @@ public partial class SaveDataManager : Node
         _playerData.ShooterUnLimit = "_" + PlansConstants.Pea + "_";
         _playerData.ShooterBaseLast = PlansConstants.Pea;
         SavePlayerData();
-        GD.Print("REST GAME DATA");
+        // GD.Print("REST GAME DATA");
     }
 
     public EntityPlayerData GetPlayerData()
@@ -127,7 +127,7 @@ public partial class SaveDataManager : Node
         if (_playerData != null)
         {
             _playerData.Money += value;
-            GD.Print("AddMoneyAndSave: " + value + " total: " + _playerData.Money);
+            // GD.Print("AddMoneyAndSave: " + value + " total: " + _playerData.Money);
             SavePlayerData();
         }
     }

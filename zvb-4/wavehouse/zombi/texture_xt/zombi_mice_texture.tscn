@@ -1,0 +1,217 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6sb2vcxtbfd"]
+
+[ext_resource type="Script" uid="uid://cbalors4fy6na" path="res://scripts/zombi/TextureZombiS/ZombiSAndExtra.cs" id="1_wmr5c"]
+[ext_resource type="Texture2D" uid="uid://c1fmnynqw5cqe" path="res://pngs/zombi/other/mice.png" id="2_iqnyk"]
+[ext_resource type="Texture2D" uid="uid://cp3cqqvvtoj76" path="res://pngs/test/ice_frezz.png" id="5_r7vw5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nye5s"]
+atlas = ExtResource("2_iqnyk")
+region = Rect2(0, 0, 220, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ltw0"]
+atlas = ExtResource("2_iqnyk")
+region = Rect2(220, 0, 220, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo1a3"]
+atlas = ExtResource("2_iqnyk")
+region = Rect2(440, 0, 220, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iitca"]
+atlas = ExtResource("2_iqnyk")
+region = Rect2(660, 0, 220, 220)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0lt0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nye5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ltw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo1a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitca")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nye5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ltw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo1a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nye5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ltw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo1a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitca")
+}],
+"loop": true,
+"name": &"intro",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nye5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ltw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo1a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitca")
+}],
+"loop": true,
+"name": &"outro",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nye5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ltw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo1a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitca")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nye5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ltw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo1a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitca")
+}],
+"loop": true,
+"name": &"walk30",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nye5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ltw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo1a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iitca")
+}],
+"loop": true,
+"name": &"walk60",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whv1q"]
+atlas = ExtResource("5_r7vw5")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpycr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whv1q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_csi2b"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cpycr"]
+gradient = SubResource("Gradient_csi2b")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.75, 0.8)
+
+[node name="Body" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_wmr5c")
+ObjName = "zombi_mice"
+MoveWhenAttack = 2
+MoveChangeBefore = 3
+MoveChanging = 3
+MoveChangeAfter = 3
+ChangingTime = 0.1
+IntroAniTime = 0.001
+WhenChangingType = 0
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-8, -2)
+scale = Vector2(0.42, 0.42)
+sprite_frames = SubResource("SpriteFrames_o0lt0")
+animation = &"attack"
+autoplay = "default"
+
+[node name="IceFreeze" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 10
+y_sort_enabled = true
+position = Vector2(0, -20)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_cpycr")
+
+[node name="ViewRed" type="Node2D" parent="."]
+z_index = 40
+y_sort_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="ViewRed"]
+visible = false
+position = Vector2(25, 2)
+color = Color(0.99215406, 0, 0.08799436, 1)
+energy = 2.0
+range_layer_min = -1200
+range_layer_max = 1200
+texture = SubResource("GradientTexture2D_cpycr")
+texture_scale = 0.5
+
+[node name="PointLight2DR" type="PointLight2D" parent="ViewRed"]
+position = Vector2(25, 3)
+color = Color(0.99215406, 0, 0.08799436, 1)
+range_layer_min = -1200
+range_layer_max = 1200
+texture = SubResource("GradientTexture2D_cpycr")
+texture_scale = 0.4

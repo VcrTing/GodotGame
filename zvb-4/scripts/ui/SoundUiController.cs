@@ -78,7 +78,7 @@ public partial class SoundUiController : Node2D
     // Hover
     public void Hover()
     {
-        EnqueueSound("Ui/btn_hover", "hover", 3);
+        EnqueueSound("Ui/btn_hover", "Hover", 3);
     }
 
     // back

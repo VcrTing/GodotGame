@@ -6,7 +6,6 @@ using ZVB4.Tool;
 
 public partial class ZeroZombiMove : Node2D
 {
-    [Export]
     public Vector2 MoveDirection = new Vector2(0, 1); // 默认向下
     private Node2D _parentNode2D;
     private IMove _parentMove;
@@ -27,10 +26,13 @@ public partial class ZeroZombiMove : Node2D
         }
         __random = GD.RandRange(0, 100);
         // 根据初始x位置，MoveDirection稍微角度偏移
-        MoveDirection = ViewTool.PianyiXDirection(_parentMove.GetMyPosition(), MoveDirection, maxAngle);
-        //
+        Vector2 dir = _parentMove.GetBasicDirection();
+        MoveDirection = dir;
+        if (dir.Y > dir.X)
+        {
+            MoveDirection = ViewTool.PianyiXDirection(_parentMove.GetMyPosition(), dir, maxAngle);
+        }
         PlayerPosition = PlayerController.Instance.GetPlayerPosition();
-        //
         IObj obj = GetParent() as IObj;
         ParentMoveSpeed = EnmyTypeConstans.GetSpeed(obj.GetObjName());
     }
@@ -39,35 +41,32 @@ public partial class ZeroZombiMove : Node2D
     public override void _Process(double delta)
     {
         _moveTime += (float)delta;
-        if (_parentMove != null)
+        Vector2 pos = _parentMove.GetMyPosition();
+        switch (_parentMove.GetEnumMoveType())
         {
-            Vector2 pos = _parentMove.GetMyPosition();
-            switch (_parentMove.GetEnumMoveType())
-            {
-                case EnumMoveType.LineWalk:
-                    pos = Move(pos, delta, 1f);
-                    break;
-                case EnumMoveType.LineRun:
-                    pos = LineRun(pos, delta);
-                    break;
-                case EnumMoveType.LineWalkFast:
-                    pos = Move(pos, delta, 1.6f);
-                    break;
-                case EnumMoveType.LineRunFast:
-                    __fastTime += (float)delta;
-                    pos = LineRunFast(pos, delta);
-                    break;
-                case EnumMoveType.RunToPalyer:
-                    pos = RunToPlayer(pos, delta, 2.7f);
-                    break;
-                case EnumMoveType.WalkToPalyer:
-                    pos = RunToPlayer(pos, delta, 1.2f);
-                    break;
-                default:
-                    break;
-            }
-            _parentMove.SetMyPosition(pos);
+            case EnumMoveType.LineWalk:
+                pos = Move(pos, delta, AnimationConstants.MoveWalkRatio);
+                break;
+            case EnumMoveType.LineRun:
+                pos = Move(pos, delta, AnimationConstants.MoveRunRatio);
+                break;
+            case EnumMoveType.LineWalkFast:
+                pos = Move(pos, delta, AnimationConstants.MoveWalkFastRatio);
+                break;
+            case EnumMoveType.LineRunFast:
+                __fastTime += (float)delta;
+                pos = LineRunFastQuXian(pos, delta, AnimationConstants.MoveRunFastRatio);
+                break;
+            case EnumMoveType.RunToPalyer:
+                pos = RunToPlayer(pos, delta, AnimationConstants.MoveRunToPlayRatio);
+                break;
+            case EnumMoveType.WalkToPalyer:
+                pos = RunToPlayer(pos, delta, AnimationConstants.MoveWalkToPlayRatio);
+                break;
+            default:
+                break;
         }
+        _parentMove.SetMyPosition(pos);
     }
 
     [Export]
@@ -103,21 +102,15 @@ public partial class ZeroZombiMove : Node2D
         pos += MoveDirection.Normalized() * sp * (float)delta * GetRandomSpeedRatio();
         return pos;
     }
-    public Vector2 LineRun(Vector2 pos, double delta)
-    {
-        float sp = QuXianJiaSu(ParentMoveSpeed, 2.5f);
-        pos += MoveDirection.Normalized() * sp * (float)delta * GetRandomSpeedRatio();
-        return pos;
-    }
     public float GetFastSpeedRatio()
     {
         if (__fastTime > 1) __fastTime = 1; 
         float f = __fastTime / 300f;
         return f + 1.001f;
     }
-    public Vector2 LineRunFast(Vector2 pos, double delta)
+    public Vector2 LineRunFastQuXian(Vector2 pos, double delta, float ratio)
     {
-        float sp = QuXianJiaSu(ParentMoveSpeed, 4f);
+        float sp = QuXianJiaSu(ParentMoveSpeed, ratio);
         pos += MoveDirection.Normalized() * sp * (float)delta * GetRandomSpeedRatio() * GetFastSpeedRatio();
         return pos;
     }

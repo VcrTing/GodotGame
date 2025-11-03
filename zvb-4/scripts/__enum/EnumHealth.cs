@@ -16,6 +16,8 @@ namespace ZVB4.Conf
         Nine = 1000 * 9,
         Ten = 1000 * 10,
         // 可继续添加更多类型
+        JuRen = 1000 * 30, // 巨人僵尸
+
         XianRenQiu = 1000 * 50, // 仙人球血量
         JianGuo = 1000 * 80, // 坚果血量
     }

@@ -28,6 +28,7 @@ namespace ZVB4.Conf
 
         // 僵尸生成位置
         public const float HorizonYEnmyGen = -380f;
+        public const float HorizonYEnmyGenEnd = 380f;
 
         // Ui
         public const float UiLazyTouchTime = 0.2f;

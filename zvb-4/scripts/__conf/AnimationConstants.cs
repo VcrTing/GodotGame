@@ -67,5 +67,15 @@ namespace ZVB4.Conf
                     return 0.6f;
             }
         }
+
+        //
+        public static float MoveWalkRatio = 1f;
+        public static float MoveWalkFastRatio = 1.6f;
+        public static float MoveRunRatio = 2.5f;
+        public static float MoveRunFastRatio = 4f;
+        
+        public static float MoveWalkToPlayRatio = 1.2f;
+        public static float MoveRunToPlayRatio = 2.7f;
+
     }
 }

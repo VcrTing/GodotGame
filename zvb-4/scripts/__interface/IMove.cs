@@ -7,6 +7,7 @@ namespace ZVB4.Interface
     {
         bool SetMyPosition(Vector2 pos);
         Vector2 GetMyPosition();
+        Vector2 GetBasicDirection();
         void StartMove();
         void PauseMove();
         EnumMoveType GetEnumMoveType();

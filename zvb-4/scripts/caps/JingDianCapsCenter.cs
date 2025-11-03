@@ -3,6 +3,8 @@
 using Godot;
 using ZVB4.Conf;
 using Godot.Collections;
+using ZVB4.Entity;
+using System.Collections.Generic;
 
 public partial class JingDianCapsCenter : Node2D
 {
@@ -34,6 +36,9 @@ public partial class JingDianCapsCenter : Node2D
         GD.Print("加载经典章节数据，章节编号：" + CapterNumber);
         LoadCapData(ChapterTool.GetChapterJsonFilePath(CapterNumber));
     }
+
+    List<LineGenrateEntity> genrateEntities = new List<LineGenrateEntity>();
+    float __genTime = 0f;    
     public override void _Process(double delta)
     {
         if (_gamingPaused) return;
@@ -43,29 +48,113 @@ public partial class JingDianCapsCenter : Node2D
         {
             _gamingTimer = 0f; Gaming();
         }
+        if (_gamingTimer == 0) return;
+        //
+        __genTime += (float)delta;
+        if (__genTime >= 0.2f)
+        {
+            __genTime = 0f;
+            GenerateLineY();
+        }
     }
     private void Gaming()
     {
         if (_gamingPaused) return;
         if (enmys == null) return;
         if (enmys.Count == 0) return;
-        WorkForEnmys();
+        WorkForEnmyS();
+        WorkForEnmyY();
         WorkForAttackStart();
     }
-    string workEnmysString = "";
+    
     // 敌人工作器
-    void WorkForEnmys()
+    void WorkForEnmyY()
+    {
+        if (enmyy == null) return;
+        if (enmyy.Keys.Count <= 0) return;
+        // 取enmys数据
+        foreach (string key in enmyy.Keys)
+        {
+            // 去掉已经执行过的 key
+            if (workEnmyYString.Contains(key + "__")) continue;
+            if (float.TryParse(key, out float sec))
+            {
+                if (_gaming >= sec)
+                {
+                    workEnmyYString += (key + "__");
+                    // 生成敌人方法（示例）
+                    Godot.Collections.Array enmyInfo = enmyy[key].AsGodotArray();
+                    for (int i = 0; i < enmyInfo.Count; i++)
+                    {
+                        var info = ( Dictionary)enmyInfo[i];
+                        if (info != null)
+                        {
+                            WorkForGenerateEnmyY(info);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    void WorkForGenerateEnmyY(Dictionary generateInfo)
+    {
+        Godot.Collections.Array names = generateInfo["names"].AsGodotArray();
+        Godot.Collections.Array grids = generateInfo["grids"].AsGodotArray();
+        int isEnmy = 0;
+        if (generateInfo.ContainsKey("isenmy")) isEnmy = generateInfo["isenmy"].AsInt32();
+        float lazyme = 0f;
+        if (generateInfo.ContainsKey("lazyme")) lazyme = generateInfo["lazyme"].AsSingle();
+        int loopNum = 0;
+        if (generateInfo.ContainsKey("loop")) loopNum = generateInfo["loop"].AsInt32();
+        float loopDelay = 0f;
+        if (generateInfo.ContainsKey("loopdelay")) loopDelay = generateInfo["loopdelay"].AsSingle();
+
+        if (names.Count == 0 || grids.Count == 0) return;
+        for (int loopIndex = 0; loopIndex < loopNum; loopIndex++)
+        {
+            for (int i = 0; i < names.Count; i++)
+            {
+                string objName = names[i].AsString();
+                int lineNumX = 1;
+                int lineNumY = grids[i].AsInt32();
+                double genTime = _gaming + (loopDelay * loopIndex) + (i * lazyme) + 0.5f;
+                LineGenrateEntity genrateEntity = new LineGenrateEntity(objName, 1, lineNumX, lineNumY, isEnmy == 1, genTime);
+                genrateEntities.Add(genrateEntity);
+            }
+        }
+    }
+    void GenerateLineY()
+    {
+        foreach (LineGenrateEntity entity in genrateEntities)
+        {
+            if (_gaming >= entity.genTime)
+            {
+                // 生成敌人逻辑
+                bool isEnmy = entity.isEnmy;
+                if (isEnmy)
+                {
+                    EnmyGenerator.Instance.GenerateEnemyByCodeY(entity.objName, entity.lineNumY, 0);
+                }
+            }
+        }
+        // 移除已经生成的实体
+        genrateEntities.RemoveAll(e => _gaming >= e.genTime);
+    }
+    string workEnmyYString = "";
+    string workEnmySString = "";
+    // 敌人工作器
+    void WorkForEnmyS()
     {
         // 取enmys数据
         foreach (string key in enmys.Keys)
         {
             // 去掉已经执行过的 key
-            if (workEnmysString.Contains(key + "__")) continue;
+            if (workEnmySString.Contains(key + "__")) continue;
             if (float.TryParse(key, out float sec))
             {
                 if (_gaming >= sec)
                 {
-                    workEnmysString += (key + "__");
+                    workEnmySString += (key + "__");
                     // 生成敌人方法（示例）
                     Godot.Collections.Array enmyInfo = enmys[key].AsGodotArray();
                     for (int i = 0; i < enmyInfo.Count; i++)
@@ -73,14 +162,14 @@ public partial class JingDianCapsCenter : Node2D
                         var info = ( Dictionary)enmyInfo[i];
                         if (info != null)
                         {
-                            WorkForGenerateEnmys(info);
+                            WorkForGenerateEnmyS(info);
                         }
                     }
                 }
             }
         }
     }
-    void WorkForGenerateEnmys(Dictionary generateInfo)
+    void WorkForGenerateEnmyS(Dictionary generateInfo)
     {
         Godot.Collections.Array types = generateInfo["types"].AsGodotArray();
         Godot.Collections.Array generator = generateInfo["generator"].AsGodotArray();
@@ -127,6 +216,7 @@ public partial class JingDianCapsCenter : Node2D
     public void ResumeGaming() => _gamingPaused = false;
     Godot.Collections.Array attackstarts;
     Dictionary enmys;
+    Dictionary enmyy;
     void LoadCapData(string jsonPath)
     {
         if (Godot.FileAccess.FileExists(jsonPath))
@@ -195,6 +285,12 @@ public partial class JingDianCapsCenter : Node2D
                     (float)_capData["enmyviewscale"],
                     (float)_capData["enmyspeedattackscale"]
                     );
+            }
+            //
+            if (_capData.ContainsKey("enmyy"))
+            {
+                var enmyyVariant = _capData["enmyy"].AsGodotDictionary();
+                if (enmyyVariant != null) { enmyy = enmyyVariant; }
             }
         }
         if (_capData.ContainsKey("attackstarts"))

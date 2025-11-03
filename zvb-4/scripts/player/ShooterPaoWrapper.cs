@@ -76,24 +76,31 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
     }
     public void ChangeShooter(string shooterName)
     {
-        shooterNowName = shooterName;
-        // 重新加载参数
-        _LoadShooterParams(shooterName);
-        // 加载射手实力
-        _LoadShooterInstance(shooterName);
-        // 切换了射手，保存数据
-        SaveDataManager.Instance?.SetPlayerShooter(shooterName);
-        // 检查是否解锁该射手
-        allowAttackNum = PlansConstants.GetShooterAttackLimit(shooterName);
-        if (SaveDataManager.Instance == null) return;
-        bool hasShooter = (bool)(SaveDataManager.Instance?.IsShooterUnLimit(shooterName));
-        if (hasShooter)
+        try
         {
-            allowAttackNum = -1;
+            shooterNowName = shooterName;
+            // 重新加载参数
+            _LoadShooterParams(shooterName);
+            // 加载射手实力
+            _LoadShooterInstance(shooterName);
+            // 切换了射手，保存数据
+            SaveDataManager.Instance?.SetPlayerShooter(shooterName);
+            // 检查是否解锁该射手
+            allowAttackNum = PlansConstants.GetShooterAttackLimit(shooterName);
+            if (SaveDataManager.Instance == null) return;
+            bool hasShooter = (bool)(SaveDataManager.Instance?.IsShooterUnLimit(shooterName));
+            if (hasShooter)
+            {
+                allowAttackNum = -1;
+            }
+            else
+            {
+                allowAttackNum = PlayerTool.ComputedShooterShootRatio(allowAttackNum);
+            }
         }
-        else
+        catch
         {
-            allowAttackNum = PlayerTool.ComputedShooterShootRatio(allowAttackNum);
+            
         }
     }
 
@@ -149,43 +156,51 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
     float __attackingTime = 0f;
     public override void _Process(double delta)
     {
-        RotationEveryFrame(workingDirection, delta);
-        // 限制帧率攻击
-        if (__attackZhengLv > 0f)
+        try
         {
-            __attackZhengLv += (float)delta;
-            if (__attackZhengLv >= GetAttackZhengLvLimit())
+
+            RotationEveryFrame(workingDirection, delta);
+            // 限制帧率攻击
+            if (__attackZhengLv > 0f)
             {
-                __attackZhengLv = 0f;
-                __allowAttackOfZhengLv = true;
-            }
-        }
-        // 切换攻击状态
-        if (__attackingTime > 0f)
-        {
-            __attackingTime += (float)delta;
-            if (__attackingTime >= 0.1f)
-            {
-                __attackingTime = 0f;
-                if (finishedMyRotation)
+                __attackZhengLv += (float)delta;
+                if (__attackZhengLv >= GetAttackZhengLvLimit())
                 {
-                    SwitchStatus(EnumShooterStatus.Idle);
-                }
-                else
-                {
-                    SwitchStatus(EnumShooterStatus.Rotating);
+                    __attackZhengLv = 0f;
+                    __allowAttackOfZhengLv = true;
                 }
             }
-        }
-        // 加载效果
-        if (__fireLoadLv > 0f)
-        {
-            __fireLoadLv += (float)delta;
-            if (__fireLoadLv >= __fireLoadLvLimit)
+            // 切换攻击状态
+            if (__attackingTime > 0f)
             {
-                __fireLoadLv = 0f;
-                __allowFireLoad = true;
+                __attackingTime += (float)delta;
+                if (__attackingTime >= 0.1f)
+                {
+                    __attackingTime = 0f;
+                    if (finishedMyRotation)
+                    {
+                        SwitchStatus(EnumShooterStatus.Idle);
+                    }
+                    else
+                    {
+                        SwitchStatus(EnumShooterStatus.Rotating);
+                    }
+                }
             }
+            // 加载效果
+            if (__fireLoadLv > 0f)
+            {
+                __fireLoadLv += (float)delta;
+                if (__fireLoadLv >= __fireLoadLvLimit)
+                {
+                    __fireLoadLv = 0f;
+                    __allowFireLoad = true;
+                }
+            }
+        }
+        catch
+        {
+            
         }
     }
     EnumShooterStatus _shooterStatus = EnumShooterStatus.None;

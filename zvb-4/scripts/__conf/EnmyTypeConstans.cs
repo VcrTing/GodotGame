@@ -15,6 +15,8 @@ namespace ZVB4.Conf
         public const string ZombiMuTong = "zombi_mu_tong"; // 4
         public const string ZombiTieTong = "zombi_tie_tong"; // 8
         public const string ZombiGangMen = "zombi_gang_men"; // 10
+        public const string ZombiJuRen = "zombi_ju_ren"; // 30
+        public const string ZombiMice = "zombi_mice"; // 0.5
 
         // 存储血量的字典
         public static readonly Dictionary<string, int> HpDict = new Dictionary<string, int>()
@@ -28,6 +30,8 @@ namespace ZVB4.Conf
             { ZombiJi, (int)EnumHealth.Tiny },
             { ZombiGlq, (int)EnumHealth.Three },
             { ZombiGangMen, (int)EnumHealth.Two },
+            { ZombiJuRen, (int)EnumHealth.JuRen },
+            { ZombiMice, (int)EnumHealth.Tiny }
         };
 
         // 存储额外血量的字典
@@ -55,20 +59,27 @@ namespace ZVB4.Conf
             { ZombiJi, 70f }, // run
             { ZombiM, 20f }, // run
             { ZombiGlq, 15f }, // run
+
+            { ZombiJuRen, 7f },
+            { ZombiMice, 50f}, // run
         };
 
         static int BaseDamage = (int)EnumHealth.One / 6;
         // 储存伤害的字典
         public static readonly Dictionary<string, int> DamageDict = new Dictionary<string, int>()
         {
-            
+            { ZombiJuRen, (int)EnumHealth.Ten },
+            { ZombiMice, (int)EnumHealth.One }, 
         };
         public static float BaseBaitSpeed = 0.5f;
         public static float BaseBaitLazyStart = 0.5f;
+        // 越小攻击越快
         public static readonly Dictionary<string, float> BaitSpeedDict = new Dictionary<string, float>()
         {
-            { ZombiM, BaseBaitSpeed * 2 },
-            { ZombiJi, BaseBaitSpeed * 2 },
+            { ZombiJuRen, BaseBaitSpeed * 3 },
+            { ZombiM, BaseBaitSpeed / 2 },
+            { ZombiJi, BaseBaitSpeed / 2 },
+            { ZombiMice, BaseBaitSpeed / 2 },
         };
 
         public static float RedEyeScale = 3f;
@@ -111,13 +122,21 @@ namespace ZVB4.Conf
         // 
         public static string GetZombiWrapperScenePath(string enmyName)
         {
-            return FolderConstants.WaveEnemy + "wrapper/zombi_c_wrapper.tscn";
+            string n = "zombi_c_wrapper";
+            if (enmyName.Contains("_mice")) { n = "zombi_t_wrapper"; }
+            if (enmyName.Contains("_ju_ren")) { n = "zombi_x_wrapper"; }
+            return FolderConstants.WaveEnemy + "wrapper/" + n + ".tscn";
         }
         public static bool GenerateZombiTexture(Node2D father, string key)
         {
             string folder = "texture/";
-            if (key.Contains("_cgt") || key.Contains("_baozhi")) {
+            if (key.Contains("_cgt") || key.Contains("_baozhi"))
+            {
                 folder = "texture_cc/";
+            }
+            if (key.Contains("_ju_ren") || key.Contains("_mice"))
+            {
+                folder = "texture_xt/";
             }
             var textureScene = GD.Load<PackedScene>(FolderConstants.WaveEnemy + folder + key + "_texture.tscn");
             if (textureScene != null)
@@ -129,6 +148,7 @@ namespace ZVB4.Conf
             }
             return false;
         }
+        
     }
 
 }

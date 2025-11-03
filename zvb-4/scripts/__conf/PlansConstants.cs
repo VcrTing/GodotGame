@@ -26,6 +26,7 @@ namespace ZVB4.Conf
         public const string JianGuo = "JianGuo";
         public const string XianRenQiu = "XianRenQiu";
         public const string XiHongShi = "XiHongShi";
+        public const string QieZi = "QieZi";
         // 炸弹
         public const string IceFlower = "IceFlower";
         public const string Cherry = "Cherry";
@@ -47,15 +48,14 @@ namespace ZVB4.Conf
             { Xigua, FolderConstants.WavePlans + "plansshooter/xigua.tscn" },
             { PaoGu, FolderConstants.WavePlans + "plansshooter/pao_gu.tscn" },
 
-
             { SunGu, FolderConstants.WavePlans + "plansfuzhu/sun_gu.tscn" },
             { SunFlower, FolderConstants.WavePlans + "plansfuzhu/sun_flower.tscn" },
             { RewordFlower, FolderConstants.WavePlans + "plansfuzhu/reword_flower.tscn" },
 
-
             { JianGuo,  FolderConstants.WavePlans + "planszhongzhi/jian_guo.tscn" },
             { XianRenQiu,  FolderConstants.WavePlans + "planszhongzhi/xian_ren_qiu.tscn" },
             { XiHongShi,  FolderConstants.WavePlans + "planszhongzhi/xi_hong_shi.tscn" },
+            { QieZi, FolderConstants.WavePlans + "planszhongzhi/qie_zi.tscn" },
 
             { LaJiao,  FolderConstants.WavePlans + "plansonce/la_jiao.tscn" },
             { Cherry,  FolderConstants.WavePlans + "plansonce/cherry.tscn" },
@@ -103,6 +103,7 @@ namespace ZVB4.Conf
             { JianGuo, 2f },
             { XianRenQiu, 4f },
             { XiHongShi, 2f },
+            { QieZi, 1f },
 
             { Cherry, 5f },
             { IceFlower, 10f },
@@ -122,6 +123,7 @@ namespace ZVB4.Conf
             { JianGuo, (int)EnumHealth.JianGuo },
             { XianRenQiu, (int)EnumHealth.XianRenQiu },
             { XiHongShi, (int)EnumHealth.Eight },
+            { QieZi, (int)EnumHealth.Eight },
         };
         // 会占用格子的植物
         public static bool IsWillZhanYongGeZi(string planName) => PlanHealthDict.ContainsKey(planName);
@@ -223,7 +225,7 @@ namespace ZVB4.Conf
             return 0f;
         } 
         // 坚果倍数
-        public static float BiggerRateMaxJianGuo = 1.5f;
+        public static float BiggerRateMaxJianGuo = 1f;
         public static float BiggerRateMaxGu = 1.9f;
         public static float BiggerRateMaxZhongzhi = 1f;
 

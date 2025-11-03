@@ -326,4 +326,10 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
     {
         throw new NotImplementedException();
     }
+
+    public Vector2 GetBasicDirection()
+    {
+        throw new NotImplementedException();
+    }
+
 }

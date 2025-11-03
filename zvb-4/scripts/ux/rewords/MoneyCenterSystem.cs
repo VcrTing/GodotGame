@@ -57,14 +57,22 @@ public partial class MoneyCenterSystem : Control
     // 第5关 保底 950 金币
     public void AsyncMoneyValue()
     {
-        __vt = 0.0001f;
-        if (SaveDataManager.Instance != null)
+        try
         {
-            SaveDataManager.Instance.AddMoneyAndSave(v - prev);
-            UpdateMoneyLabel(v);
-            prev = v;
-            stayTime = 2f;
+            __vt = 0.0001f;
+            if (SaveDataManager.Instance != null)
+            {
+                SaveDataManager.Instance.AddMoneyAndSave(v - prev);
+                UpdateMoneyLabel(v);
+                prev = v;
+                stayTime = 2f;
+            }
         }
+        catch
+        {
+            
+        }
+
     }
 
     public bool CostForBuyed(int price)
@@ -83,7 +91,7 @@ public partial class MoneyCenterSystem : Control
         if (__vt > 0f)
         {
             __vt += (float)delta;
-            if (__vt > 0.5f)
+            if (__vt > 1f)
             {
                 AsyncMoneyValue();
             }

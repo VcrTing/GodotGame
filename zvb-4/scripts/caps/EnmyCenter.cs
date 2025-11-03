@@ -82,11 +82,19 @@ public partial class EnmyCenter : Node2D
         count += 1;
         if (name == EnmyTypeConstans.ZombiM)
         {
-            SoundGameObjController.Instance?.PlayFx("Zombi/s/kid", name, 4, pos);
+            SoundOneshotController.Instance?.PlayFx("Zombi/s/kid", name, 4, 1f, pos);
         }
         else if (name == EnmyTypeConstans.ZombiJi) 
         {
-            SoundGameObjController.Instance?.PlayFx("Zombi/s/ji", name, 4, pos);
+            SoundOneshotController.Instance?.PlayFx("Zombi/s/ji", name, 4, 1f, pos);
+        }
+        else if (name == EnmyTypeConstans.ZombiJuRen)
+        {
+            SoundOneshotController.Instance?.PlayFx("Zombi/huge/juren", name, 4, 1f, pos);
+        }
+        else if (name == EnmyTypeConstans.ZombiMice)
+        {
+            SoundOneshotController.Instance?.PlayFx("Zombi/other/mice", name + "_far", 4, 0.6f, pos, 5f);
         }
     }
 }

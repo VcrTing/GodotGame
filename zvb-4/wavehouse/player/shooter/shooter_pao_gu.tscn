@@ -1,17 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://b125aok2f1lbb"]
+[gd_scene load_steps=10 format=3 uid="uid://b125aok2f1lbb"]
 
 [ext_resource type="Script" uid="uid://bohnv6moy24we" path="res://scripts/player/shooter/ShooterPaoGu.cs" id="1_lxum0"]
-[ext_resource type="Texture2D" uid="uid://ufac5l2t8fg3" path="res://pngs/plans/ShooterGu.png" id="2_lxum0"]
+[ext_resource type="Texture2D" uid="uid://bixdrnyfjf4ar" path="res://pngs/plans/PaoGuShooter.png" id="2_lxum0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxum0"]
+atlas = ExtResource("2_lxum0")
+region = Rect2(0, 0, 300, 300)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkwgp"]
 atlas = ExtResource("2_lxum0")
-region = Rect2(200, 0, 200, 200)
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_338e4"]
+atlas = ExtResource("2_lxum0")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_727ed"]
+atlas = ExtResource("2_lxum0")
+region = Rect2(900, 0, 300, 300)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_338e4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lxum0")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_kkwgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_338e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_727ed")
 }],
 "loop": true,
 "name": &"default",
@@ -33,10 +54,12 @@ y_sort_enabled = true
 script = ExtResource("1_lxum0")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -6)
-scale = Vector2(0.42, 0.42)
+position = Vector2(0, -4)
+scale = Vector2(0.36, 0.36)
 sprite_frames = SubResource("SpriteFrames_338e4")
 autoplay = "default"
+frame = 1
+frame_progress = 0.69813013
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false

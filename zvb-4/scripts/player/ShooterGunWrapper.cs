@@ -26,23 +26,30 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
 
     public void ChangeShooter(string shooterName)
     {
-        // 加载射手实力
-        _LoadShooterInstance(shooterName);
-        // 重新加载参数
-        _LoadShooterParams(shooterName);
-        // 切换了射手，保存数据
-        SaveDataManager.Instance?.SetPlayerShooter(shooterName);
-        // 检查是否解锁该射手
-        allowAttackNum = PlansConstants.GetShooterAttackLimit(shooterNowName);
-        if (SaveDataManager.Instance == null) return;
-        bool hasShooter = (bool)(SaveDataManager.Instance?.IsShooterUnLimit(shooterNowName));
-        if (hasShooter)
+        try
         {
-            allowAttackNum = -1;
+            // 加载射手实力
+            _LoadShooterInstance(shooterName);
+            // 重新加载参数
+            _LoadShooterParams(shooterName);
+            // 切换了射手，保存数据
+            SaveDataManager.Instance?.SetPlayerShooter(shooterName);
+            // 检查是否解锁该射手
+            allowAttackNum = PlansConstants.GetShooterAttackLimit(shooterNowName);
+            if (SaveDataManager.Instance == null) return;
+            bool hasShooter = (bool)(SaveDataManager.Instance?.IsShooterUnLimit(shooterNowName));
+            if (hasShooter)
+            {
+                allowAttackNum = -1;
+            }
+            else
+            {
+                allowAttackNum = PlayerTool.ComputedShooterShootRatio(allowAttackNum);
+            }
         }
-        else
+        catch
         {
-            allowAttackNum = PlayerTool.ComputedShooterShootRatio(allowAttackNum);
+            
         }
     }
 
@@ -158,32 +165,40 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
     bool succAttack = true;
     public override void _Process(double delta)
     {
-        if (attackNum > 0)
+        try
         {
-            __attackFlagTime += (float)delta;
-            if (__attackFlagTime >= __attackSpeed)
+            if (attackNum > 0)
             {
-                addAttackDirectionFlag = true;
-                __attackFlagTime = 0f;
-            }
-
-            //
-            __attackTime += (float)delta;
-            if (__attackTime >= __attackSpeed)
-            {
-                // 
-                if (attackDirectionList.Count > 0)
+                __attackFlagTime += (float)delta;
+                if (__attackFlagTime >= __attackSpeed)
                 {
-                    Vector2 one = attackDirectionList[0];
-                    AttackDirection = one;
-                    attackDirectionList.RemoveAt(0);
-                    RotateToDirection(AttackDirection);
-                    succAttack = AttackAtPosition(this.GlobalPosition, AttackDirection);
+                    addAttackDirectionFlag = true;
+                    __attackFlagTime = 0f;
                 }
+
+                //
+                __attackTime += (float)delta;
+                if (__attackTime >= __attackSpeed)
+                {
+                    // 
+                    if (attackDirectionList.Count > 0)
+                    {
+                        Vector2 one = attackDirectionList[0];
+                        AttackDirection = one;
+                        attackDirectionList.RemoveAt(0);
+                        RotateToDirection(AttackDirection);
+                        succAttack = AttackAtPosition(this.GlobalPosition, AttackDirection);
+                    }
+                }
+                if (succAttack) { RunnerAttackInterval(delta); }
             }
-            if (succAttack) { RunnerAttackInterval(delta); }
+            RotationEveryFrame(NowRotationDir, delta);
         }
-        RotationEveryFrame(NowRotationDir, delta);
+        catch
+        {
+            
+        }
+
     }
     float attackSpeedStart = 0.3f;
     float speedEnd = 0.3f;
