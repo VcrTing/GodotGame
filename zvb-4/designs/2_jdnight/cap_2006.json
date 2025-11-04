@@ -3,15 +3,15 @@
     "shootershootratio": 1,
     "shooterlowestattackspeedratio": 1,
 
-    "enmyspeedattackscale": 2,
+    "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,
     "enmyviewscale": 1,
-    "enmybehurtscale": 4,
+    "enmybehurtscale": 1,
 
     "initsun": 1200,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
-    "gamechecktime": 180,
+    "gamechecktime": 225,
     
     "initpeng": 8,
     "allowmiaolist": [
@@ -20,9 +20,9 @@
     
     "initshooter": "_",
     "initmiaolist": [
-        "SunGu", "SunGu", "SunGu", "SunGu", "SunGu", "SunGu", "XianRenQiu", "XianRenQiu"
+        "SunGu", "SunGu", "SunGu", "SunGu", "SunGu", "SunGu"
     ],
-    "attackstarts": [ 15.5, 24.5, 49.5, 59.5, 99.5, 103.5, 114.5, 129.5, 139.5, 179.5, 187.5 ],
+    "attackstarts": [ 15.5, 24.5, 49.5, 63.5, 99.5, 103.5, 114.5, 129.5, 139.5, 179.5, 187.5, 216.5, 225.5 ],
     "enmys": {
         "16": [
             {
@@ -51,31 +51,13 @@
                 "lazyme": 0, "redeyeratio": 1
             }
         ],
-        "19": [
-            {
-                "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
-                "typesmode": "next",
-                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-                "generatormode": "next",
-                "lazyme": 0, "redeyeratio": 1
-            }
-        ],
-        "20": [
-            {
-                "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
-                "typesmode": "next",
-                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-                "generatormode": "next",
-                "lazyme": 0, "redeyeratio": 1
-            }
-        ],
         "25": [
             {
                 "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
-                "lazyme": 3, "redeyeratio": 1
+                "lazyme": 2, "redeyeratio": 1
             }
         ],
         
@@ -125,7 +107,7 @@
             }
         ],
 
-        "60": [
+        "64": [
             {
                 "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
                 "typesmode": "next",
@@ -134,7 +116,7 @@
                 "lazyme": 0, "redeyeratio": 1
             }
         ],
-        "61": [
+        "65": [
             {
                 "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
                 "typesmode": "next",
@@ -143,7 +125,7 @@
                 "lazyme": 0, "redeyeratio": 1
             }
         ],
-        "62": [
+        "66": [
             {
                 "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
                 "typesmode": "next",
@@ -405,6 +387,52 @@
                 "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 0, "redeyeratio": 1
+            }
+        ],
+        
+        "217": [
+            {
+                "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 0, "redeyeratio": 1
+            }
+        ],
+        "219": [
+            {
+                "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+                "typesmode": "next",
+                "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ],
+                "generatormode": "next",
+                "lazyme": 0, "redeyeratio": 1
+            }
+        ],
+        "222": [
+            {
+                "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 0, "redeyeratio": 1
+            }
+        ],
+        "224": [
+            {
+                "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+                "typesmode": "next",
+                "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ],
+                "generatormode": "next",
+                "lazyme": 0, "redeyeratio": 1
+            }
+        ],
+        "226": [
+            {
+                "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+                "typesmode": "next",
+                "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ],
                 "generatormode": "next",
                 "lazyme": 0, "redeyeratio": 1
             }

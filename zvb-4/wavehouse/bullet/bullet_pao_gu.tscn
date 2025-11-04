@@ -1,47 +1,66 @@
-[gd_scene load_steps=6 format=3 uid="uid://263sromrrl64"]
+[gd_scene load_steps=9 format=3 uid="uid://263sromrrl64"]
 
-[ext_resource type="Script" uid="uid://d1ekdbelko8hi" path="res://scripts/bullet/BulletSingle.cs" id="1_ou5vi"]
+[ext_resource type="Script" uid="uid://6nsjx3kqe8hu" path="res://scripts/bullet/PaoPao/BulletPaoGu.cs" id="1_bjewp"]
 [ext_resource type="Texture2D" uid="uid://c66yfax3pvv0q" path="res://pngs/bullet/BulletPaoGu.png" id="2_bjewp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjewp"]
+atlas = ExtResource("2_bjewp")
+region = Rect2(0, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjobv"]
 atlas = ExtResource("2_bjewp")
-region = Rect2(0, 0, 200, 200)
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kra0t"]
+atlas = ExtResource("2_bjewp")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_runbo"]
+atlas = ExtResource("2_bjewp")
+region = Rect2(600, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kra0t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bjewp")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vjobv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kra0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_runbo")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ajshl"]
-radius = 30.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_bjewp"]
+radius = 60.0
 
 [node name="BulletPaoGu" type="Node2D"]
 z_index = 999
 y_sort_enabled = true
-scale = Vector2(2.7, 2.7)
-script = ExtResource("1_ou5vi")
-IsManyDamage = true
+script = ExtResource("1_bjewp")
 hurtType = 8
-objName = "BulletPaoGu"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.47058824)
 y_sort_enabled = true
-position = Vector2(-5, -5)
+position = Vector2(-1, 1)
 rotation = -0.2617994
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_kra0t")
 autoplay = "default"
+frame_progress = 0.67193174
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 256
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("CircleShape2D_ajshl")
+shape = SubResource("CircleShape2D_bjewp")

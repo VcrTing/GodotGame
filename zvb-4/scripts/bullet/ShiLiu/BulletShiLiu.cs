@@ -6,6 +6,23 @@ using ZVB4.Tool;
 
 public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
 {
+    [Export]
+    public EnumHurts hurtType { get; set; } = EnumHurts.Pea;
+    [Export]
+    public string objName = BulletConstants.BulletShiLiuName;
+    [Export]
+    public float RotationSpeed = 0f; // 每秒旋转角度
+    [Export]
+    public float SpeedSubNumStay = 20f;
+    [Export]
+    public float SpeedSubNumFadeOut = 40f;
+    [Export]
+    public float DamageLowestRatio = 0f;
+    [Export]
+    public float DamageStayTime = 0.1f;
+    [Export]
+    public float DamageFadeTime = 0.4f;
+
     private Area2D _area2D;
 
     public override void _Ready()
@@ -14,7 +31,6 @@ public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
         float s = Scale.X;
         s += (GD.Randf() * 0.6f) - 0.2f; // -0.2到0.4之间
         Scale = new Vector2(s, s);
-
         AnimatedSprite2D view = GodotTool.GetViewAndAutoPlay(this);
         maxScale = Scale.X;
         minScale = ViewTool.GetYouMinScale(maxScale);
@@ -100,7 +116,6 @@ public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
         {
             ViewTool.View3In1(this, minScale, maxScale);
         }
-
         // III
         if (!isDoDie)
         {
@@ -110,19 +125,19 @@ public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
                 if (this._damageElapsed < DamageStayTime)
                 {
                     this._damageElapsed += (float)delta;
-                    Speed -= 20f;
+                    Speed -= SpeedSubNumStay;
                 }
                 else if (this._damageElapsed < DamageStayTime + DamageFadeTime)
                 {
                     this._damageElapsed += (float)delta;
                     float t = Mathf.Clamp((this._damageElapsed - DamageStayTime) / DamageFadeTime, 0f, 1f);
-                    this.__damageNow = Mathf.Lerp(Damage, 0f, t);
+                    this.__damageNow = Mathf.Lerp(Damage, DamageLowestRatio, t);
                     if (this.__damageNow <= 0.01f)
                     {
                         this.__damageNow = 0f;
                         OnDamageZero();
                     }
-                    Speed -= 40f;
+                    Speed -= SpeedSubNumFadeOut;
                 }
             }
         }
@@ -134,19 +149,12 @@ public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
         //
         MoveBullet(Direction, Speed, delta);
     }
-    [Export]
-    public float DamageStayTime = 0.1f;
-    [Export]
-    public float DamageFadeTime = 0.4f;
     // 伤害降为0时调用
     void OnDamageZero()
     {
         Speed = Speed / 2f;
-        // TODO: 这里可以写降为0时的逻辑
         DoDie();
     }
-    [Export]
-    public float RotationSpeed = 0f; // 每秒旋转角度
     [Export]
     public bool IsPlayFlySound = true;
 
@@ -180,10 +188,6 @@ public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
 
     EnumObjType objType = EnumObjType.Plans;
     public EnumObjType GetEnumObjType() => objType;
-    [Export]
-    public EnumHurts hurtType { get; set; } = EnumHurts.Pea;
-    [Export]
-    public string objName = BulletConstants.BulletShiLiuName;
     public string GetObjName() => objName;
 
     public bool Init(string name = null) => true;

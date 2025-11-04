@@ -155,9 +155,8 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ad81k"]
-radius = 50.0
-height = 170.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quvmd"]
+size = Vector2(150, 160)
 
 [node name="JianGuo" type="Node2D"]
 z_index = 400
@@ -181,5 +180,6 @@ collision_mask = 2304
 script = ExtResource("5_0ddif")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeHurtArea"]
+position = Vector2(0, 15)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_ad81k")
+shape = SubResource("RectangleShape2D_quvmd")

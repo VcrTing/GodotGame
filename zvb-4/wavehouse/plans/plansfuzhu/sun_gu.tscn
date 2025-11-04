@@ -79,7 +79,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rf7gy"]
 radius = 40.0
-height = 240.0
+height = 180.0
 
 [node name="SunGu" type="Node2D"]
 z_index = 400
@@ -87,7 +87,7 @@ y_sort_enabled = true
 script = ExtResource("1_6x2hd")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, 30)
+position = Vector2(3, 24)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_c5axu")
 animation = &"live60"

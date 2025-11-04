@@ -30,7 +30,7 @@ namespace ZVB4.Conf
             { PlansConstants.YangTao, 30 },
             { PlansConstants.ShiLiu, 25 },
             { PlansConstants.Xigua, 35 },
-            { PlansConstants.PaoGu, 15 },
+            { PlansConstants.PaoGu, 30 },
             { PlansConstants.XiguaBing, 50 },
             { PlansConstants.PeaGold, 50 },
             { PlansConstants.Yezi, 100 }
@@ -42,7 +42,7 @@ namespace ZVB4.Conf
             { PlansConstants.PeaDouble, 75 },
             { PlansConstants.LanMei, 75 },
             { PlansConstants.YangTao, 100 },
-            { PlansConstants.PaoGu, 75 },
+            { PlansConstants.PaoGu, 100 },
             { PlansConstants.ShiLiu, 80 },
             { PlansConstants.Xigua, 100 },
             { PlansConstants.XiguaBing, 200 },
@@ -112,7 +112,7 @@ namespace ZVB4.Conf
         public static readonly Dictionary<string, int> SunPlansGrowTime = new Dictionary<string, int>
         {
             { PlansConstants.SunFlower, 1000 },
-            { PlansConstants.RewordFlower, 999 },
+            { PlansConstants.RewordFlower, 60 },
             { PlansConstants.SunGu, 20 },
         };
         public static int GetSunPlansGrowTime(string plansName) => SunPlansGrowTime[plansName];

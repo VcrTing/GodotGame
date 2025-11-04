@@ -19,6 +19,6 @@ namespace ZVB4.Conf
         JuRen = 1000 * 30, // 巨人僵尸
 
         XianRenQiu = 1000 * 50, // 仙人球血量
-        JianGuo = 1000 * 80, // 坚果血量
+        JianGuo = 1000 * 90, // 坚果血量
     }
 }

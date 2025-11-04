@@ -22,7 +22,7 @@ public partial class PlansSunGu : Node2D, IWorking, IObj, IBeHurt, IGrow
         SetScale(Scale.X);
         _flowerWorking = GetNodeOrNull<FlowerWorkingReword>(NameConstants.Working);
         growInitY = view.Position.Y;
-        growTime = PlansConstants.GetPlanGrowTime(objName);
+        growTime = SunMoneyConstants.GetSunPlansGrowTime(objName);
     }
 
     float smallScale = 0f;

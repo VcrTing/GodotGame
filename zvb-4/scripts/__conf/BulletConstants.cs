@@ -49,8 +49,9 @@ namespace ZVB4.Conf
             { BulletPeaColdName, Base * 60 },
             { BulletPeaDoubleName, DamageBasic },
             { BulletShiLiuName, Base * 40 },
-            { BulletXiguaName, Base * 175 },   
-            { BulletPaoGuName, DamageBasic }, 
+            { BulletXiguaName, Base * 175 },
+
+            { BulletPaoGuName, Base * 120 }, 
             //
             { BulletLanMeiName, Base * 70 },
             { BulletYangTaoName, Base * 50 },
@@ -99,7 +100,7 @@ namespace ZVB4.Conf
         {
             return n switch
             {
-                BulletPaoGuName => 400f,
+                BulletPaoGuName => 300f,
                 BulletPeaName => 800f,
                 BulletPeaColdName => 700f,
                 BulletPeaDoubleName => 920f,
@@ -128,18 +129,20 @@ namespace ZVB4.Conf
         public const int PlansDamageBase = DamageBasic;
         public const int DamageCherry = PlansDamageBase * 20;
         public const int DamageLaJiao = PlansDamageBase * 30;
+        public const int DamageMoRiGu = PlansDamageBase * 50;
         public static int GetPlansDamage(string plantName)
         {
             if (plantName == PlansConstants.Cherry) return DamageCherry;
             else if (plantName == PlansConstants.LaJiao) return DamageLaJiao;
+            else if (plantName == PlansConstants.MoRiGu) return DamageMoRiGu;
             else if (plantName == PlansConstants.XianRenQiu) return PlansDamageBase / 2;
             else if (plantName == PlansConstants.XiHongShi) return PlansDamageBase * 12;
             return 0;
         }
         public static int GetPlansDamageExtra(string plantName)
         {
-            if (plantName == PlansConstants.Cherry) return 10;
-            if (plantName == PlansConstants.LaJiao) return 16;
+            // if (plantName == PlansConstants.Cherry) return 10;
+            // if (plantName == PlansConstants.LaJiao) return 16;
             return 0;
         }
 

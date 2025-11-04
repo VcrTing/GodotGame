@@ -1,24 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxp8h1au7mu3g"]
+[gd_scene load_steps=7 format=3 uid="uid://cxp8h1au7mu3g"]
 
 [ext_resource type="Script" uid="uid://bt2t1u0ns42fl" path="res://scripts/plans/plansonce/PlansLaJiao.cs" id="1_hnhu7"]
 [ext_resource type="Texture2D" uid="uid://byw1psseenwm2" path="res://pngs/plans/once/LaJiao.png" id="2_ndubb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_56n5j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n4aj"]
 atlas = ExtResource("2_ndubb")
-region = Rect2(0, 0, 80, 80)
+region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sgq3c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnhu7"]
 atlas = ExtResource("2_ndubb")
-region = Rect2(80, 0, 80, 80)
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndubb"]
+atlas = ExtResource("2_ndubb")
+region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5qj52"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_56n5j")
+"texture": SubResource("AtlasTexture_5n4aj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sgq3c")
+"texture": SubResource("AtlasTexture_hnhu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndubb")
 }],
 "loop": true,
 "name": &"default",
@@ -36,5 +43,4 @@ y_sort_enabled = true
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_5qj52")
 autoplay = "default"
-frame = 1
-frame_progress = 0.0563699
+frame_progress = 0.22978024

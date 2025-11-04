@@ -31,7 +31,11 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
             viewExtra.QueueFree();
         }
     }
-    public void SwitchDieForBoomAnimation() => AnimationTool.DoAniDieForBoom(IsChanged ? viewChanged : view);
+    public void SwitchDieForBoomAnimation()
+    {
+        __changeTime = 0f; (fatherNode as IMove)?.PauseMove();
+        AnimationTool.DoAniDieForBoom(IsChanged ? viewChanged : view);
+    }
 
     int health = 10;
     int healthInit = 1000;
@@ -251,6 +255,7 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
     }
     public bool EndChangeAction()
     {
+        if (health <= 0) return false;
         view.Visible = false; viewChanged.Visible = true; IsChanged = true;
         SwitchStatus(EnumEnmyStatus.Move); return true;
     }

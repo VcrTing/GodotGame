@@ -28,6 +28,7 @@ namespace ZVB4.Conf
             { PlansConstants.IceFlower, "冰冻花" },
             { PlansConstants.LaJiao, "十字辣椒" },
             { PlansConstants.XiHongShi, "西红柿" },
+            { PlansConstants.MoRiGu, "毁灭菇" },
 
             { PlansConstants.Yezi, "椰子樽" },
             { PlansConstants.XiguaBing, "冰西瓜" },
@@ -55,6 +56,7 @@ namespace ZVB4.Conf
             { PlansConstants.Cherry, "tujian/plansonce/Cherry.json" },
             { PlansConstants.IceFlower, "tujian/plansonce/IceFlower.json" },
             { PlansConstants.LaJiao, "tujian/plansonce/LaJiao.json" },
+            { PlansConstants.MoRiGu, "tujian/plansonce/MoRiGu.json" },
 
             { PlansConstants.Yezi, "tujian/plansdiancang/Yezi.json" },
             { PlansConstants.XiguaBing, "tujian/plansdiancang/XiguaBing.json" },

@@ -10,36 +10,28 @@ public partial class PlansLaJiao : Node2D, IWorking, IObj, IAttack
     public EnumObjType objType = EnumObjType.Plans;
     public EnumObjType GetEnumObjType() => objType;
     [Export]
-    public string objName = PlansConstants.Cherry;
+    public string objName = PlansConstants.LaJiao;
     public string GetObjName() => objName;
     [Export]
     public int damage = 0;
     public int GetDamage() => damage;
-    [Export]
-    public int damageExtra = 0;
-    public int GetDamageExtra() => damageExtra;
+    public int GetDamageExtra() => 0;
 
     public bool IsWorkingMode;
     public void SetWorkingMode(bool working)
     {
-        if (working) { Boom(); }
+        ViewTool.View3In1(this, minScale, maxScale);
+        if (working) { StartBoom(); }
         IsWorkingMode = working;
     }
-    public async void Boom()
+    public void StartBoom() {  __t = 0.00001f; }
+    bool isBoom = false;
+    public void Boom()
     {
-        // 1秒后爆炸
-        await ToSignal(GetTree().CreateTimer(1f), "timeout");
+        if (isBoom) return; isBoom = true;
         // 播放音效
-        try
-        {
-            SoundPlayerController.Instance.EnqueueSound("Plans/" + objName, objName, 4);
-        }
-        catch (Exception ex)
-        {
-            GD.PrintErr($"Error playing sound: {ex.Message}");
-        }
-
-        // CCC: 生成爆炸特效并隐藏自身View
+        SoundPlayerController.Instance.EnqueueSound("Plans/" + objName, objName, 4);
+        //
         string boomScenePath = FolderConstants.WavePlans + "plansonce/inner/la_jiao_boom.tscn";
         var boomScene = GD.Load<PackedScene>(boomScenePath);
         if (boomScene != null)
@@ -50,12 +42,7 @@ public partial class PlansLaJiao : Node2D, IWorking, IObj, IAttack
         }
         // 隐藏自身View子节点
         var viewNode = GetNodeOrNull<Node2D>(NameConstants.View);
-        if (viewNode != null)
-            viewNode.Visible = false;
-
-        // 0.1秒后销毁
-        await ToSignal(GetTree().CreateTimer(0.7f), "timeout");
-        Die();
+        if (viewNode != null) viewNode.Visible = false;
     }
     public bool IsWorking() => IsWorkingMode;
     // 初始化
@@ -63,23 +50,27 @@ public partial class PlansLaJiao : Node2D, IWorking, IObj, IAttack
     {
         maxScale = Scale.X;
         minScale = ViewTool.GetYouMinScale(maxScale);
-        AdjustView();
+        ViewTool.View3In1(this, minScale, maxScale);
+        damage = ObjTool.GetObjDamage(EnumObjType.Plans, objName);
         Init();
+    }
+    float __t = 0f;
+    public override void _Process(double delta)
+    {
+        if (__t > 0f)
+        {
+            __t += (float)delta;
+            if (__t > 1f)
+            {
+                Boom();
+                if (__t > 1.7f) { Die(); }
+            }
+        }
     }
     float minScale = GameContants.MinScale;
     float maxScale = GameContants.MaxScale;
-    public bool AdjustView()
-    {
-        ViewTool.View3In1(this, minScale, maxScale);
-        return true;
-    }
     public bool CanAttack() => IsWorkingMode;
-    public bool Init(string name = null)
-    {
-        damage = ObjTool.GetObjDamage(EnumObjType.Plans, objName);
-        damageExtra = ObjTool.GetObjDamageExtra(EnumObjType.Plans, objName);
-        return true;
-    }
+    public bool Init(string name = null) => true;
     public bool Die()
     {
         QueueFree();

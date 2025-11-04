@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using ZVB4.Conf;
 using ZVB4.Interface;
 
@@ -18,26 +19,53 @@ public partial class ShooterPaoGu : Node2D, IShooter, IObj
     {
         ObjName = name ?? PlansConstants.PaoGu;
         LoadBullet();
-        init = true;
         DoInitEffect(GlobalPosition);
+        init = true;
         return true;
+    }
+    float deg = 5f;
+    public List<Vector2> ComputedAttackDirections(Vector2 startPosition, Vector2 direction)
+    {
+        List<Vector2> ds = new List<Vector2>();
+        direction = direction.Normalized();
+        ds.Add(direction);
+        // NNN: 计算direction左边偏8度和右边偏8度的方向
+        float angleRad = Mathf.DegToRad(deg);
+        // 左偏8度
+        float leftAngle = direction.Angle() - angleRad;
+        Vector2 leftDirection = new Vector2(Mathf.Cos(leftAngle), Mathf.Sin(leftAngle));
+        ds.Add(leftDirection);
+        // 右偏8度
+        float rightAngle = direction.Angle() + angleRad;
+        Vector2 rightDirection = new Vector2(Mathf.Cos(rightAngle), Mathf.Sin(rightAngle));
+        ds.Add(rightDirection);
+        //
+        return ds;
+    }
+
+    void __Shoot(PackedScene bulletScene, Vector2 startPosition, Vector2 direction)
+    {
+        var bullet = bulletScene.Instantiate<Node2D>();
+        bullet.Position = startPosition;
+        // 调整运动方向
+        if (bullet is IBulletBase bulletBase)
+        {
+            bulletBase.SetDirection(direction.Normalized());
+        }
+        GetTree().CurrentScene.AddChild(bullet);
     }
 
     public void ShootBullet(Vector2 startPosition, Vector2 direction)
     {
         // 正式攻击
         var bulletScene = GD.Load<PackedScene>(BulletScenePath);
-        // GD.PrintErr("ShooterPea ShootBullet: " + BulletScenePath);
         if (bulletScene != null)
         {
-            var bullet = bulletScene.Instantiate<Node2D>();
-            bullet.Position = startPosition;
-            // 调整运动方向
-            if (bullet is IBulletBase bulletBase)
+            List<Vector2> directions = ComputedAttackDirections(startPosition, direction);
+            foreach (var dir in directions)
             {
-                bulletBase.SetDirection(direction.Normalized());
+                __Shoot(bulletScene, startPosition, dir);
             }
-            GetTree().CurrentScene.AddChild(bullet);
             // 播放音效
             DoFireEffect(startPosition);
         }
@@ -72,10 +100,4 @@ public partial class ShooterPaoGu : Node2D, IShooter, IObj
         QueueFree();
         return true;
     }
-
-    public void DoRotingEffect(Vector2 direction)
-    {
-        throw new NotImplementedException();
-    }
-
 }

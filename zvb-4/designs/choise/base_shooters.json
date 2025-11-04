@@ -9,14 +9,26 @@
     },
     {
         "name": "PeaDouble", "id": 3,
-        "price": 10000, "x": 120, "y": 110, "viewscale": 1
+        "price": 5000, "x": 120, "y": 110, "viewscale": 1
     },
     {
         "name": "LanMei", "id": 4,
-        "price": 18000, "x": 120, "y": 110, "viewscale": 1
+        "price": 7000, "x": 120, "y": 110, "viewscale": 1
     },
     {
         "name": "PaoGu", "id": 5,
-        "price": 30000, "x": 120, "y": 110, "viewscale": 1
+        "price": 10000, "x": 120, "y": 110, "viewscale": 1
+    },
+    {
+        "name": "YangTao", "id": 4,
+        "price": 8000, "x": 120, "y": 110, "viewscale": 1
+    },
+    {
+        "name": "ShiLiu", "id": 4,
+        "price": 8000, "x": 120, "y": 110, "viewscale": 1
+    },
+    {
+        "name": "Xigua", "id": 4,
+        "price": 12000, "x": 120, "y": 110, "viewscale": 1
     }
 ]

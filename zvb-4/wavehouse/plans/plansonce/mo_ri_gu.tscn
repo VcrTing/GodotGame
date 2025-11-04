@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlji0wipccqk8"]
+
+[ext_resource type="Script" uid="uid://c5cjh66rvrj4l" path="res://scripts/plans/plansonce/PlansMoRiGu.cs" id="1_ewchl"]
+[ext_resource type="Texture2D" uid="uid://clef4kr0252ap" path="res://pngs/plans/once/MoRiGu.png" id="2_ewchl"]
+[ext_resource type="Script" uid="uid://cadoasnurwxhm" path="res://scripts/plans/PlansAttackArea.cs" id="3_lf7yg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf7yg"]
+atlas = ExtResource("2_ewchl")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho4c5"]
+atlas = ExtResource("2_ewchl")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opwyu"]
+atlas = ExtResource("2_ewchl")
+region = Rect2(480, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwp3t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf7yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho4c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opwyu")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf7yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho4c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opwyu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewchl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ox2as"]
+radius = 900.0
+
+[node name="MoRiGu" type="Node2D"]
+z_index = 400
+y_sort_enabled = true
+script = ExtResource("1_ewchl")
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(3, 14)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_fwp3t")
+autoplay = "default"
+frame = 2
+frame_progress = 0.20603639
+
+[node name="ViewDoing" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ewchl")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 512
+script = ExtResource("3_lf7yg")
+enumHurts = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_ox2as")

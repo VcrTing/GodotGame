@@ -16,10 +16,8 @@ public partial class PlansCherry : Node2D, IWorking, IObj, IAttack
     [Export]
     public int damage = 0;
     public int GetDamage() => damage;
-    [Export]
-    public int damageExtra = 0;
-    public int GetDamageExtra() => damageExtra;
-
+    public int GetDamageExtra() => 0;
+    // 
     AnimatedSprite2D view;
     AnimatedSprite2D viewDoing;
     private GpuParticles2D _fx;
@@ -32,77 +30,76 @@ public partial class PlansCherry : Node2D, IWorking, IObj, IAttack
         viewDoing = GetNodeOrNull<AnimatedSprite2D>(NameConstants.ViewDoing);
         viewDoing.Visible = false;
         damage = ObjTool.GetObjDamage(EnumObjType.Plans, objName);
-        damageExtra = ObjTool.GetObjDamageExtra(EnumObjType.Plans, objName);
-        //
         _fx = GetNodeOrNull<GpuParticles2D>(NameConstants.Fx);
-        if (_fx != null)
-        {
-            _fx.Emitting = false;
-        }
-        _attackArea = GetNodeOrNull<Area2D>(NameConstants.AttackArea);
-        if (_attackArea != null)
-        {
-            _attackArea.Visible = false;
-            _attackArea.SetDeferred("monitoring", false);
-        }
+        if (_fx != null) { _fx.Emitting = false; }
+        ChangeAttackArea(false);
         return true;
+    }
+    void ChangeAttackArea(bool active)
+    {
+        try
+        {
+            if (_attackArea == null) _attackArea = GetNodeOrNull<Area2D>(NameConstants.AttackArea);
+            if (_attackArea != null)
+            {
+                _attackArea.Visible = active;
+                _attackArea.SetDeferred("monitoring", active);
+            }
+        }
+        catch { }
     }
     public override void _Ready()
     {
         maxScale = Scale.X;
         minScale = ViewTool.GetYouMinScale(maxScale);
-        AdjustView();
         Init();
     }
+    float __t = 0f;
     public override void _Process(double delta)
     {
-        AdjustView();
+        ViewTool.View3In1(this, minScale, maxScale);
+        if (__t > 0f)
+        {
+            __t += (float)delta;
+            if (__t > 1f)
+            {
+                Boom();
+                __t = 0f;
+            }
+        }
     }
     public bool IsWorkingMode;
     public void SetWorkingMode(bool working)
     {
-        if (working) { Boom(); }
+        if (working) { StartBoom(); }
         IsWorkingMode = working;
-    }
-
-    void BeforeBoom()
-    {
-        view.Play(NameConstants.Boom);
     }
     void AfterBoom()
     {
         viewDoing.QueueFree();
-        if (_attackArea != null)
-        {
-            _attackArea.QueueFree();
-            _attackArea = null;
-        }
+        ChangeAttackArea(false);
         if (_fx != null)
         {
             _fx.QueueFree();
             _fx = null;
         }
     }
+    public void StartBoom()
+    {
+        AnimationTool.DoAniAttack(view); __t = 0.00001f;
+    }
     public async void Boom()
     {
-        BeforeBoom();
-        // 1秒后爆炸
-        await ToSignal(GetTree().CreateTimer(1f), "timeout");
         if (_fx != null)
         {
             _fx.Emitting = true;
         }
-        if (_attackArea != null)
-        {
-            _attackArea.Visible = true;
-            _attackArea.SetDeferred("monitoring", true);
-        }
+        ChangeAttackArea(true);
         if (view != null)
         {
             view.QueueFree();
             view = null;
         }
-
         viewDoing.Visible = true;
         viewDoing.Play(NameConstants.Default);
         // 播放音效
@@ -110,41 +107,19 @@ public partial class PlansCherry : Node2D, IWorking, IObj, IAttack
         {
             SoundPlayerController.Instance.EnqueueSound("Plans/" + objName, objName, 5);
         }
-        catch (Exception ex)
-        {
-            GD.PrintErr($"Error playing sound: {ex.Message}");
-        }
+        catch (Exception ex) { }
         // 0.1秒后销毁
         await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
         AfterBoom();
         Die();
     }
-
-    async void _DoingDie()
-    {
-        await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-        QueueFree();
-    }
-
     public bool Die()
     {
-        _DoingDie();
+        QueueFree();
         return true;
     }
-
     float minScale = GameContants.MinScale;
     float maxScale = GameContants.MaxScale;
-    public bool AdjustView()
-    {
-        ViewTool.View3In1(this, minScale, maxScale);
-        return true;
-    }
-
     public bool IsWorking() => IsWorkingMode;
-
-    public bool CanAttack()
-    {
-        throw new NotImplementedException();
-    }
-
+    public bool CanAttack() => true;
 }

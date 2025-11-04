@@ -89,7 +89,7 @@
         ],
         "67": [
             {
-                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_gang_men", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
                 "typesmode": "next",
                 "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ],
                 "generatormode": "next",
@@ -145,7 +145,7 @@
         
         "120": [
             {
-                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_gang_men", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
@@ -163,7 +163,7 @@
         ],
         "140": [
             {
-                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_gang_men", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_gang_men", "zombi_m" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",

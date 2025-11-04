@@ -25,12 +25,13 @@ namespace ZVB4.Conf
         public const string RewordFlower = "RewordFlower";
         public const string JianGuo = "JianGuo";
         public const string XianRenQiu = "XianRenQiu";
-        public const string XiHongShi = "XiHongShi";
         public const string QieZi = "QieZi";
         // 炸弹
         public const string IceFlower = "IceFlower";
         public const string Cherry = "Cherry";
         public const string LaJiao = "LaJiao";
+        public const string MoRiGu = "MoRiGu";
+        public const string XiHongShi = "XiHongShi";
         // 典藏
         public const string Yezi = "Yezi";
         public const string PeaGold = "PeaGold";
@@ -59,6 +60,7 @@ namespace ZVB4.Conf
 
             { LaJiao,  FolderConstants.WavePlans + "plansonce/la_jiao.tscn" },
             { Cherry,  FolderConstants.WavePlans + "plansonce/cherry.tscn" },
+            { MoRiGu,  FolderConstants.WavePlans + "plansonce/mo_ri_gu.tscn" },
             { IceFlower,  FolderConstants.WavePlans + "plansonce/ice_flower.tscn" },
 
             { Yezi, FolderConstants.WavePlans + "plansdiancang/yezi.tscn" },
@@ -84,34 +86,35 @@ namespace ZVB4.Conf
             { XiguaBing, FolderConstants.WavePlayer + "shooter_diancang/shooter_xigua_bing.tscn" },
         };
         // 植物生长时长
-        static float BaseSubGrowTime = 1f;
+        static float BaseSubGrowTime = 0f;
         public static readonly  Dictionary<string, float> PlanGrowTimeDict = new  Dictionary<string, float>
         {
             { Pea, 2f },
             { PeaCold, 3f },
             { PeaDouble, 4f },
 
-            { LanMei, 3f },
+            { LanMei, 2f },
             { YangTao, 5f },
             { ShiLiu, 5f },
             { Xigua, 6f },
-            { PaoGu, 3f },
+            { PaoGu, 2f },
 
-            { SunGu, 4f },
+            { SunGu, 0.2f },
             { SunFlower, 1f },
-            { RewordFlower, 1f },
+            { RewordFlower, 6f },
             { JianGuo, 2f },
             { XianRenQiu, 4f },
-            { XiHongShi, 2f },
-            { QieZi, 1f },
+            { XiHongShi, 1f },
+            { QieZi, 3f },
 
-            { Cherry, 5f },
+            { Cherry, 3f },
             { IceFlower, 10f },
-            { LaJiao, 7f },
+            { LaJiao, 1f },
+            { MoRiGu, 4f },
 
-            { Yezi, 30f },
-            { XiguaBing, 12f },
-            { PeaGold, 17f },
+            { Yezi, 12f },
+            { XiguaBing, 10f },
+            { PeaGold, 12f },
         };
         // 植物生命值
         public static readonly  Dictionary<string, int> PlanHealthDict = new  Dictionary<string, int>
@@ -134,14 +137,14 @@ namespace ZVB4.Conf
             { Pea, 0 },
             { PeaCold, 30 + BaseShootNum },
             { PeaDouble, 24 + BaseShootNum },
-            { Xigua, 12 + BaseShootNum },
+            { Xigua, 14 + BaseShootNum },
             { LanMei, 18 + BaseShootNum },
             { YangTao, 18 + BaseShootNum },
             { ShiLiu, 16 + BaseShootNum },
-            { PaoGu, 18 + BaseShootNum },
-            { XiguaBing, 8 + BaseShootNum },
+            { PaoGu, 36 + BaseShootNum },
+            { XiguaBing, 12 + BaseShootNum },
             { PeaGold, 10 + BaseShootNum },
-            { Yezi, 6 + BaseShootNum }
+            { Yezi, 8 + BaseShootNum }
         };
         public static int GetShooterAttackLimit(string key) {
             if (ShooterAttackLimitDict.TryGetValue(key, out var value))

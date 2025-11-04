@@ -1,7 +1,7 @@
 [
     {
         "name": "SunFlower",
-        "price": 300, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 250, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "JianGuo",
@@ -25,10 +25,18 @@
     },
     {
         "name": "IceFlower",
-        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 175, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "MoRiGu",
+        "price": 500, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "RewordFlower",
         "price": 100, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
+        "name": "SunGu",
+        "price": 400, "x": 155, "y": 75, "viewscale": 1.0
     }
 ]

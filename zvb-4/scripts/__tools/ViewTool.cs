@@ -63,12 +63,12 @@ namespace ZVB4.Tool
 
         public static void ViewZiFace(Node2D node)
         {
-            int zi = node.ZIndex;
+            // int zi = node.ZIndex;
             Vector2 Scale = node.Scale;
             Vector2 Position = node.Position;
             // 缩 Y
-            zi = ViewTool.ZIndexByY(zi, Position);
-            node.ZIndex = zi;
+            // zi = ViewTool.ZIndexByY(zi, Position);
+            // node.ZIndex = zi;
             // Scale = ViewTool.ScaleForYFar(Position.Y, minScale, maxScale);
             // 默认朝左，x>0则翻转
             Scale = ViewTool.FlipFace(Scale, Position);
@@ -77,12 +77,12 @@ namespace ZVB4.Tool
 
         public static void View3In1(Node2D node, float minScale, float maxScale)
         {
-            int zi = node.ZIndex;
+            // int zi = node.ZIndex;
             Vector2 Scale = node.Scale;
             Vector2 Position = node.Position;
             // 缩 Y
-            zi = ViewTool.ZIndexByY(zi, Position);
-            node.ZIndex = zi;
+            // zi = ViewTool.ZIndexByY(zi, Position);
+            // node.ZIndex = zi;
             Scale = ViewTool.ScaleForYFar(Position.Y, minScale, maxScale);
             // 默认朝左，x>0则翻转
             Scale = ViewTool.FlipFace(Scale, Position);
@@ -90,12 +90,12 @@ namespace ZVB4.Tool
         }
         public static void View2In1(Node2D node, float minScale, float maxScale)
         {
-            int zi = node.ZIndex;
+            // int zi = node.ZIndex;
             Vector2 Scale = node.Scale;
             Vector2 Position = node.Position;
             // 缩 Y
-            zi = ViewTool.ZIndexByY(zi, Position);
-            node.ZIndex = zi;
+            // zi = ViewTool.ZIndexByY(zi, Position);
+            // node.ZIndex = zi;
             Scale = ViewTool.ScaleForYFar(Position.Y, minScale, maxScale);
             // 默认朝左，x>0则翻转
             // Scale = ViewTool.FlipFace(Scale, Position);

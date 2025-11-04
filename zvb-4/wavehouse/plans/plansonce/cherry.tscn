@@ -40,7 +40,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1xppv")
 }],
 "loop": true,
-"name": &"boom",
+"name": &"attack",
 "speed": 5.0
 }, {
 "frames": [{
@@ -119,8 +119,8 @@ script = ExtResource("1_kvus3")
 y_sort_enabled = true
 scale = Vector2(1.0000001, 1.0000001)
 sprite_frames = SubResource("SpriteFrames_pwbcj")
+animation = &"attack"
 autoplay = "default"
-frame_progress = 0.4528889
 
 [node name="ViewDoing" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
