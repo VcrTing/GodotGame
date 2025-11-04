@@ -11,12 +11,12 @@ public partial class ShooterShiLiu : Node2D, IObj, IPao
     public EnumObjType ObjType { get; set; } = EnumObjType.Plans;
     public EnumObjType GetEnumObjType() => ObjType;
     [Export]
-    public string ObjName { get; set; } = PlansConstants.PeaGold;
+    public string ObjName { get; set; } = PlansConstants.ShiLiu;
     public string GetObjName() => ObjName;
     bool init = false;
     public bool Init(string name = null)
     {
-        ObjName = name ?? PlansConstants.PeaGold;
+        ObjName = name ?? PlansConstants.ShiLiu;
         LoadBullet();
         DoInitEffect(GlobalPosition);
         init = true;

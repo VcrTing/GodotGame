@@ -49,28 +49,28 @@ namespace ZVB4.Conf
             { BulletPeaColdName, Base * 60 },
             { BulletPeaDoubleName, DamageBasic },
             { BulletShiLiuName, Base * 40 },
-            { BulletXiguaName, Base * 175 },
+            { BulletXiguaName, Base * 200 },
 
             { BulletPaoGuName, Base * 120 }, 
             //
             { BulletLanMeiName, Base * 70 },
             { BulletYangTaoName, Base * 50 },
-            { BulletPeaGoldName, Base * 200 },
-            { BulletXiguaBingName, Base * 300 },
+            { BulletXiguaBingName, Base * 200 },
+            { BulletPeaGoldName, Base * 400 },
             { BulletYeziName, Base * 600 },
         };
         public static readonly Dictionary<string, int> BulletGroupDamageDict = new Dictionary<string, int>
         {
             { BulletLanMeiName, Base * 20 },
-            { BulletXiguaBingName, Base * 100 },
+            { BulletXiguaBingName, Base * 200 },
         };
 
         public static readonly Dictionary<string, int> BulletExtraDamageDict = new Dictionary<string, int>
         {
-            { BulletXiguaName, Base * 75 },
+            { BulletXiguaName, Base * 100 },
             { BulletPeaDoubleName, DamageBasic },
             { BulletXiguaBingName, Base * 100 },
-            { BulletYeziName, Base * 100 },
+            { BulletYeziName, Base * 150 },
         };
 
 

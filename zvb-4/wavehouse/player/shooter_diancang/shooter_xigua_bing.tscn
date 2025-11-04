@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://e7u73d4iu0cp"]
 
-[ext_resource type="Script" uid="uid://dsymxpx2sxy" path="res://scripts/player/shooter/ShooterXigua.cs" id="1_166cg"]
+[ext_resource type="Script" uid="uid://dmopv5p26rocm" path="res://scripts/player/shooter_diancang/ShooterXiguaBing.cs" id="1_166cg"]
 [ext_resource type="Texture2D" uid="uid://b4xo3kuevk8y0" path="res://pngs/plans/XiguaBing2.png" id="2_2dnwl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqxrb"]

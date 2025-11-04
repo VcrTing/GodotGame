@@ -164,7 +164,7 @@ namespace ZVB4.Conf
             else if (key == Xigua) return 1f;
             else if (key == PaoGu) return 1f;
             //
-            if (key == PeaGold) return 2f;
+            if (key == PeaGold) return 1.5f;
             else if (key == XiguaBing) return 1f;
             else if (key == Yezi) return 2f;
             return 0f;
@@ -192,8 +192,8 @@ namespace ZVB4.Conf
             else if (key == PeaDouble) return 0.18f;
             else if (key == LanMei) return 0.2f;
             else if (key == YangTao) return 0.2f;
-            else if (key == ShiLiu) return 0.4f;
-            else if (key == Xigua) return 0.5f;
+            else if (key == ShiLiu) return 0.35f;
+            else if (key == Xigua) return 0.4f;
             else if (key == PaoGu) return 0.3f;
             // 
             if (key == PeaGold) return 0.25f;
@@ -221,8 +221,8 @@ namespace ZVB4.Conf
         //
         public static float GetRationSpeed(string key)
         {
-            if (key == PeaGold) return 150f;
-            if (key == ShiLiu) return 320f;
+            if (key == PeaGold) return 180f;
+            if (key == ShiLiu) return 340f;
             if (key == Xigua) return 240f;
             if (key == Yezi) return 120f;
             return 0f;

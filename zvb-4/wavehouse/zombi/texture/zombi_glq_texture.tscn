@@ -287,8 +287,8 @@ script = ExtResource("1_wmr5c")
 ObjName = "zombi_glq"
 ExtraObj = 13
 MoveChangeBefore = 3
-MoveChanging = 31
-MoveChangeAfter = 31
+MoveChanging = 2
+MoveChangeAfter = 2
 IntroAniTime = 0.001
 WhenChangingType = 1
 

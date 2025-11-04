@@ -283,18 +283,19 @@ WhenChangingType = 0
 visible = false
 z_index = 10
 y_sort_enabled = true
-position = Vector2(8, -20)
+position = Vector2(8, -25)
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_5qj52")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 10)
+position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_00yj6")
 animation = &"outro"
 autoplay = "default"
 
 [node name="ViewRed" type="Node2D" parent="."]
+position = Vector2(0, -15)
 
 [node name="PointLight2D" type="PointLight2D" parent="ViewRed"]
 position = Vector2(-6, -3)

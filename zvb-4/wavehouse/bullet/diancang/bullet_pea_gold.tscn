@@ -51,12 +51,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ll26u"]
-radius = 90.0
-height = 180.0
+radius = 100.0
+height = 200.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xkka6"]
-radius = 270.0
-height = 540.0
+radius = 320.0
+height = 640.0
 
 [node name="BulletPeaGold" type="Node2D"]
 z_index = 999
@@ -73,7 +73,7 @@ process_material = SubResource("ParticleProcessMaterial_ulrwt")
 y_sort_enabled = true
 position = Vector2(0, -12)
 rotation = 0.20943952
-scale = Vector2(1.6, 1.6)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_555ge")
 autoplay = "default"
 frame = 1
@@ -87,11 +87,11 @@ collision_mask = 512
 shape = SubResource("CapsuleShape2D_ll26u")
 
 [node name="AttackExtraArea" type="Area2D" parent="."]
-position = Vector2(0, 60)
 collision_layer = 256
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackExtraArea"]
+position = Vector2(0, 40)
 shape = SubResource("CapsuleShape2D_xkka6")
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackExtraArea"]
