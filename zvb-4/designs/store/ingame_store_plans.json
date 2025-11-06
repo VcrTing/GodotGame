@@ -1,11 +1,15 @@
 [
     {
+        "name": "QieZi",
+        "price": 100, "x": 155, "y": 75, "viewscale": 1.0
+    },
+    {
         "name": "SunFlower",
         "price": 250, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "JianGuo",
-        "price": 100, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 75, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "XianRenQiu",

@@ -16,6 +16,8 @@ public partial class PlansQieZi : Node2D, IObj, IBeHurt, IWorking
     public string objName = PlansConstants.QieZi;
     public string GetObjName() => objName;
 
+    float minScale = GameContants.MinScale;
+    float maxScale = GameContants.MaxScale;
     public bool Init(string name = null)
     {
         maxScale = Scale.X;
@@ -78,37 +80,44 @@ public partial class PlansQieZi : Node2D, IObj, IBeHurt, IWorking
         return true;
     }
 
-    float minScale = GameContants.MinScale;
-    float maxScale = GameContants.MaxScale;
     public override void _Process(double delta)
     {
         ViewTool.View3In1(this, minScale, maxScale);
-    }
-
-    void Bigger(float target)
-    {
-        float nowx = Scale.X;
-        if (nowx < target)
+        if (__t > 0f)
         {
-            nowx = target;
-            maxScale = nowx;
-            minScale = ViewTool.GetYouMinScale(maxScale);
-            Scale = new Vector2(nowx, nowx);
+            __t += (float)delta;
+            if (__t > 2f)
+            {
+                EndChange();
+                __t = 0f;
+            }
         }
     }
 
     bool isWorking = false;
+
+    string rewordPlans = "";
+    float __t = 0f;
     public void SetWorkingMode(bool working)
     {
         isWorking = working;
         if (working)
         {
-            canBeHurt = true;
-            Bigger(initScale * PlansConstants.BiggerRateMaxJianGuo);
+            StartChange();
         }
-        else
+    }
+
+    void StartChange()
+    {
+        rewordPlans = RewordConstants.GetQieZiRewordPlans();
+        __t = 0.0001f;
+    }
+    void EndChange()
+    {
+        PlansBaseMiao miao = GetParent<PlansBaseMiao>();
+        if (miao != null)
         {
-            canBeHurt = false;
+            miao.SwitchPlans(rewordPlans);
         }
     }
 

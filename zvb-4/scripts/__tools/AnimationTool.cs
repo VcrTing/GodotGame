@@ -35,26 +35,33 @@ public static class AnimationTool
         }
         return 0f;
     }
-    public static float DoAniExtraLiveHp(AnimatedSprite2D view, int health, int healthInit)
+    public static float DoAniExtraLiveHp(AnimatedSprite2D view, int health, int healthInit, string n = "")
     {
-        if (view == null) return 0f;
-        float rate = (float)health / (float)healthInit;
-        if (rate <= 0.0f)
+        try
         {
-            view?.Play("outro");
-            return 0.2f;
+            if (view == null) return 0f;
+            float rate = (float)health / (float)healthInit;
+            if (rate <= 0.0f)
+            {
+                view?.Play("outro");
+                return 0.2f;
+            }
+            else if (rate <= 0.3f)
+            {
+                view?.Play("live30");
+            }
+            else if (rate <= 0.6f)
+            {
+                view?.Play("live60");
+            }
+            else
+            {
+                view?.Play("live");
+            }
         }
-        else if (rate <= 0.3f)
+        catch
         {
-            view?.Play("live30");
-        }
-        else if (rate <= 0.6f)
-        {
-            view?.Play("live60");
-        }
-        else
-        {
-            view?.Play("live");
+            GD.Print(n);
         }
         return 0f;
     }

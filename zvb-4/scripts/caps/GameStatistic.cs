@@ -82,7 +82,7 @@ public partial class GameStatistic : Node2D
     {
         if (ZombieChapterTotal > 0)
         {
-            return ZombieDeadCount > 0 && ZombieDeadCount == ZombieChapterTotal;
+            return ZombieDeadCount > 0 && ZombieDeadCount >= ZombieChapterTotal;
         }
         return false;
     }

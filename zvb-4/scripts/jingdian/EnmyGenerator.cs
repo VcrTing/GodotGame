@@ -15,6 +15,8 @@ public partial class EnmyGenerator : Node2D
         XPointList.AddRange(GetTenIntervalsX());
         YPointList.Clear();
         YPointList.AddRange(GetTenIntervalsY());
+        //
+        GodotTool.KillChildren(this);
     }
     [Export]
     public float TileMapW = GameContants.ZombieTileW; // 每个格子的宽度 
@@ -23,11 +25,7 @@ public partial class EnmyGenerator : Node2D
 
     List<Vector2> XPointList = new List<Vector2>();
     List<Vector2> YPointList = new List<Vector2>();
-    /// <summary>
-    /// 获取以本节点x轴为中心的10份区间坐标点（共10个，左5右5）
-    /// </summary>
-    /// <returns>长度为10的Vector2数组</returns>
-    /// 
+    
     /// 
     public Vector2[] GetTenIntervalsX()
     {
@@ -224,5 +222,10 @@ public partial class EnmyGenerator : Node2D
     public void SetGeneratorPosition(Vector2 pos)
     {
         this.Position = pos;
+    }
+
+    public bool HasChildren() {
+        Godot.Collections.Array<Node> bs = GetChildren();
+        return bs.Count > 0;
     }
 }

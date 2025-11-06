@@ -29,8 +29,8 @@ namespace ZVB4.Conf
             { PlansConstants.LanMei, 20 },
             { PlansConstants.YangTao, 30 },
             { PlansConstants.ShiLiu, 25 },
-            { PlansConstants.Xigua, 35 },
-            { PlansConstants.PaoGu, 30 },
+            { PlansConstants.Xigua, 40 },
+            { PlansConstants.PaoGu, 40 },
             { PlansConstants.XiguaBing, 50 },
             { PlansConstants.PeaGold, 50 },
             { PlansConstants.Yezi, 100 }
@@ -40,12 +40,12 @@ namespace ZVB4.Conf
             { PlansConstants.Pea, 50 },
             { PlansConstants.PeaCold, 65 },
             { PlansConstants.PeaDouble, 75 },
-            { PlansConstants.LanMei, 75 },
-            { PlansConstants.YangTao, 100 },
+            { PlansConstants.LanMei, 85 },
+            { PlansConstants.YangTao, 85 },
+            { PlansConstants.ShiLiu, 85 },
             { PlansConstants.PaoGu, 100 },
-            { PlansConstants.ShiLiu, 80 },
-            { PlansConstants.Xigua, 100 },
-            { PlansConstants.XiguaBing, 200 },
+            { PlansConstants.Xigua, 150 },
+            { PlansConstants.XiguaBing, 240 },
             { PlansConstants.PeaGold, 200 },
             { PlansConstants.Yezi, 300 }    
         };

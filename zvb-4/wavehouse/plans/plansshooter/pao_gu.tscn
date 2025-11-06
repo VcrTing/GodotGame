@@ -1,22 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://btnrffm06fs5"]
+[gd_scene load_steps=9 format=3 uid="uid://btnrffm06fs5"]
 
 [ext_resource type="Script" uid="uid://c5pqimknyorli" path="res://scripts/plans/plansshooter/PlansSimple.cs" id="1_t4a6u"]
-[ext_resource type="Texture2D" uid="uid://ufac5l2t8fg3" path="res://pngs/plans/ShooterGu.png" id="2_ryrjy"]
+[ext_resource type="Texture2D" uid="uid://dip0mwt248e3m" path="res://pngs/planscard/ShooterGu.png" id="2_ryrjy"]
+[ext_resource type="Texture2D" uid="uid://c2h1qq3jhlxlb" path="res://pngs/fx/FxPaoGu.png" id="3_w4fcf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4fcf"]
 atlas = ExtResource("2_ryrjy")
 region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j6i8"]
+atlas = ExtResource("2_ryrjy")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6txwe"]
+atlas = ExtResource("2_ryrjy")
+region = Rect2(400, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6j6i8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w4fcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j6i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6txwe")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6j6i8"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(30, 30, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -168.9
+angle_max = 555.60004
+velocity_pivot = Vector3(0, 3, 0)
+direction = Vector3(0, 3, 0)
+spread = 35.649
+radial_velocity_min = 19.999977
+radial_velocity_max = 89.99998
+gravity = Vector3(0, 98, 0)
+scale_min = 0.19999999
+scale_max = 0.59999996
+color = Color(1, 1, 1, 0.72156864)
 
 [node name="PaoGu" type="Node2D"]
 z_index = 400
@@ -31,3 +63,10 @@ position = Vector2(7, -30)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_6j6i8")
 autoplay = "default"
+frame_progress = 0.47814426
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -24)
+amount_ratio = 0.7495
+texture = ExtResource("3_w4fcf")
+process_material = SubResource("ParticleProcessMaterial_6j6i8")

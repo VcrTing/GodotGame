@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dw2furgw83cid"]
+[gd_scene load_steps=27 format=3 uid="uid://dw2furgw83cid"]
 
 [ext_resource type="Script" uid="uid://cr8gq1xtipqjo" path="res://scripts/bullet/XiguaBing/BulletXiguaBing.cs" id="1_3rvto"]
 [ext_resource type="Script" uid="uid://8gari3kqp4lf" path="res://scripts/bullet/XiguaBing/BulletXiguaBingUxArea.cs" id="2_3rvto"]
@@ -27,43 +27,57 @@ scale_max = 4.0
 radius = 60.0
 height = 170.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xk5c5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iadl"]
 atlas = ExtResource("5_oxk42")
-region = Rect2(300, 0, 300, 300)
+region = Rect2(0, 0, 340, 340)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g4ggs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2wj7"]
 atlas = ExtResource("5_oxk42")
-region = Rect2(600, 0, 300, 300)
+region = Rect2(340, 0, 340, 340)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ahvk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1k2m"]
 atlas = ExtResource("5_oxk42")
-region = Rect2(900, 0, 300, 300)
+region = Rect2(680, 0, 340, 340)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8jwmu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y673w"]
 atlas = ExtResource("5_oxk42")
-region = Rect2(1200, 0, 300, 300)
+region = Rect2(1020, 0, 340, 340)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0co1r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qmxb"]
 atlas = ExtResource("5_oxk42")
-region = Rect2(1500, 0, 300, 300)
+region = Rect2(1360, 0, 340, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4ap5"]
+atlas = ExtResource("5_oxk42")
+region = Rect2(1700, 0, 340, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubibm"]
+atlas = ExtResource("5_oxk42")
+region = Rect2(2040, 0, 340, 340)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mfqwq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xk5c5")
+"texture": SubResource("AtlasTexture_5iadl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g4ggs")
+"texture": SubResource("AtlasTexture_i2wj7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ahvk")
+"texture": SubResource("AtlasTexture_h1k2m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8jwmu")
+"texture": SubResource("AtlasTexture_y673w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0co1r")
+"texture": SubResource("AtlasTexture_1qmxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4ap5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubibm")
 }],
 "loop": false,
 "name": &"default",
@@ -162,7 +176,7 @@ shape = SubResource("CapsuleShape2D_sgq3c")
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_mfqwq")
 autoplay = "default"
-frame = 4
+frame = 6
 frame_progress = 1.0
 
 [node name="AttackArea" type="Area2D" parent="."]

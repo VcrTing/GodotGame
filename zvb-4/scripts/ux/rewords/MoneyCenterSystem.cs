@@ -143,7 +143,11 @@ public partial class MoneyCenterSystem : Control
                 // SoundFxController.Instance?.PlayFx("Ux/coll", "coll_sun", 4);
             }
             if (instance == null || instance.Name == "") return;
-            GetTree().CurrentScene.AddChild(instance);
+            // GetTree().CurrentScene.AddChild(instance);
+            GD.Print("MONEY");
+            GD.Print(instance.GlobalPosition);
+            GD.Print(instance.Position);
+            this.CallDeferred("add_child", instance); 
         }
         catch
         {

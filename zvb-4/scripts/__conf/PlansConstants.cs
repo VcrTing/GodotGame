@@ -89,7 +89,7 @@ namespace ZVB4.Conf
         static float BaseSubGrowTime = 0f;
         public static readonly  Dictionary<string, float> PlanGrowTimeDict = new  Dictionary<string, float>
         {
-            { Pea, 2f },
+            { Pea, 1f },
             { PeaCold, 3f },
             { PeaDouble, 4f },
 
@@ -102,10 +102,10 @@ namespace ZVB4.Conf
             { SunGu, 0.2f },
             { SunFlower, 1f },
             { RewordFlower, 6f },
-            { JianGuo, 2f },
+            { JianGuo, 1f },
             { XianRenQiu, 4f },
-            { XiHongShi, 1f },
-            { QieZi, 3f },
+            { XiHongShi, 0.5f },
+            { QieZi, 0.5f },
 
             { Cherry, 3f },
             { IceFlower, 10f },
@@ -178,7 +178,7 @@ namespace ZVB4.Conf
             else if (key == YangTao) return 0.05f;
             else if (key == ShiLiu) return 0.08f;
             else if (key == Xigua) return 0.08f;
-            else if (key == PaoGu) return 0.1f;
+            else if (key == PaoGu) return 0.2f;
             //
             if (key == PeaGold) return 0.08f;
             else if (key == XiguaBing) return 0.1f;

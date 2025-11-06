@@ -96,7 +96,16 @@ public partial class GameWinnerChecker : Node2D
 
         if (ChapterTool.IsJinDian(capnum) || ChapterTool.IsTwoCap(capnum) || ChapterTool.IsThirdChapter(capnum))
         {
-            isWin = GameStatistic.Instance?.WinCheckWhenChapterAllEnmyDie() ?? false;
+            bool alls = GameStatistic.Instance?.WinCheckWhenChapterAllEnmyDie() ?? false;
+            bool has = EnmyGenerator.Instance.HasChildren();
+            // GD.Print("所有僵尸死亡？" + (!has) + "  alls = " + alls);
+            if (alls)
+            {
+                if (!has)
+                {
+                    isWin = true;
+                }
+            }
         }
         else if (ChapterTool.IsGuanZi(capnum)) {
             isWin = GameStatistic.Instance?.WinCheckWhenGuanZiMode() ?? false;

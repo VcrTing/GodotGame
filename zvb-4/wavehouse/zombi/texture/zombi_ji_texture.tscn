@@ -49,6 +49,14 @@ animations = [{
 "texture": SubResource("AtlasTexture_nht3t")
 }],
 "loop": true,
+"name": &"changing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nht3t")
+}],
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -133,7 +141,7 @@ sprite_frames = SubResource("SpriteFrames_5qj52")
 y_sort_enabled = true
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_3gnv3")
-animation = &"outro"
+animation = &"changing"
 autoplay = "default"
 
 [node name="ViewRed" type="Node2D" parent="."]

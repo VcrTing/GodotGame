@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://du1e7ly7lmj12"]
+[gd_scene load_steps=10 format=3 uid="uid://du1e7ly7lmj12"]
 
 [ext_resource type="Script" uid="uid://36rfmc3ixu1j" path="res://scripts/player/ShooterWorkTable.cs" id="1_bgl10"]
 [ext_resource type="Texture2D" uid="uid://pbfyml2nrhqc" path="res://pngs/ux/table.png" id="2_khky8"]
+[ext_resource type="Texture2D" uid="uid://cnp2a74trcivq" path="res://pngs/ux/ingame/worktable.png" id="3_yt7he"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgl10"]
 atlas = ExtResource("2_khky8")
@@ -25,6 +26,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmati"]
+atlas = ExtResource("3_yt7he")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1k54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmati")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75pfo"]
 radius = 96.0
 height = 300.0
@@ -40,13 +56,19 @@ position = Vector2(-5, 0)
 scale = Vector2(4, 4)
 texture = ExtResource("2_khky8")
 
-[node name="View" type="AnimatedSprite2D" parent="."]
+[node name="ViewOld2" type="AnimatedSprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(-7, 4)
 scale = Vector2(3.6, 3.6)
 sprite_frames = SubResource("SpriteFrames_75pfo")
 autoplay = "default"
 frame_progress = 0.844097
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, 0)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_n1k54")
 
 [node name="ShooterWorkTableBody" type="StaticBody2D" parent="."]
 position = Vector2(0, 12)

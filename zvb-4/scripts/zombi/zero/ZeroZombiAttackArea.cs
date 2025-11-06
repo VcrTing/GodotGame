@@ -87,14 +87,11 @@ public partial class ZeroZombiAttackArea : Area2D
         try
         {
             SetDeferred("monitoring", enable);
-            Monitoring = enable;
+            // Monitoring = enable;
         }
         catch (Exception ex)
         {
             SetDeferred("monitoring", enable);
-            // 使用SetDeferred避免信号回调期间的状态变更错误
-            // SetDeferred("monitoring", enable);
-            // GD.PrintErr($"ZeroZombiAttackArea EnableCollision error: {ex.Message}");
         }
         SetProcess(enable);
     }

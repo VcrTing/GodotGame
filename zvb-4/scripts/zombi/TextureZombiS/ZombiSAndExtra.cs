@@ -256,7 +256,11 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     {
         if (health <= 0) return false;
         view.Visible = false; viewChanged.Visible = true; IsChanged = true;
-        SwitchStatus(EnumEnmyStatus.Move); return true;
+        if (enmyStatus != EnumEnmyStatus.Attack)
+        {
+            SwitchStatus(EnumEnmyStatus.Move); 
+        }
+        return true;
     }
 
     public override void _Ready()

@@ -114,7 +114,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"changing",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -352,3 +352,12 @@ range_layer_min = -1200
 range_layer_max = 1200
 texture = SubResource("GradientTexture2D_7j41l")
 texture_scale = 0.4
+
+[node name="ViewChange" type="AnimatedSprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+scale = Vector2(1, 0.8)
+sprite_frames = SubResource("SpriteFrames_wmr5c")
+animation = &"changing"
+autoplay = "default"
+frame_progress = 0.9846155

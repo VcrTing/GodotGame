@@ -15,22 +15,10 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
         IsWorkingMode = working;
     }
     EnumObjType objType = EnumObjType.System;
-    public EnumObjType GetEnumObjType()
-    {
-        return objType;
-    }
-    public string GetObjName()
-    {
-        return PlanName;
-    }
-    public int GetDamage()
-    {
-        return 0;
-    }
-    public int GetDamageExtra()
-    {
-        return 0;
-    }
+    public EnumObjType GetEnumObjType() => objType;
+    public string GetObjName() => PlanName;
+    public int GetDamage() => 0;
+    public int GetDamageExtra() => 0;
 
     public float GenerateTime = 10.0f; // 生长时间，秒
 
@@ -186,9 +174,23 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
 
     List<string> InitWorkPlans = new List<string>
     {
-        PlansConstants.SunFlower, PlansConstants.RewordFlower, PlansConstants.SunGu
+        PlansConstants.SunFlower, PlansConstants.RewordFlower, PlansConstants.SunGu, PlansConstants.QieZi
     };
 
+    void GeneratePlans(string name)
+    {
+        Node2D plan = PlansConstants.GeneratePlans(this, name);
+        if (plan != null)
+        {
+            PlanName = name;
+            plan.Name = NameConstants.Plans;
+            if (InitWorkPlans.Contains(name))
+            {
+                IWorking iw = plan as IWorking;
+                iw.SetWorkingMode(true);
+            }
+        }
+    }
     // 生长完成方法
     protected virtual void OnGrowFinished()
     {
@@ -200,20 +202,16 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
             miaoNode.QueueFree();
         }
         _area2D.Visible = true;
-        Node2D plan = PlansConstants.GeneratePlans(this, PlanName);
-        if (plan != null) {
-            if (InitWorkPlans.Contains(PlanName)) {
-                IWorking iw = plan as IWorking;
-                iw.SetWorkingMode(true);
-            }
-        }
+        GeneratePlans(PlanName);
         // 播放生长完成音效
         SoundFxController.Instance?.PlayFx("Ux/grow", "grow", 4);
     }
-
-    public bool CanDie()
+    
+    public void SwitchPlans(string plansName)
     {
-        return true;
+        Node c = GetNodeOrNull(NameConstants.Plans);
+        c.QueueFree();
+        GeneratePlans(plansName);
     }
 
     public bool Die()
@@ -223,10 +221,6 @@ public partial class PlansBaseMiao : Node2D, IWorking, IObj, IAttack
     }
 
     public bool IsWorking() => IsWorkingMode;
-
-    public bool CanAttack()
-    {
-        throw new NotImplementedException();
-    }
+    public bool CanAttack() => false;
 
 }

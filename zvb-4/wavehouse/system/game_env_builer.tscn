@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b12upl6p1d460"]
+[gd_scene load_steps=15 format=3 uid="uid://b12upl6p1d460"]
 
 [ext_resource type="Script" uid="uid://bdtd1kvhadi8c" path="res://scripts/system/Envs.cs" id="1_iqn62"]
 [ext_resource type="Script" uid="uid://bu22knj6i5gk8" path="res://scripts/ux/DieLineZero.cs" id="3_8fgd1"]
 [ext_resource type="Texture2D" uid="uid://cic44sv3qc2y6" path="res://pngs/bg/Bk.jpg" id="3_rh23g"]
 [ext_resource type="Texture2D" uid="uid://e7bx6uj52710" path="res://pngs/ux/dieline.png" id="4_0ktxj"]
+[ext_resource type="Texture2D" uid="uid://dwqji27futwrv" path="res://pngs/ux/ingame/dieline.png" id="5_iqn62"]
 [ext_resource type="Script" uid="uid://ca4iwnly6d3i1" path="res://scripts/system/MyGameCamera.cs" id="7_5l6ha"]
 [ext_resource type="PackedScene" uid="uid://copbbr5ipfpne" path="res://wavehouse/sounds/sound_oneshot_controller.tscn" id="8_rh23g"]
 [ext_resource type="PackedScene" uid="uid://c6ds1gjwrriuf" path="res://scenes/ui/sound_ui_controller.tscn" id="8_x3k26"]
@@ -12,7 +13,22 @@
 [ext_resource type="PackedScene" uid="uid://dnrecc1uscn34" path="res://wavehouse/sounds/bgm_controller.tscn" id="11_p5d31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44saj"]
-size = Vector2(1200, 20)
+size = Vector2(461, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh23g"]
+atlas = ExtResource("5_iqn62")
+region = Rect2(0, 0, 912, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7nuds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh23g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="GameEnvBuiler" type="Node2D"]
 script = ExtResource("1_iqn62")
@@ -30,19 +46,30 @@ texture = ExtResource("3_rh23g")
 [node name="DieLineZero" type="Area2D" parent="Ux"]
 z_index = -1
 y_sort_enabled = true
-position = Vector2(0, 450)
+position = Vector2(0, 460)
 collision_layer = 8
 collision_mask = 2048
 script = ExtResource("3_8fgd1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ux/DieLineZero"]
-position = Vector2(0, 10)
+position = Vector2(-240, 30)
+rotation = -0.06981317
 shape = SubResource("RectangleShape2D_44saj")
 
-[node name="View" type="Sprite2D" parent="Ux/DieLineZero"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ux/DieLineZero"]
+position = Vector2(240, 30)
+rotation = 0.06981317
+shape = SubResource("RectangleShape2D_44saj")
+
+[node name="ViewExtra" type="Sprite2D" parent="Ux/DieLineZero"]
+visible = false
 z_index = -1
 y_sort_enabled = true
 texture = ExtResource("4_0ktxj")
+
+[node name="View" type="AnimatedSprite2D" parent="Ux/DieLineZero"]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_7nuds")
 
 [node name="Sky" type="Node2D" parent="."]
 

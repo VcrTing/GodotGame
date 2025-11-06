@@ -164,6 +164,11 @@ animations = [{
 "name": &"attack",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"changing",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wmr5c")
@@ -305,6 +310,15 @@ autoplay = "default"
 y_sort_enabled = true
 scale = Vector2(1, 0.8)
 sprite_frames = SubResource("SpriteFrames_6ukfx")
+animation = &"changing"
+autoplay = "default"
+
+[node name="ViewChange" type="AnimatedSprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+scale = Vector2(1, 0.8)
+sprite_frames = SubResource("SpriteFrames_6ukfx")
+animation = &"changing"
 autoplay = "default"
 
 [node name="IceFreeze" type="AnimatedSprite2D" parent="."]

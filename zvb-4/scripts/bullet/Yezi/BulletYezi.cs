@@ -10,6 +10,10 @@ public partial class BulletYezi : Node2D, IBulletBase, IObj, IAttack, IWorking
     private Area2D _attackAreaExtra;
     private Area2D _attackArea;
     private AnimatedSprite2D _view;
+    [Export]
+    public EnumHurts hurtType { get; set; } = EnumHurts.Vip;
+    [Export]
+    public EnumHurts hurtTypeGroup { get; set; } = EnumHurts.Zheng;
     //
     public override void _Ready()
 	{
@@ -49,18 +53,16 @@ public partial class BulletYezi : Node2D, IBulletBase, IObj, IAttack, IWorking
         if (_isDead) return; float d = Damage;
         if (groupHit) { d = Damage / 2f; }
         else { _view.Visible = false; Speed = 0f; SpeedInit = 0f; }
-        groupHit = true; DoTakeDamage(area, d);
+        DoTakeDamage(area, d, hurtType); groupHit = true;
 	}
     // 伤害处理方法
-    public bool DoTakeDamage(Area2D area, float damage) => ObjTool.TakeDamage(area, GetEnumObjType(), (int)damage, hurtType);
+    public bool DoTakeDamage(Area2D area, float damage, EnumHurts enumHurts) => ObjTool.TakeDamage(area, GetEnumObjType(), (int)damage, enumHurts);
 	private void OnAttackAreaEnteredExtra(Area2D area) {
         if (_isDead) return;
-        DoTakeDamage(area, DamageExtra);
+        DoTakeDamage(area, DamageExtra, hurtTypeGroup);
     }
     public float Speed { get; set; } = BulletConstants.SpeedBasic; // 默认速度
     float SpeedInit = BulletConstants.SpeedBasic; // 初始速度
-    [Export]
-    public EnumHurts hurtType { get; set; } = EnumHurts.Vip;
     public EnumHurts GetHurtType() => hurtType;
     public Vector2 Direction { get; set; } = Vector2.Up; // 默认向上
     public Vector2 GetDirection() => Direction;

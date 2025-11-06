@@ -57,6 +57,14 @@ animations = [{
 "texture": SubResource("AtlasTexture_42rj6")
 }],
 "loop": true,
+"name": &"changing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42rj6")
+}],
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -226,7 +234,7 @@ WhenChangingType = 1
 position = Vector2(0, 10)
 scale = Vector2(1.1, 0.968)
 sprite_frames = SubResource("SpriteFrames_a8uip")
-animation = &"outro"
+animation = &"changing"
 autoplay = "default"
 
 [node name="ViewChange" type="AnimatedSprite2D" parent="."]

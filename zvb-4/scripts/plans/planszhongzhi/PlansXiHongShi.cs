@@ -97,7 +97,7 @@ public partial class PlansXiHongShi : Node2D, IObj, IBeHurt, IWorking, IAttack
     }
 
     float BeHurtStartTime = 2.5f;
-    float InitAttackDelayTime = 30f;
+    float InitAttackDelayTime = 90f;
     float AttackAnimationTime = 0.3f;
     float __t = 0f;
     public override void _Process(double delta)

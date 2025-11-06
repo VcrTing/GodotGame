@@ -56,9 +56,11 @@ rotation = -0.2617994
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_kra0t")
 autoplay = "default"
-frame_progress = 0.67193174
+frame = 1
+frame_progress = 0.48992553
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 256
 collision_mask = 512
 

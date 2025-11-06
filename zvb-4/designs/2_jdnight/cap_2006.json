@@ -6,7 +6,7 @@
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,
     "enmyviewscale": 1,
-    "enmybehurtscale": 1,
+    "enmybehurtscale": 2,
 
     "initsun": 1200,
     "initmiaomode": "all",

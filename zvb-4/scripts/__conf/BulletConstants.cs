@@ -49,13 +49,13 @@ namespace ZVB4.Conf
             { BulletPeaColdName, Base * 60 },
             { BulletPeaDoubleName, DamageBasic },
             { BulletShiLiuName, Base * 40 },
-            { BulletXiguaName, Base * 200 },
+            { BulletXiguaName, Base * 150 },
 
-            { BulletPaoGuName, Base * 120 }, 
+            { BulletPaoGuName, Base * 70 }, 
             //
             { BulletLanMeiName, Base * 70 },
             { BulletYangTaoName, Base * 50 },
-            { BulletXiguaBingName, Base * 200 },
+            { BulletXiguaBingName, Base * 250 },
             { BulletPeaGoldName, Base * 400 },
             { BulletYeziName, Base * 600 },
         };
@@ -67,7 +67,7 @@ namespace ZVB4.Conf
 
         public static readonly Dictionary<string, int> BulletExtraDamageDict = new Dictionary<string, int>
         {
-            { BulletXiguaName, Base * 100 },
+            { BulletXiguaName, Base * 75 },
             { BulletPeaDoubleName, DamageBasic },
             { BulletXiguaBingName, Base * 100 },
             { BulletYeziName, Base * 150 },
@@ -135,7 +135,7 @@ namespace ZVB4.Conf
             if (plantName == PlansConstants.Cherry) return DamageCherry;
             else if (plantName == PlansConstants.LaJiao) return DamageLaJiao;
             else if (plantName == PlansConstants.MoRiGu) return DamageMoRiGu;
-            else if (plantName == PlansConstants.XianRenQiu) return PlansDamageBase / 2;
+            else if (plantName == PlansConstants.XianRenQiu) return PlansDamageBase;
             else if (plantName == PlansConstants.XiHongShi) return PlansDamageBase * 12;
             return 0;
         }

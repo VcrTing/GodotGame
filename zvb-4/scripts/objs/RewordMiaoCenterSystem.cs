@@ -141,7 +141,8 @@ public partial class RewordMiaoCenterSystem : Node2D
             count += 1;
             string n = "Miao" + count;
             instance.Name = n;
-            AddChild(instance);
+           //  AddChild(instance);
+            this.CallDeferred("add_child", instance); 
             
             // 加一计数
             var gs = GameStatistic.Instance;

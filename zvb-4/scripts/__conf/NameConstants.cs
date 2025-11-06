@@ -40,6 +40,7 @@ namespace ZVB4.Conf
         public const string ShooterWrapper = "ShooterWrapper";
         public const string Shooter = "Shooter";
         public const string Sprite = "Sprite";
+        public const string Plans = "Plans";
 
         public const string Label = "Label";
         public const string AudioStreamPlayer2D = "AudioStreamPlayer2D";

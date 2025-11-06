@@ -22,7 +22,7 @@ public partial class PlansViewAndHealth : AnimatedSprite2D, IHealth
 
     void SwitchViewByHealth()
     {
-        AnimationTool.DoAniExtraLiveHp(this, Health, HealthInit);
+        AnimationTool.DoAniExtraLiveHp(this, Health, HealthInit, myObj.GetObjName());
     }
     bool isDie = false;
 

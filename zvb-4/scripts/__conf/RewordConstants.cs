@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using Godot;
 
@@ -75,6 +76,30 @@ namespace ZVB4.Conf
                 return true;
             }
             return false;
+        }
+
+
+        static List<string> QieZiRewordList_1 = new List<string>()
+        {
+            PlansConstants.Pea, PlansConstants.XiHongShi, PlansConstants.JianGuo, PlansConstants.JianGuo,
+            PlansConstants.Cherry, PlansConstants.LaJiao,
+            PlansConstants.XianRenQiu, PlansConstants.IceFlower, PlansConstants.RewordFlower,
+            PlansConstants.PeaCold, PlansConstants.PeaDouble, PlansConstants.YangTao, PlansConstants.ShiLiu, PlansConstants.LanMei,
+            PlansConstants.Xigua, PlansConstants.PaoGu
+        };
+        static List<string> QieZiRewordList_2 = new List<string>()
+        {
+            PlansConstants.MoRiGu, PlansConstants.SunFlower, PlansConstants.SunGu, PlansConstants.LaJiao,
+            PlansConstants.Yezi, PlansConstants.PeaGold, PlansConstants.XiguaBing,
+        };
+        // static Random random = new Random();
+        public static string GetQieZiRewordPlans()
+        {
+            List<string> tar = QieZiRewordList_1;
+            int i = GD.RandRange(0, 100);
+            if (i > 82) tar = QieZiRewordList_2;
+            int randomIndex = GD.RandRange(0, tar.Count);
+            return tar[randomIndex];
         }
     }
 
