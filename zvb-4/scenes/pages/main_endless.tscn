@@ -1,20 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://c27m86rjt4p1"]
+[gd_scene load_steps=18 format=3 uid="uid://c27m86rjt4p1"]
 
 [ext_resource type="PackedScene" uid="uid://boifn2cuwmjny" path="res://scenes/ui/control_back_button.tscn" id="1_4qkyl"]
 [ext_resource type="PackedScene" uid="uid://bk5h870mbbttm" path="res://scenes/main/system_for_main.tscn" id="1_yjp08"]
-[ext_resource type="Texture2D" uid="uid://wqju1l810gvj" path="res://pngs/ui/kuang.png" id="3_1y8l0"]
-[ext_resource type="Texture2D" uid="uid://dwxcr2qfg41s5" path="res://pngs/ui/Ask.png" id="3_4qkyl"]
-[ext_resource type="Texture2D" uid="uid://d207ca25lpn4v" path="res://pngs/ui/squa_fcs.png" id="3_8ggah"]
-[ext_resource type="PackedScene" uid="uid://jc70r5c6v35f" path="res://scenes/ui/chapter_item_button.tscn" id="3_yjp08"]
-[ext_resource type="Texture2D" uid="uid://drn3gvybyk55r" path="res://pngs/ui/button2.png" id="4_h7ekm"]
-[ext_resource type="Texture2D" uid="uid://c5d45b6fxh20s" path="res://pngs/ui/squa_hv.png" id="4_qv58j"]
+[ext_resource type="Texture2D" uid="uid://duuel4n4xajiv" path="res://pngs/ui/tujian/tujian_btn.png" id="3_i36ye"]
+[ext_resource type="Texture2D" uid="uid://qidayu4l1lo4" path="res://pngs/ui/tujian/tujian_btn_fcs.png" id="4_ex54v"]
 [ext_resource type="Texture2D" uid="uid://nj1o4abovt5f" path="res://pngs/bg/post/mainbg.png" id="4_yjp08"]
-[ext_resource type="Texture2D" uid="uid://b6lr1fxfw0yr7" path="res://pngs/ui/button_1.png" id="5_1y8l0"]
-[ext_resource type="Script" uid="uid://dvgmgch76hvip" path="res://scripts/ui/pop/GameRuleDetailPopup.cs" id="7_b2ovx"]
-[ext_resource type="Script" uid="uid://bpgnj5ktw5xtk" path="res://scripts/ui/SinglePopWorkButton.cs" id="9_1y8l0"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np4c1"]
-texture = ExtResource("3_1y8l0")
+[ext_resource type="Texture2D" uid="uid://chohkdnbk3lat" path="res://pngs/ui/tujian/tujian_btn_hv.png" id="5_t7eq3"]
+[ext_resource type="Script" uid="uid://mr30e78xf236" path="res://scripts/ui/button/MenuOptionsButton.cs" id="6_olecb"]
+[ext_resource type="Texture2D" uid="uid://cic44sv3qc2y6" path="res://pngs/bg/Bk.jpg" id="6_t7eq3"]
+[ext_resource type="Texture2D" uid="uid://bqtkg5ava7kc" path="res://pngs/bg/BKnight.jpeg" id="8_d5yyp"]
+[ext_resource type="Script" uid="uid://fn0h4htk00tr" path="res://scripts/ui/main/TabPanWrapper.cs" id="9_wpfo6"]
+[ext_resource type="PackedScene" uid="uid://cr5pgb4j4bbde" path="res://scenes/ui/endless/control_best_record.tscn" id="10_gkugb"]
+[ext_resource type="Texture2D" uid="uid://cskms35t8lkc3" path="res://pngs/ui/main/GameStart.png" id="10_t545r"]
+[ext_resource type="Texture2D" uid="uid://53drt61mfmq1" path="res://pngs/ui/main/GameStart_fcs.png" id="11_5yg2n"]
+[ext_resource type="PackedScene" uid="uid://djvrse125jauj" path="res://scenes/ui/endless/control_now_cun_dang.tscn" id="11_lgv4b"]
+[ext_resource type="Script" uid="uid://cxjwvscpg611y" path="res://scripts/ui/endless/EndlessControlBestRecord.cs" id="12_gkugb"]
+[ext_resource type="Texture2D" uid="uid://ls5w0lb2qjnf" path="res://pngs/ui/main/GameStart_hv.png" id="12_lgv4b"]
+[ext_resource type="Script" uid="uid://dhkm8o7tuwc6c" path="res://scripts/ui/button/EndLessGameButton.cs" id="16_ud01t"]
 
 [node name="System" type="Node2D"]
 
@@ -27,294 +29,220 @@ offset_top = 60.0
 offset_right = 90.0
 offset_bottom = 150.0
 
-[node name="Ask" type="Node" parent="CanvasLayer"]
-
-[node name="GameRuleDetailPopup" type="PopupPanel" parent="CanvasLayer/Ask"]
-oversampling_override = 1.0
-initial_position = 2
-size = Vector2i(720, 900)
-visible = true
-content_scale_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_np4c1")
-script = ExtResource("7_b2ovx")
-
-[node name="ControlDesc" type="Control" parent="CanvasLayer/Ask/GameRuleDetailPopup"]
-custom_minimum_size = Vector2(0, 480)
+[node name="TopBar" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 3
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -450.0
-offset_bottom = 450.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainerDesc" type="HBoxContainer" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 100.0
-offset_bottom = 199.0
+offset_top = 160.0
+offset_bottom = 280.0
 grow_horizontal = 2
-alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc/HBoxContainerDesc"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.5803922)
-theme_override_font_sizes/font_size = 72
-text = "游戏规则"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorPickerButton" type="ColorPickerButton" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc/HBoxContainerDesc"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 72
-text = "游戏规则"
-flat = true
-color = Color(0.78431374, 0.78431374, 0.78431374, 0.1882353)
-
-[node name="HBoxContainerDesc2" type="HBoxContainer" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -206.0
-offset_bottom = -107.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc/HBoxContainerDesc2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.77254903)
-theme_override_font_sizes/font_size = 24
-text = "1. 将豌豆、西瓜拖拽到射手台，点击草地发射子弹。"
-
-[node name="HBoxContainerDesc3" type="HBoxContainer" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -146.0
-offset_bottom = -47.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc/HBoxContainerDesc3"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.77254903)
-theme_override_font_sizes/font_size = 24
-text = "2. 子弹攻击僵尸，防止僵尸走来，吃掉脑子。"
-
-[node name="HBoxContainerDesc4" type="HBoxContainer" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -86.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc/HBoxContainerDesc4"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.77254903)
-theme_override_font_sizes/font_size = 24
-text = "3. 豌豆和西瓜是射手，发子弹需要消耗阳光，而向日葵产阳光。"
-
-[node name="HBoxContainerDesc5" type="HBoxContainer" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -26.0
-offset_bottom = 73.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc/HBoxContainerDesc5"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.77254903)
-theme_override_font_sizes/font_size = 24
-text = "4. 向日葵、坚果、樱桃炸弹等非射手植物可种在草地上。"
-
-[node name="HBoxContainerDesc6" type="HBoxContainer" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 34.0
-offset_bottom = 133.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc/HBoxContainerDesc6"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.77254903)
-theme_override_font_sizes/font_size = 24
-text = "5. 祝你好运！！！"
-
-[node name="HBoxContainerDesc7" type="HBoxContainer" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc"]
-custom_minimum_size = Vector2(0, 90)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -34.0
-grow_horizontal = 2
-grow_vertical = 0
-alignment = 1
-
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc/HBoxContainerDesc7"]
-layout_mode = 2
-texture_pressed = ExtResource("4_h7ekm")
-texture_hover = ExtResource("5_1y8l0")
-texture_focused = ExtResource("4_h7ekm")
-stretch_mode = 0
-flip_h = true
-flip_v = true
-script = ExtResource("9_1y8l0")
-IsOpen = false
-
-[node name="Label" type="Label" parent="CanvasLayer/Ask/GameRuleDetailPopup/ControlDesc/HBoxContainerDesc7/TextureButton"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TopBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.5882353)
-theme_override_font_sizes/font_size = 36
-text = "关闭"
-horizontal_alignment = 1
-vertical_alignment = 1
+alignment = 1
 
-[node name="ControlAsk" type="Control" parent="CanvasLayer/Ask"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -90.0
-offset_top = 60.0
-offset_bottom = 150.0
-grow_horizontal = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Ask/ControlAsk"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -90.0
-grow_horizontal = 0
-grow_vertical = 2
-alignment = 2
-
-[node name="SinglePopOpenButton" type="TextureButton" parent="CanvasLayer/Ask/ControlAsk/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TopBar/VBoxContainer"]
 layout_mode = 2
-texture_pressed = ExtResource("3_8ggah")
-texture_hover = ExtResource("4_qv58j")
-texture_focused = ExtResource("4_qv58j")
-script = ExtResource("9_1y8l0")
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Ask/ControlAsk/HBoxContainer/SinglePopOpenButton"]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+texture_normal = ExtResource("3_i36ye")
+texture_pressed = ExtResource("4_ex54v")
+texture_hover = ExtResource("5_t7eq3")
+texture_focused = ExtResource("5_t7eq3")
+stretch_mode = 0
+flip_h = true
+flip_v = true
+script = ExtResource("6_olecb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer/TextureButton"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("3_4qkyl")
+
+[node name="Control" type="Control" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer/TextureButton/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer/TextureButton/HBoxContainer/Control"]
+layout_mode = 1
+offset_right = 1032.0
+offset_bottom = 1024.0
+scale = Vector2(0.117, 0.117)
+texture = ExtResource("6_t7eq3")
+
+[node name="Label" type="Label" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer/TextureButton/HBoxContainer"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
+theme_override_font_sizes/font_size = 36
+text = "普通无尽"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+texture_normal = ExtResource("3_i36ye")
+texture_pressed = ExtResource("4_ex54v")
+texture_hover = ExtResource("5_t7eq3")
+texture_focused = ExtResource("5_t7eq3")
+stretch_mode = 0
+flip_h = true
+flip_v = true
+script = ExtResource("6_olecb")
+Key = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer/TextureButton2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer/TextureButton2/HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer/TextureButton2/HBoxContainer/Control"]
+layout_mode = 1
+offset_right = 1032.0
+offset_bottom = 1024.0
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("8_d5yyp")
+
+[node name="Label" type="Label" parent="CanvasLayer/TopBar/VBoxContainer/HBoxContainer/TextureButton2/HBoxContainer"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.78431374)
+theme_override_font_sizes/font_size = 36
+text = "夜间无尽"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-custom_minimum_size = Vector2(0, 240)
+custom_minimum_size = Vector2(0, 1280)
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1000.0
-offset_bottom = -760.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
-custom_minimum_size = Vector2(720, 120)
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -300.0
-offset_bottom = -100.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 20
+grow_vertical = 2
 alignment = 1
 
-[node name="ChapterItemButton" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_yjp08")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1080)
+layout_mode = 2
+alignment = 1
+script = ExtResource("9_wpfo6")
+
+[node name="Tab1" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1"]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ControlBestRecord" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer2/VBoxContainer/HBoxContainer4" instance=ExtResource("10_gkugb")]
 layout_mode = 2
 
-[node name="ChapterItemButton2" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_yjp08")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1"]
+custom_minimum_size = Vector2(0, 360)
 layout_mode = 2
-Chapter = 1002
+alignment = 1
 
-[node name="ChapterItemButton3" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_yjp08")]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer"]
 layout_mode = 2
-Chapter = 1003
+size_flags_horizontal = 3
+alignment = 1
 
-[node name="ChapterItemButton4" parent="CanvasLayer/Control/HBoxContainer" instance=ExtResource("3_yjp08")]
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-Chapter = 1004
+alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control"]
-custom_minimum_size = Vector2(720, 120)
+[node name="ControlNowCunDang" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer/VBoxContainer2/HBoxContainer4" instance=ExtResource("11_lgv4b")]
+layout_mode = 2
+script = ExtResource("12_gkugb")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="EndLessGameButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer3/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(480, 120)
+layout_mode = 2
+texture_normal = ExtResource("10_t545r")
+texture_pressed = ExtResource("11_5yg2n")
+texture_hover = ExtResource("12_lgv4b")
+texture_focused = ExtResource("12_lgv4b")
+stretch_mode = 0
+script = ExtResource("16_ud01t")
+EndLessKey = "day"
+IsOpenNewGame = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer/Tab1/HBoxContainer3/VBoxContainer/HBoxContainer4/EndLessGameButton"]
+custom_minimum_size = Vector2(230, 0)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -80.0
-offset_bottom = 120.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 20
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 36
+text = "继续游戏"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tab2" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
-[node name="ChapterItemButton2" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
-Chapter = 1005
-
-[node name="ChapterItemButton3" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
-layout_mode = 2
-Chapter = 7001
-
-[node name="ChapterItemButton4" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
-layout_mode = 2
-Chapter = 1006
-
-[node name="ChapterItemButton5" parent="CanvasLayer/Control/HBoxContainer2" instance=ExtResource("3_yjp08")]
-layout_mode = 2
-Chapter = 1007
+alignment = 1
 
 [node name="MainEnv" type="Node2D" parent="."]
 

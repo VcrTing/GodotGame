@@ -1,0 +1,130 @@
+[gd_scene load_steps=3 format=3 uid="uid://djvrse125jauj"]
+
+[ext_resource type="Texture2D" uid="uid://bcygekn78pows" path="res://pngs/ui/tujian/card_tujian.png" id="1_ipdar"]
+[ext_resource type="Texture2D" uid="uid://duwm3uk2xprnj" path="res://pngs/ui/tujian/card_tujian_hv.png" id="2_qq4gw"]
+
+[node name="ControlNowCunDang" type="Control"]
+custom_minimum_size = Vector2(760, 360)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_ipdar")
+texture_pressed = ExtResource("2_qq4gw")
+texture_hover = ExtResource("2_qq4gw")
+texture_focused = ExtResource("2_qq4gw")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.47058824)
+theme_override_font_sizes/font_size = 48
+text = "存档数据"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.74509805)
+theme_override_font_sizes/font_size = 32
+text = "存档时间: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelTime" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.74509805)
+theme_override_font_sizes/font_size = 36
+text = "2024-11-12 12:12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TextureButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "战斗波数: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelEnmyWave" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "300"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TextureButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5882353)
+theme_override_font_sizes/font_size = 24
+text = "赚取阳光: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelSunRecord" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5882353)
+theme_override_font_sizes/font_size = 28
+text = "300"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureButton/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer4/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5882353)
+theme_override_font_sizes/font_size = 24
+text = "赚取金币: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMoneyRecord" type="Label" parent="TextureButton/VBoxContainer/HBoxContainer4/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5882353)
+theme_override_font_sizes/font_size = 28
+text = "300"
+horizontal_alignment = 1
+vertical_alignment = 1

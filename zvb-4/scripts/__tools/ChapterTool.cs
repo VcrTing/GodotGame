@@ -4,7 +4,6 @@ using ZVB4.Conf;
 
 public static class ChapterTool
 {
-
     public static string MainMenuScene = "main.tscn";
     public static string MainNextScene = "main_next.tscn";
 

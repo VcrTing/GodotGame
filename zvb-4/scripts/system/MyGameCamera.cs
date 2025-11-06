@@ -8,12 +8,27 @@ public partial class MyGameCamera : Camera2D
 	private const float DESIGN_HEIGHT = GameContants.ScreenHalfH * 2;
 
 	public override void _Ready()
+    {
+		Running();
+    }
+
+	float t = 0.1f;
+	async void Running()
 	{
+		ResetView();
+		if (t > 10f) return;
+		GetTree().CreateTimer(t).Timeout += () => Running();
+		t += 1f;
+		return;
+	}
+
+	void ResetView()
+    {
 		// 获取屏幕实际高度
 		float screenH = GetViewportRect().Size.Y;
 		// 计算缩放比例
 		float zoomY = screenH > 0 ? screenH / DESIGN_HEIGHT : 1f;
 		// 设置摄像机缩放
 		Zoom = new Vector2(zoomY, zoomY);
-	}
+    }
 }

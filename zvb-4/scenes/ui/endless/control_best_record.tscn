@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr5pgb4j4bbde"]
+
+[ext_resource type="Script" uid="uid://cxjwvscpg611y" path="res://scripts/ui/endless/EndlessControlBestRecord.cs" id="1_xkqxe"]
+[ext_resource type="Texture2D" uid="uid://bcygekn78pows" path="res://pngs/ui/tujian/card_tujian.png" id="2_qtfs5"]
+[ext_resource type="Texture2D" uid="uid://duwm3uk2xprnj" path="res://pngs/ui/tujian/card_tujian_hv.png" id="3_p5hq4"]
+
+[node name="ControlBestRecord" type="Control"]
+custom_minimum_size = Vector2(760, 360)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xkqxe")
+
+[node name="BestRecordButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_qtfs5")
+texture_pressed = ExtResource("3_p5hq4")
+texture_hover = ExtResource("3_p5hq4")
+texture_focused = ExtResource("3_p5hq4")
+stretch_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BestRecordButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BestRecordButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="BestRecordButton/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.47058824)
+theme_override_font_sizes/font_size = 48
+text = "最佳成绩"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BestRecordButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="BestRecordButton/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 36
+text = "战斗波数: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelEnmyWave" type="Label" parent="BestRecordButton/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 36
+text = "300"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BestRecordButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BestRecordButton/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BestRecordButton/VBoxContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 30
+text = "赚取阳光: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelSunRecord" type="Label" parent="BestRecordButton/VBoxContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 34
+text = "300"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BestRecordButton/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BestRecordButton/VBoxContainer/HBoxContainer4/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 30
+text = "赚取金币: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMoneyRecord" type="Label" parent="BestRecordButton/VBoxContainer/HBoxContainer4/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8627451)
+theme_override_font_sizes/font_size = 34
+text = "300"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BestRecordButton/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="BestRecordButton/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.39215687)
+theme_override_font_sizes/font_size = 24
+text = "时间: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelTime" type="Label" parent="BestRecordButton/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.39215687)
+theme_override_font_sizes/font_size = 24
+text = "2024-11-12 12:12"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7w1c425gfs7w"]
+
+[ext_resource type="PackedScene" uid="uid://b12upl6p1d460" path="res://wavehouse/system/game_env_builer.tscn" id="1_5wvqh"]
+[ext_resource type="PackedScene" uid="uid://bnmk6b5rls6rq" path="res://wavehouse/player/line/player_slider_line.tscn" id="5_eb2c2"]
+[ext_resource type="PackedScene" uid="uid://setfxhg3cb8e" path="res://wavehouse/player/working/player_attack_controller.tscn" id="5_pk1eg"]
+[ext_resource type="Texture2D" uid="uid://ek24ur1d3gfc" path="res://pngs/bg/Bk8.png" id="7_grrdn"]
+[ext_resource type="PackedScene" uid="uid://bghk0wtumd18d" path="res://wavehouse/ground/bullet_fixer_jing_dian.tscn" id="8_e7so0"]
+[ext_resource type="Script" uid="uid://blws27e75l035" path="res://scripts/system/GameModeSwitchCenter.cs" id="15_lpa67"]
+[ext_resource type="PackedScene" uid="uid://b0ouqeell2x2u" path="res://wavehouse/system/game_sv_systems.tscn" id="19_pniwq"]
+
+[node name="System" type="Node2D"]
+
+[node name="GameEnvBuiler" parent="." instance=ExtResource("1_5wvqh")]
+
+[node name="GameSVSystems" parent="." instance=ExtResource("19_pniwq")]
+
+[node name="GameModeSwitchCenter" type="Node2D" parent="."]
+script = ExtResource("15_lpa67")
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="PlayerAttackController" parent="Player" instance=ExtResource("5_pk1eg")]
+position = Vector2(0, 620)
+IsInitShooter = true
+ShooterMode = 1
+
+[node name="WorkTableSliderLine" parent="Player" instance=ExtResource("5_eb2c2")]
+position = Vector2(0, 650)
+
+[node name="Env" type="Node2D" parent="."]
+
+[node name="Bk8" type="Sprite2D" parent="Env"]
+z_index = -99
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("7_grrdn")
+
+[node name="BulletFixerJingDian" parent="Env" instance=ExtResource("8_e7so0")]
