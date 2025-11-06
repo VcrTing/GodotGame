@@ -134,6 +134,9 @@ public partial class MoneyCenterSystem : Control
             var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + SunMoneyConstants.MoneyS + ".tscn");
             var instance = scene.Instantiate<Node2D>();
             instance.Position = position;
+            GD.Print("MONEY");
+            GD.Print(instance.GlobalPosition);
+            GD.Print(instance.Position);
             countMoney += 1;
             string n = SunMoneyConstants.MoneyS + countMoney;
             instance.Name = n;
@@ -144,9 +147,6 @@ public partial class MoneyCenterSystem : Control
             }
             if (instance == null || instance.Name == "") return;
             // GetTree().CurrentScene.AddChild(instance);
-            GD.Print("MONEY");
-            GD.Print(instance.GlobalPosition);
-            GD.Print(instance.Position);
             this.CallDeferred("add_child", instance); 
         }
         catch

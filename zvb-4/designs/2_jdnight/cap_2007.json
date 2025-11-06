@@ -6,9 +6,9 @@
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,
     "enmyviewscale": 1,
-    "enmybehurtscale": 1,
+    "enmybehurtscale": 2,
 
-    "initsun": 1200,
+    "initsun": 2000,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 240,
@@ -247,7 +247,7 @@
 
         
         "135": [
-            { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
                 "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1,
                 "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
         ],
@@ -312,14 +312,9 @@
             
         "170": [
             { "types": [ "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji" ],
-                "typesmode": "next", "generatormode": "next", "lazyme": 2, "redeyeratio": 1,
+                "typesmode": "next", "generatormode": "next", "lazyme": 3, "redeyeratio": 1,
                 "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
-        ],    
-        "192": [
-            { "types": [ "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji" ],
-                "typesmode": "next", "generatormode": "next", "lazyme": 2, "redeyeratio": 1,
-                "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
-        ],    
+        ],  
 
         "220": [
             { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],

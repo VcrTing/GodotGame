@@ -11,5 +11,6 @@ namespace ZVB4.Interface
         void FlipXDirection();
         void FlipYDirection();
         EnumHurts GetHurtType();
+        EnumHurts GetHurtTypeExtra();
     }
 }

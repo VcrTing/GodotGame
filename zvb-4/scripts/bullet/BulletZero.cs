@@ -182,4 +182,10 @@ public partial class BulletZero : Node2D, IBulletBase, IObj, IAttack
     public Vector2 GetDirection() => Direction;
 
     public bool CanAttack() => true;
+
+    public EnumHurts GetHurtTypeExtra()
+    {
+        throw new NotImplementedException();
+    }
+
 }

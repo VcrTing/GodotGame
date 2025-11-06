@@ -100,7 +100,10 @@ public partial class BulletLanMei : Node2D, IObj, IBulletBase, IAttack, IWorking
     public string GetObjName() => objName;
     [Export]
     public EnumHurts hurtType { get; set; } = EnumHurts.Cold;
+    [Export]
+    public EnumHurts hurtTypeExtra { get; set; } = EnumHurts.ColdZheng;
     public EnumHurts GetHurtType() => hurtType;
+    public EnumHurts GetHurtTypeExtra() => hurtTypeExtra;
     public bool Init(string name = null)
     {        
         Damage = BulletConstants.GetDamage(objName);
@@ -145,9 +148,6 @@ public partial class BulletLanMei : Node2D, IObj, IBulletBase, IAttack, IWorking
     }
     public bool IsWorking() => isWorkingMode;
 
-    public bool CanAttack()
-    {
-        throw new NotImplementedException();
-    }
+    public bool CanAttack() => isWorkingMode;
 
 }

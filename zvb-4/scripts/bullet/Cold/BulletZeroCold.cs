@@ -167,4 +167,10 @@ public partial class BulletZeroCold : Node2D, IBulletBase, IObj, IAttack, IWorki
     }
 
     public bool IsWorking() => _area2D.Monitoring;
+
+    public EnumHurts GetHurtTypeExtra()
+    {
+        throw new NotImplementedException();
+    }
+
 }

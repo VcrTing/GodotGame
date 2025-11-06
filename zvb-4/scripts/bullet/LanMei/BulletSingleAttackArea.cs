@@ -12,6 +12,7 @@ public partial class BulletSingleAttackArea : Area2D, IInit
     IAttack myAttack = null;
     EnumObjType myType;
     EnumHurts enumHurts;
+    EnumHurts enumHurtsExtra;
     public override void _Ready()
     {
         view = GetNode<AnimatedSprite2D>(NameConstants.View);
@@ -25,7 +26,8 @@ public partial class BulletSingleAttackArea : Area2D, IInit
         ViewTool.RotationALittleByX(view, bulletBase.GetDirection());
         //
         myType = myObj.GetEnumObjType();
-        enumHurts = myObj is IBulletBase bullet ? bullet.GetHurtType() : EnumHurts.Cold;
+        enumHurts = bulletBase.GetHurtType();
+        enumHurtsExtra = bulletBase.GetHurtTypeExtra();
         //
         EnableCollision(false);
     }
@@ -80,18 +82,18 @@ public partial class BulletSingleAttackArea : Area2D, IInit
     private void HandleGroupDamage(Area2D area)
     {
         if (area == null) return;
-        DoTakeDamage(area, myAttack.GetDamage() / 3);
+        DoTakeDamage(area, myAttack.GetDamage() / 3, enumHurtsExtra);
     }
 
     // 单独伤害方法
     private void HandleSingleDamage(Area2D area)
     {
         if (area == null) return;
-        DoTakeDamage(area, myAttack.GetDamage());
+        DoTakeDamage(area, myAttack.GetDamage(), enumHurts);
     }
     
     // 伤害处理方法
 
-    public bool DoTakeDamage(Area2D area, int damage) => ObjTool.TakeDamage(area, myObj.GetEnumObjType(), damage, enumHurts);
+    public bool DoTakeDamage(Area2D area, int damage, EnumHurts eh) => ObjTool.TakeDamage(area, myObj.GetEnumObjType(), damage, eh);
 
 }

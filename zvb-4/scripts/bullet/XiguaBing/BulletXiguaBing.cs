@@ -166,4 +166,8 @@ public partial class BulletXiguaBing : Node2D, IObj, IBulletBase, IAttack, IWork
         throw new NotImplementedException();
     }
 
+    public EnumHurts GetHurtTypeExtra()
+    {
+        throw new NotImplementedException();
+    }
 }

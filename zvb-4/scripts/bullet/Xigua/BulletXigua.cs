@@ -172,4 +172,8 @@ public partial class BulletXigua : Node2D, IBulletBase, IObj, IAttack, IWorking
 
     public bool IsWorking() => _area2D.Monitoring;
 
+    public EnumHurts GetHurtTypeExtra()
+    {
+        throw new NotImplementedException();
+    }
 }

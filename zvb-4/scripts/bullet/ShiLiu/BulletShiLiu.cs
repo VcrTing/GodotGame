@@ -7,7 +7,11 @@ using ZVB4.Tool;
 public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
 {
     [Export]
-    public EnumHurts hurtType { get; set; } = EnumHurts.Pea;
+    public EnumHurts hurtType { get; set; } = EnumHurts.Zheng;
+    [Export]
+    public EnumHurts hurtTypeExtra { get; set; } = EnumHurts.PaoPao;
+    [Export]
+    public float RandomHurtTypeRatio = 0.5f;
     [Export]
     public string objName = BulletConstants.BulletShiLiuName;
     [Export]
@@ -24,6 +28,8 @@ public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
     public float DamageFadeTime = 0.4f;
 
     private Area2D _area2D;
+
+    float i = 0;
 
     public override void _Ready()
     {
@@ -56,12 +62,18 @@ public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
         //
         Damage = BulletConstants.GetDamage(objName);
         __damageNow = Damage;
-        
+
         // RotationSpeed 随机一下正负
         if (RotationSpeed != 0)
         {
             RotationSpeed += (GD.Randf() * 60f) - 30f;
             if (GD.Randi() % 2 == 0) RotationSpeed = -RotationSpeed;
+        }
+        // 概率泡泡子弹
+        i = GD.RandRange(0, 100) / 100f;
+        if (i <= RandomHurtTypeRatio)
+        {
+            hurtType = hurtTypeExtra;
         }
     }
 
@@ -199,4 +211,10 @@ public partial class BulletShiLiu : Node2D, IBulletBase, IObj, IAttack
     public int GetDamageExtra() => 0;
     public Vector2 GetDirection() => Direction;
     public bool CanAttack() => true;
+
+    public EnumHurts GetHurtTypeExtra()
+    {
+        throw new NotImplementedException();
+    }
+
 }

@@ -185,4 +185,8 @@ public partial class BulletYangTao : Node2D, IBulletBase, IObj, IAttack
         throw new NotImplementedException();
     }
 
+    public EnumHurts GetHurtTypeExtra()
+    {
+        throw new NotImplementedException();
+    }
 }

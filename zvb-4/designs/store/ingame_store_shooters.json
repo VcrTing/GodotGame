@@ -5,18 +5,18 @@
     },
     {
         "name": "PeaCold",
-        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 150, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "PeaDouble",
-        "price": 250, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 175, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
-        "name": "LanMei",
+        "name": "YangTao",
         "price": 200, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
-        "name": "PaoGu",
+        "name": "LanMei",
         "price": 200, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
@@ -24,8 +24,8 @@
         "price": 200, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
-        "name": "YangTao",
-        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+        "name": "PaoGu",
+        "price": 250, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "Xigua",

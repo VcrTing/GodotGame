@@ -162,4 +162,8 @@ public partial class BulletYezi : Node2D, IBulletBase, IObj, IAttack, IWorking
         Position += direction * speed * (float)delta;
     }
 
+    public EnumHurts GetHurtTypeExtra()
+    {
+        throw new NotImplementedException();
+    }
 }

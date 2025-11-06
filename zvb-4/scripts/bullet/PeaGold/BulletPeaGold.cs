@@ -182,4 +182,10 @@ public partial class BulletPeaGold : Node2D, IBulletBase, IObj, IAttack
         float _d = _damage / 3;
         DoTakeDamage(area, _d);
     }
+
+    public EnumHurts GetHurtTypeExtra()
+    {
+        throw new NotImplementedException();
+    }
+
 }

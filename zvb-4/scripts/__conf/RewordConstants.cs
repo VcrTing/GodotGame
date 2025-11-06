@@ -92,13 +92,13 @@ namespace ZVB4.Conf
             PlansConstants.MoRiGu, PlansConstants.SunFlower, PlansConstants.SunGu, PlansConstants.LaJiao,
             PlansConstants.Yezi, PlansConstants.PeaGold, PlansConstants.XiguaBing,
         };
-        // static Random random = new Random();
+        static Random random = new Random();
         public static string GetQieZiRewordPlans()
         {
             List<string> tar = QieZiRewordList_1;
             int i = GD.RandRange(0, 100);
             if (i > 82) tar = QieZiRewordList_2;
-            int randomIndex = GD.RandRange(0, tar.Count);
+            int randomIndex = random.Next(0, tar.Count);
             return tar[randomIndex];
         }
     }

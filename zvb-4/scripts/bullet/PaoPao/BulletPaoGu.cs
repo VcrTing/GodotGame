@@ -250,4 +250,10 @@ public partial class BulletPaoGu : Node2D, IBulletBase, IObj, IAttack
     public int GetDamageExtra() => 0;
     public Vector2 GetDirection() => Direction;
     public bool CanAttack() => true;
+
+    public EnumHurts GetHurtTypeExtra()
+    {
+        throw new NotImplementedException();
+    }
+
 }

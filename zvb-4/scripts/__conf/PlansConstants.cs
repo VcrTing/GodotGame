@@ -158,7 +158,7 @@ namespace ZVB4.Conf
             else if (key == PeaCold) return 0.4f;
             else if (key == PeaDouble) return 0.5f;
 
-            else if (key == LanMei) return 0.5f;
+            else if (key == LanMei) return 0.32f;
             else if (key == YangTao) return 0.36f;
             else if (key == ShiLiu) return 0.8f;
             else if (key == Xigua) return 1f;
@@ -174,7 +174,7 @@ namespace ZVB4.Conf
             if (key == Pea) return 0.07f;
             else if (key == PeaCold) return 0.07f;
             else if (key == PeaDouble) return 0.07f;
-            else if (key == LanMei) return 0.06f;
+            else if (key == LanMei) return 0.05f;
             else if (key == YangTao) return 0.05f;
             else if (key == ShiLiu) return 0.08f;
             else if (key == Xigua) return 0.08f;
@@ -190,7 +190,7 @@ namespace ZVB4.Conf
             if (key == Pea) return 0.15f;
             else if (key == PeaCold) return 0.15f;
             else if (key == PeaDouble) return 0.18f;
-            else if (key == LanMei) return 0.2f;
+            else if (key == LanMei) return 0.12f;
             else if (key == YangTao) return 0.2f;
             else if (key == ShiLiu) return 0.35f;
             else if (key == Xigua) return 0.4f;
@@ -206,7 +206,7 @@ namespace ZVB4.Conf
             if (key == Pea) return 0.01f;
             else if (key == PeaCold) return 0.01f;
             else if (key == PeaDouble) return 0.01f;
-            else if (key == LanMei) return 0.012f;
+            else if (key == LanMei) return 0.008f;
             else if (key == YangTao) return 0.012f;
             else if (key == ShiLiu) return 0.012f;
             else if (key == Xigua) return 0.01f;
@@ -221,8 +221,8 @@ namespace ZVB4.Conf
         //
         public static float GetRationSpeed(string key)
         {
-            if (key == PeaGold) return 180f;
-            if (key == ShiLiu) return 340f;
+            if (key == PeaGold) return 240f;
+            if (key == ShiLiu) return 360f;
             if (key == Xigua) return 240f;
             if (key == Yezi) return 120f;
             return 0f;

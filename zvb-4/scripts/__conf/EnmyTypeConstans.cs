@@ -58,7 +58,7 @@ namespace ZVB4.Conf
 
             { ZombiJi, 70f }, // run
             { ZombiM, 20f }, // run
-            { ZombiGlq, 15f }, // run
+            { ZombiGlq, 10f }, // run
 
             { ZombiJuRen, 7f },
             { ZombiMice, 50f}, // run
