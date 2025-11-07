@@ -113,6 +113,7 @@ public partial class SingleOptionsButton : TextureButton
 
     void ReloadScene()
     {
+        SystemController.Instance.ResumeGame();
         GetTree().ReloadCurrentScene();
     }
 

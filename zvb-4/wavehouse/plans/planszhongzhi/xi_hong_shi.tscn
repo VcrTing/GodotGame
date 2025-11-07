@@ -79,6 +79,20 @@ animations = [{
 "texture": SubResource("AtlasTexture_8ot2i")
 }],
 "loop": true,
+"name": &"intro",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bigby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjvug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ot2i")
+}],
+"loop": true,
 "name": &"live",
 "speed": 3.0
 }, {
@@ -114,6 +128,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"live60",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxblx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir2la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nfap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg76t")
+}],
+"loop": true,
+"name": &"outro",
 "speed": 15.0
 }]
 
@@ -152,7 +183,7 @@ script = ExtResource("1_lhted")
 position = Vector2(0, -20)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_xiptw")
-animation = &"live60"
+animation = &"intro"
 autoplay = "default"
 script = ExtResource("3_sk0xw")
 WhatYouObj = 5

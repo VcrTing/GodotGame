@@ -88,6 +88,20 @@ animations = [{
 "loop": true,
 "name": &"live60",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsh5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq70v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7f0p")
+}],
+"loop": true,
+"name": &"outro",
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ue5a4"]
@@ -102,8 +116,7 @@ script = ExtResource("1_w1fym")
 position = Vector2(-3, 16)
 scale = Vector2(1.42, 1.42)
 sprite_frames = SubResource("SpriteFrames_rf7gy")
-animation = &"live30"
-frame_progress = 0.02652025
+animation = &"outro"
 script = ExtResource("3_7l1dn")
 
 [node name="BeHurtArea" type="Area2D" parent="."]

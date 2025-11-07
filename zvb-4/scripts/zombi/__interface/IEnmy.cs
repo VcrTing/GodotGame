@@ -20,5 +20,8 @@ namespace ZVB4.Interface
         void EndRedMode();
 
         EnumWhatYouObj GetWhatYouObj();
+
+        int IsInAttack();
+        void SetInAttack(bool isInAttack);
     }
 }

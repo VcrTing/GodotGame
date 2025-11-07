@@ -41,6 +41,7 @@ public partial class PlansSunFlower : Node2D, IWorking, IObj, IBeHurt
         bool died = ObjTool.RunningBeHurt(this, objType, damage, enumHurts);
         if (died)
         {
+            SoundFxController.Instance.PlayFx("Fx/eated", "eated", 4);
             _ = Die(objType, damage, enumHurts);
         }
         return died;

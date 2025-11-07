@@ -20,8 +20,10 @@ public partial class BaseShooterSwitcherPopup : PopupPanel
         }
     }
 
-    void OnButtonPress()
+    async void OnButtonPress()
     {
+        SoundUiController.Instance.GameStart();
+        await ToSignal(GetTree().CreateTimer(1f), "timeout");
         int _cap = SaveGamerRunnerDataManger.Instance.GetCapterNumber();
         string scenePath = FolderConstants.Scenes + ChapterTool.GetChapterSceneName(_cap);
         GetTree().ChangeSceneToFile(scenePath);

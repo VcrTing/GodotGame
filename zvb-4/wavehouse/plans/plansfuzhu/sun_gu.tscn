@@ -34,6 +34,11 @@ animations = [{
 "name": &"default",
 "speed": 3.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"intro",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6x2hd")
@@ -75,6 +80,11 @@ animations = [{
 "loop": true,
 "name": &"live60",
 "speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"outro",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rf7gy"]
@@ -90,7 +100,7 @@ script = ExtResource("1_6x2hd")
 position = Vector2(3, 24)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_c5axu")
-animation = &"live60"
+animation = &"intro"
 autoplay = "default"
 script = ExtResource("3_k8lng")
 WhatYouObj = 5

@@ -36,6 +36,7 @@ public partial class PlansXianRenQiu : Node2D, IObj, IBeHurt, IWorking, IAttack
         int yichu = ih.CostHealth(objType, damage, enumHurts);
         if (yichu > 0)
         {
+            SoundFxController.Instance.PlayFx("Fx/eated", "eated", 4);
             Die(objType, yichu, enumHurts); return false;
         }
         return true;

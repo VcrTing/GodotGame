@@ -257,9 +257,13 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
     {
         if (health <= 0) return false;
         view.Visible = false; viewChanged.Visible = true; IsChanged = true;
-        if (enmyStatus != EnumEnmyStatus.Attack)
+        if (IsInAttack() > 0)
         {
-            SwitchStatus(EnumEnmyStatus.Move); 
+            SwitchStatus(EnumEnmyStatus.Attack);
+        }
+        else
+        {
+            SwitchStatus(EnumEnmyStatus.Move);
         }
         return true;
     }
@@ -339,6 +343,8 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         if (IsChanged) return;
         StartChangeAction();
     }
+    public int IsInAttack() => (fatherNode as IEnmy).IsInAttack();
+    public void SetInAttack(bool isa) { (fatherNode as IEnmy).SetInAttack(isa); }
     /**
         特殊化处理
     */

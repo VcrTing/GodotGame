@@ -1,43 +1,43 @@
 [
     {
         "name": "Pea",
-        "price": 100, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 50, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "PeaCold",
-        "price": 150, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 120, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "PeaDouble",
-        "price": 175, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 135, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "YangTao",
-        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 150, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "LanMei",
-        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 150, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "ShiLiu",
-        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 175, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "PaoGu",
-        "price": 250, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 200, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "Xigua",
-        "price": 300, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 250, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "XiguaBing",
-        "price": 600, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 500, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "PeaGold",
-        "price": 450, "x": 155, "y": 75, "viewscale": 1.0
+        "price": 400, "x": 155, "y": 75, "viewscale": 1.0
     },
     {
         "name": "Yezi",

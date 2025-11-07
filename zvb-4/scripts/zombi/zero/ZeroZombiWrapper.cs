@@ -332,4 +332,13 @@ public partial class ZeroZombiWrapper : Node2D, IObj, IMove, IWorking, IStatus, 
         throw new NotImplementedException();
     }
 
+    public int IsInAttack()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetInAttack(bool isInAttack)
+    {
+        throw new NotImplementedException();
+    }
 }

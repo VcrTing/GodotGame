@@ -283,10 +283,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
     public void SeeTarget(IObj obj) => (bodyNode as IEnmy)?.SeeTarget(obj);
     public bool CanAttack() => (isWorking && __freezeTime <= 0f);
     public int GetDamage() => (int)(EnmyTypeConstans.GetZombieDamage(objName));
-    public int GetDamageExtra()
-    {
-        throw new NotImplementedException();
-    }
+    public int GetDamageExtra() => throw new NotImplementedException();
 
     float RedEyeScale = 1f;
     public void JudgeOpenRedEyeMode(float redeyeratio)
@@ -305,10 +302,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
         RedEyeScale = 1f;
         (bodyNode as IEnmy)?.EndRedMode();
     }
-    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts)
-    {
-        throw new NotImplementedException();
-    }
+    public bool BeCure(EnumObjType objType, int cureAmount, EnumHurts enumHurts) => throw new NotImplementedException();
     public EnumWhatYouObj GetWhatYouObj() => (EnumWhatYouObj)((bodyNode as IEnmy)?.GetWhatYouObj());
 
     [Export]
@@ -328,8 +322,12 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
             bodyNode.Scale = new Vector2(x, x);
         }
     }
-    // GD.Print("bigger = " + x);
-    // GD.Print(i + "   " + a + "    " + (1f + a));
+
+    int attacknum = 0;
+    public int IsInAttack() => attacknum;
+
+    public void SetInAttack(bool isInAttack) { attacknum = isInAttack ? (attacknum + 1) : 0; }
+
     [Export]
     public float LiveTime = 0;
 }

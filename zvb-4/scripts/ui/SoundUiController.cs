@@ -121,10 +121,16 @@ public partial class SoundUiController : Node2D
     {
         EnqueueSound("Ui/shop", "shop", 7);
     }
-    
+
     // buyed
     public void Buyed()
     {
         EnqueueSound("Ui/money", "money", 4);
+    }
+    
+    // Game Start
+    public void GameStart()
+    {
+        EnqueueSound("Ux/start_game", "StartGame", 4);
     }
 }

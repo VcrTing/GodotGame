@@ -68,12 +68,22 @@ public partial class ZeroZombiAttackArea : Area2D
             }
             attackSpeed = EnmyTypeConstans.GetBaitSpeed(myObj.GetObjName());
             attackWho = area;
+            IEnmy ie = p as IEnmy;
+            if (ie != null)
+            {
+                ie.SetInAttack(true);
+            }
         }
     }
 
     async void EndAttack(Area2D area)
     {
         attackWho = null;
+        IEnmy ie = GetParent() as IEnmy;
+        if (ie != null)
+        {
+            ie.SetInAttack(false);
+        }
         // 恢复行走动画
         SwitchMoveStatus();
         // 重启一下碰撞检测
@@ -144,6 +154,7 @@ public partial class ZeroZombiAttackArea : Area2D
     string lastAnimationName = AnimationConstants.AniWalk;
     void TryAttack(IObj p, double delta)
     {
+        GD.Print("尝试切换攻击状态");
         if (!myAttack.CanAttack()) return;
         EnumObjType t = p.GetEnumObjType();
         if (t == EnumObjType.Plans)
@@ -184,6 +195,7 @@ public partial class ZeroZombiAttackArea : Area2D
     }
     void SwitchMoveStatus()
     {
+        GD.Print("尝试切换移动状态");
         // 尝试播放走路动画
         if (lastAnimationName != AnimationConstants.AniWalk)
         {

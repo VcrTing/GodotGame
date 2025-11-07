@@ -96,6 +96,7 @@ public partial class PlansSunGu : Node2D, IWorking, IObj, IBeHurt, IGrow
         bool died = ObjTool.RunningBeHurt(this, objType, damage, enumHurts);
         if (died)
         {
+            SoundFxController.Instance.PlayFx("Fx/eated", "eated", 4);
             _ = Die(objType, damage, enumHurts);
         }
         return died;
