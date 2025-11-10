@@ -20,6 +20,7 @@ public partial class FlowerWorkingReword: Node2D
     public string RewordName = SunMoneyConstants.Sun;
 
     IObj iobj;
+    string objName;
 
     int level = 1;
 
@@ -32,16 +33,17 @@ public partial class FlowerWorkingReword: Node2D
         __t = 0.00001f;
 
         iobj = GetParent<IObj>();
-        FirstGenerateInterval = SunMoneyConstants.GetSunPlansFirstGenTime(iobj.GetObjName());
-        EveryGenerateInterval = SunMoneyConstants.GetSunPlansEveryGenTime(iobj.GetObjName());
-        RewordValueLevel1 = SunMoneyConstants.GetSunPlansSunLevel1(iobj.GetObjName());
-        RewordValueLevel2 = SunMoneyConstants.GetSunPlansSunLevel2(iobj.GetObjName());
-        RewordCountLevel1 = SunMoneyConstants.GetSunPlansSunCount1(iobj.GetObjName());
-        RewordCountLevel2 = SunMoneyConstants.GetSunPlansSunCount2(iobj.GetObjName());
-        ChangeLevelTime = SunMoneyConstants.GetSunPlansGrowTime(iobj.GetObjName());
-        RewordName = SunMoneyConstants.GetPlansRewordType(iobj.GetObjName());
+        objName = iobj.GetObjName();
+        FirstGenerateInterval = SunMoneyConstants.GetSunPlansFirstGenTime(objName);
+        EveryGenerateInterval = SunMoneyConstants.GetSunPlansEveryGenTime(objName);
+        RewordValueLevel1 = SunMoneyConstants.GetSunPlansSunLevel1(objName);
+        RewordValueLevel2 = SunMoneyConstants.GetSunPlansSunLevel2(objName);
+        RewordCountLevel1 = SunMoneyConstants.GetSunPlansSunCount1(objName);
+        RewordCountLevel2 = SunMoneyConstants.GetSunPlansSunCount2(objName);
+        ChangeLevelTime = SunMoneyConstants.GetSunPlansGrowTime(objName);
+        RewordName = SunMoneyConstants.GetPlansRewordType(objName);
         /*
-        GD.Print("iobj.GetObjName() =" + iobj.GetObjName());
+        GD.Print("objName =" + objName);
         GD.Print("RewordName =" + RewordName);
         GD.Print("RewordValueLevel1 =" + RewordValueLevel1);
         GD.Print("EveryGenerateInterval =" + EveryGenerateInterval);
@@ -66,14 +68,15 @@ public partial class FlowerWorkingReword: Node2D
         sunTimer += (float)delta;
         if (sunTimer >= FirstGenerateInterval)
         {
-            FirstGenerateInterval = RandomGenerateInterval();
+            FirstGenerateInterval = RebuildForCountGroup(RandomGenerateInterval());
             R();
             SoundFxController.Instance?.PlayFx("Plans/" + obj.GetObjName(), obj.GetObjName(), 4);
             sunTimer = 0f;
         }
     }
 
-    void R() {
+    void R()
+    {
         if (level == 1)
         {
             GameTool.GenReword(RewordName, RewordCountLevel1, RewordValueLevel1, this);
@@ -82,6 +85,25 @@ public partial class FlowerWorkingReword: Node2D
         {
             GameTool.GenReword(RewordName, RewordCountLevel2, RewordValueLevel2, this);
         }
+    }
+    
+    public float RebuildForCountGroup(float src)
+    {
+        var cs = GameStatistic.Instance;
+        if (cs != null)
+        {
+            int c = cs.GetPlansCount(objName);
+            if (c > 4)
+            {
+                src += 0.5f;
+            }
+            if (c > 7)
+            {
+                src += 0.5f;
+            }
+            src += ((c - 3) * 0.3f);
+        }
+        return src;
     }
 
     public float RandomGenerateInterval()

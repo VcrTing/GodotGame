@@ -87,10 +87,10 @@ public partial class ZeroZombiAttackArea : Area2D
         // 恢复行走动画
         SwitchMoveStatus();
         // 重启一下碰撞检测
-        EnableCollision(false);
-        await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-        EnableCollision(true);
+        __at = 0.00001f;
     }
+
+    float __at = 0f;
 
     public void EnableCollision(bool enable)
     {
@@ -103,7 +103,6 @@ public partial class ZeroZombiAttackArea : Area2D
         {
             SetDeferred("monitoring", enable);
         }
-        SetProcess(enable);
     }
 
     //
@@ -148,13 +147,23 @@ public partial class ZeroZombiAttackArea : Area2D
             attackElapsed = 0.0;
             attackIntervalElapsed = 0.0;
         }
+
+        if (__at > 0f)
+        {
+            __at += (float)delta;
+            EnableCollision(false);
+            if (__at > 0.02f)
+            {
+                EnableCollision(true);
+                __at = 0f;
+            }
+        }
     }
     [Export]
     public bool AllowAttackEnmy = false;
     string lastAnimationName = AnimationConstants.AniWalk;
     void TryAttack(IObj p, double delta)
     {
-        GD.Print("尝试切换攻击状态");
         if (!myAttack.CanAttack()) return;
         EnumObjType t = p.GetEnumObjType();
         if (t == EnumObjType.Plans)
@@ -195,7 +204,6 @@ public partial class ZeroZombiAttackArea : Area2D
     }
     void SwitchMoveStatus()
     {
-        GD.Print("尝试切换移动状态");
         // 尝试播放走路动画
         if (lastAnimationName != AnimationConstants.AniWalk)
         {

@@ -15,7 +15,8 @@
     
     "initpeng": 8,
     "allowmiaolist": [
-        "LaJiao", "Cherry", "XianRenQiu", "XiHongShi"
+        "LaJiao", "Cherry", "XianRenQiu", "XiHongShi",
+        "IceFlower", "RewordFlower", "JianGuo"
     ],
     
     "initshooter": "_",

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7cd8ou4a7oin"]
+[gd_scene load_steps=17 format=3 uid="uid://b7cd8ou4a7oin"]
 
 [ext_resource type="Script" uid="uid://cn8fhybpbvuo8" path="res://scripts/plans/PlansBaseMiao.cs" id="1_f2xyr"]
 [ext_resource type="Texture2D" uid="uid://xgu4xl0x0kpf" path="res://pngs/planscard/miao.png" id="2_hej8r"]
 [ext_resource type="Script" uid="uid://bcoqmja13b47q" path="res://scripts/ground/PlansPlantingArea.cs" id="3_qitbf"]
+[ext_resource type="Texture2D" uid="uid://mkhh5xulpiyb" path="res://pngs/ux/ingame/miao.png" id="4_0tnil"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cnsr"]
 atlas = ExtResource("2_hej8r")
@@ -41,12 +42,49 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.815534, 0.2936893)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn8bc"]
+atlas = ExtResource("4_0tnil")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2xyr"]
+atlas = ExtResource("4_0tnil")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hej8r"]
+atlas = ExtResource("4_0tnil")
+region = Rect2(480, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu1a1"]
+atlas = ExtResource("4_0tnil")
+region = Rect2(720, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3onlb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn8bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2xyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hej8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu1a1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="PlansBaseMiao" type="Node2D"]
 z_index = 400
 y_sort_enabled = true
 script = ExtResource("1_f2xyr")
 
-[node name="Miao" type="AnimatedSprite2D" parent="."]
+[node name="MiaoOld" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0, 15)
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_75pfo")
@@ -76,3 +114,8 @@ range_layer_max = 4096
 texture = SubResource("GradientTexture2D_0tnil")
 texture_scale = 1.5
 height = 200.0
+
+[node name="Miao" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 10)
+scale = Vector2(0.54, 0.54)
+sprite_frames = SubResource("SpriteFrames_3onlb")

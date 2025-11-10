@@ -32,7 +32,7 @@ namespace ZVB4.Conf
 
         static float MoneyBaseLv = 0.1f;
         public static float MoneyPrevSuccRewordSubLv = 0.1f;
-        static float MiaoBaseLv = 0.05f;
+        static float MiaoBaseLv = 2f; // 0.05f
         public static float MiaoPrevSuccRewordSubLv = 0.05f;
         public static readonly Dictionary<string, float> ZombiMoneyLvDict = new Dictionary<string, float>
         {
@@ -54,11 +54,19 @@ namespace ZVB4.Conf
             { EnmyTypeConstans.ZombiS, 0.05f },
             { EnmyTypeConstans.ZombiMuTong, 0.05f },
             { EnmyTypeConstans.ZombiTieTong, 0.07f },
+            { EnmyTypeConstans.ZombiM, 0.01f },
+            { EnmyTypeConstans.ZombiJi, 0.15f },
+            { EnmyTypeConstans.ZombiMaozi, 0.03f },
+            { EnmyTypeConstans.ZombiMice, 0.07f },
+            { EnmyTypeConstans.ZombiBaozhi, 0.02f },
+            { EnmyTypeConstans.ZombiGangMen, 0.02f },
+            { EnmyTypeConstans.ZombiGlq, 0.1f },
+            { EnmyTypeConstans.ZombiJuRen, 0.05f },
         };
         public static float GetEnmyDumpMiaoLv(string key)
         {
             if (ZombiPlansMiaoLvDict.TryGetValue(key, out var value))
-                return value + MiaoBaseLv;
+                return value * MiaoBaseLv;
             return 0;
         }
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgu8yhwvdots5"]
+[gd_scene load_steps=11 format=3 uid="uid://bgu8yhwvdots5"]
 
 [ext_resource type="Script" uid="uid://b0b38t77cekyb" path="res://scripts/zombi/cc/ZombiCWrapper.cs" id="1_q8cvy"]
-[ext_resource type="PackedScene" uid="uid://c747hqkoc2e0t" path="res://wavehouse/zombi/texture_xt/zombi_ju_ren_texture.tscn" id="2_lcar1"]
 [ext_resource type="Script" uid="uid://dqidtwjn77l8e" path="res://scripts/zombi/zero/ZeroZombiBeHurtArea.cs" id="2_x1kko"]
 [ext_resource type="Script" uid="uid://ein6xdvcn2nh" path="res://scripts/zombi/zero/ZeroZombiAttackArea.cs" id="3_xh2dx"]
 [ext_resource type="Script" uid="uid://5swr1eeo7l6n" path="res://scripts/zombi/zero/ZeroZombiMove.cs" id="4_a5ucc"]
@@ -27,8 +26,6 @@ scale = Vector2(1.8, 1.8)
 script = ExtResource("1_q8cvy")
 objName = "zombi_ju_ren"
 RandomBiggerRatio = 1.5
-
-[node name="Body" parent="." instance=ExtResource("2_lcar1")]
 
 [node name="BeHurtArea" type="Area2D" parent="."]
 collision_layer = 512

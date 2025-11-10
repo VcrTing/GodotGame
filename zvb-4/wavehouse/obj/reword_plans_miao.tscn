@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqjnmevvfr4r"]
+[gd_scene load_steps=17 format=3 uid="uid://dqjnmevvfr4r"]
 
 [ext_resource type="Script" uid="uid://70ufbmgs1pj2" path="res://scripts/objs/RewordPlansMiao.cs" id="1_qlj2o"]
 [ext_resource type="Script" uid="uid://chyxysni1msvq" path="res://scripts/objs/FxShiningLight.cs" id="2_n1jgv"]
 [ext_resource type="Texture2D" uid="uid://bt2qlbwupid2x" path="res://pngs/ux/suprise.png" id="3_6nc6h"]
 [ext_resource type="Texture2D" uid="uid://xgu4xl0x0kpf" path="res://pngs/planscard/miao.png" id="4_n8s5w"]
+[ext_resource type="Texture2D" uid="uid://mkhh5xulpiyb" path="res://pngs/ux/ingame/miao.png" id="5_n1jgv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kesu3"]
 atlas = ExtResource("3_6nc6h")
@@ -42,6 +43,42 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn8bc"]
+atlas = ExtResource("5_n1jgv")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2xyr"]
+atlas = ExtResource("5_n1jgv")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hej8r"]
+atlas = ExtResource("5_n1jgv")
+region = Rect2(480, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu1a1"]
+atlas = ExtResource("5_n1jgv")
+region = Rect2(720, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nc6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn8bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2xyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hej8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu1a1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_jteds"]
 radius = 30.0
 
@@ -62,11 +99,17 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ulph4")
 autoplay = "default"
 
-[node name="View" type="AnimatedSprite2D" parent="."]
+[node name="ViewOld" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_jteds")
 autoplay = "default"
 frame_progress = 0.6738075
+
+[node name="View" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 6)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_6nc6h")
 
 [node name="Area2D" type="Area2D" parent="."]
 

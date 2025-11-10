@@ -226,7 +226,7 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
                 break;
         }
         enmyStatus = status;
-        if (status == EnumEnmyStatus.Move || status == EnumEnmyStatus.Changing || status == EnumEnmyStatus.Attack) (fatherNode as IMove)?.StartMove();
+        if (status == EnumEnmyStatus.Move || status == EnumEnmyStatus.Changing) (fatherNode as IMove)?.StartMove();
         else (fatherNode as IMove)?.PauseMove();
         //
         SetAnimationSpeedScale();

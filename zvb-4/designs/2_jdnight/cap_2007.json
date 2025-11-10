@@ -16,24 +16,15 @@
     "initpeng": 8,
     "allowmiaolist": [
         "LaJiao", "Cherry", "XianRenQiu", "XiHongShi", 
-        "IceFlower", "MoRiGu"
+        "IceFlower", "MoRiGu", "RewordFlower", "JianGuo"
     ],
     
     "initshooter": "_",
     "initmiaolist": [
         "SunGu", "SunGu", "SunGu", "SunGu"
     ],
-    "attackstarts": [ 21.5, 29.5, 49.5, 69.5, 79.5, 96.5, 107.5, 119.5, 134.5, 149.5, 179.5, 187.5, 199.5, 219.5, 239.5, 251.5, 251.5, 262.5 ],
+    "attackstarts": [ 22.5, 29.5, 49.5, 69.5, 79.5, 96.5, 107.5, 119.5, 134.5, 149.5, 179.5, 187.5, 199.5, 219.5, 239.5, 251.5, 251.5, 262.5 ],
     "enmys": {
-        "22": [
-            {
-                "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
-                "typesmode": "next",
-                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
-                "generatormode": "next",
-                "lazyme": 0, "redeyeratio": 1
-            }
-        ],
         "24": [
             {
                 "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
@@ -235,19 +226,19 @@
                 "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1,
                 "generator": [ 6, 7, 1 ] }
         ],
-        "109": [
+        "111": [
             { "types": [ "zombi_baozhi", "zombi_gang_men", "zombi_tie_tong"],
                 "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1,
                 "generator": [ 5, 6, 2 ] }
         ],
-        "111": [
-            { "types": [ "zombi_glq", "zombi_baozhi", "zombi_gang_men"],
+        "117": [
+            { "types": [ "zombi_ju_ren", "zombi_baozhi", "zombi_gang_men"],
                 "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1,
                 "generator": [ 5, 6, 2 ] }
         ],
 
         "120": [
-            { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
                 "typesmode": "next", "generatormode": "next", "lazyme": 1, "redeyeratio": 1,
                 "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
         ],

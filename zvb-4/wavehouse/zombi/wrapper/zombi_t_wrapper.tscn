@@ -52,8 +52,6 @@ script = ExtResource("4_a5ucc")
 
 [node name="WorkingDumpReword" type="Node2D" parent="."]
 script = ExtResource("5_5hkdn")
-YourMoneyRatio = 0.5
-YourMiaoRatio = 0.5
 
 [node name="EyeArea" type="Area2D" parent="."]
 position = Vector2(20, 0)

@@ -1,0 +1,21 @@
+select   
+t0.ZDR Creator,t0.docentry,T0.[TaxDate], T0.[CardCode]
+       , T0.[CardName], T0.DocCur,t3.GSMC YSGS,t4.U_ysgc,T4.U_GCBH,T3.ZWDZ,T3.YWM,T3.Phone u_dhcz
+	   , t1.[ItemCode],sum( T1.[Quantity])[Quantity], T1.U_dw, T1.[Price], T1.PBWCRQ
+	   ,T4.U_NFK,T4.U_QFK,T4.U_PFMZ,dbo.getcf(T1.ItemCode) AS '成分',t6.[Street],case when isnull(t2.Phone1,'')<>'' then 'TEL:'+ t2.Phone1 end Phone1
+	   ,case when isnull(t2.Fax,'')<>'' then 'Fax:'+t2.Fax end Fax
+	   ,'WIDTH:'+CAST(CAST(T4.U_NFK AS decimal(19,2)) AS NVARCHAR(10))+'''/'+CAST(CAST(T4.U_QFK AS decimal(19,2)) AS NVARCHAR(10))+''' '+'WEIGHT:'+CAST(CAST(T4.U_PFMZ AS decimal(19,2)) AS NVARCHAR(10))+' G/SQM' AS '宽高'
+	   ,sum( T1.[Price]*T1.[Quantity] ) '金额'   ,cast(t0.Comments as varchar(3000))  toucomments,t2.cardfname,t0.BCDM
+from OYPYG t0 left join  YPYG1 t1 on t0.DocEntry=t1.DocEntry 
+left join ocrd t2 on t2.cardcode=t0.CardCode 
+left join GSXX T3 ON T3.GSMC=T2.U_YSGS 
+LEFT JOIN  OITM T4 ON T4.ItemCode=T1.ItemCode 
+left join  (select * from CRD1 where AdresType='S') t6 on t6.CardCode=t0.CardCode and t2.[ShipToDef]=t6.Address
+where t0.docentry='1'
+group by t0.ZDR,t0.docentry,T0.[TaxDate], T0.[CardCode]
+       , T0.[CardName], T0.DocCur,t3.GSMC,t4.U_ysgc,T4.U_gcbh,T3.ZWDZ,T3.YWM,T3.Phone
+	   , t1.[ItemCode], T1.U_dw, T1.[Price], T1.PBWCRQ
+	   ,T4.U_NFK,T4.U_QFK,T4.U_PFMZ,dbo.getcf(T1.ItemCode),t6.[Street],case when isnull(t2.Phone1,'')<>'' then 'TEL:'+ t2.Phone1 end 
+	   ,case when isnull(t2.Fax,'')<>'' then 'Fax:'+t2.Fax end 
+	   ,'WIDTH:'+CAST(CAST(T4.U_NFK AS decimal(19,2)) AS NVARCHAR(10))+'''/'+CAST(CAST(T4.U_QFK AS decimal(19,2)) AS NVARCHAR(10))+''' '+'WEIGHT:'+CAST(CAST(T4.U_PFMZ AS decimal(19,2)) AS NVARCHAR(10))+' G/SQM'
+	   ,cast(t0.Comments as varchar(3000)) ,t2.cardfname,t0.BCDM
