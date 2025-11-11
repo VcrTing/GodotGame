@@ -79,7 +79,7 @@ public partial class ZeroZombiMove : Node2D
     public float GetRandomSpeedRatio()
     {
         float f = __random / 1000f;
-        return f + 0.98f;
+        return f + 0.99f;
     }
 
     // 根据移动时机，曲线加速
@@ -88,13 +88,12 @@ public partial class ZeroZombiMove : Node2D
         // X 速度倍率
         speed = speed * ratio;
         // 计算速度
-        float t = Mathf.Clamp(_moveTime / _addSpeedTime, 0f, 1f);
-        float speedBase = Mathf.Lerp(speed * _minSpeedScale, speed, t);
+        // float t = Mathf.Clamp(_moveTime / _addSpeedTime, 0f, 1f);
+        // float speedBase = Mathf.Lerp(speed * _minSpeedScale, speed, t);
         // 加速1~4f随机数
-        speedBase += (float)GD.RandRange(1f, 4f * ratio);
+        // speedBase += (float)GD.RandRange(1f, 4f * ratio);
         // 加入速度缩放
-        float scale = _parentStatus.GetMoveSpeedScale();
-        return speedBase * scale;
+        return speed * _parentStatus.GetMoveSpeedScale();
     }
     public Vector2 Move(Vector2 pos, double delta, float ratio)
     {

@@ -41,10 +41,10 @@ public partial class Sun : Node2D, IWorking, IReword
     {
         value = _value;
         float rd = (float)GD.RandRange(0f, 0.1f);
-        originScale = 1.03f - rd;
-        if (value < SunMoneyConstants.SunNormal) originScale = 0.66f - rd;
-        if (value == SunMoneyConstants.SunNormal2) originScale = 1.13f - rd;
-        if (value > SunMoneyConstants.SunNormal2) originScale = 1.43f - rd;
+        originScale = 0.98f - rd;
+        if (value < SunMoneyConstants.SunNormal) originScale = 0.76f - rd;
+        if (value == SunMoneyConstants.SunNormal2) originScale = 1.1f - rd;
+        if (value > SunMoneyConstants.SunNormal2) originScale = 1.33f - rd;
         view = GodotTool.GetViewAndAutoPlay(this);
         SetWorkingMode(true);
         return true;

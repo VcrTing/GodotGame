@@ -33,6 +33,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_c25l1")
+}],
+"loop": true,
+"name": &"dieforboom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vnfi6")
 }],
 "loop": true,
@@ -109,7 +117,7 @@ y_sort_enabled = true
 position = Vector2(-2, 0)
 scale = Vector2(0.36, 0.36)
 sprite_frames = SubResource("SpriteFrames_mefwb")
-animation = &"outro"
+animation = &"dieforboom"
 autoplay = "default"
 
 [node name="IceFreeze" type="AnimatedSprite2D" parent="."]

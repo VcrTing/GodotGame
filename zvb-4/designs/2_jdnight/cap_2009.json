@@ -1,0 +1,733 @@
+{
+    "generatemiaoratio": 0.5,
+    "shootershootratio": 1,
+    "shooterlowestattackspeedratio": 1,
+
+    "enmyspeedattackscale": 1,
+    "enmyspeedmovescale": 1,
+    "enmyviewscale": 1,
+    "enmybehurtscale": 1,
+
+    "initsun": 2000,
+    "initmiaomode": "all",
+    "initmiaorandomnummode": "FlowerPeng",
+    "gamechecktime": 310,
+    
+    "initpeng": 8,
+    "allowmiaolist": [
+        "QieZi", "IceFlower", "Cherry", "LaJiao", "MoRiGu", "XianRenQiu"
+    ],
+    
+    "initshooter": "_",
+    "initmiaolist": [
+        "SunGu", "SunGu", "SunGu", "SunGu", "SunGu", "SunGu", "SunGu", "SunGu"
+    ],
+    "attackstarts": [ 13.5, 19.5, 29.5, 39.5, 49.5, 59.5, 69.5, 79.5, 89.5, 95.5, 109.5, 119.5, 129.5, 139.5, 149.5, 159.5, 
+        169.5, 179.5, 189.5, 199.5, 209.5, 219.5, 229.5, 239.5, 249.5, 259.5, 269.5, 279.5, 289.5, 299.5 ],
+    "enmys": {
+        
+        "15": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "16": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "17": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "18": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "19": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "20": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "21": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "22": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "23": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "25": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "26": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "27": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "28": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "29": [ { "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        
+        "35": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "36": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "37": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "38": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "39": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "40": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        
+        "46": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "47": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "48": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "49": [ { "types": [ "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi", "zombi_maozi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "50": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "51": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "52": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "53": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "54": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        
+        "60": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "61": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "62": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "63": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "64": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "65": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "66": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "67": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "68": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "69": [ { "types": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "70": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "71": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "72": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "73": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "74": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        
+        "80": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "81": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "82": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "83": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "84": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "85": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "86": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "87": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "88": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "89": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "90": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "91": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "92": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "93": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "94": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "95": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        
+        "100": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "101": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "102": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "103": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "104": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "105": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "106": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "107": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "108": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "109": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "110": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "111": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "112": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "113": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "114": [ { "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        
+        "120": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "121": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "122": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "123": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "124": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "125": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "126": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "127": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "128": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "129": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "130": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "131": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "132": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "133": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "134": [ { "types": [ "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi", "zombi_baozhi" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        
+        "140": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "141": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "142": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "143": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "144": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "145": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "146": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "147": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "148": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "149": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "150": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "151": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "152": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "153": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "154": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        
+        "160": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "161": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "162": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "163": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "164": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "165": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "166": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "167": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "168": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "169": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "170": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "171": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "172": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "173": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "174": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "175": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "176": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "177": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "178": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "179": [ { "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "180": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "181": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "182": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "183": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "184": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "185": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "186": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "187": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "188": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "189": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "190": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "191": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "192": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "193": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "194": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "195": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "196": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "197": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "198": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "199": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "200": [ { "types": [ "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 4, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+
+        "240": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "241": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "242": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "243": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "244": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "245": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "246": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "247": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "248": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "249": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "250": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "251": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "252": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "253": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "254": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "255": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "256": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "257": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "258": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "259": [ { "types": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "260": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "261": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "262": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "263": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "264": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "265": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "266": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "267": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "268": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "269": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "270": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "271": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "272": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "273": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "274": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "275": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "276": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "277": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "278": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "279": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "280": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "281": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "282": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "283": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "284": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "285": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "286": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "287": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "288": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "289": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "290": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "291": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "292": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "293": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "294": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "295": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "296": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "297": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "298": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "299": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "300": [ { "types": [ "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren", "zombi_ju_ren" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "301": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "302": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "303": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "304": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "305": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "306": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ],
+        "307": [ { "types": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
+            "typesmode": "next", "generatormode": "next", "lazyme": 0, "redeyeratio": 1, "generator": [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ] }
+        ]
+    },
+    
+    "enmyy": {
+        "205": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 5, "loopdelay": 1, "isenmy": 1, "generatormode": "farY"
+            }
+        ],
+        "210": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 5, "loopdelay": 1, "isenmy": 1, "generatormode": "farY"
+            }
+        ],
+        "215": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 5, "loopdelay": 1, "isenmy": 1, "generatormode": "farY"
+            }
+        ],
+        "220": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 5, "loopdelay": 1, "isenmy": 1, "generatormode": "farY"
+            }
+        ],
+        "225": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 5, "loopdelay": 1, "isenmy": 1, "generatormode": "farY"
+            }
+        ],
+        "230": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 5, "loopdelay": 1, "isenmy": 1, "generatormode": "farY"
+            }
+        ],
+        "235": [
+            {
+                "names": [ "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice", "zombi_mice" ],
+                "grids": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 5, "loopdelay": 1, "isenmy": 1, "generatormode": "farY"
+            }
+        ]
+    }
+}

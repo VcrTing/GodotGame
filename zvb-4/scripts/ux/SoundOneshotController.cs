@@ -46,7 +46,7 @@ public partial class SoundOneshotController : Node2D
         string path = SoundTool.GetRandomSoundPath(folderPath, soundName, soundIndex);
         var stream = GD.Load<AudioStream>(path);
         if (stream == null) return;
-        PlayClip(new SoundEffectRequest { Path = path, Pan = SoundTool.CalcPanByX(pos.X), Volume = volume });
+        PlayClip(new SoundEffectRequest { Path = path, Pan = SoundTool.CalcPanByX(pos.X), Volume = volume, Position=pos });
         // 加入dict，2秒后过期
         _soundKeyDict[soundkey] = now + expiredSeconds;
     }
@@ -87,6 +87,20 @@ public partial class SoundOneshotController : Node2D
 		TryPlayNext();
 	}
 
+    static int n = 12;
+    void SetLocation(AudioStreamPlayer2D player, Vector2 pos)
+    {
+        float x = pos.X;
+        if (x > -n && x < 0)
+        {
+            x = -n;
+        }
+        if (x < n && x > 0)
+        {
+            x = n;
+        }
+        player.Position = new Vector2(x, 0);
+    }
 	private void TryPlayNext()
 	{
 		if (_clipQueue.Count == 0)
@@ -95,7 +109,8 @@ public partial class SoundOneshotController : Node2D
 		{
             SoundEffectRequest param = _clipQueue.Dequeue();
             AudioStream stream = GD.Load<AudioStream>(param.Path);
-            if (stream == null) return;
+			if (stream == null) return;
+			SetLocation(_player, param.Position);
 			_player.Stream = stream;
 			_player.PanningStrength = Mathf.Abs(param.Pan);
 			_player.VolumeDb = Mathf.LinearToDb(param.Volume);
@@ -107,6 +122,7 @@ public partial class SoundOneshotController : Node2D
 		    SoundEffectRequest param = _clipQueue.Dequeue();
             AudioStream stream = GD.Load<AudioStream>(param.Path);
             if (stream == null) return;
+			SetLocation(_player2, param.Position);
 			_player2.Stream = stream;
 			_player.PanningStrength = Mathf.Abs(param.Pan);
 			_player2.VolumeDb = Mathf.LinearToDb(param.Volume);

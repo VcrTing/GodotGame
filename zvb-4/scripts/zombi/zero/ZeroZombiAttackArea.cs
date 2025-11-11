@@ -87,7 +87,7 @@ public partial class ZeroZombiAttackArea : Area2D
         // 恢复行走动画
         SwitchMoveStatus();
         // 重启一下碰撞检测
-        __at = 0.00001f;
+        __at = 0.000001f;
     }
 
     float __at = 0f;
@@ -143,16 +143,19 @@ public partial class ZeroZombiAttackArea : Area2D
         }
         else
         {
-            // 停止攻击，重置计时
-            attackElapsed = 0.0;
-            attackIntervalElapsed = 0.0;
+            if (attackElapsed > 0)
+            {
+                // 停止攻击，重置计时
+                attackElapsed = 0.0;
+                attackIntervalElapsed = 0.0;
+            }
         }
 
         if (__at > 0f)
         {
             __at += (float)delta;
             EnableCollision(false);
-            if (__at > 0.02f)
+            if (__at > 0.002f)
             {
                 EnableCollision(true);
                 __at = 0f;

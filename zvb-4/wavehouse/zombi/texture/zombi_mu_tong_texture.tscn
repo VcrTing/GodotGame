@@ -7,81 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cp3cqqvvtoj76" path="res://pngs/test/ice_frezz.png" id="5_r7vw5"]
 [ext_resource type="Texture2D" uid="uid://s5magwc84pjg" path="res://pngs/zombiextra/new_extra_mu_tong.png" id="6_7j41l"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_567s2"]
-atlas = ExtResource("6_7j41l")
-region = Rect2(0, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yebru"]
-atlas = ExtResource("6_7j41l")
-region = Rect2(0, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7vw5"]
-atlas = ExtResource("6_7j41l")
-region = Rect2(0, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4rti"]
-atlas = ExtResource("6_7j41l")
-region = Rect2(140, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jep85"]
-atlas = ExtResource("6_7j41l")
-region = Rect2(70, 0, 70, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_73fdu"]
-atlas = ExtResource("6_7j41l")
-region = Rect2(140, 0, 70, 70)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pipw0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_567s2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yebru")
-}],
-"loop": true,
-"name": &"intro",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r7vw5")
-}],
-"loop": true,
-"name": &"live",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d4rti")
-}],
-"loop": true,
-"name": &"live30",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jep85")
-}],
-"loop": true,
-"name": &"live60",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_73fdu")
-}],
-"loop": true,
-"name": &"outro",
-"speed": 3.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8uip"]
 atlas = ExtResource("2_7j41l")
 region = Rect2(360, 0, 180, 180)
@@ -272,6 +197,81 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_567s2"]
+atlas = ExtResource("6_7j41l")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yebru"]
+atlas = ExtResource("6_7j41l")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7vw5"]
+atlas = ExtResource("6_7j41l")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4rti"]
+atlas = ExtResource("6_7j41l")
+region = Rect2(140, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jep85"]
+atlas = ExtResource("6_7j41l")
+region = Rect2(70, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73fdu"]
+atlas = ExtResource("6_7j41l")
+region = Rect2(140, 0, 70, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pipw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_567s2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yebru")
+}],
+"loop": true,
+"name": &"intro",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7vw5")
+}],
+"loop": true,
+"name": &"live",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4rti")
+}],
+"loop": true,
+"name": &"live30",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jep85")
+}],
+"loop": true,
+"name": &"live60",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73fdu")
+}],
+"loop": true,
+"name": &"outro",
+"speed": 3.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_whv1q"]
 atlas = ExtResource("5_r7vw5")
 region = Rect2(0, 0, 120, 120)
@@ -301,24 +301,22 @@ y_sort_enabled = true
 script = ExtResource("1_wmr5c")
 ObjName = "zombi_mu_tong"
 ExtraObj = 11
-MoveChangeBefore = 1
-MoveChanging = 1
 IntroAniTime = 0.001
 WhenChangingType = 0
-
-[node name="ViewExtra" type="AnimatedSprite2D" parent="."]
-z_index = 20
-y_sort_enabled = true
-position = Vector2(0, -45)
-sprite_frames = SubResource("SpriteFrames_pipw0")
-animation = &"intro"
-autoplay = "default"
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 scale = Vector2(1, 0.8)
 sprite_frames = SubResource("SpriteFrames_wmr5c")
 animation = &"outro"
+autoplay = "default"
+
+[node name="ViewExtra" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -45)
+sprite_frames = SubResource("SpriteFrames_pipw0")
+animation = &"intro"
 autoplay = "default"
 
 [node name="IceFreeze" type="AnimatedSprite2D" parent="."]

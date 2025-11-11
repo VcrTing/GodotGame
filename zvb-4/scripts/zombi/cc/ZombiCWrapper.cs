@@ -32,6 +32,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
             if (beHurt != null)
             {
                 bool isAlive = beHurt.BeHurt(objType, damage, enumHurts);
+                // GD.Print("isAlive = " + isAlive);
                 if (!isAlive) { Die(objType, damage, enumHurts); }
             }
             // 处理减速
@@ -177,7 +178,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
     public bool DoFreeze(float time)
     {
         iceFreezeTime += time;
-        __freezeTime += 0.01f;
+        __freezeTime += 0.001f;
         __coldTime = 0f;
         //
         moveSpeedScale = 0f;
@@ -193,7 +194,7 @@ public partial class ZombiCWrapper : Node2D, IInit, IObj, IWorking, IMove, IBeHu
         {
             iceColdTime = time;
         }
-        __coldTime += 0.01f;
+        __coldTime += 0.001f;
         //
         moveSpeedScale = GameContants.ColdScale;
         attackSpeedScale = GameContants.ColdScale;

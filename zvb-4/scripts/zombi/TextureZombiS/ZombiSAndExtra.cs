@@ -27,7 +27,7 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         if (a > 0f)
         {
             await ToSignal(GetTree().CreateTimer(a), "timeout");
-            viewExtra.QueueFree();
+            if (viewExtra != null) viewExtra.Visible = false;
         }
     }
     public void SwitchDieForBoomAnimation()
@@ -104,6 +104,7 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         {
             yichu = -health;
             health = 0;
+            if (viewExtra != null) viewExtra.Visible = false;
         }
         SwitchWalkLiveAnimation(health, healthInit);
         return yichu;
@@ -190,6 +191,7 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         viewChanged.Visible = false;
         view.Visible = true;
         fatherNode = GetParent<Node2D>();
+
         return true;
     }
     public void SetInitScale(float movespeedscale, float behurtscale, float viewscale, float attackspeedscale) => throw new NotImplementedException();
@@ -212,9 +214,6 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
                 break;
             case EnumEnmyStatus.Changing:
                 AnimationTool.DoAniChanging(IsChanged ? viewChanged : view);
-                break;
-            case EnumEnmyStatus.Intro:
-                AnimationTool.DoAniIntro(IsChanged ? viewChanged : view);
                 break;
             case EnumEnmyStatus.Outro:
                 AnimationTool.DoAniOutro(IsChanged ? viewChanged : view);
@@ -286,9 +285,10 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     public float HasInitAction() => IntroAniTime;
     public bool DoInitAction()
     {
-        SwitchStatus(EnumEnmyStatus.Intro);
-        __introAniTime = 0.00001f;
+        // SwitchStatus(EnumEnmyStatus.Intro);
+        // __introAniTime = 0.00001f;
         StartIntro();
+        // StartIntro();
         return true;
     }
     public float HasDieAction() => OutroAniTime;
@@ -309,6 +309,7 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     public override void _Process(double delta)
     {
         // 执行初始化动作
+        /*
         if (__introAniTime > 0f)
         {
             __introAniTime += (float)delta;
@@ -331,6 +332,7 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
                 EndChange();
             }
         }
+        */
     }
 
     // 看见植物
@@ -348,15 +350,16 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
         特殊化处理
     */
     [Export]
-    public float IntroAniTime = 1f;
+    public float IntroAniTime = 0.001f;
     [Export]
     public float OutroAniTime = 0.66f;
     [Export]
     public EnumWhenChangingType WhenChangingType = EnumWhenChangingType.SeePlansFirst;
     // 进场
-    void StartIntro()
+    async void StartIntro()
     {
-        
+        // 开始走路
+        this.CallDeferred(nameof(EndIntro));
     }
     void DoingIntro(float delta)
     {
@@ -364,7 +367,6 @@ public partial class ZombiSAndExtra : Node2D, ICcActionExtra, IStatus, IBeHurt, 
     }
     void EndIntro()
     {
-        // GD.Print("ZombiSAndExtra.EndIntro");
         IWorking iw = fatherNode as IWorking;
         // 开启工作
         if (iw != null) iw.SetWorkingMode(true);

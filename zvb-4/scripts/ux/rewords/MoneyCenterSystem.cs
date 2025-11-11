@@ -15,6 +15,8 @@ public partial class MoneyCenterSystem : Control
     public int v = 0;
     public int prev = 0;
 
+    Vector2 CenterPosition;
+
     public override void _Ready()
     {
         Instance = this;
@@ -30,6 +32,7 @@ public partial class MoneyCenterSystem : Control
         AsyncMoneyValue();
         ShowMe();
         __vt = 0.0001f;
+        CenterPosition = GlobalPosition / 2;
     }
     bool show = false;
     float stayTime = 2f;
@@ -49,7 +52,6 @@ public partial class MoneyCenterSystem : Control
         {
             if (value < 0) { value = -value; }
             v += value;
-            // GD.Print("vv" + value + " v =" + v);
             UpdateMoneyLabel(v);
             ShowMe();
         }
@@ -133,13 +135,9 @@ public partial class MoneyCenterSystem : Control
         {
             var scene = GD.Load<PackedScene>(FolderConstants.WaveObj + SunMoneyConstants.MoneyS + ".tscn");
             var instance = scene.Instantiate<Node2D>();
-            instance.Position = position;
-            GD.Print("MONEY");
-            GD.Print(instance.GlobalPosition);
-            GD.Print(instance.Position);
             countMoney += 1;
-            string n = SunMoneyConstants.MoneyS + countMoney;
-            instance.Name = n;
+            instance.Position = position - CenterPosition;
+            instance.Name = SunMoneyConstants.MoneyS + countMoney;
             // 设置名称
             if (playSound)
             {

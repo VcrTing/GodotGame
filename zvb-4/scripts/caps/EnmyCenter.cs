@@ -14,7 +14,8 @@ public partial class EnmyCenter : Node2D
     {
         { "s_long", 4 },
         { "s_middle", 3 },
-        { "s_short", 2 }
+        { "s_short", 2 },
+        { "fx_air", 4 }
     };
 
     private int cccCount = 1; // 0=暂停，1~5=执行多少次CCC，最多5次
@@ -28,6 +29,7 @@ public partial class EnmyCenter : Node2D
     {
         Instance = this;
         SetNextInterval();
+        RunningPlay("fx_air", 4, -9999);
     }
 
     float aloneSoundTimer = 0f;
@@ -35,11 +37,11 @@ public partial class EnmyCenter : Node2D
     public override void _Process(double delta)
     {
         _timer += (float)delta;
+
         if (_timer >= _nextInterval)
         {
             _timer = 0f;
             SetNextInterval();
-            if (!PaoxiaoEnabled) return;
             PlayZombiPaoxiao();
         }
 
@@ -51,7 +53,19 @@ public partial class EnmyCenter : Node2D
             if (count < 0) count = 0;
         }
     }
-
+    void RunningPlay(string name, int num, float x)
+    {
+        if (x == -9999)
+        {
+            x = GD.RandRange(0, 600);
+            int vv = GD.RandRange(0, 1);
+            if (vv == 0)
+            {
+                x = -x;
+            }
+        }
+        SoundOneshotController.Instance?.PlayFx("Zombi/paoxiao", name, num, 1f, new Vector2(x, 0));
+    }
     void PlayZombiPaoxiao() {
         if (paoxiaoDict.Count > 0)
         {
@@ -59,7 +73,7 @@ public partial class EnmyCenter : Node2D
             int randIdx = GD.RandRange(0, keys.Count - 1);
             string name = keys[randIdx];
             int num = paoxiaoDict[name];
-            SoundGameObjController.Instance?.PlayFxRandomPos("Zombi/paoxiao", name, num);
+            RunningPlay(name, num, -9999);
         }
     }
 

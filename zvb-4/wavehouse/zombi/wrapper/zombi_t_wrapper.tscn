@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://oweimsvuiiag"]
+[gd_scene load_steps=8 format=3 uid="uid://oweimsvuiiag"]
 
 [ext_resource type="Script" uid="uid://b0b38t77cekyb" path="res://scripts/zombi/cc/ZombiCWrapper.cs" id="1_q8cvy"]
 [ext_resource type="Script" uid="uid://dqidtwjn77l8e" path="res://scripts/zombi/zero/ZeroZombiBeHurtArea.cs" id="2_x1kko"]
 [ext_resource type="Script" uid="uid://ein6xdvcn2nh" path="res://scripts/zombi/zero/ZeroZombiAttackArea.cs" id="3_xh2dx"]
 [ext_resource type="Script" uid="uid://5swr1eeo7l6n" path="res://scripts/zombi/zero/ZeroZombiMove.cs" id="4_a5ucc"]
 [ext_resource type="Script" uid="uid://ha7eflqdav0y" path="res://scripts/objs/EnmyWorkingDumpReword.cs" id="5_5hkdn"]
-[ext_resource type="Script" uid="uid://c2d34m307o7f0" path="res://scripts/zombi/zero/ZeroZombiEyeArea.cs" id="6_3upg6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_00yj6"]
 radius = 7.0
@@ -13,9 +12,6 @@ height = 36.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8cvy"]
 size = Vector2(8, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oncc"]
-size = Vector2(60, 16)
 
 [node name="ZombiTWrapper" type="Node2D"]
 y_sort_enabled = true
@@ -52,12 +48,3 @@ script = ExtResource("4_a5ucc")
 
 [node name="WorkingDumpReword" type="Node2D" parent="."]
 script = ExtResource("5_5hkdn")
-
-[node name="EyeArea" type="Area2D" parent="."]
-position = Vector2(20, 0)
-collision_layer = 4096
-collision_mask = 512
-script = ExtResource("6_3upg6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EyeArea"]
-shape = SubResource("RectangleShape2D_3oncc")

@@ -28,7 +28,7 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         if (a > 0f)
         {
             await ToSignal(GetTree().CreateTimer(a), "timeout");
-            viewExtra.QueueFree();
+            if (viewExtra != null) viewExtra.Visible = false;
         }
     }
     public void SwitchDieForBoomAnimation()
@@ -105,6 +105,9 @@ public partial class ZombiCCAndExtra : Node2D, IBeHurt, IInit, IEnmy, ICcActionE
         {
             yichu = -health;
             health = 0;
+            if (viewExtra != null) viewExtra.Visible = false;
+            // viewExtra?.QueueFree();
+            // SwitchExtraLiveAnimation(0, healthExtraInit);
         }
         SwitchWalkLiveAnimation(health, healthInit);
         return yichu;

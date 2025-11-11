@@ -164,7 +164,7 @@ namespace ZVB4.Conf
             else if (key == Xigua) return 1f;
             else if (key == PaoGu) return 1f;
             //
-            if (key == PeaGold) return 1.5f;
+            if (key == PeaGold) return 1.3f;
             else if (key == XiguaBing) return 1f;
             else if (key == Yezi) return 2f;
             return 0f;

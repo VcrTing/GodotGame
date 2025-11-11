@@ -29,12 +29,13 @@ public partial class Money : RigidBody2D, IWorking, IReword
             // 默认目标为左上角世界坐标
             try
             {
-                targetWorldPos = MoneyCenterSystem.Instance.GetLabelPosition();
+                // targetWorldPos = MoneyCenterSystem.Instance.GetLabelPosition();
+                targetWorldPos = new Vector2(GameContants.ScreenHalfW, GameContants.ScreenHalfH);
                 // GD.Print("Sun Target Pos: " + targetWorldPos);
             }
             catch
             {
-                targetWorldPos = new Vector2(-GameContants.ScreenHalfW, -GameContants.ScreenHalfH);
+                targetWorldPos = new Vector2(GameContants.ScreenHalfW, GameContants.ScreenHalfH);
             }
             moveTimer = 0f;
             GravityScale = 0f;
@@ -57,7 +58,7 @@ public partial class Money : RigidBody2D, IWorking, IReword
         //
         view = GodotTool.GetViewAndAutoPlay(this);
         int rd = (int)GD.RandRange(0, 50);
-        float v = 1.1f - (rd / 100f);
+        float v = 0.9f - (rd / 100f);
         originScale = v;
         Scale = new Vector2(originScale, originScale);
         // GD.Print("原始缩放 =" + v);
@@ -91,7 +92,7 @@ public partial class Money : RigidBody2D, IWorking, IReword
         {
             if (hasAdded) return;
             // 播放音效
-            SoundFxController.Instance.PlayFx("Ux/coll", "coll_sun", 4);
+            SoundFxController.Instance.PlayFx("Ux/money", "money", 4);
             hasAdded = true;
             // 增加阳光方法
             if (MoneyCenterSystem.Instance == null) return;

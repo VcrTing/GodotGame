@@ -102,10 +102,17 @@ public partial class BulletYezi : Node2D, IBulletBase, IObj, IAttack, IWorking
     public void SetWorkingMode(bool working)
     {
         isWorking = working;
-        _attackArea.Monitoring = working;
-        _attackArea.Monitorable = working;
-        _attackAreaExtra.Monitoring = working;
-        _attackAreaExtra.Monitorable = working;
+        try
+        {
+            _attackArea.SetDeferred("monitoring", working);
+            _attackArea.SetDeferred("monitorable", working);
+            _attackAreaExtra.SetDeferred("monitoring", working);
+            _attackAreaExtra.SetDeferred("monitorable", working);
+        }
+        catch (Exception e)
+        {
+            
+        }
     }
     public bool IsWorking() => isWorking;
 

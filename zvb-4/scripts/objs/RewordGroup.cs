@@ -48,9 +48,10 @@ public partial class RewordGroup : Node2D
     public void SpawnReword(string rewordName, int count, Vector2 startPos, int value)
     {
         float spacing = 30f;
+        Position = startPos;
         for (int i = 0; i < count; i++)
         {
-            float x = startPos.X + i * spacing;
+            float x = Position.X + i * spacing;
             Vector2 pos = new Vector2(x, startPos.Y);
             //
             try

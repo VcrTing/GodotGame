@@ -54,7 +54,7 @@ public static class UiTool {
         if (ChapterTool.NeedOpenBaseShooterPopup(capnum))
         {
             var bss = BaseShooterSwitcherPopup.Instance;
-            if (bss != null)
+            if (bss != null && bss.IsAlive())
             {
                 BaseShooterSwitcherPopup.Instance.ShowPopup();
                 return;

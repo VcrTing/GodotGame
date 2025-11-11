@@ -227,7 +227,7 @@ ObjName = "zombi_baozhi"
 ExtraObj = 15
 MoveChanging = 0
 MoveChangeAfter = 3
-IntroAniTime = 0.1
+IntroAniTime = 0.001
 WhenChangingType = 1
 
 [node name="View" type="AnimatedSprite2D" parent="."]

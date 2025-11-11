@@ -225,25 +225,25 @@ alignment = 1
 layout_mode = 2
 Chapter = 2006
 ChapterTitle = "第二十一关"
-ChapterDesc = "深夜"
+ChapterDesc = "深夜尸潮"
 
 [node name="ChapterItemButton3" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 2007
 ChapterTitle = "第二十二关"
-ChapterDesc = "深夜"
+ChapterDesc = "深夜鼠疫"
 
 [node name="ChapterItemButton4" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 2008
 ChapterTitle = "第二十三关"
-ChapterDesc = "夜晚黎明"
+ChapterDesc = "巨人之墙"
 
 [node name="ChapterItemButton5" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 2009
 ChapterTitle = "第二十四关"
-ChapterDesc = "夜晚黎明"
+ChapterDesc = "终局之战"
 
 [node name="ControlBottomBar" type="Control" parent="CanvasLayer"]
 custom_minimum_size = Vector2(0, 300)

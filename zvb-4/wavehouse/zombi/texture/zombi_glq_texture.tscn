@@ -8,65 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dqn7mf7ivxod4" path="res://pngs/zombiextra/TouKui.png" id="6_ht0dg"]
 [ext_resource type="Texture2D" uid="uid://b0t7ij230lg5g" path="res://pngs/zombiextra/TouKui30.png" id="7_6ukfx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ukfx"]
-atlas = ExtResource("6_ht0dg")
-region = Rect2(0, 0, 120, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_82mwf"]
-atlas = ExtResource("7_6ukfx")
-region = Rect2(0, 0, 120, 120)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_82mwf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ukfx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ukfx")
-}],
-"loop": true,
-"name": &"intro",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ukfx")
-}],
-"loop": true,
-"name": &"live",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_82mwf")
-}],
-"loop": true,
-"name": &"live30",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ukfx")
-}],
-"loop": true,
-"name": &"live60",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_82mwf")
-}],
-"loop": true,
-"name": &"outro",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_csi2b"]
 atlas = ExtResource("2_7j41l")
 region = Rect2(360, 0, 180, 180)
@@ -262,6 +203,65 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ukfx"]
+atlas = ExtResource("6_ht0dg")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82mwf"]
+atlas = ExtResource("7_6ukfx")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_82mwf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ukfx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ukfx")
+}],
+"loop": true,
+"name": &"intro",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ukfx")
+}],
+"loop": true,
+"name": &"live",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82mwf")
+}],
+"loop": true,
+"name": &"live30",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ukfx")
+}],
+"loop": true,
+"name": &"live60",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82mwf")
+}],
+"loop": true,
+"name": &"outro",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_whv1q"]
 atlas = ExtResource("5_r7vw5")
 region = Rect2(0, 0, 120, 120)
@@ -297,15 +297,6 @@ MoveChangeAfter = 2
 IntroAniTime = 0.001
 WhenChangingType = 1
 
-[node name="ViewExtra" type="AnimatedSprite2D" parent="."]
-z_index = 20
-y_sort_enabled = true
-position = Vector2(-4, -18)
-scale = Vector2(0.52, 0.52)
-sprite_frames = SubResource("SpriteFrames_82mwf")
-animation = &"live"
-autoplay = "default"
-
 [node name="View" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 scale = Vector2(1, 0.8)
@@ -319,6 +310,15 @@ y_sort_enabled = true
 scale = Vector2(1, 0.8)
 sprite_frames = SubResource("SpriteFrames_6ukfx")
 animation = &"changing"
+autoplay = "default"
+
+[node name="ViewExtra" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-4, -18)
+scale = Vector2(0.52, 0.52)
+sprite_frames = SubResource("SpriteFrames_82mwf")
+animation = &"live"
 autoplay = "default"
 
 [node name="IceFreeze" type="AnimatedSprite2D" parent="."]

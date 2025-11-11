@@ -130,7 +130,7 @@ namespace ZVB4.Conf
         public static bool GenerateZombiTexture(Node2D father, string key)
         {
             string folder = "texture/";
-            if (key.Contains("_cgt") || key.Contains("_baozhi"))
+            if (key.Contains("_cgt") || key.Contains("_baozhi") || key.Contains("_maozi"))
             {
                 folder = "texture_cc/";
             }

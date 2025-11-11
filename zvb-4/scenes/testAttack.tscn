@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://hawbvochwphb"]
+[gd_scene load_steps=9 format=3 uid="uid://hawbvochwphb"]
 
 [ext_resource type="PackedScene" uid="uid://tyfyw8v7besx" path="res://wavehouse/bullet/bullet_zero.tscn" id="1_fmfhj"]
 [ext_resource type="PackedScene" uid="uid://crbw8wgirbf30" path="res://wavehouse/sounds/sound_game_obj_controller.tscn" id="1_rf7gy"]
 [ext_resource type="PackedScene" uid="uid://dw2furgw83cid" path="res://wavehouse/bullet/diancang/bullet_xigua_bing.tscn" id="2_sgq3c"]
-[ext_resource type="PackedScene" uid="uid://cibpmmee5t74" path="res://wavehouse/zombi/wrapper/zombi_c_wrapper.tscn" id="4_c5axu"]
-[ext_resource type="PackedScene" uid="uid://dhd1gc6olt83b" path="res://wavehouse/bullet/diancang/bullet_pea_gold.tscn" id="5_66j71"]
-[ext_resource type="PackedScene" uid="uid://b6sb2vcxtbfd" path="res://wavehouse/zombi/texture_xt/zombi_mice_texture.tscn" id="5_fmfhj"]
+[ext_resource type="AudioStream" uid="uid://dptlfextm73qy" path="res://musics/Main.mp3" id="4_c5axu"]
+[ext_resource type="PackedScene" uid="uid://dhd1gc6olt83b" path="res://wavehouse/bullet/bullet_lan_mei.tscn" id="5_66j71"]
 [ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="11_yihhn"]
 [ext_resource type="PackedScene" uid="uid://cpscsfwwyuyqs" path="res://wavehouse/sounds/sound_player_controller.tscn" id="13_tlc07"]
 [ext_resource type="PackedScene" uid="uid://cnwb7247j6ht" path="res://wavehouse/sounds/sound_fx_controller.tscn" id="13_xiptw"]
@@ -42,12 +41,15 @@ position = Vector2(0, 1900)
 [node name="Zombis" type="Node2D" parent="."]
 position = Vector2(0, -550)
 
-[node name="ZombiCWrapper" parent="Zombis" instance=ExtResource("4_c5axu")]
-objName = "zombi_s"
-
-[node name="Body" parent="Zombis/ZombiCWrapper" instance=ExtResource("5_fmfhj")]
-
 [node name="Plans" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plans"]
+position = Vector2(999, 0)
+stream = ExtResource("4_c5axu")
+autoplay = true
+panning_strength = 3.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Plans"]
 
 [node name="Other" type="Node2D" parent="."]
 

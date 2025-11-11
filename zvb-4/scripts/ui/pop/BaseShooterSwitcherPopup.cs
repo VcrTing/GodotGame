@@ -6,6 +6,21 @@ public partial class BaseShooterSwitcherPopup : PopupPanel
 {
 	public static BaseShooterSwitcherPopup Instance { get; private set; }
 
+    public bool IsAlive()
+    {
+        bool ok = true;
+        try
+        {
+            string n = Instance.Name;
+            if (n != null) { }
+            n = this.Name;
+        }
+        catch (Exception e)
+        {
+            ok = false;
+        }
+        return ok;
+    }
 
     TextureButton startGameButton;
     public override void _Ready()

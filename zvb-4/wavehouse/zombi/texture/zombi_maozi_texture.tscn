@@ -1,6 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://bnuxrd2qq1hba"]
+[gd_scene load_steps=39 format=3 uid="uid://dbweule0di5gu"]
 
-[ext_resource type="Script" uid="uid://cbalors4fy6na" path="res://scripts/zombi/TextureZombiS/ZombiSAndExtra.cs" id="1_wmr5c"]
+[ext_resource type="Script" uid="uid://dk1k7g128nn4g" path="res://scripts/zombi/TextureZombiS/ZombiCCAndExtra.cs" id="1_fwd5b"]
 [ext_resource type="Texture2D" uid="uid://0fgekogoqbpj" path="res://pngs/zombiextra/MaoZi.png" id="2_3kbd0"]
 [ext_resource type="Texture2D" uid="uid://bi2ydxcoda27d" path="res://pngs/zombi/new_zombi_s_walk_n_eat.png" id="2_7j41l"]
 [ext_resource type="Texture2D" uid="uid://bmt04j2ea8wfb" path="res://pngs/zombi/zombi_s_hui.png" id="3_567s2"]
@@ -302,14 +302,7 @@ fill_to = Vector2(0.75, 0.8)
 
 [node name="Body" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_wmr5c")
-ObjName = "zombi_maozi"
-ExtraObj = 10
-MoveChanging = 11
-MoveChangeAfter = 11
-ChangingTime = 0.02
-IntroAniTime = 0.001
-WhenChangingType = 1
+script = ExtResource("1_fwd5b")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -317,6 +310,15 @@ scale = Vector2(1, 0.8)
 sprite_frames = SubResource("SpriteFrames_wmr5c")
 animation = &"changing"
 autoplay = "default"
+
+[node name="ViewChange" type="AnimatedSprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+scale = Vector2(1, 0.8)
+sprite_frames = SubResource("SpriteFrames_wmr5c")
+animation = &"changing"
+autoplay = "default"
+frame_progress = 0.9846155
 
 [node name="ViewExtra" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -352,12 +354,3 @@ range_layer_min = -1200
 range_layer_max = 1200
 texture = SubResource("GradientTexture2D_7j41l")
 texture_scale = 0.4
-
-[node name="ViewChange" type="AnimatedSprite2D" parent="."]
-visible = false
-y_sort_enabled = true
-scale = Vector2(1, 0.8)
-sprite_frames = SubResource("SpriteFrames_wmr5c")
-animation = &"changing"
-autoplay = "default"
-frame_progress = 0.9846155

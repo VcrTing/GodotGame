@@ -55,6 +55,21 @@ public partial class SoundGameObjController : Node2D
         EnqueueSound(path, 1f, pan, pos);
     }
 
+    static int n = 12;
+    void SetLocation(Vector2 pos)
+    {
+        float x = pos.X;
+        if (x > -n && x < 0)
+        {
+            x = -n;
+        }
+        if (x < n && x > 0)
+        {
+            x = n;
+        }
+        Position = new Vector2(x, 0);
+    }
+    
     private void TryPlayNext()
     {
         foreach (var player in _players)
@@ -62,6 +77,7 @@ public partial class SoundGameObjController : Node2D
             if (!player.Playing && _soundQueue.Count > 0)
             {
                 var req = _soundQueue.Dequeue();
+                SetLocation(req.Position);
                 var stream = GD.Load<AudioStream>(req.Path);
                 if (stream != null)
                 {

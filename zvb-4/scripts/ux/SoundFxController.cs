@@ -37,6 +37,21 @@ public partial class SoundFxController : Node2D
         TryPlayNext();
     }
 
+    static int n = 48;
+    void SetLocation(Vector2 pos)
+    {
+        float x = pos.X;
+        if (x > -n && x < 0)
+        {
+            x = -n;
+        }
+        if (x < n && x > 0)
+        {
+            x = n;
+        }
+        Position = new Vector2(x, 0);
+    }
+
     private void TryPlayNext()
     {
         foreach (var player in _players)
@@ -51,6 +66,7 @@ public partial class SoundFxController : Node2D
                 var stream = GD.Load<AudioStream>(req.Path);
                 if (stream != null)
                 {
+                    SetLocation(req.Position);
                     player.Stream = stream;
                     player.VolumeDb = LinearToDb(req.Volume);
                     player.PanningStrength = Mathf.Abs(req.Pan);
@@ -80,7 +96,7 @@ public partial class SoundFxController : Node2D
     {
         string path = SoundTool.GetRandomSoundPath(folderPath, soundName, soundIndex);
         float pan = SoundTool.CalcPanByX(position.X);
-        Instance?.EnqueueSound(path, 1f, pan, Vector2.Zero);
+        Instance?.EnqueueSound(path, 1f, pan, position);
     }
 
     // 示例调用

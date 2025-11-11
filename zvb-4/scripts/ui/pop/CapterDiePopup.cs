@@ -7,6 +7,7 @@ public partial class CapterDiePopup : PopupPanel
 
     public override void _Ready()
     {
+        ProcessMode = ProcessModeEnum.Always;
         Instance = this;
         this.Hide();
         HidePopup();
@@ -27,6 +28,7 @@ public partial class CapterDiePopup : PopupPanel
         this.Show();
         // 例如，显示胜利界面，停止游戏等
         SoundUiController.Instance?.Die();
+        SystemController.Instance.PauseGame();
     }
 
 	public void HidePopup()
@@ -35,5 +37,6 @@ public partial class CapterDiePopup : PopupPanel
         isShowing = false;
 		this.Hide();
         Visible = false;
+        SystemController.Instance.ResumeGame();
 	}
 }
