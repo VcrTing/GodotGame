@@ -61,15 +61,18 @@ animations = [{
 size = Vector2(119, 119)
 
 [node name="ThingsGuanZi" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_34n22")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_5qj52")
 autoplay = "default"
 
 [node name="View2" type="AnimatedSprite2D" parent="."]
 visible = false
+y_sort_enabled = true
 scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_3bugb")
 autoplay = "default"

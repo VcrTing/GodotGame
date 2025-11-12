@@ -30,6 +30,7 @@ position = Vector2(0, -210)
 [node name="Env" type="Node2D" parent="."]
 
 [node name="Bk" type="Sprite2D" parent="Env"]
+visible = false
 z_index = -99
 scale = Vector2(1.88, 1.88)
 texture = ExtResource("6_34y4i")
@@ -37,7 +38,6 @@ texture = ExtResource("6_34y4i")
 [node name="BulletFixerJingDian" parent="Env" instance=ExtResource("7_mp7g3")]
 
 [node name="Bk2" type="Sprite2D" parent="Env"]
-visible = false
 z_index = -99
 scale = Vector2(1.93, 1.93)
 texture = ExtResource("8_0mmk8")

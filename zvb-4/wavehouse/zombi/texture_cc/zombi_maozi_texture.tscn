@@ -303,6 +303,8 @@ fill_to = Vector2(0.75, 0.8)
 [node name="Body" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_fwd5b")
+ObjName = "zombi_maozi"
+MoveChanging = 11
 IntroAniTime = 0.001
 
 [node name="View" type="AnimatedSprite2D" parent="."]

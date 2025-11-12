@@ -26,7 +26,7 @@ public partial class FlowerPengSystem : Node2D
     void GenerateGeziPosition()
     {
         // 左边（负数坐标）
-        for (int i = 0; i < flowerPengNumHalf; i++)
+        for (int i = 0; i < 4; i++)
         {
             float x = -(pingMuBianJu + i * pengW); // 每份中心点
             float y = locationY;
@@ -40,7 +40,7 @@ public partial class FlowerPengSystem : Node2D
             PositionList.Add(new Vector2(x, y));
         }
         // 右边（正数坐标）
-        for (int i = 0; i < flowerPengNumHalf; i++)
+        for (int i = 0; i < 4; i++)
         {
             float x = pingMuBianJu + i * pengW; // 每份中心点
             float y = locationY;
@@ -53,6 +53,11 @@ public partial class FlowerPengSystem : Node2D
             }
             PositionList.Add(new Vector2(x, y));
         }
+
+        // 额外
+        float extraY = locationY - (ouShuUpY * 2.6f);
+        PositionList.Add(new Vector2(360, extraY));
+        PositionList.Add(new Vector2(-360, extraY));
     }
 
     EntityPlayerData playerData;

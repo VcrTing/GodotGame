@@ -22,7 +22,7 @@ public partial class LineCapsCenter : Node2D
     public override void _Ready()
     {
         Instance = this;
-        LoadGame();
+        CallDeferred(nameof(LoadGame));
     }
     public int CapterNumber = (int) EnumChapter.One1;
     void LoadGame()

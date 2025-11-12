@@ -171,7 +171,7 @@ ChapterDesc = "刺激前线"
 layout_mode = 2
 Chapter = 2001
 ChapterTitle = "第十四关"
-ChapterDesc = "夜幕降临"
+ChapterDesc = "夜幕教学"
 
 [node name="ChapterItemButton4" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
 layout_mode = 2
@@ -201,7 +201,7 @@ ChapterDesc = "夜幕降临"
 layout_mode = 2
 Chapter = 2005
 ChapterTitle = "第十八关"
-ChapterDesc = "夜幕降临"
+ChapterDesc = "迷你僵尸"
 
 [node name="ChapterItemButton4" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("3_yjp08")]
 layout_mode = 2

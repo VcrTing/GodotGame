@@ -3,10 +3,10 @@
     "shootershootratio": 1,
     "shooterlowestattackspeedratio": 1,
 
-    "initsun": 100,
+    "initsun": 400,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
-    "gamechecktime": 120,
+    "gamechecktime": 100,
     
     "initpeng": 8,
     "allowmiaolist": [
@@ -33,13 +33,22 @@
                 "lazyme": 1
             }
         ],
-        "25": [
+        "23": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyme": 5
+            }
+        ],
+        "24": [
             {
                 "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 2
+                "lazyme": 4
             }
         ],
         "50": [
@@ -48,7 +57,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 0
+                "lazyme": 5
             }
         ],
         "60": [
@@ -57,7 +66,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 2
+                "lazyme": 3
             }
         ],
         "90": [
@@ -66,7 +75,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 2
+                "lazyme": 1.5
             }
         ]
     }

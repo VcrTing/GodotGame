@@ -3,9 +3,9 @@
     "shootershootratio": 1,
     "shooterlowestattackspeedratio": 1,
 
-    "enmyspeedattackscale": 2,
-    "enmyspeedmovescale": 1,
-    "enmyviewscale": 1,
+    "enmyspeedattackscale": 1,
+    "enmyspeedmovescale": 1.6,
+    "enmyviewscale": 0.68,
     "enmybehurtscale": 4,
 
     "initsun": 300,
@@ -15,10 +15,11 @@
     
     "initpeng": 8,
     "allowmiaolist": [
-        "LaJiao", "Cherry", "XianRenQiu", "RewordFlower", "YangTao"
+        "XiHongShi", "RewordFlower", "LanMei", "YangTao", "ShiLiu",
+        "LaJiao", "Cherry", "XianRenQiu"
     ],
     
-    "initshooter": "YangTao",
+    "initshooter": "_",
     "initmiaolist": [
         "SunGu", "SunGu", "SunGu", "XianRenQiu", "XianRenQiu", "XianRenQiu"
     ],

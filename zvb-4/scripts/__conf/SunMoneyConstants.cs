@@ -27,10 +27,10 @@ namespace ZVB4.Conf
             { PlansConstants.PeaCold, 15 },
             { PlansConstants.PeaDouble, 20 },
             { PlansConstants.LanMei, 20 },
-            { PlansConstants.YangTao, 30 },
+            { PlansConstants.YangTao, 25 },
             { PlansConstants.ShiLiu, 25 },
             { PlansConstants.Xigua, 40 },
-            { PlansConstants.PaoGu, 40 },
+            { PlansConstants.PaoGu, 35 },
             { PlansConstants.XiguaBing, 50 },
             { PlansConstants.PeaGold, 50 },
             { PlansConstants.Yezi, 100 }

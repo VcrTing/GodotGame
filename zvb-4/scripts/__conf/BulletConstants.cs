@@ -56,7 +56,7 @@ namespace ZVB4.Conf
             { BulletLanMeiName, Base * 70 },
             { BulletYangTaoName, Base * 50 },
             { BulletXiguaBingName, Base * 250 },
-            { BulletPeaGoldName, Base * 400 },
+            { BulletPeaGoldName, Base * 450 },
             { BulletYeziName, Base * 600 },
         };
         public static readonly Dictionary<string, int> BulletGroupDamageDict = new Dictionary<string, int>

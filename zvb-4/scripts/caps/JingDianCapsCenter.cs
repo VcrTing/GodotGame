@@ -21,7 +21,7 @@ public partial class JingDianCapsCenter : Node2D
     public override void _Ready()
     {
         Instance = this;
-        LoadGame();
+        CallDeferred(nameof(LoadGame));
     }
     public int CapterNumber = (int) EnumChapter.One1;
     void LoadGame()
@@ -33,7 +33,6 @@ public partial class JingDianCapsCenter : Node2D
             return;
         }
         CapterNumber = ins.GetCapterNumber();
-        GD.Print("加载经典章节数据，章节编号：" + CapterNumber);
         LoadCapData(ChapterTool.GetChapterJsonFilePath(CapterNumber));
     }
 
@@ -217,6 +216,13 @@ public partial class JingDianCapsCenter : Node2D
     Godot.Collections.Array attackstarts;
     Dictionary enmys;
     Dictionary enmyy;
+    void __LoadCapData()
+    {
+        LoadVar(_capData);
+        LoadMiao(_capData);
+        LoadZombis(_capData);
+        LoadInitShooter(_capData);
+    }
     void LoadCapData(string jsonPath)
     {
         if (Godot.FileAccess.FileExists(jsonPath))
@@ -225,11 +231,8 @@ public partial class JingDianCapsCenter : Node2D
             var result = Json.ParseString(file.GetAsText());
             if (result.VariantType == Variant.Type.Dictionary)
             {
-                _capData = ( Dictionary)result;
-                LoadVar(_capData);
-                LoadMiao(_capData);
-                LoadZombis(_capData);
-                LoadInitShooter(_capData);
+                _capData = (Dictionary)result;
+                CallDeferred(nameof(__LoadCapData));
             }
         }
     }

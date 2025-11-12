@@ -3,20 +3,19 @@
     "shootershootratio": 1,
     "shooterlowestattackspeedratio": 1,
     
-    "initsun": 100,
+    "initsun": 4500,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 25,
     
     "initpeng": 8,
     "allowmiaolist": [
-        "SunFlower", "JianGuo", "Cherry", "Pea", "RewordFlower", 
-        "PeaCold", "PeaDouble"
+        "SunFlower", "Cherry", "RewordFlower", "PeaCold"
     ],
     
     "initshooter": "PeaCold",
     "initmiaolist": [
-        "SunFlower", "SunFlower", "PeaCold", "RewordFlower", "RewordFlower"
+        "SunFlower", "SunFlower", "SunFlower", "PeaCold", "RewordFlower", "RewordFlower"
     ],
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,
@@ -50,6 +49,15 @@
                 "generator": [ 2, 4, 5, 7, 8, 10, 1 ],
                 "generatormode": "random",
                 "lazyme": 3
+            }
+        ],
+        "35": [
+            {
+                "types": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 0
             }
         ]
     }

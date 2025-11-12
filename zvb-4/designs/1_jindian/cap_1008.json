@@ -3,20 +3,20 @@
     "shootershootratio": 1,
     "shooterlowestattackspeedratio": 1,
 
-    "initsun": 300,
+    "initsun": 3400,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 140,
     
     "initpeng": 8,
     "allowmiaolist": [
-        "SunFlower", "JianGuo", "Cherry", "Pea", "RewordFlower", 
+        "SunFlower", "JianGuo", "Cherry", "RewordFlower", 
         "PeaCold", "PeaDouble", "XiHongShi"
     ],
     
-    "initshooter": "_",
+    "initshooter": "PeaDouble",
     "initmiaolist": [
-        "SunFlower", "SunFlower", "JianGuo", "JianGuo", "JianGuo", "PeaCold", "XiHongShi"
+        "SunFlower", "SunFlower", "SunFlower", "SunFlower", "JianGuo", "JianGuo", "PeaCold", "XiHongShi"
     ],
     "enmyspeedattackscale": 1,
     "enmyspeedmovescale": 1,
@@ -33,9 +33,18 @@
                 "lazyme": 2
             }
         ],
-        "36": [
+        "28": [
             {
                 "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 3
+            }
+        ],
+        "32": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_ji", "zombi_s", "zombi_s", "zombi_ji", "zombi_s", "zombi_s", "zombi_ji", "zombi_s" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
@@ -51,13 +60,40 @@
                 "lazyme": 3
             }
         ],
-        "80": [
+        "75": [
             {
                 "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_mu_tong", "zombi_ji", "zombi_tie_tong" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "next",
-                "lazyme": 0
+                "lazyme": 3
+            }
+        ],
+        "77": [
+            {
+                "types": [ "zombi_ji", "zombi_s", "zombi_ji", "zombi_s", "zombi_ji", "zombi_s", "zombi_ji", "zombi_mu_tong", "zombi_ji", "zombi_tie_tong" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 3
+            }
+        ],
+        "90": [
+            {
+                "types": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_gang_men", "zombi_ji", "zombi_s", "zombi_s", "zombi_s", "zombi_ji" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyme": 4
+            }
+        ],
+        "95": [
+            {
+                "types": [ "zombi_m", "zombi_m", "zombi_m", "zombi_ji", "zombi_gang_men", "zombi_ji", "zombi_s", "zombi_m", "zombi_m", "zombi_ji" ],
+                "typesmode": "next",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "random",
+                "lazyme": 4
             }
         ],
         "100": [
@@ -66,16 +102,25 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 4
+                "lazyme": 5
+            }
+        ],
+        "108": [
+            {
+                "types": [ "zombi_ji", "zombi_s", "zombi_ji", "zombi_s", "zombi_ji", "zombi_s", "zombi_ji", "zombi_mu_tong", "zombi_ji", "zombi_tie_tong" ],
+                "typesmode": "random",
+                "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "generatormode": "next",
+                "lazyme": 3
             }
         ],
         "117": [
             {
-                "types": [ "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji" ],
+                "types": [ "zombi_ji", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_gang_men", "zombi_ji", "zombi_ji", "zombi_ji", "zombi_gang_men", "zombi_ji" ],
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 4
+                "lazyme": 3
             }
         ],
         "135": [
@@ -84,7 +129,7 @@
                 "typesmode": "next",
                 "generator": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
                 "generatormode": "random",
-                "lazyme": 4
+                "lazyme": 1
             }
         ]
     }

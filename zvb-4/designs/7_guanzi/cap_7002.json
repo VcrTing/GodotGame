@@ -3,7 +3,7 @@
     "shootershootratio": 1,
     "shooterlowestattackspeedratio": 1,
 
-    "initsun": 350,
+    "initsun": 450,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
     "gamechecktime": 20,
@@ -114,7 +114,7 @@
             "plansrandomlist": [ "SunFlower" ]
         },
         {
-            "gezi": 19, "view": 1, "mustenmyratio": 0.6,
+            "gezi": 19, "view": 1, "mustenmyratio": 0,
             "enmyrandomlist": [ "zombi_s" ],
             "plansrandomlist": [ "SunFlower" ]
         },

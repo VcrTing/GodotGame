@@ -24,7 +24,7 @@ public partial class SaveDataManager : Node
 
     public void ResetData() {
         if (_playerData == null) { LoadPlayerData(); }
-        _playerData.Money = 300000;
+        _playerData.Money = 2000;
         _playerData.PlansUnLock = "_" + PlansConstants.Pea + "_" + "_" + PlansConstants.SunFlower + "_";
         _playerData.ShooterUnLimit = "_" + PlansConstants.Pea + "_";
         _playerData.ShooterBaseLast = PlansConstants.Pea;
