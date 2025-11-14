@@ -9,9 +9,11 @@
 [ext_resource type="Script" uid="uid://1yxcfit5fhvm" path="res://scripts/objs/LineFreezeCardSystem.cs" id="7_yt48t"]
 
 [node name="LineCapsCenter" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_gs56a")
 
 [node name="FlowerPengSystem" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, 850)
 script = ExtResource("3_7rncl")
 
@@ -24,6 +26,7 @@ position = Vector2(90, 0)
 script = ExtResource("5_w4bcn")
 
 [node name="EnmyGenerator" type="Node2D" parent="Enmys"]
+y_sort_enabled = true
 script = ExtResource("6_ge2b6")
 
 [node name="RewordMiaoCenterSystem" type="Node2D" parent="."]

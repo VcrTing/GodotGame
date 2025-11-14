@@ -177,13 +177,13 @@ ChapterDesc = "夜幕教学"
 layout_mode = 2
 Chapter = 2002
 ChapterTitle = "第十五关"
-ChapterDesc = "夜幕降临"
+ChapterDesc = "夜幕降临一"
 
 [node name="ChapterItemButton5" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("3_yjp08")]
 layout_mode = 2
 Chapter = 2003
 ChapterTitle = "第十六关"
-ChapterDesc = "夜幕降临"
+ChapterDesc = "夜幕降临二"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(720, 120)
@@ -195,7 +195,7 @@ alignment = 1
 layout_mode = 2
 Chapter = 2004
 ChapterTitle = "第十七关"
-ChapterDesc = "夜幕降临"
+ChapterDesc = "夜幕降临三"
 
 [node name="ChapterItemButton3" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("3_yjp08")]
 layout_mode = 2

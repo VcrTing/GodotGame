@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://i1tjq10jpkgy" path="res://scripts/objs/GuanZiCenterSystem.cs" id="8_7rncl"]
 
 [node name="GuanZiCapsCenter" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_15d0d")
 
 [node name="RewordMiaoCenterSystem" type="Node2D" parent="."]
@@ -16,6 +17,7 @@ position = Vector2(0, -300)
 script = ExtResource("2_a2ip6")
 
 [node name="FlowerPengSystem" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, 850)
 script = ExtResource("3_7rncl")
 
@@ -28,6 +30,7 @@ position = Vector2(0, -850)
 script = ExtResource("5_w4bcn")
 
 [node name="EnmyGenerator" type="Node2D" parent="Enmys"]
+y_sort_enabled = true
 script = ExtResource("6_ge2b6")
 
 [node name="GeZiWrapper7x7" parent="." instance=ExtResource("7_a2ip6")]

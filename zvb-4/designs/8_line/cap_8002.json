@@ -3,53 +3,68 @@
     "shootershootratio": 99999,
     "shooterlowestattackspeedratio": 3,
 
-    "initsun": 1900,
+    "initsun": 6000,
     "initmiaomode": "all",
     "initmiaorandomnummode": "FlowerPeng",
-    "gamechecktime": 120,
+    "gamechecktime": 160,
     
-    "initpeng": 2,
+    "initpeng": 6,
     "allowmiaolist": [
         "SunFlower", "IceFlower", "YangTao", "Pea", "JianGuo", "Cherry"
     ],
-    "initshooter": "Pea",
-    "initmiaolist": [ "SunFlower" ],
+    "initshooter": "YangTao",
+    "initmiaolist": [ ],
 
     "enmyspeedattackscale": 2.0,
     "enmyspeedmovescale": 2.0,
-    "enmyviewscale": 0.7,
+    "enmyviewscale": 0.86,
     "enmybehurtscale": 4.0,
 
     "cards": [
         {
+            "type": 3, "amount": 0, "plansname": "PeaDouble",
+            "viewscale": 3, "hp": 14000, "buff": 0,
+            "x": -276, "y": 320
+        },
+        {
             "type": 4, "amount": 0, "plansname": "Pea",
-            "viewscale": 3, "hp": 5000, "buff": 13,
-            "x": -300, "y": 300
+            "viewscale": 3, "hp": 18000, "buff": 13,
+            "x": -274, "y": 200
         },
         {
-            "type": 3, "amount": 0, "plansname": "PeaCold",
-            "viewscale": 3, "hp": 15000, "buff": 0,
-            "x": -290, "y": 140
-        },
-        {
-            "type": 2, "amount": 1000, "plansname": "Pea",
-            "viewscale": 3, "hp": 20000, "buff": 0,
-            "x": -360, "y": 50
+            "type": 2, "amount": 3000, "plansname": "Pea",
+            "viewscale": 3, "hp": 30000, "buff": 0,
+            "x": -380, "y": 80
         },
         {
             "type": 1, "amount": 1000, "plansname": "Pea",
-            "viewscale": 3, "hp": 20000, "buff": 0,
-            "x": -180, "y": 50
+            "viewscale": 3, "hp": 60000, "buff": 0,
+            "x": -160, "y": 80
         },
         {
             "type": 4, "amount": 500, "plansname": "Pea",
-            "viewscale": 3, "hp": 15000, "buff": 12,
-            "x": -270, "y": -180
+            "viewscale": 3, "hp": 40000, "buff": 22,
+            "x": -270, "y": -40
         },
         {
-            "type": 3, "amount": 500, "plansname": "PeaDouble",
-            "viewscale": 3, "hp": 30000, "buff": 0,
-            "x": -240, "y": -300
+            "type": 3, "amount": 500, "plansname": "ShiLiu",
+            "viewscale": 3, "hp": 60000, "buff": 0,
+            "x": -168, "y": -160
+        },
+        {
+            "type": 2, "amount": 5000, "plansname": "Pea",
+            "viewscale": 3, "hp": 50000, "buff": 0,
+            "x": -378, "y": -160
+        },
+        {
+            "type": 4, "amount": 500, "plansname": "Pea",
+            "viewscale": 3, "hp": 70000, "buff": 13,
+            "x": -166, "y": -280
+        },
+        {
+            "type": 2, "amount": 7000, "plansname": "Pea",
+            "viewscale": 3, "hp": 80000, "buff": 0,
+            "x": -376, "y": -280
         }
     ],
     "enmys": {
@@ -63,7 +78,7 @@
         
         "30": [
             {
-                "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "names": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
                 "lazyme": 0, "loop": 5, "loopdelay": 2, "isenmy": 1
             }
@@ -71,47 +86,55 @@
         
         "50": [
             {
-                "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "names": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
                 "lazyme": 0, "loop": 8, "loopdelay": 1, "isenmy": 1
             }
         ],
         
-        "65": [
+        "70": [
             {
-                "names": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+                "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
                 "lazyme": 0, "loop": 10, "loopdelay": 1, "isenmy": 1
             }
         ],
         
-        "80": [
+        "90": [
             {
-                "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "names": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
                 "lazyme": 0, "loop": 10, "loopdelay": 2, "isenmy": 1
             }
         ],
         
-        "100": [
+        "110": [
             {
-                "names": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+                "names": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
                 "lazyme": 0, "loop": 14, "loopdelay": 1, "isenmy": 1
             }
         ],
         
-        "115": [
+        "120": [
             {
-                "names": [ "zombi_s", "zombi_s", "zombi_s", "zombi_s", "zombi_s" ],
+                "names": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
                 "lazyme": 0, "loop": 10, "loopdelay": 1, "isenmy": 1
             }
         ],
         
-        "130": [
+        "140": [
             {
-                "names": [ "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong", "zombi_mu_tong" ],
+                "names": [ "zombi_gang_men", "zombi_m", "zombi_tie_tong", "zombi_mu_tong", "zombi_s" ],
+                "grids": [ 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 10, "loopdelay": 1, "isenmy": 1
+            }
+        ],
+        
+        "150": [
+            {
+                "names": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
                 "lazyme": 0, "loop": 15, "loopdelay": 1, "isenmy": 1
             }

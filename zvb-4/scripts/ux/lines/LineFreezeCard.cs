@@ -92,12 +92,18 @@ public partial class LineFreezeCard : Node2D, IBeHurt
             if (instance != null)
             {
                 RewordGroup rg = instance as RewordGroup;
-                GD.Print("生成非植物奖励：" + rewordType.ToString() + " 数量：" + rewordAmount);
+                // GD.Print("生成非植物奖励：" + rewordType.ToString() + " 数量：" + rewordAmount);
                 if (rg != null)
                 {
-                    rg.SpawnReword(rewordType.ToString(), rewordAmount, this.GlobalPosition, 1);
+                    rg.SpawnReword(rewordType.ToString(), rewordAmount / 100, this.GlobalPosition, 100);
                 }
-                plansCard.AddChild(instance);
+                if (instance != null)
+                {
+                    if (instance.Name != "")
+                    {
+                        GetTree().CurrentScene.AddChild(instance);
+                    }
+                }
             }
         }
     }

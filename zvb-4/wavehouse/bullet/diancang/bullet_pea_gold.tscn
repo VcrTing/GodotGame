@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhd1gc6olt83b"]
+[gd_scene load_steps=13 format=3 uid="uid://dhd1gc6olt83b"]
 
 [ext_resource type="Script" uid="uid://b23l4wphenton" path="res://scripts/bullet/PeaGold/BulletPeaGold.cs" id="1_xkka6"]
 [ext_resource type="Texture2D" uid="uid://b1pvpfinakesl" path="res://pngs/fx/qipao.png" id="2_et32i"]
@@ -21,15 +21,19 @@ scale_over_velocity_max = 1.0
 color = Color(1, 1, 1, 0.7372549)
 anim_speed_max = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ll26u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_et32i"]
 atlas = ExtResource("5_ulrwt")
 region = Rect2(0, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_et32i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulrwt"]
 atlas = ExtResource("5_ulrwt")
 region = Rect2(150, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ulrwt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj0mq"]
+atlas = ExtResource("5_ulrwt")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgfjm"]
 atlas = ExtResource("5_ulrwt")
 region = Rect2(300, 0, 150, 150)
 
@@ -37,13 +41,16 @@ region = Rect2(300, 0, 150, 150)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ll26u")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_et32i")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ulrwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj0mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgfjm")
 }],
 "loop": true,
 "name": &"default",
@@ -76,8 +83,7 @@ rotation = 0.20943952
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_555ge")
 autoplay = "default"
-frame = 1
-frame_progress = 0.87264884
+frame_progress = 0.41176423
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 256

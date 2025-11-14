@@ -43,11 +43,10 @@ public partial class RewordGroup : Node2D
         QueueFree();
     }
 
-
     // 批量生成阳光
     public void SpawnReword(string rewordName, int count, Vector2 startPos, int value)
     {
-        float spacing = 30f;
+        float spacing = 3f;
         Position = startPos;
         for (int i = 0; i < count; i++)
         {
@@ -68,13 +67,9 @@ public partial class RewordGroup : Node2D
 
     async void Gen(string rewordName, int i, Vector2 pos, int value)
     {
+        if (rewordName == "Money") { rewordName = "MoneyS"; }
         string scenePath = FolderConstants.WaveObj + rewordName + ".tscn";
         PackedScene sunScene = GD.Load<PackedScene>(scenePath);
-        float delay = i * 0.1f;
-        if (delay > 0f)
-        {
-            await ToSignal(GetTree().CreateTimer(delay), "timeout");
-        }
         // x加1-5f随机偏移
         float randOffset = (float)GD.RandRange(1f, 5f);
         Vector2 realPos = new Vector2(pos.X + randOffset, pos.Y);

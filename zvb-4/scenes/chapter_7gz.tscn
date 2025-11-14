@@ -38,5 +38,6 @@ texture = ExtResource("6_130aw")
 
 [node name="Bk2" type="Sprite2D" parent="Env"]
 z_index = -99
+y_sort_enabled = true
 scale = Vector2(1.93, 1.93)
 texture = ExtResource("8_l2ws6")

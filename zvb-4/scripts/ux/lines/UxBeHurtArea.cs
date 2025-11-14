@@ -7,6 +7,7 @@ public partial class UxBeHurtArea : Area2D, IHurtBase
 {
     public bool TakeDamage(EnumObjType objType, int damage, EnumHurts enumHurts)
     {
+        GD.Print("enumHurts " + enumHurts + " objType " + objType);
         var p = GetParent();
         IBeHurt beHurt = p as IBeHurt;
         if (beHurt != null)
