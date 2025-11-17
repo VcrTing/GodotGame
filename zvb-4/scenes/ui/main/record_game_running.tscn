@@ -24,6 +24,6 @@ alignment = 1
 
 [node name="LabelFrame" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
 theme_override_font_sizes/font_size = 48
 text = "12"

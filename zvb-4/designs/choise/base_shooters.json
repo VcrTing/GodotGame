@@ -33,14 +33,14 @@
     },
     {
         "name": "XiguaBing", "id": 4,
-        "price": 12000, "x": 120, "y": 100, "viewscale": 0.8
+        "price": 14000, "x": 120, "y": 100, "viewscale": 0.8
     },
     {
         "name": "PeaGold", "id": 4,
-        "price": 12000, "x": 120, "y": 100, "viewscale": 0.9
+        "price": 14000, "x": 120, "y": 100, "viewscale": 0.9
     },
     {
         "name": "Yezi", "id": 4,
-        "price": 16000, "x": 120, "y": 90, "viewscale": 0.8
+        "price": 17000, "x": 120, "y": 90, "viewscale": 0.8
     }
 ]

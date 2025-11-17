@@ -23,7 +23,7 @@
     "initmiaolist": [
         
     ],
-    "attackstarts": [ 7.5, 29.5 ],
+    "attackstarts": [ 7, 29.5, 40.5 ],
     "enmys": {
         "8": [
             {
