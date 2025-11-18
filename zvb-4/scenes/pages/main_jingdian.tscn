@@ -205,13 +205,13 @@ ChapterDesc = "迷你僵尸"
 
 [node name="ChapterItemButton4" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 8003
+Chapter = 7003
 ChapterTitle = "第十九关"
-ChapterDesc = "刺激前线"
+ChapterDesc = "罐子捉迷藏"
 
 [node name="ChapterItemButton5" parent="CanvasLayer/Control/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("3_yjp08")]
 layout_mode = 2
-Chapter = 8004
+Chapter = 8003
 ChapterTitle = "第二十关"
 ChapterDesc = "刺激前线"
 

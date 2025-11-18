@@ -14,6 +14,7 @@ namespace ZVB4.Conf
         One7 = 1007,
         One8 = 1008,
         One9 = 1009,
+
         Eight1 = 8001,
         Eight2 = 8002,
 
@@ -23,6 +24,8 @@ namespace ZVB4.Conf
         Two3 = 2003,
         Two4 = 2004,
         Two5 = 2005,
+
+        Seven3 = 7003,
         Eight3 = 8003,
         Eight4 = 8004,
         Two6 = 2006,

@@ -181,6 +181,7 @@ public partial class ZeroZombiAttackArea : Area2D
                 SwitchAttackStatus();
             }
         }
+        // __at = 0.000001f;
     }
     void Attack(IObj plans)
     {
@@ -195,27 +196,21 @@ public partial class ZeroZombiAttackArea : Area2D
     void SwitchAttackStatus()
     {
         // 尝试播放吃动画
-        if (lastAnimationName != AnimationConstants.AniAttack)
+        IEnmy me = myObj as IEnmy;
+        if (me != null)
         {
-            IEnmy me = myObj as IEnmy;
-            if (me != null)
-            {
-                me.SwitchStatus(EnumEnmyStatus.Attack);
-                lastAnimationName = AnimationConstants.AniAttack;
-            }
+            me.SwitchStatus(EnumEnmyStatus.Attack);
+            lastAnimationName = AnimationConstants.AniAttack;
         }
     }
     void SwitchMoveStatus()
     {
         // 尝试播放走路动画
-        if (lastAnimationName != AnimationConstants.AniWalk)
+        IEnmy me = myObj as IEnmy;
+        if (me != null)
         {
-            IEnmy me = myObj as IEnmy;
-            if (me != null)
-            {
-                me.SwitchStatus(EnumEnmyStatus.Move);
-                lastAnimationName = AnimationConstants.AniWalk;
-            }
+            me.SwitchStatus(EnumEnmyStatus.Move);
+            lastAnimationName = AnimationConstants.AniWalk;
         }
     }
 }

@@ -8,11 +8,13 @@ namespace ZVB4.Conf
         SpeedX30 = 13,
         SpeedX40 = 14,
         SpeedX50 = 15,
+        SpeedX80 = 18,
 
-        DamageX10 = 21,
-        DamageX20 = 22,
-        DamageX30 = 23,
-        DamageX40 = 24,
-        DamageX50 = 25,
+        DamageX10 = 51,
+        DamageX20 = 52,
+        DamageX30 = 53,
+        DamageX40 = 54,
+        DamageX50 = 55,
+        DamageX80 = 58,
     }
 }

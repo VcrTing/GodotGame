@@ -35,12 +35,12 @@ animations = [{
 [node name="LanMei" type="Node2D"]
 z_index = 400
 y_sort_enabled = true
+scale = Vector2(3.6, 3.6)
 script = ExtResource("1_c1jq1")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(6, -18)
-scale = Vector2(3.6, 3.6)
+position = Vector2(2, -6)
 sprite_frames = SubResource("SpriteFrames_5qj52")
 autoplay = "default"
 frame = 1

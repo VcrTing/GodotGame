@@ -5,7 +5,7 @@ using ZVB4.Conf;
 using ZVB4.Interface;
 using ZVB4.Tool;
 
-public partial class LineFreezeCard : Node2D, IBeHurt
+public partial class LineFreezeCard : Node2D, IBeHurt, IObj
 {
     [Export]
     public EnumRewords rewordType = EnumRewords.None;
@@ -264,4 +264,9 @@ public partial class LineFreezeCard : Node2D, IBeHurt
         throw new NotImplementedException();
     }
 
+    public EnumObjType GetEnumObjType() => EnumObjType.Zombie;
+    public string GetObjName() => "Card";
+
+    public bool Init(string name = null) => true;
+    public bool Die() => true;
 }

@@ -65,6 +65,7 @@ y_sort_enabled = true
 script = ExtResource("1_34n22")
 
 [node name="View" type="AnimatedSprite2D" parent="."]
+z_index = -1
 y_sort_enabled = true
 scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_5qj52")
@@ -72,6 +73,7 @@ autoplay = "default"
 
 [node name="View2" type="AnimatedSprite2D" parent="."]
 visible = false
+z_index = -1
 y_sort_enabled = true
 scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_3bugb")

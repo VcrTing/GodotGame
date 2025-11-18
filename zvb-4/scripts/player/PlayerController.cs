@@ -241,6 +241,9 @@ public partial class PlayerController : Node2D, IInit
                 //
                 __attackDamageRatio *= buff.attackDamageRatio;
             }
+            // 增加伤害
+            GD.Print("增加Speed " + __lowestAttackSpeedRatio + " __attackDamageRatio = " + __attackDamageRatio);
+            // SetAttackDamageRatio(__attackDamageRatio);
             // 调整射手属性
             _shooter?.RebuildForBuffs();
         }

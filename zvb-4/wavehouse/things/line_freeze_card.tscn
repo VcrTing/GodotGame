@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://byw46cud53glh" path="res://pngs/ux/zzc.png" id="3_qya3a"]
 [ext_resource type="Texture2D" uid="uid://ceae1jqigxfo5" path="res://pngs/ux/sun.png" id="4_x0ung"]
 [ext_resource type="Texture2D" uid="uid://co80kput3ccrn" path="res://pngs/ui/money.png" id="5_kxrbm"]
-[ext_resource type="Script" uid="uid://lnsul0jch8w1" path="res://scripts/ux/lines/UxBeHurtArea.cs" id="7_yg1rc"]
+[ext_resource type="Script" uid="uid://dqidtwjn77l8e" path="res://scripts/zombi/zero/ZeroZombiBeHurtArea.cs" id="6_y0ier"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hxhjx"]
 atlas = ExtResource("4_x0ung")
@@ -37,10 +37,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d26e3"]
-size = Vector2(300, 40)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gllyd"]
+size = Vector2(260, 60)
 
 [node name="LineFreezeCard" type="Node2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_gllyd")
 rewordType = 30
 rewordAmount = 500
@@ -55,6 +56,7 @@ texture = ExtResource("2_h2uxn")
 [node name="ViewExtra" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.6392157)
 z_index = 23
+scale = Vector2(1, 0.94)
 texture = ExtResource("3_qya3a")
 
 [node name="Sun" type="AnimatedSprite2D" parent="."]
@@ -77,6 +79,17 @@ position = Vector2(0, 30)
 z_index = 2
 scale = Vector2(0.333, 0.333)
 
+[node name="BeHurtArea" type="Area2D" parent="."]
+position = Vector2(0, 4.999999)
+scale = Vector2(0.9999998, 0.9999998)
+collision_layer = 512
+collision_mask = 2304
+script = ExtResource("6_y0ier")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeHurtArea"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_gllyd")
+
 [node name="Ui" type="Node2D" parent="."]
 z_index = 200
 position = Vector2(0, -110)
@@ -97,12 +110,3 @@ theme_override_font_sizes/font_size = 36
 text = "x10000"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="BeHurtArea" type="Area2D" parent="."]
-collision_layer = 512
-collision_mask = 2304
-script = ExtResource("7_yg1rc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BeHurtArea"]
-position = Vector2(0, 30)
-shape = SubResource("RectangleShape2D_d26e3")

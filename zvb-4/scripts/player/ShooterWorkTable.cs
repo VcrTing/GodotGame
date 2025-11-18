@@ -66,6 +66,7 @@ public partial class ShooterWorkTable : Node2D
 
     public bool ChangeShooter(string plansName)
     {
+        if (!PlansConstants.IsShooter(plansName)) return false;
         var pc = PlayerController.Instance;
         if (pc == null) return false;
         pc.UnLockAttack();

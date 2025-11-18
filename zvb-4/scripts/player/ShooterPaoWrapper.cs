@@ -139,7 +139,7 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
     bool inTouch = false;
     public void Attack(Vector2 attackPos, bool isFirstAttack, Vector2? startPos = null)
     {
-        Vector2 pos = this.GlobalPosition;
+        Vector2 pos = startPos == null ? this.GlobalPosition : (Vector2)startPos;
         Vector2 dir = (attackPos - pos).Normalized();
         workingDirection = dir;
         finishedMyRotation = false;
