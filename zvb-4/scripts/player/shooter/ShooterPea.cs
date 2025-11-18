@@ -56,6 +56,7 @@ public partial class ShooterPea : Node2D, IShooter, IObj
     {
         // 播放音效
         SoundPlayerController.Instance?.EnqueueSound("Bullets/" + ObjName, ObjName, 4);
+        // SoundGameObjController.Instance.PlayFx("Bullets/" + ObjName, ObjName, 4, new Vector2());
     }
 
     public void DoInitEffect(Vector2 position)

@@ -156,9 +156,6 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
     float __attackingTime = 0f;
     public override void _Process(double delta)
     {
-        try
-        {
-
             RotationEveryFrame(workingDirection, delta);
             // 限制帧率攻击
             if (__attackZhengLv > 0f)
@@ -197,11 +194,6 @@ public partial class ShooterPaoWrapper : Node2D, IShooterWrapper
                     __allowFireLoad = true;
                 }
             }
-        }
-        catch
-        {
-            
-        }
     }
     EnumShooterStatus _shooterStatus = EnumShooterStatus.None;
     void SwitchStatus(EnumShooterStatus status)

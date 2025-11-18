@@ -165,8 +165,6 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
     bool succAttack = true;
     public override void _Process(double delta)
     {
-        try
-        {
             if (attackNum > 0)
             {
                 __attackFlagTime += (float)delta;
@@ -193,11 +191,6 @@ public partial class ShooterGunWrapper : Node2D, IShooterWrapper
                 if (succAttack) { RunnerAttackInterval(delta); }
             }
             RotationEveryFrame(NowRotationDir, delta);
-        }
-        catch
-        {
-            
-        }
 
     }
     float attackSpeedStart = 0.3f;

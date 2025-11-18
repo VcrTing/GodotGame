@@ -56,25 +56,35 @@ public partial class SoundFxController : Node2D
     {
         foreach (var player in _players)
         {
-            if (!player.Playing && _soundQueue.Count > 0)
+            try
             {
-                var req = _soundQueue.Dequeue();
-                // 检查文件是否存在
-                if (!FileAccess.FileExists(req.Path)) {
-                    continue;
-                }
-                var stream = GD.Load<AudioStream>(req.Path);
-                if (stream != null)
+                if (!player.Playing && _soundQueue.Count > 0)
                 {
-                    SetLocation(req.Position);
-                    player.Stream = stream;
-                    player.VolumeDb = LinearToDb(req.Volume);
-                    player.PanningStrength = Mathf.Abs(req.Pan);
-                    // Simulate pan by adjusting the X position relative to req.Position
-                    // var panOffset = Mathf.Clamp(req.Pan, -1f, 1f) * 100f; // 100 pixels left/right
-                    // player.GlobalPosition = req.Position + new Vector2(panOffset, 0);
-                    player.Play();
+                    var req = _soundQueue.Dequeue();
+                    // GD.Print("sound fx working " + req.Path);
+                    // 检查文件是否存在
+                    if (!FileAccess.FileExists(req.Path)) {
+                        // GD.Print("sound fx not exists.");
+                        // continue;
+                    }
+                    // GD.Print("sound fx working " + req.Path);
+                    var stream = GD.Load<AudioStream>(req.Path);
+                    if (stream != null)
+                    {
+                        SetLocation(req.Position);
+                        player.Stream = stream;
+                        player.VolumeDb = LinearToDb(req.Volume);
+                        player.PanningStrength = Mathf.Abs(req.Pan);
+                        // Simulate pan by adjusting the X position relative to req.Position
+                        // var panOffset = Mathf.Clamp(req.Pan, -1f, 1f) * 100f; // 100 pixels left/right
+                        // player.GlobalPosition = req.Position + new Vector2(panOffset, 0);
+                        player.Play();
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                GD.PrintErr(e);
             }
         }
     }

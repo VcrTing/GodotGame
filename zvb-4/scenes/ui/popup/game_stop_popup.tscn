@@ -7,7 +7,7 @@
 oversampling_override = 1.0
 mode = 3
 initial_position = 2
-size = Vector2i(1620, 1620)
+size = Vector2i(1920, 1620)
 visible = true
 script = ExtResource("1_fyt8k")
 
@@ -67,7 +67,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Control/HBoxContainer5"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.6117647)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "温馨提示：请勤快的将植物移到草地上，以节省花盆占用。"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control"]

@@ -104,36 +104,6 @@ layout_mode = 2
 NextSceneName = "main_jingdian.tscn"
 LabelText = "经典模式"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/ControlButton"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 120.0
-offset_bottom = 240.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton/HBoxContainer2" instance=ExtResource("3_jyhfs")]
-layout_mode = 2
-NextSceneName = "main_endless.tscn"
-LabelText = "无尽模式"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/ControlButton"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 240.0
-offset_bottom = 360.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton/HBoxContainer3" instance=ExtResource("3_jyhfs")]
-layout_mode = 2
-NextSceneName = "main_mini.tscn"
-LabelText = "迷你游戏"
-
 [node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/ControlButton"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 1
@@ -149,6 +119,38 @@ layout_mode = 2
 NextSceneName = "main_mini.tscn"
 LabelText = "退出"
 ButtonType = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/ControlButton"]
+visible = false
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 120.0
+offset_bottom = 240.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton/HBoxContainer2" instance=ExtResource("3_jyhfs")]
+layout_mode = 2
+NextSceneName = "main_endless.tscn"
+LabelText = "无尽模式"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/ControlButton"]
+visible = false
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 240.0
+offset_bottom = 360.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="SingleOptionsButton" parent="CanvasLayer/ControlButton/HBoxContainer3" instance=ExtResource("3_jyhfs")]
+layout_mode = 2
+NextSceneName = "main_mini.tscn"
+LabelText = "迷你游戏"
 
 [node name="MainBottomBar" type="Control" parent="CanvasLayer"]
 custom_minimum_size = Vector2(480, 180)

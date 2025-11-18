@@ -17,7 +17,7 @@ public partial class SoundPlayerController : Node2D
     public override void _Ready()
     {
         Instance = this;
-        _player = GetNodeOrNull<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+        _player = GetNodeOrNull<AudioStreamPlayer2D>(NameConstants.AudioStreamPlayer2D); // "AudioStreamPlayer2D"
         if (_player == null)
         {
             _player = new AudioStreamPlayer2D();
@@ -40,31 +40,42 @@ public partial class SoundPlayerController : Node2D
 
     private async void TryPlayNext()
     {
-        if (_isCooldown || _soundQueue.Count == 0)
-            return;
-        string path = _soundQueue.Dequeue();
-        // 检查文件是否存在
-        if (!FileAccess.FileExists(path))
+        try
         {
-            TryPlayNext();
-            return;
+            // GD.Print("sound player working; " + _isCooldown + " _soundQueue.Count =" + _soundQueue.Count);
+            if (_isCooldown || _soundQueue.Count == 0)
+                return;
+            string path = _soundQueue.Dequeue();
+            // GD.Print("sound path =" + path);
+            // 检查文件是否存在
+            if (!FileAccess.FileExists(path))
+            {
+                // GD.Print("路径不存在");
+                // TryPlayNext();
+                // return;
+            }
+            var stream = GD.Load<AudioStream>(path);
+            // GD.Print("palyer sound " + path);
+            if (stream != null)
+            {
+                _player.Stream = stream;
+                _player.Play();
+            }
+            else
+            {
+                GD.PrintErr($"Sound not found: {path}");
+            }
+            _isCooldown = true;
+            await ToSignal(GetTree().CreateTimer(limit), "timeout");
+            _isCooldown = false;
+            if (_soundQueue.Count > 0)
+            {
+                TryPlayNext();
+            }
         }
-        var stream = GD.Load<AudioStream>(path);
-        if (stream != null)
+        catch (Exception e)
         {
-            _player.Stream = stream;
-            _player.Play();
-        }
-        else
-        {
-            GD.PrintErr($"Sound not found: {path}");
-        }
-        _isCooldown = true;
-        await ToSignal(GetTree().CreateTimer(limit), "timeout");
-        _isCooldown = false;
-        if (_soundQueue.Count > 0)
-        {
-            TryPlayNext();
+            GD.PrintErr(e);
         }
     }
 

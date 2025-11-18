@@ -37,7 +37,7 @@ animations = [{
 oversampling_override = 1.0
 mode = 3
 initial_position = 2
-size = Vector2i(1620, 1620)
+size = Vector2i(1920, 1620)
 visible = true
 transient_to_focused = true
 min_size = Vector2i(720, 720)
@@ -115,7 +115,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/ControlWIn/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.6117647)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "温馨提示：射手移到草地上，会被回收为阳光。"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/ControlWIn/VBoxContainer"]

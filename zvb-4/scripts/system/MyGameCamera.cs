@@ -16,7 +16,7 @@ public partial class MyGameCamera : Camera2D
 	async void Running()
 	{
 		ResetView();
-		if (t > 10f) return;
+		if (t > 20f) return;
 		GetTree().CreateTimer(t).Timeout += () => Running();
 		t += 1f;
 		return;
