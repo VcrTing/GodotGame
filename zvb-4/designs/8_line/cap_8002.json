@@ -32,7 +32,7 @@
             "x": -274, "y": 200
         },
         {
-            "type": 2, "amount": 8000, "plansname": "Pea",
+            "type": 2, "amount": 4000, "plansname": "Pea",
             "viewscale": 3, "hp": 28000, "buff": 0,
             "x": -380, "y": 80
         },
@@ -108,7 +108,7 @@
             }
         ],
         
-        "120": [
+        "115": [
             {
                 "names": [ "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong", "zombi_tie_tong" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
@@ -132,16 +132,23 @@
             }
         ],
         
-        "180": [
+        "175": [
             {
                 "names": [ "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men", "zombi_gang_men" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
                 "lazyme": 0, "loop": 10, "loopdelay": 1, "isenmy": 1
             }
         ],
-        "190": [
+        "180": [
             {
                 "names": [ "zombi_m", "zombi_m", "zombi_m", "zombi_m", "zombi_m" ],
+                "grids": [ 6, 7, 8, 9, 10 ],
+                "lazyme": 0, "loop": 10, "loopdelay": 1, "isenmy": 1
+            }
+        ],
+        "190": [
+            {
+                "names": [ "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq", "zombi_glq" ],
                 "grids": [ 6, 7, 8, 9, 10 ],
                 "lazyme": 0, "loop": 10, "loopdelay": 1, "isenmy": 1
             }

@@ -60,6 +60,8 @@ namespace ZVB4.Conf
             { PlansConstants.LaJiao, "tujian/plansonce/LaJiao.json" },
             { PlansConstants.MoRiGu, "tujian/plansonce/MoRiGu.json" },
 
+            { PlansConstants.QieZi, "tujian/plansonce/QieZi.json" },
+
             { PlansConstants.Yezi, "tujian/plansdiancang/Yezi.json" },
             { PlansConstants.XiguaBing, "tujian/plansdiancang/XiguaBing.json" },
             { PlansConstants.PeaGold, "tujian/plansdiancang/PeaGold.json" },

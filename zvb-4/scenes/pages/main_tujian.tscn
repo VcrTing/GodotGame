@@ -217,6 +217,7 @@ SceneLocX = 100.0
 [node name="TuJianPlansCard8" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
 PlansName = "XiguaBing"
+SceneScale = 0.8
 SceneLocX = 100.0
 
 [node name="TuJianPlansCard11" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab1/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
@@ -287,6 +288,7 @@ PlansName = "RewordFlower"
 [node name="TuJianPlansCard4" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
 PlansName = "SunGu"
+SceneScale = 1.3
 
 [node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab2/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 120)
@@ -342,6 +344,14 @@ PlansName = "XiHongShi"
 [node name="TuJianPlansCard3" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
 layout_mode = 2
 PlansName = "IceFlower"
+
+[node name="TuJianPlansCard6" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+PlansName = "MoRiGu"
+
+[node name="TuJianPlansCard5" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer" instance=ExtResource("4_3lime")]
+layout_mode = 2
+PlansName = "QieZi"
 
 [node name="BottomSpace" type="HBoxContainer" parent="CanvasLayer/TuJianItemsView/HBoxContainer/TabPanWrapper/Tab3/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 120)

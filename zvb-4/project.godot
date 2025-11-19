@@ -31,3 +31,8 @@ project/assembly_name="ZVB4"
 [editor]
 
 movie_writer/fps=120
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
